@@ -1,81 +1,62 @@
-# Turborepo starter
+# Ignition Tools
 
-This is an official starter Turborepo.
+Tools and resources for working with Ignition by Inductive Automation.
 
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
+*This is an unofficial repo.*
 
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+This repo includes the following packages:
 
-### Apps and Packages
+### Packages
 
--   `docs`: a [Next.js](https://nextjs.org/) app
--   `web`: another [Next.js](https://nextjs.org/) app
--   `ui`: a stub React component library shared by both `web` and `docs` applications
--   `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+-   `create-perspective-theme`: a cli tool for quickly setting up Perspective theming projects
+-   `ignition-resource-builder`: Javascript library for building project import files
+-   `postcss-perspective-style-class`: a Postcss plugin for generating Perspective Style Classes from CSS
+-   `eslint-config-custom`: `eslint` configurations used throughout the monorepo
 -   `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Utilities
 
-This Turborepo has some additional tools already setup for you:
+This repo has some additional tools already setup for you:
 
 -   [TypeScript](https://www.typescriptlang.org/) for static type checking
 -   [ESLint](https://eslint.org/) for code linting
 -   [Prettier](https://prettier.io) for code formatting
 
-### Build
+## Contributing
 
-To build all apps and packages, run the following command:
+This library is a [Turborepo] monorepo.
+For more information about Turborepo, [visit turbo.build/repo](https://turbo.build/repo).
 
-```
-cd my-turborepo
-pnpm build
-```
+[Turborepo]: https://github.com/vercel/turbo
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
+### Cloning
+```sh
+git clone https://github.com/mussonindustrial/ignition-tools
 ```
 
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+### Formatting
+Formatting is handled by [Prettier](https://prettier.io).
+```sh
+npm run format
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+### Linting
+Linting is handled by [ESLint](https://eslint.org/).
+```sh
+npm run lint
 ```
 
-## Useful Links
+### Testing
+Testing is handled by [Vitest](https://github.com/vitest-dev/vitest)
+```sh
+npm run test
+```
 
-Learn more about the power of Turborepo:
-
--   [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
--   [Caching](https://turbo.build/repo/docs/core-concepts/caching)
--   [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
--   [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
--   [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
--   [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+### Building
+```sh
+npm run build
+```
