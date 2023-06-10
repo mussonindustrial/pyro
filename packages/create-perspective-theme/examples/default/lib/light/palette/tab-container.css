@@ -20,7 +20,9 @@
     border-left: var(--containerBorder);
 }
 
-.ia_tabContainerComponent__tab--classic:not(.ia_tabContainerComponent__tab--classic--active):hover {
+.ia_tabContainerComponent__tab--classic:not(
+        .ia_tabContainerComponent__tab--classic--active
+    ):hover {
     filter: brightness(0.9);
 }
 
@@ -52,10 +54,11 @@
     box-shadow: inset 0 -3px var(--border);
 }
 
-.ia_tabContainerComponent__tab--modern:not(.ia_tabContainerComponent__tab--modern--active):hover {
+.ia_tabContainerComponent__tab--modern:not(
+        .ia_tabContainerComponent__tab--modern--active
+    ):hover {
     filter: brightness(0.8);
 }
-
 
 .ia_tabContainerComponent--designing__deleteConfirmation {
     color: var(--label);

@@ -96,7 +96,8 @@
     fill: var(--neutral-50);
 }
 
-.ia_fileUploadComponent__pagination_callToAction:hover:not(.disabled) .ia_fileUploadComponent__pagination__nextPrevIcon {
+.ia_fileUploadComponent__pagination_callToAction:hover:not(.disabled)
+    .ia_fileUploadComponent__pagination__nextPrevIcon {
     fill: var(--callToAction);
 }
 

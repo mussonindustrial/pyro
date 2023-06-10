@@ -7,7 +7,11 @@ body {
     font-size: 100%;
 }
 
-input, textarea, keygen, select, button {
+input,
+textarea,
+keygen,
+select,
+button {
     font-family: var(--font-NotoSans);
     font-weight: 400;
 }

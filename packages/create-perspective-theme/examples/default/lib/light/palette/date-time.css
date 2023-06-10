@@ -1,5 +1,5 @@
 .ia_dateTimePickerComponent {
-    border: var(--containerBorder);    
+    border: var(--containerBorder);
 }
 
 .ia_dateTimePickerComponent--disabled {
@@ -15,4 +15,3 @@
 .ia_dateTimeInputComponent--disabled {
     color: var(--label--disabled);
 }
-

@@ -17,8 +17,12 @@
 
 .ia_videoPlayerComponent__controlContainer__playControl:hover:not(.disabled),
 .ia_videoPlayerComponent__controlContainer__volumeControl:hover:not(.disabled),
-.ia_videoPlayerComponent__controlContainer__playRateControl:hover:not(.disabled),
-.ia_videoPlayerComponent__controlContainer__fullscreenControl:hover:not(.disabled) {
+.ia_videoPlayerComponent__controlContainer__playRateControl:hover:not(
+        .disabled
+    ),
+.ia_videoPlayerComponent__controlContainer__fullscreenControl:hover:not(
+        .disabled
+    ) {
     color: var(--icon--hover);
 }
 

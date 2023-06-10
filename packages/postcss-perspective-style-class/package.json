@@ -12,7 +12,7 @@
     ],
     "scripts": {
         "build": "tsup-node",
-        "lint": "eslint *.js",
+        "lint": "eslint *.ts",
         "test": "vitest run",
         "test:watch": "vitest"
     },
@@ -24,14 +24,14 @@
     },
     "type": "module",
     "dependencies": {
-        "perspective-tools-resource-builder": "*"
+        "ignition-resource-builder": "*"
     },
     "peerDependencies": {
         "postcss": "^8.3.0"
     },
     "devDependencies": {
-        "@perspective-tools/eslint-config-custom": "*",
         "eslint": "^8.42.0",
+        "eslint-config-custom": "*",
         "ignition-tools-tsconfig": "*",
         "postcss": "^8.3.0",
         "prettier": "^2.8.8",

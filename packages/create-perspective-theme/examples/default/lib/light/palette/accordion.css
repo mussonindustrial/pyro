@@ -28,7 +28,7 @@
 
 .ia_accordionComponent__header__text--expanded {
     font-weight: 500;
-  }
+}
 
 .ia_accordionComponent__emptyRow {
     background-color: var(--containerNested);

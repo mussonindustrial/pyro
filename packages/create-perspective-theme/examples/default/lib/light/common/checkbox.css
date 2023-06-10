@@ -25,18 +25,18 @@
 }
 
 /* Add hover styles for enabled and checked */
-.ia_checkbox:hover input:enabled~.ia_checkbox__checkedIcon,
-.ia_checkbox:hover input:enabled~.ia_checkbox__indeterminateIcon {
+.ia_checkbox:hover input:enabled ~ .ia_checkbox__checkedIcon,
+.ia_checkbox:hover input:enabled ~ .ia_checkbox__indeterminateIcon {
     filter: brightness(1.2);
 }
 
 /* Add hover styles for enabled and unchecked */
-.ia_checkbox:hover input:enabled~.ia_checkbox__uncheckedIcon {
+.ia_checkbox:hover input:enabled ~ .ia_checkbox__uncheckedIcon {
     filter: brightness(0.5);
 }
 
-.ia_checkbox input:enabled:active~.ia_checkbox__checkedIcon,
-.ia_checkbox input:enabled:active~.ia_checkbox__uncheckedIcon,
-.ia_checkbox input:enabled:active~.ia_checkbox__indeterminateIcon {
+.ia_checkbox input:enabled:active ~ .ia_checkbox__checkedIcon,
+.ia_checkbox input:enabled:active ~ .ia_checkbox__uncheckedIcon,
+.ia_checkbox input:enabled:active ~ .ia_checkbox__indeterminateIcon {
     filter: brightness(0.7);
 }

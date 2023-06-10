@@ -100,7 +100,8 @@
     background-color: var(--container);
 }
 
-.ia_dashboardComponent__addWidgetModal__head, .ia_dashboardComponent__removeWidgetModal__head {
+.ia_dashboardComponent__addWidgetModal__head,
+.ia_dashboardComponent__removeWidgetModal__head {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 0.875rem;
@@ -121,7 +122,8 @@
     font-size: 0.75rem;
 }
 
-.ia_dashboardComponent__addWidgetModal__body, .ia_dashboardComponent__removeWidgetModal__body {
+.ia_dashboardComponent__addWidgetModal__body,
+.ia_dashboardComponent__removeWidgetModal__body {
     background-color: var(--neutral-10);
     color: var(--neutral-90);
     font-size: 0.875rem;
@@ -137,7 +139,9 @@
     font-weight: 400;
 }
 
-.ia_dashboardComponent__addWidgetModal__menu__category__item:hover:not(.ia_dashboardComponent__addWidgetModal__menu__category__item--selected) {
+.ia_dashboardComponent__addWidgetModal__menu__category__item:hover:not(
+        .ia_dashboardComponent__addWidgetModal__menu__category__item--selected
+    ) {
     background-color: var(--callToActionHighlight);
 }
 

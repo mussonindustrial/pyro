@@ -7,7 +7,9 @@
     background-color: var(--container);
 }
 
-.ia_realtimeOrHistoricalRange__tabContainer__tab:hover:not(.ia_realtimeOrHistoricalRange__tabContainer__tab--active) {
+.ia_realtimeOrHistoricalRange__tabContainer__tab:hover:not(
+        .ia_realtimeOrHistoricalRange__tabContainer__tab--active
+    ) {
     color: var(--neutral-70);
 }
 

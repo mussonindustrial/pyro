@@ -31,6 +31,7 @@
     ],
     "devDependencies": {
         "eslint": "^8.42.0",
+        "eslint-config-custom": "*",
         "ignition-tools-tsconfig": "*",
         "tsup": "^6.7.0",
         "typescript": "^5.1.3",

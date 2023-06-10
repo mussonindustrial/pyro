@@ -21,7 +21,8 @@
 }
 
 .ia_progressBar__bar--indeterminate {
-    animation: ia_progressBar_bar--indeterminateAnimation 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    animation: ia_progressBar_bar--indeterminateAnimation 2.1s
+        cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
     animation-name: ia_progressBar_bar--indeterminateAnimation;
 }
 

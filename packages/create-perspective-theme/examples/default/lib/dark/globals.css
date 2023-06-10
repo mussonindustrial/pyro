@@ -1,4 +1,4 @@
-@import "../light/globals.css";
+@import '../light/globals.css';
 
 ::selection {
     background: rgba(12, 41, 61, 0.99);

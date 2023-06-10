@@ -12,103 +12,103 @@
 /** Animations */
 @keyframes ia_symbolComponent__animate--alternateFill {
     0% {
-      fill: var(--symbolFill--default);
+        fill: var(--symbolFill--default);
     }
     50% {
-      fill: var(--symbolFillAnimation--default);
+        fill: var(--symbolFillAnimation--default);
     }
     100% {
-      fill: var(--symbolFill--default);
+        fill: var(--symbolFill--default);
     }
 }
 
 @keyframes ia_symbolComponent__animate--alternateFillAlt {
     0% {
-      fill: var(--symbolFillAnimation--default);
+        fill: var(--symbolFillAnimation--default);
     }
     50% {
-      fill: var(--symbolFill--default);
+        fill: var(--symbolFill--default);
     }
     100% {
-      fill: var(--symbolFillAnimation--default);
+        fill: var(--symbolFillAnimation--default);
     }
 }
 
 @keyframes ia_symbolComponent__animate--alternateFill--running {
     0% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
     50% {
-      fill: var(--symbolFillAnimation--running);
+        fill: var(--symbolFillAnimation--running);
     }
     100% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
 }
 
 @keyframes ia_symbolComponent__animate--alternateFillAlt--running {
     0% {
-      fill: var(--symbolFillAnimation--running);
+        fill: var(--symbolFillAnimation--running);
     }
     50% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
     100% {
-      fill: var(--symbolFillAnimation--running);
+        fill: var(--symbolFillAnimation--running);
     }
 }
 
 @keyframes ia_symbolComponent__animate--rotate {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
 @keyframes ia_symbolComponent__animate--rotate3dYAxis {
     0% {
-      transform: rotate3d(0, 1, 0, 0deg);
+        transform: rotate3d(0, 1, 0, 0deg);
     }
     100% {
-      transform: rotate3d(0, 1, 0, 360deg);
+        transform: rotate3d(0, 1, 0, 360deg);
     }
 }
 
 @keyframes ia_symbolComponent__animate--faulted {
     0% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
     50% {
-      fill: var(--symbolFill--faulted);
+        fill: var(--symbolFill--faulted);
     }
     100% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
 }
 
 @keyframes ia_symbolComponent__animate--failedToOpen {
     0% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
     50% {
-      fill: var(--symbolFill--faulted);
+        fill: var(--symbolFill--faulted);
     }
     100% {
-      fill: var(--symbolFill--running);
+        fill: var(--symbolFill--running);
     }
 }
 
 @keyframes ia_symbolComponent__animate--failedToClose {
     0% {
-      fill: var(--symbolFill--stopped);
+        fill: var(--symbolFill--stopped);
     }
     50% {
-      fill: var(--symbolFill--faulted);
+        fill: var(--symbolFill--faulted);
     }
     100% {
-      fill: var(--symbolFill--stopped);
+        fill: var(--symbolFill--stopped);
     }
 }
 
@@ -132,7 +132,7 @@
 }
 
 .ia_symbolComponent__animate--alternateFillAlt {
-    animation: none
+    animation: none;
 }
 
 .ia_symbolComponent__animate--rotate {
@@ -154,11 +154,13 @@
 }
 
 .ia_symbolComponent__animate--alternateFill--running {
-    animation: ia_symbolComponent__animate--alternateFill--running linear infinite;
+    animation: ia_symbolComponent__animate--alternateFill--running linear
+        infinite;
 }
 
 .ia_symbolComponent__animate--alternateFillAlt--running {
-    animation: ia_symbolComponent__animate--alternateFillAlt--running linear infinite;
+    animation: ia_symbolComponent__animate--alternateFillAlt--running linear
+        infinite;
 }
 
 .ia_symbolComponent__animate--rotate--running {
@@ -189,7 +191,6 @@
 .ia_symbolComponent__altFill--faulted {
     fill: var(--symbolStroke--faulted);
 }
-
 
 /** Valve States **/
 /** Open */

@@ -8,7 +8,7 @@
 
 .ia_tableComponent__body__row--hovered {
     color: var(--neutral-90);
-    background-color: rgba(12, 123, 179, 0.10);
+    background-color: rgba(12, 123, 179, 0.1);
 }
 
 .ia_tableComponent__selection {

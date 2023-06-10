@@ -13,8 +13,13 @@
     border-bottom: 3px solid transparent;
 }
 
-.ia_alarmTableComponent__toolbar__tab:hover:not(.ia_alarmTableComponent__toolbar__tab--active),
-.ia_alarmTableComponent__toolbar__tab:hover:not(.ia_alarmTableComponent__toolbar__tab--active) .ia_alarmTableComponent__toolbar__tab__icon {
+.ia_alarmTableComponent__toolbar__tab:hover:not(
+        .ia_alarmTableComponent__toolbar__tab--active
+    ),
+.ia_alarmTableComponent__toolbar__tab:hover:not(
+        .ia_alarmTableComponent__toolbar__tab--active
+    )
+    .ia_alarmTableComponent__toolbar__tab__icon {
     color: var(--neutral-60);
 }
 

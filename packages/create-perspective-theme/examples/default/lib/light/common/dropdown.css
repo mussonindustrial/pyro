@@ -65,13 +65,14 @@
 /** --selected before --keyboard selected so --keyboard selected can override it */
 .ia_dropdown__option--selected {
     background-color: var(--callToAction);
-    color: var(--neutral-10)
+    color: var(--neutral-10);
 }
 
-.ia_dropdown__option:not(.ia_dropdown__option--disabled):not(.ia_dropdown__option--selected):hover,
+.ia_dropdown__option:not(.ia_dropdown__option--disabled):not(
+        .ia_dropdown__option--selected
+    ):hover,
 .ia_dropdown__option:not(.ia_dropdown__option--disabled):focus,
-.ia_dropdown__option--keyboardSelected
-{
+.ia_dropdown__option--keyboardSelected {
     background-color: var(--callToActionHighlight);
     color: var(--label);
 }
@@ -82,8 +83,8 @@
 }
 
 .ia_dropdown__option__noResults {
-   color: var(--input--disabled);
-   pointer-events: none;
+    color: var(--input--disabled);
+    pointer-events: none;
 }
 
 .ia_dropdown__clearValueIcon {

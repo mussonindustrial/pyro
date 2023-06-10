@@ -50,6 +50,10 @@
     color: var(--neutral-70);
 }
 
-.ia_dateRangePicker__calendar__dayTile:hover:not(.ia_dateRangePicker__calendar__dayTile--fillerTile):not(.ia_dateRangePicker__calendar__dayTile--node):not(.ia_dateRangePicker__calendar__dayTile--rangeNode):not(.hasTouch) {
+.ia_dateRangePicker__calendar__dayTile:hover:not(
+        .ia_dateRangePicker__calendar__dayTile--fillerTile
+    ):not(.ia_dateRangePicker__calendar__dayTile--node):not(
+        .ia_dateRangePicker__calendar__dayTile--rangeNode
+    ):not(.hasTouch) {
     background-color: rgba(71, 169, 229, 0.3);
 }

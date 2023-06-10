@@ -16,7 +16,7 @@
     "main": "index.cjs",
     "author": "Musson Industrial",
     "files": [
-        "index.js"
+        "index.cjs"
     ],
     "peerDependencies": {
         "eslint": ">=8"

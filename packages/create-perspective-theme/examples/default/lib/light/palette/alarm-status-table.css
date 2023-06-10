@@ -21,7 +21,6 @@
     color: var(--error);
 }
 
-
 .ia_alarmStatusTableComponent__alarmNotesRequiredModal__foot {
     background-color: var(--neutral-30);
     border: var(--containerBorder);

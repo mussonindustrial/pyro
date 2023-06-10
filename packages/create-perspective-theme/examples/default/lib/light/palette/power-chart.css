@@ -69,7 +69,7 @@
     fill: var(--neutral-50);
     font-size: 10px;
     font-weight: 100;
-    pointerEvents: none;
+    pointerevents: none;
 }
 
 .ia_powerChartComponent__band__body {
@@ -84,7 +84,7 @@
     fill: var(--neutral-50);
     font-size: 10px;
     font-weight: 100;
-    pointerEvents: none;
+    pointerevents: none;
 }
 
 .ia_powerChartComponent__timeAxis__values,
@@ -138,7 +138,8 @@
     background-color: var(--neutral-10);
 }
 
-.ia_powerChartComponent__chart__rangeSelector__popupMenu__menuItem {}
+.ia_powerChartComponent__chart__rangeSelector__popupMenu__menuItem {
+}
 
 .ia_powerChartComponent__chart__rangeSelector__popupMenu__menuItem--hover {
     color: var(--neutral-10);
@@ -175,7 +176,8 @@
     background-color: var(--neutral-10);
 }
 
-.ia_powerChartComponent__chartOptionBar__popupMenu__menuItem {}
+.ia_powerChartComponent__chartOptionBar__popupMenu__menuItem {
+}
 
 .ia_powerChartComponent__chartOptionBar__popupMenu__menuItem--hover {
     color: var(--neutral-10);
@@ -224,7 +226,8 @@
     color: var(--callToAction);
 }
 
-.ia_powerChartComponent__settings__tab__content__table__headerCell {}
+.ia_powerChartComponent__settings__tab__content__table__headerCell {
+}
 
 .ia_powerChartComponent__penDataDisplay__table__headerCell {
     background-color: var(--neutral-30);
@@ -257,7 +260,8 @@
 }
 
 .ia_powerChartComponent__settings__tab__content__table__bodyCell,
-.ia_powerChartComponent__penDataDisplay__table__bodyCell {}
+.ia_powerChartComponent__penDataDisplay__table__bodyCell {
+}
 
 .ia_powerChartComponent__settings__tab__content__table__bodyCell__icon,
 .ia_powerChartComponent__penDataDisplay__table__bodyCell__icon,
