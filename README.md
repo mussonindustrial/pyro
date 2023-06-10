@@ -1,3 +1,5 @@
+[![build](https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml/badge.svg)](https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml)
+
 # Ignition Tools
 
 Tools and resources for working with Ignition by Inductive Automation.
