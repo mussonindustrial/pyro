@@ -13,9 +13,6 @@
     "bugs": {
         "url": "https://github.com/mussonindustrial/ignition-tools/issues"
     },
-    "bin": {
-        "create-perspective-theme": "dist/cli.js"
-    },
     "scripts": {
         "build": "tsup-node",
         "test": "vitest run",
