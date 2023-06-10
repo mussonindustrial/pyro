@@ -4,7 +4,7 @@
 
 Tools and resources for working with Ignition by Inductive Automation.
 
-*This is an unofficial repo.*
+_This is an unofficial repo._
 
 ## What's inside?
 
@@ -36,29 +36,39 @@ For more information about Turborepo, [visit turbo.build/repo](https://turbo.bui
 [Turborepo]: https://github.com/vercel/turbo
 
 ### Cloning
+
 ```sh
 git clone https://github.com/mussonindustrial/ignition-tools
+cd ignition-tools
+npm install
 ```
 
 ### Formatting
+
 Formatting is handled by [Prettier](https://prettier.io).
+
 ```sh
 npm run format
 ```
 
 ### Linting
+
 Linting is handled by [ESLint](https://eslint.org/).
+
 ```sh
 npm run lint
 ```
 
 ### Testing
+
 Testing is handled by [Vitest](https://github.com/vitest-dev/vitest)
+
 ```sh
 npm run test
 ```
 
 ### Building
+
 ```sh
 npm run build
 ```
