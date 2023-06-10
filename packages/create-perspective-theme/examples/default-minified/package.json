@@ -1,0 +1,30 @@
+{
+    "name": "default-theme-minified",
+    "version": "0.1.2",
+    "description": "Default Ignition theme, minified",
+    "keywords": [
+        "ignition",
+        "theme"
+    ],
+    "scripts": {
+        "build": "gulp",
+        "lint": "eslint *.js",
+        "format": "prettier -w ."
+    },
+    "author": "benmusson <ben.d.musson@gmail.com>",
+    "license": "MIT",
+    "repository": "mussonindustrial/ignition-tools",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "type": "commonjs",
+    "devDependencies": {
+        "cssnano": "^6.0.1",
+        "eslint": "^8.42.0",
+        "gulp": "^4.0.2",
+        "gulp-postcss": "^9.0.1",
+        "postcss": "^8.4.24",
+        "postcss-import": "^15.1.0",
+        "prettier": "^2.8.8"
+    }
+}
