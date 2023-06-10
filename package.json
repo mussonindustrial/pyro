@@ -8,6 +8,7 @@
         "lint:prettier": "turbo run lint:prettier --no-daemon",
         "format": "run-p format:prettier",
         "format:prettier": "prettier -w .",
+        "prepare": "husky install",
         "test": "turbo run test --no-daemon",
         "test:watch": "turbo run test:watch --no-daemon",
         "vitest": "vitest"
