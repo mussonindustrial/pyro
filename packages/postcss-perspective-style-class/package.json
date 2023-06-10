@@ -1,0 +1,43 @@
+{
+    "name": "postcss-perspective-style-class",
+    "version": "0.1.2",
+    "description": "PostCSS plugin for Perspective Style Classes",
+    "main": "dist/index.js",
+    "types": "src/index.ts",
+    "keywords": [
+        "postcss",
+        "css",
+        "postcss-plugin",
+        "postcss-perspective-style-class"
+    ],
+    "scripts": {
+        "build": "tsup-node",
+        "lint": "eslint *.js",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "author": "benmusson <ben.d.musson@gmail.com>",
+    "license": "MIT",
+    "repository": "mussonindustrial/postcss-perspective-style-class",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "type": "module",
+    "dependencies": {
+        "perspective-tools-resource-builder": "*"
+    },
+    "peerDependencies": {
+        "postcss": "^8.3.0"
+    },
+    "devDependencies": {
+        "@perspective-tools/eslint-config-custom": "*",
+        "eslint": "^8.42.0",
+        "ignition-tools-tsconfig": "*",
+        "postcss": "^8.3.0",
+        "prettier": "^2.8.8",
+        "vitest": "^0.32.0"
+    },
+    "files": [
+        "dist"
+    ]
+}

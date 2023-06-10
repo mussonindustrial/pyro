@@ -1,0 +1,8 @@
+node_modules/
+target/
+build/
+dist/
+
+/examples/
+
+packages/create-perspective-theme/templates

@@ -1,0 +1,8 @@
+{
+    "extends": "ignition-tools-tsconfig/library.json",
+    "exclude": ["templates"],
+    "compilerOptions": {
+        "rootDir": ".",
+        "esModuleInterop": true
+    }
+}
