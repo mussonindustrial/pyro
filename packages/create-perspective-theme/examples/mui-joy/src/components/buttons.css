@@ -1,0 +1,182 @@
+@mixin variant($variant: solid, $palette: primary) {
+    color: var(--variant-$(palette)-$(variant)Color);
+    background-color: var(--variant-$(palette)-$(variant)Bg);
+    border-color: var(--variant-$(palette)-$(variant)Border);
+    
+    &:hover {
+        color: var(--variant-$(palette)-$(variant)HoverColor);
+        background-color: var(--variant-$(palette)-$(variant)HoverBg);
+        border-color: var(--variant-$(palette)-$(variant)HoverBorder);
+    }
+    
+    &:active {
+        color: var(--variant-$(palette)-$(variant)ActiveColor);
+        background-color: var(--variant-$(palette)-$(variant)ActiveBg);
+        border-color: var(--variant-$(palette)-$(variant)ActiveBorder);
+    }
+    
+    &:disabled {
+        color: var(--variant-$(palette)-$(variant)DisabledColor);
+        background-color: var(--variant-$(palette)-$(variant)DisabledBg);
+        border-color: var(--variant-$(palette)-$(variant)DisabledBorder);
+    }
+}
+
+@mixin default-variant($variant: solid) {
+    @include variant($variant);
+}
+
+@mixin all-variants {
+    @each $variant in $variants {
+        @each $palette in $palettes {
+
+        [psc=Variant\/$(variant)][psc=Palette\/$(palette)] {
+            @include variant($variant, $palette);
+        }
+/* color: var(--variant-$(primary)-$(variant)Color);
+background-color: var(--variant-$(primary)-$(variant)Bg);
+border-color: var(--variant-$(primary)-$(variant)Border);
+
+&:hover {
+    color: var(--variant-$(primary)-$(variant)HoverColor);
+    background-color: var(--variant-$(primary)-$(variant)HoverBg);
+    border-color: var(--variant-$(primary)-$(variant)HoverBorder);
+}
+
+&:active {
+    color: var(--variant-$(primary)-$(variant)ActiveColor);
+    background-color: var(--variant-$(primary)-$(variant)ActiveBg);
+    border-color: var(--variant-$(primary)-$(variant)ActiveBorder);
+}
+
+&:disabled {
+    color: var(--variant-$(primary)-$(variant)DisabledColor);
+    background-color: var(--variant-$(primary)-$(variant)DisabledBg);
+    border-color: var(--variant-$(primary)-$(variant)DisabledBorder);
+}
+} */
+
+        }
+    }
+}
+
+
+
+/* Button */
+.ia-button {
+
+    @include default-variant(solid, primary);
+    @include all-variants;
+
+    /* Resets */
+    appearance: auto;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-variant-alternates: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    font-optical-sizing: ;
+    font-kerning: ;
+    font-feature-settings: ;
+    font-variation-settings: ;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    
+    /* Default to Medium size */
+    --Icon-margin: initial;
+    --Icon-fontSize: 1.5rem;
+    --CircularProgress-size: 24px;
+    --Button-gap: 0.5rem;
+    min-height: var(--Button-minHeight, 2.5rem);
+    font-size: var(--joy-fontSize-sm);
+    padding-block: 0.25rem;
+    padding-inline: 1rem;
+
+    /* Style */
+    -webkit-tap-highlight-color: transparent;
+    border-radius: var(--Button-radius, var(--joy-radius-sm));
+    margin: var(--Button-margin);
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: relative;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    font-family: var(--joy-fontFamily-body);
+    font-weight: var(--joy-fontWeight-lg);
+    line-height: 1;
+
+    /* Defaults */
+    background-color: transparent;
+    border-style: none;
+
+    /* Variant */
+    color: var(--variant-Color);
+    background-color: var(--variant-Bg);
+    border-color: var(--variant-Border);
+    border-width: var(--variant-borderWidth);
+    border-style: var(--variant-borderStyle);
+}
+
+.ia-button:hover {
+    background-color: var(--variant-HoverBg, var(--palette-solidHoverBg));
+    border-color: var(--variant-HoverBorder, var(--palette-solidHoverBorder, transparent));
+}
+
+.ia-button:active {
+    background-color: var(--variant-ActiveBg, var(--palette-solidActiveBg));
+    border-color: var(--variant-ActiveBorder, var(--palette-solidActiveBorder, transparent));
+}
+
+.ia_button--primary--disabled,
+.ia_button--secondary--disabled {
+    pointer-events: none;
+    cursor: default;
+
+    color: var(--variant-DisabledColor);
+    background-color: var(--variant-DisabledBg);
+    border-color: var(--variant-DisabledBorder);
+}
+
+.ia_button--primary:enabled:hover,
+.ia_button--primary:enabled:active,
+.ia_button--secondary:enabled:hover,
+.ia_button--secondary:enabled:active {
+    border-width: var(--variant-borderWidth);
+    border-style: var(--variant-borderStyle);
+    box-shadow: unset;
+}
+

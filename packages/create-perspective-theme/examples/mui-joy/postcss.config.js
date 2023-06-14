@@ -1,12 +1,11 @@
 module.exports = {
     plugins: [
-        // require('postcss-simple-vars'),
+        require('postcss-import'),
         require('@csstools/postcss-design-tokens'),
         require('postcss-advanced-variables'),
-        require('postcss-mixins'),
+        // require('postcss-mixins'),
         require('postcss-nested'),
-        require('postcss-import'),
-
         require('autoprefixer'),
+        require('postcss-perspective-style-class'),
     ],
 }
