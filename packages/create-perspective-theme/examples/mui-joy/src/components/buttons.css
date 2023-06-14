@@ -1,24 +1,48 @@
-@mixin variant($variant: solid, $palette: primary) {
-    color: var(--variant-$(palette)-$(variant) Color);
-    background-color: var(--variant-$(palette)-$(variant) Bg);
-    border-color: var(--variant-$(palette)-$(variant) Border);
+/* @mixin variant($variant: solid, $palette: primary) {
+    color: var(--variant-$(palette)-$(variant)Color);
+    background-color: var(--variant-$(palette)-$(variant)Bg);
+    border-color: var(--variant-$(palette)-$(variant)Border);
 
     &:hover {
-        color: var(--variant-$(palette)-$(variant) HoverColor);
-        background-color: var(--variant-$(palette)-$(variant) HoverBg);
-        border-color: var(--variant-$(palette)-$(variant) HoverBorder);
+        color: var(--variant-$(palette)-$(variant)HoverColor);
+        background-color: var(--variant-$(palette)-$(variant)HoverBg);
+        border-color: var(--variant-$(palette)-$(variant)HoverBorder);
     }
 
     &:active {
-        color: var(--variant-$(palette)-$(variant) ActiveColor);
-        background-color: var(--variant-$(palette)-$(variant) ActiveBg);
-        border-color: var(--variant-$(palette)-$(variant) ActiveBorder);
+        color: var(--variant-$(palette)-$(variant)ActiveColor);
+        background-color: var(--variant-$(palette)-$(variant)ActiveBg);
+        border-color: var(--variant-$(palette)-$(variant)ActiveBorder);
     }
 
     &:disabled {
-        color: var(--variant-$(palette)-$(variant) DisabledColor);
-        background-color: var(--variant-$(palette)-$(variant) DisabledBg);
-        border-color: var(--variant-$(palette)-$(variant) DisabledBorder);
+        color: var(--variant-$(palette)-$(variant)DisabledColor);
+        background-color: var(--variant-$(palette)-$(variant)DisabledBg);
+        border-color: var(--variant-$(palette)-$(variant)DisabledBorder);
+    }
+} */
+
+@mixin variant($variant: solid, $palette: primary) {
+    color: var(--variant-$(variant)Color);
+    background-color: var(--variant-$(variant)Bg);
+    border-color: var(--variant-$(variant)Border);
+
+    &:hover {
+        color: var(--variant-$(variant)HoverColor);
+        background-color: var(--variant-$(variant)HoverBg);
+        border-color: var(--variant-$(variant)HoverBorder);
+    }
+
+    &:active {
+        color: var(--variant-$(variant)ActiveColor);
+        background-color: var(--variant-$(variant)ActiveBg);
+        border-color: var(--variant-$(variant)ActiveBorder);
+    }
+
+    &:disabled {
+        color: var(--variant-$(variant)DisabledColor);
+        background-color: var(--variant-$(variant)DisabledBg);
+        border-color: var(--variant-$(variant)DisabledBorder);
     }
 }
 
@@ -29,40 +53,15 @@
 @mixin all-variants {
     @each $variant in $variants {
         @each $palette in $palettes {
-            [psc='Variant\/$(variant)'][psc='Palette\/$(palette)'] {
+            &[psc=Variant\/$(variant)] {
                 @include variant($variant, $palette);
             }
-            /* color: var(--variant-$(primary)-$(variant)Color);
-background-color: var(--variant-$(primary)-$(variant)Bg);
-border-color: var(--variant-$(primary)-$(variant)Border);
-
-&:hover {
-    color: var(--variant-$(primary)-$(variant)HoverColor);
-    background-color: var(--variant-$(primary)-$(variant)HoverBg);
-    border-color: var(--variant-$(primary)-$(variant)HoverBorder);
-}
-
-&:active {
-    color: var(--variant-$(primary)-$(variant)ActiveColor);
-    background-color: var(--variant-$(primary)-$(variant)ActiveBg);
-    border-color: var(--variant-$(primary)-$(variant)ActiveBorder);
-}
-
-&:disabled {
-    color: var(--variant-$(primary)-$(variant)DisabledColor);
-    background-color: var(--variant-$(primary)-$(variant)DisabledBg);
-    border-color: var(--variant-$(primary)-$(variant)DisabledBorder);
-}
-} */
         }
     }
 }
 
 /* Button */
 .ia-button {
-    @include default-variant(solid, primary);
-    @include all-variants;
-
     /* Resets */
     appearance: auto;
     font-style: ;
@@ -138,12 +137,8 @@ border-color: var(--variant-$(primary)-$(variant)Border);
     background-color: transparent;
     border-style: none;
 
-    /* Variant */
-    color: var(--variant-Color);
-    background-color: var(--variant-Bg);
-    border-color: var(--variant-Border);
-    border-width: var(--variant-borderWidth);
-    border-style: var(--variant-borderStyle);
+    @include default-variant(solid, primary);
+    @include all-variants;
 }
 
 .ia-button:hover {

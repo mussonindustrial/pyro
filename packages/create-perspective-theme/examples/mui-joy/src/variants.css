@@ -3,70 +3,30 @@
 $palettes: (primary, neutral, danger, info, success, warning);
 $variants: (plain, outlined, soft, solid);
 
-@each $variant in $variants {
-    @each $palette in $palettes {
-        [psc='Variant\/$(variant)'][psc='Palette\/$(palette)'] {
-            color: var(--variant-$(variant) Color);
-            background-color: var(--variant-$(variant) Bg);
-            border-color: var(--variant-$(variant) Border);
-
-            &:hover {
-                color: var(--variant-$(variant) HoverColor);
-                background-color: var(--variant-$(variant) HoverBg);
-                border-color: var(--variant-$(variant) HoverBorder);
-            }
-
-            &:active {
-                color: var(--variant-$(variant) ActiveColor);
-                background-color: var(--variant-$(variant) ActiveBg);
-                border-color: var(--variant-$(variant) ActiveBorder);
-            }
-
-            &:disabled {
-                color: var(--variant-$(variant) DisabledColor);
-                background-color: var(--variant-$(variant) DisabledBg);
-                border-color: var(--variant-$(variant) DisabledBorder);
-            }
-        }
-    }
-}
-
 @each $palette in $palettes {
-    [psc='Palette\/$(palette)'] {
+    [psc=Palette\/$(palette)] {
         --variant-plainColor: var(--palette-$(palette)-plainColor);
         --variant-plainHoverBg: var(--palette-$(palette)-plainHoverBg);
         --variant-plainActiveBg: var(--palette-$(palette)-plainActiveBg);
-        --variant-plainDisabledColor: var(
-            --palette-$(palette)-plainDisabledColor
-        );
+        --variant-plainDisabledColor: var(--palette-$(palette)-plainDisabledColor);
         --variant-outlinedColor: var(--palette-$(palette)-outlinedColor);
         --variant-outlinedBorder: var(--palette-$(palette)-outlinedBorder);
         --variant-outlinedHoverBg: var(--palette-$(palette)-outlinedHoverBg);
-        --variant-outlinedHoverBorder: var(
-            --palette-$(palette)-outlinedHoverBorder
-        );
+        --variant-outlinedHoverBorder: var(--palette-$(palette)-outlinedHoverBorder);
         --variant-outlinedActiveBg: var(--palette-$(palette)-outlinedActiveBg);
-        --variant-outlinedDisabledColor: var(
-            --palette-$(palette)-outlinedDisabledColor
-        );
-        --variant-outlinedDisabledBorder: var(
-            --palette-$(palette)-outlinedDisabledBorder
-        );
+        --variant-outlinedDisabledColor: var(--palette-$(palette)-outlinedDisabledColor);
+        --variant-outlinedDisabledBorder: var(--palette-$(palette)-outlinedDisabledBorder);
         --variant-softColor: var(--palette-$(palette)-softColor);
         --variant-softBg: var(--palette-$(palette)-softBg);
         --variant-softHoverBg: var(--palette-$(palette)-softHoverBg);
         --variant-softActiveBg: var(--palette-$(palette)-softActiveBg);
-        --variant-softDisabledColor: var(
-            --palette-$(palette)-softDisabledColor
-        );
+        --variant-softDisabledColor: var(--palette-$(palette)-softDisabledColor);
         --variant-softDisabledBg: var(--palette-$(palette)-softDisabledBg);
         --variant-solidColor: var(--palette-$(palette)-solidColor);
         --variant-solidBg: var(--palette-$(palette)-solidBg);
         --variant-solidHoverBg: var(--palette-$(palette)-solidHoverBg);
         --variant-solidActiveBg: var(--palette-$(palette)-solidActiveBg);
-        --variant-solidDisabledColor: var(
-            --palette-$(palette)-solidDisabledColor
-        );
+        --variant-solidDisabledColor: var(--palette-$(palette)-solidDisabledColor);
         --variant-solidDisabledBg: var(--palette-$(palette)-solidDisabledBg);
         --variant-mainChannel: var(--palette-$(palette)-mainChannel);
         --variant-lightChannel: var(--palette-$(palette)-lightChannel);
@@ -74,12 +34,12 @@ $variants: (plain, outlined, soft, solid);
     }
 }
 
-[psc='Variant\/soft'][psc='Variant\/color-inversion'] {
+[psc=Variant\/soft][psc=Variant\/color-inversion] {
     @each $palette in $palettes {
         --Badge-ringColor: var(--palette-$(palette)-softBg);
         --shadowChannel: var(--palette-$(palette)-darkChannel);
 
-        &[psc='Palette\/$(palette)'] * {
+        &[psc=Palette\/$(palette)] * {
             --palette-focusVisible: var(--palette-$(palette)-500);
             --palette-background-body: rgba(
                 var(--palette-$(palette)-mainChannel) / 0.1
@@ -169,5 +129,5 @@ $variants: (plain, outlined, soft, solid);
     }
 }
 
-[psc='Variant\/solid'][psc='Variant\/color-inversion'] * {
+[psc=Variant\/solid][psc=Variant\/color-inversion] * {
 }
