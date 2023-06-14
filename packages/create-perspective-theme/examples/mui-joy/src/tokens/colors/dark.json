@@ -1,6 +1,7 @@
-{   "background-color": { "value": "#FFF" },
-    "palette": {        
-        "primary": { 
+{
+    "background-color": { "value": "#FFF" },
+    "palette": {
+        "primary": {
             "50": { "value": "#F4FAFF" },
             "100": { "value": "#DDF1FF" },
             "200": { "value": "#ADDBFF" },
@@ -36,8 +37,9 @@
             "solidDisabledBg": { "value": "{palette.primary.200}" },
             "mainChannel": { "value": "9 107 222" },
             "lightChannel": { "value": "173 219 255" },
-            "darkChannel": { "value": "7 40 89" }},
-        "neutral": { 
+            "darkChannel": { "value": "7 40 89" }
+        },
+        "neutral": {
             "50": { "value": "#F7F7F8" },
             "100": { "value": "#EBEBEF" },
             "200": { "value": "#D8D8DF" },
@@ -76,8 +78,9 @@
             "solidDisabledBg": { "value": "{palette.neutral.50}" },
             "mainChannel": { "value": "115 115 140" },
             "lightChannel": { "value": "216 216 223" },
-            "darkChannel": { "value": "37 37 45" }},
-        "danger": { 
+            "darkChannel": { "value": "37 37 45" }
+        },
+        "danger": {
             "50": { "value": "#FFF8F6" },
             "100": { "value": "#FFE9E8" },
             "200": { "value": "#FFC7C5" },
@@ -113,8 +116,9 @@
             "solidDisabledBg": { "value": "{palette.danger.200}" },
             "mainChannel": { "value": "211 35 47" },
             "lightChannel": { "value": "255 199 197" },
-            "darkChannel": { "value": "88 0 19" }},
-        "info": { 
+            "darkChannel": { "value": "88 0 19" }
+        },
+        "info": {
             "50": { "value": "#FDF7FF" },
             "100": { "value": "#F4EAFF" },
             "200": { "value": "#E1CBFF" },
@@ -150,8 +154,9 @@
             "solidDisabledBg": { "value": "{palette.info.200}" },
             "mainChannel": { "value": "129 77 222" },
             "lightChannel": { "value": "225 203 255" },
-            "darkChannel": { "value": "48 23 97" }},
-        "success": { 
+            "darkChannel": { "value": "48 23 97" }
+        },
+        "success": {
             "50": { "value": "#F3FEF5" },
             "100": { "value": "#D7F5DD" },
             "200": { "value": "#77EC95" },
@@ -187,8 +192,9 @@
             "solidDisabledBg": { "value": "{palette.success.200}" },
             "mainChannel": { "value": "26 125 54" },
             "lightChannel": { "value": "119 236 149" },
-            "darkChannel": { "value": "0 47 15" }},
-        "warning": { 
+            "darkChannel": { "value": "0 47 15" }
+        },
+        "warning": {
             "50": { "value": "#FFF8C5" },
             "100": { "value": "#FAE17D" },
             "200": { "value": "#EAC54F" },
@@ -224,23 +230,30 @@
             "solidDisabledBg": { "value": "{palette.warning.50}" },
             "mainChannel": { "value": "154 103 0" },
             "lightChannel": { "value": "234 197 79" },
-            "darkChannel": { "value": "77 45 0" }},
-        "common": { 
+            "darkChannel": { "value": "77 45 0" }
+        },
+        "common": {
             "white": { "value": "#FFF" },
-            "black": { "value": "#09090D" }},
-        "text": { 
+            "black": { "value": "#09090D" }
+        },
+        "text": {
             "primary": { "value": "{palette.neutral.800}" },
             "secondary": { "value": "{palette.neutral.600}" },
-            "tertiary": { "value": "{palette.neutral.500}" }},
-        "background": { "body": { "value": "{palette.common.white }" },
+            "tertiary": { "value": "{palette.neutral.500}" }
+        },
+        "background": {
+            "body": { "value": "{palette.common.white }" },
             "surface": { "value": "{palette.common.white }" },
             "popup": { "value": "{palette.common.white }" },
             "level1": { "value": "{palette.neutral.50}" },
             "level2": { "value": "{palette.neutral.100}" },
             "level3": { "value": "{palette.neutral.200}" },
             "tooltip": { "value": "{palette.neutral.800}" },
-            "backdrop": { "value": "rgba(255 255 255 / 0.5)" }},
-        "divider": { "value": "rgba({palette.neutral.mainChannel }, 115 115 140) / 0.28)" },
+            "backdrop": { "value": "rgba(255 255 255 / 0.5)" }
+        },
+        "divider": {
+            "value": "rgba({palette.neutral.mainChannel }, 115 115 140) / 0.28)"
+        },
         "focusVisible": { "value": "{palette.primary.500}" }
     },
     "shadowRing": { "value": "0 0 #000" },
