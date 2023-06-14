@@ -23,26 +23,26 @@
 } */
 
 @mixin variant($variant: solid, $palette: primary) {
-    color: var(--variant-$(variant)Color);
-    background-color: var(--variant-$(variant)Bg);
-    border-color: var(--variant-$(variant)Border);
+    color: var(--variant-$(variant) Color);
+    background-color: var(--variant-$(variant) Bg);
+    border-color: var(--variant-$(variant) Border);
 
     &:hover {
-        color: var(--variant-$(variant)HoverColor);
-        background-color: var(--variant-$(variant)HoverBg);
-        border-color: var(--variant-$(variant)HoverBorder);
+        color: var(--variant-$(variant) HoverColor);
+        background-color: var(--variant-$(variant) HoverBg);
+        border-color: var(--variant-$(variant) HoverBorder);
     }
 
     &:active {
-        color: var(--variant-$(variant)ActiveColor);
-        background-color: var(--variant-$(variant)ActiveBg);
-        border-color: var(--variant-$(variant)ActiveBorder);
+        color: var(--variant-$(variant) ActiveColor);
+        background-color: var(--variant-$(variant) ActiveBg);
+        border-color: var(--variant-$(variant) ActiveBorder);
     }
 
     &:disabled {
-        color: var(--variant-$(variant)DisabledColor);
-        background-color: var(--variant-$(variant)DisabledBg);
-        border-color: var(--variant-$(variant)DisabledBorder);
+        color: var(--variant-$(variant) DisabledColor);
+        background-color: var(--variant-$(variant) DisabledBg);
+        border-color: var(--variant-$(variant) DisabledBorder);
     }
 }
 
@@ -53,7 +53,7 @@
 @mixin all-variants {
     @each $variant in $variants {
         @each $palette in $palettes {
-            &[psc=Variant\/$(variant)] {
+            &[psc='Variant\/$(variant)'] {
                 @include variant($variant, $palette);
             }
         }
