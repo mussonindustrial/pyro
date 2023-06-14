@@ -1,24 +1,24 @@
 @mixin variant($variant: solid, $palette: primary) {
-    color: var(--variant-$(palette)-$(variant)Color);
-    background-color: var(--variant-$(palette)-$(variant)Bg);
-    border-color: var(--variant-$(palette)-$(variant)Border);
-    
+    color: var(--variant-$(palette)-$(variant) Color);
+    background-color: var(--variant-$(palette)-$(variant) Bg);
+    border-color: var(--variant-$(palette)-$(variant) Border);
+
     &:hover {
-        color: var(--variant-$(palette)-$(variant)HoverColor);
-        background-color: var(--variant-$(palette)-$(variant)HoverBg);
-        border-color: var(--variant-$(palette)-$(variant)HoverBorder);
+        color: var(--variant-$(palette)-$(variant) HoverColor);
+        background-color: var(--variant-$(palette)-$(variant) HoverBg);
+        border-color: var(--variant-$(palette)-$(variant) HoverBorder);
     }
-    
+
     &:active {
-        color: var(--variant-$(palette)-$(variant)ActiveColor);
-        background-color: var(--variant-$(palette)-$(variant)ActiveBg);
-        border-color: var(--variant-$(palette)-$(variant)ActiveBorder);
+        color: var(--variant-$(palette)-$(variant) ActiveColor);
+        background-color: var(--variant-$(palette)-$(variant) ActiveBg);
+        border-color: var(--variant-$(palette)-$(variant) ActiveBorder);
     }
-    
+
     &:disabled {
-        color: var(--variant-$(palette)-$(variant)DisabledColor);
-        background-color: var(--variant-$(palette)-$(variant)DisabledBg);
-        border-color: var(--variant-$(palette)-$(variant)DisabledBorder);
+        color: var(--variant-$(palette)-$(variant) DisabledColor);
+        background-color: var(--variant-$(palette)-$(variant) DisabledBg);
+        border-color: var(--variant-$(palette)-$(variant) DisabledBorder);
     }
 }
 
@@ -29,11 +29,10 @@
 @mixin all-variants {
     @each $variant in $variants {
         @each $palette in $palettes {
-
-        [psc=Variant\/$(variant)][psc=Palette\/$(palette)] {
-            @include variant($variant, $palette);
-        }
-/* color: var(--variant-$(primary)-$(variant)Color);
+            [psc='Variant\/$(variant)'][psc='Palette\/$(palette)'] {
+                @include variant($variant, $palette);
+            }
+            /* color: var(--variant-$(primary)-$(variant)Color);
 background-color: var(--variant-$(primary)-$(variant)Bg);
 border-color: var(--variant-$(primary)-$(variant)Border);
 
@@ -55,16 +54,12 @@ border-color: var(--variant-$(primary)-$(variant)Border);
     border-color: var(--variant-$(primary)-$(variant)DisabledBorder);
 }
 } */
-
         }
     }
 }
 
-
-
 /* Button */
 .ia-button {
-
     @include default-variant(solid, primary);
     @include all-variants;
 
@@ -104,7 +99,7 @@ border-color: var(--variant-$(primary)-$(variant)Border);
     border-style: outset;
     border-color: buttonborder;
     border-image: initial;
-    
+
     /* Default to Medium size */
     --Icon-margin: initial;
     --Icon-fontSize: 1.5rem;
@@ -153,12 +148,18 @@ border-color: var(--variant-$(primary)-$(variant)Border);
 
 .ia-button:hover {
     background-color: var(--variant-HoverBg, var(--palette-solidHoverBg));
-    border-color: var(--variant-HoverBorder, var(--palette-solidHoverBorder, transparent));
+    border-color: var(
+        --variant-HoverBorder,
+        var(--palette-solidHoverBorder, transparent)
+    );
 }
 
 .ia-button:active {
     background-color: var(--variant-ActiveBg, var(--palette-solidActiveBg));
-    border-color: var(--variant-ActiveBorder, var(--palette-solidActiveBorder, transparent));
+    border-color: var(
+        --variant-ActiveBorder,
+        var(--palette-solidActiveBorder, transparent)
+    );
 }
 
 .ia_button--primary--disabled,
@@ -179,4 +180,3 @@ border-color: var(--variant-$(primary)-$(variant)Border);
     border-style: var(--variant-borderStyle);
     box-shadow: unset;
 }
-
