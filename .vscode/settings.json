@@ -5,5 +5,5 @@
     },
     "emmet.includeLanguages": {
         "postcss": "css"
-      }
+    }
 }
