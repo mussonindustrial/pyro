@@ -149,12 +149,8 @@ $palettes: (primary, neutral, danger, info, success, warning);
 
         &[psc='Palette/$(palette)'] * {
             --palette-focusVisible: var(--palette-$(palette)-200);
-            --palette-background-body: rgba(
-                0 0 0 / 0.1
-            );
-            --palette-background-surface: rgba(
-                0 0 0 / 0.06
-            );
+            --palette-background-body: rgba(0 0 0 / 0.1);
+            --palette-background-surface: rgba(0 0 0 / 0.06);
             --palette-background-level1: rgba(
                 var(--palette-$(palette)-darkChannel) / 0.2
             );
@@ -196,9 +192,7 @@ $palettes: (primary, neutral, danger, info, success, warning);
             --variant-outlinedDisabledColor: rgba(
                 var(--palette-$(palette)-lightChannel) / 0.72
             );
-            --variant-outlinedDisabledBorder: rgba(
-                255 255 255 / 0.2
-            );
+            --variant-outlinedDisabledBorder: rgba(255 255 255 / 0.2);
             --variant-softColor: var(--palete-common-white);
             --variant-softBg: rgba(
                 var(--palette-$(palette)-lightChannel) / 0.24

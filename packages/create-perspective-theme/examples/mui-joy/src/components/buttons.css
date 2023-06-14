@@ -1,6 +1,5 @@
 /* Button */
 .ia-button {
-
     @include variant-default;
 
     --Button-Color: var(--variant-Color);
