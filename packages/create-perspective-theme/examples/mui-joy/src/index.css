@@ -1,3 +1,3 @@
-@import 'variants.css';
 @import 'colors.css';
+@import 'common/index.css';
 @import 'components/index.css';

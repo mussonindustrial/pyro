@@ -1,103 +1,13 @@
-/* @mixin variant($variant: solid, $palette: primary) {
-    color: var(--variant-$(palette)-$(variant)Color);
-    background-color: var(--variant-$(palette)-$(variant)Bg);
-    border-color: var(--variant-$(palette)-$(variant)Border);
-
-    &:hover {
-        color: var(--variant-$(palette)-$(variant)HoverColor);
-        background-color: var(--variant-$(palette)-$(variant)HoverBg);
-        border-color: var(--variant-$(palette)-$(variant)HoverBorder);
-    }
-
-    &:active {
-        color: var(--variant-$(palette)-$(variant)ActiveColor);
-        background-color: var(--variant-$(palette)-$(variant)ActiveBg);
-        border-color: var(--variant-$(palette)-$(variant)ActiveBorder);
-    }
-
-    &:disabled {
-        color: var(--variant-$(palette)-$(variant)DisabledColor);
-        background-color: var(--variant-$(palette)-$(variant)DisabledBg);
-        border-color: var(--variant-$(palette)-$(variant)DisabledBorder);
-    }
-} */
-
-@mixin variant($variant: solid, $palette: primary) {
-    color: var(--variant-$(variant) Color);
-    background-color: var(--variant-$(variant) Bg);
-    border-color: var(--variant-$(variant) Border);
-
-    &:hover {
-        color: var(--variant-$(variant) HoverColor);
-        background-color: var(--variant-$(variant) HoverBg);
-        border-color: var(--variant-$(variant) HoverBorder);
-    }
-
-    &:active {
-        color: var(--variant-$(variant) ActiveColor);
-        background-color: var(--variant-$(variant) ActiveBg);
-        border-color: var(--variant-$(variant) ActiveBorder);
-    }
-
-    &:disabled {
-        color: var(--variant-$(variant) DisabledColor);
-        background-color: var(--variant-$(variant) DisabledBg);
-        border-color: var(--variant-$(variant) DisabledBorder);
-    }
-}
-
-@mixin default-variant($variant: solid) {
-    @include variant($variant);
-}
-
-@mixin all-variants {
-    @each $variant in $variants {
-        @each $palette in $palettes {
-            &[psc='Variant\/$(variant)'] {
-                @include variant($variant, $palette);
-            }
-        }
-    }
-}
-
 /* Button */
 .ia-button {
-    /* Resets */
-    appearance: auto;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-variant-alternates: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
-    font-optical-sizing: ;
-    font-kerning: ;
-    font-feature-settings: ;
-    font-variation-settings: ;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: buttonface;
-    margin: 0em;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
+
+    @include variant-default;
+
+    --Button-Color: var(--variant-Color);
+    --Button-Bg: var(--variant-Bg);
+    --Button-Border: var(--variant-Border);
+    --Button-borderWidth: var(--variant-borderWidth);
+    --Button-borderStyle: var(--variant-borderStyle);
 
     /* Default to Medium size */
     --Icon-margin: initial;
@@ -105,13 +15,13 @@
     --CircularProgress-size: 24px;
     --Button-gap: 0.5rem;
     min-height: var(--Button-minHeight, 2.5rem);
-    font-size: var(--joy-fontSize-sm);
+    font-size: var(--fontSize-sm);
     padding-block: 0.25rem;
     padding-inline: 1rem;
 
     /* Style */
     -webkit-tap-highlight-color: transparent;
-    border-radius: var(--Button-radius, var(--joy-radius-sm));
+    border-radius: var(--Button-radius, var(--radius-sm));
     margin: var(--Button-margin);
     cursor: pointer;
     display: -webkit-inline-box;
@@ -129,49 +39,43 @@
     position: relative;
     -webkit-text-decoration: none;
     text-decoration: none;
-    font-family: var(--joy-fontFamily-body);
-    font-weight: var(--joy-fontWeight-lg);
+    font-family: var(--fontFamily-body);
+    font-weight: var(--fontWeight-lg);
     line-height: 1;
 
-    /* Defaults */
-    background-color: transparent;
-    border-style: none;
-
-    @include default-variant(solid, primary);
-    @include all-variants;
+    color: var(--Button-Color);
+    background-color: var(--Button-Bg);
+    border-color: var(--Button-Border);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
 }
 
 .ia-button:hover {
-    background-color: var(--variant-HoverBg, var(--palette-solidHoverBg));
-    border-color: var(
-        --variant-HoverBorder,
-        var(--palette-solidHoverBorder, transparent)
-    );
+    --Button-Color: var(--variant-HoverColor);
+    --Button-Bg: var(--variant-HoverBg);
+    --Button-Border: var(--variant-HoverBorder);
 }
 
 .ia-button:active {
-    background-color: var(--variant-ActiveBg, var(--palette-solidActiveBg));
-    border-color: var(
-        --variant-ActiveBorder,
-        var(--palette-solidActiveBorder, transparent)
-    );
+    --Button-Color: var(--variant-ActiveColor);
+    --Button-Bg: var(--variant-ActiveBg);
+    --Button-Border: var(--variant-ActiveBorder);
 }
 
-.ia_button--primary--disabled,
-.ia_button--secondary--disabled {
+.ia-button:disabled {
     pointer-events: none;
     cursor: default;
 
-    color: var(--variant-DisabledColor);
-    background-color: var(--variant-DisabledBg);
-    border-color: var(--variant-DisabledBorder);
+    --Button-Color: var(--variant-DisabledColor);
+    --Button-Bg: var(--variant-DisabledBg);
+    --Button-Border: var(--variant-DisabledBorder);
 }
 
 .ia_button--primary:enabled:hover,
 .ia_button--primary:enabled:active,
 .ia_button--secondary:enabled:hover,
 .ia_button--secondary:enabled:active {
-    border-width: var(--variant-borderWidth);
-    border-style: var(--variant-borderStyle);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
     box-shadow: unset;
 }

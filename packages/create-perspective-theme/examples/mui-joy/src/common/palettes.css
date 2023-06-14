@@ -1,17 +1,16 @@
-@import 'colors.css';
-
 $palettes: (primary, neutral, danger, info, success, warning);
-$variants: (plain, outlined, soft, solid);
 
 @each $palette in $palettes {
-    [psc='Palette\/$(palette)'] {
+    [psc='Palette/$(palette)'] {
         --variant-plainColor: var(--palette-$(palette)-plainColor);
+        --variant-plainHoverColor: var(--palette-$(palette)-plainColor);
         --variant-plainHoverBg: var(--palette-$(palette)-plainHoverBg);
         --variant-plainActiveBg: var(--palette-$(palette)-plainActiveBg);
         --variant-plainDisabledColor: var(
             --palette-$(palette)-plainDisabledColor
         );
         --variant-outlinedColor: var(--palette-$(palette)-outlinedColor);
+        --variant-outlinedHoverColor: var(--palette-$(palette)-outlinedColor);
         --variant-outlinedBorder: var(--palette-$(palette)-outlinedBorder);
         --variant-outlinedHoverBg: var(--palette-$(palette)-outlinedHoverBg);
         --variant-outlinedHoverBorder: var(
@@ -25,6 +24,7 @@ $variants: (plain, outlined, soft, solid);
             --palette-$(palette)-outlinedDisabledBorder
         );
         --variant-softColor: var(--palette-$(palette)-softColor);
+        --variant-softHoverColor: var(--palette-$(palette)-softColor);
         --variant-softBg: var(--palette-$(palette)-softBg);
         --variant-softHoverBg: var(--palette-$(palette)-softHoverBg);
         --variant-softActiveBg: var(--palette-$(palette)-softActiveBg);
@@ -33,6 +33,7 @@ $variants: (plain, outlined, soft, solid);
         );
         --variant-softDisabledBg: var(--palette-$(palette)-softDisabledBg);
         --variant-solidColor: var(--palette-$(palette)-solidColor);
+        --variant-solidHoverColor: var(--palette-$(palette)-solidColor);
         --variant-solidBg: var(--palette-$(palette)-solidBg);
         --variant-solidHoverBg: var(--palette-$(palette)-solidHoverBg);
         --variant-solidActiveBg: var(--palette-$(palette)-solidActiveBg);
@@ -46,12 +47,12 @@ $variants: (plain, outlined, soft, solid);
     }
 }
 
-[psc='Variant\/soft'][psc='Variant\/color-inversion'] {
+[psc='Variant/soft'][psc='Variant/color-inversion'] {
     @each $palette in $palettes {
         --Badge-ringColor: var(--palette-$(palette)-softBg);
         --shadowChannel: var(--palette-$(palette)-darkChannel);
 
-        &[psc='Palette\/$(palette)'] * {
+        &[psc='Palette/$(palette)'] * {
             --palette-focusVisible: var(--palette-$(palette)-500);
             --palette-background-body: rgba(
                 var(--palette-$(palette)-mainChannel) / 0.1
@@ -141,5 +142,91 @@ $variants: (plain, outlined, soft, solid);
     }
 }
 
-[psc='Variant\/solid'][psc='Variant\/color-inversion'] * {
+[psc='Variant/solid'][psc='Variant/color-inversion'] {
+    @each $palette in $palettes {
+        --Badge-ringColor: var(--palette-$(palette)-solidBg);
+        --shadowChannel: var(--palette-$(palette)-darkChannel);
+
+        &[psc='Palette/$(palette)'] * {
+            --palette-focusVisible: var(--palette-$(palette)-200);
+            --palette-background-body: rgba(
+                0 0 0 / 0.1
+            );
+            --palette-background-surface: rgba(
+                0 0 0 / 0.06
+            );
+            --palette-background-level1: rgba(
+                var(--palette-$(palette)-darkChannel) / 0.2
+            );
+            --palette-background-level2: rgba(
+                var(--palette-$(palette)-darkChannel) / 0.36
+            );
+            --palette-background-level3: rgba(
+                var(--palette-$(palette)-darkChannel) / 0.6
+            );
+            --palette-text-primary: var(--palette-common-white);
+            --palette-text-secondary: var(--palette-$(palette)-100);
+            --palette-text-tertiary: var(--palette-$(palette)-200);
+            --palette-divider: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.32
+            );
+            --variant-plainColor: var(--palette-$(palette)-50);
+            --variant-plainHoverColor: #fff;
+            --variant-plainHoverBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.5
+            );
+            --variant-plainActiveBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.32
+            );
+            --variant-plainDisabledColor: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.72
+            );
+            --variant-outlinedColor: var(--palette-$(palette)-50);
+            --variant-outlinedBorder: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.5
+            );
+            --variant-outlinedHoverColor: #fff;
+            --variant-outlinedHoverBorder: var(--palete-$(palette)-300);
+            --variant-outlinedHoverBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.12
+            );
+            --variant-outlinedActiveBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.32
+            );
+            --variant-outlinedDisabledColor: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.72
+            );
+            --variant-outlinedDisabledBorder: rgba(
+                255 255 255 / 0.2
+            );
+            --variant-softColor: var(--palete-common-white);
+            --variant-softBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.24
+            );
+            --variant-softHoverColor: var(--palete-common-white);
+            --variant-softHoverBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.36
+            );
+            --variant-softActiveBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.16
+            );
+            --variant-softDisabledColor: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.72
+            );
+            --variant-softDisabledBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.1
+            );
+            --variant-solidColor: var(--palete-$(palette)-500);
+            --variant-solidBg: var(--palete-common-white);
+            --variant-solidHoverColor: var(--palete-$(palette)-700);
+            --variant-solidHoverBg: var(--palete-common-white);
+            --variant-solidActiveBg: var(--palete-$(palette)-200);
+            --variant-solidDisabledColor: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.72
+            );
+            --variant-solidDisabledBg: rgba(
+                var(--palette-$(palette)-lightChannel) / 0.1
+            );
+        }
+    }
 }
