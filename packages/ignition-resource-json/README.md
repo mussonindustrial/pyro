@@ -30,7 +30,7 @@ const resource = await newResource(
         timestamp: '2023-06-28T17:48:27Z',
     },
     {
-        'style.json': fs.readFileSync('style/style.json'),
+        'style.json': fs.readFileSync('./style/style.json'),
     }
 )
 console.log(resource)
@@ -53,7 +53,7 @@ console.log(resource)
 import fs from 'fs'
 import { parseResource } from 'ignition-resource-json'
 
-const resource = await parseResource(fs.readFileSync('view/resource.json'))
+const resource = await parseResource(fs.readFileSync('./view/resource.json'))
 console.log(resource)
 // {
 //   scope: 'G',
@@ -74,8 +74,16 @@ console.log(resource)
 import fs from 'fs'
 import { parseResource, hasValidSignature } from 'ignition-resource-json'
 
-const resource = await parseResource(fs.readFileSync('view/resource.json'))
-console.log(await hasValidSignature(resource))
+const resource = await parseResource(fs.readFileSync('./view/resource.json'))
+let files = {}
+resource.files.forEach((file) => {
+    files = {
+        ...files,
+        [file]: fs.readFileSync(`./view/${file}`),
+    }
+})
+
+console.log(await hasValidSignature(resource, files))
 // true
 ```
 
