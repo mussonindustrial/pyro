@@ -17,6 +17,7 @@ npm install --save ignition-resource-json
 ### Build a new `resource.json` file
 
 ```js
+import fs from 'fs'
 import { newResource } from 'ignition-resource-json'
 
 const resource = await newResource(
@@ -49,6 +50,7 @@ console.log(resource)
 ### Parse an existing `resource.json` file
 
 ```js
+import fs from 'fs'
 import { parseResource } from 'ignition-resource-json'
 
 const resource = await parseResource(fs.readFileSync('view/resource.json'))
@@ -69,6 +71,7 @@ console.log(resource)
 ### Verify an existing `resource.json` file signature
 
 ```js
+import fs from 'fs'
 import { parseResource, hasValidSignature } from 'ignition-resource-json'
 
 const resource = await parseResource(fs.readFileSync('view/resource.json'))
