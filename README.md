@@ -12,11 +12,14 @@ This repo includes the following packages:
 
 ### Packages
 
--   `create-perspective-theme`: a cli tool for quickly setting up Perspective theming projects
--   `ignition-resource-builder`: Javascript library for building project import files
+-   `ignition-import`: library for building project import files
+-   `ignition-resource-json`: library for building and signing `resource.json`  files
+-   `perspective-theme-mui-joy`: a Perspective theme based on Material UI Joy
+-   `postcss-advanced-variables`: a fork of `postcss-advanced-variables` that drives `perspective-theme-mui-joy`
 -   `postcss-perspective-style-class`: a Postcss plugin for generating Perspective Style Classes from CSS
+-   
 -   `eslint-config-custom`: `eslint` configurations used throughout the monorepo
--   `tsconfig`: `tsconfig.json`s used throughout the monorepo
+-   `ignition-tools-tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
