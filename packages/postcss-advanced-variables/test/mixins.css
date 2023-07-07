@@ -1,0 +1,71 @@
+$default-radius: 2em;
+
+@mixin mixin-test-1 {
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-ms-border-radius: 1em;
+	border-radius: 1em;
+}
+
+@mixin mixin-test-2() {
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-ms-border-radius: 1em;
+	border-radius: 1em;
+}
+
+@mixin mixin-test-3($radius: $default-radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin mixin-test-4($radius: 1em) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin mixin-test-5($min-width: 30em) {
+	@media (min-width: $min-width) {
+		@content;
+	}
+}
+
+.test-1 {
+	@include mixin-test-1;
+}
+
+.test-2 {
+	@include mixin-test-2();
+}
+
+.test-3a {
+	@include mixin-test-3(1em);
+}
+
+.test-3b {
+	@include mixin-test-3;
+}
+
+.test-4a {
+	@include mixin-test-4;
+}
+
+.test-4b {
+	@include mixin-test-4(2em);
+}
+
+.test-5a {
+	@include mixin-test-5 {
+		min-width: $min-width;
+	}
+}
+
+.test-5b {
+	@include mixin-test-5(60em) {
+		min-width: $min-width;
+	}
+}

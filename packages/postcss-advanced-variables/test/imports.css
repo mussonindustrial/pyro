@@ -1,0 +1,8 @@
+$pass: 'pass';
+
+@import 'imports/import-1';
+@import 'imports/import-1';
+@import url('imports/import-1');
+@import url('imports/import-1');
+@import url(imports/import-1);
+@import url(https://necolas.github.io/normalize.css/7.0.0/normalize.css);

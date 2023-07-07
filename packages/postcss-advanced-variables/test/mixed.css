@@ -1,0 +1,69 @@
+$pass: green;
+$number: 3;
+
+@for $i from 1 to 5 by 2 {
+	@for $j from 3 to 1 {
+		.for-$(j)-from-3-to-1.for-$(j)-from-1-to-5-by-2 {
+			color: $pass;
+		}
+	}
+}
+
+@each $i in ((foo, bar), (baz, qux)) {
+	@each $j in $i {
+		.each-$(j)-in($(i)).each-$(i)-in((foo,bar),(baz,qux)) {
+			color: $pass;
+		}
+	}
+}
+
+@for $i from 1 to 5 by 2 {
+	@if $i >= $number {
+		.if-$(i)-is-atleast-$(number) {
+			color: $pass;
+		}
+	} @else {
+		.if-$(i)-is-not-atleast-$(number) {
+			color: $pass;
+		}
+	}
+}
+
+$dir: assets/images;
+
+@each $i in (1, 2, 3) {
+	@for $j from $i to 3 {
+		@if $j >= 3 {
+			.if-$(j)-is-atleast-3.for-$(j)-from-$(i)-to-3.each-$(i)-in(1,2,3) {
+				background: url($dir/$j.png);
+			}
+		}
+	}
+}
+
+@each $color $i in (red, white, blue) {
+	:nth-child($i) {
+		color: $color;
+	}
+}
+
+@each $i in (1) {
+	@for $j from $i to 3 {
+		.test-i-$i {
+			background-image: url($dir/$i$j.png);
+			content: '\$dir';
+		}
+	}
+}
+
+@mixin mixin-test-1($count: 3) {
+	@for $i from 1 to $count {
+		.for-$(i)-from-1-to$(count) {
+			content: '$i $count';
+		}
+	}
+}
+
+@include mixin-test-1;
+
+@include mixin-test-1(5);
