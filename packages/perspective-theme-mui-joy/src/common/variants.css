@@ -14,36 +14,39 @@ $staticProperties: (borderWidth, borderStyle);
     --variant-solid-borderStyle: none;
 
     /* Default to outlined neutral */
-@each $property in $drivenProperties {
-    --variant-default$(property): var(--palette-neutral-outlined$(property));
+    @each $property in $drivenProperties {
+        --variant-default$(property): var(
+            --palette-neutral-outlined$(property)
+        );
 
-    @each $state in $states {
-        --variant-default$(state)$(property): var(--palette-neutral-outlined$(state)$(property), var(--palette-neutral-outlined$(property)));
+        @each $state in $states {
+            --variant-default$(state)$(property): var(
+                --palette-neutral-outlined$(state) $(property),
+                var(--palette-neutral-outlined$(property))
+            );
+        }
+    }
+
+    @each $property in $staticProperties {
+        --variant-default$(property): var(--variant-outlined-$(property));
     }
 }
 
-@each $property in $staticProperties {
-    --variant-default$(property): var(--variant-outlined-$(property));
-}
-
-
-}
-
-
 @each $variant in $variants {
     [psc='Variant/$(variant)'] {
-
         @each $property in $drivenProperties {
-            --variant-$(property): var(--variant-$(variant)$(property), unset );
+            --variant-$(property): var(--variant-$(variant) $(property), unset);
 
             @each $state in $states {
-                --variant-$(state)$(property): var(--variant-$(variant)$(state)$(property), var(--variant-$(variant)$(property), unset ));
+                --variant-$(state)$(property): var(
+                    --variant-$(variant) $(state) $(property),
+                    var(--variant-$(variant) $(property), unset)
+                );
             }
-
         }
 
         @each $property in $staticProperties {
-            --variant-$(property): var(--variant-$(variant)-$(property), unset );
+            --variant-$(property): var(--variant-$(variant)-$(property), unset);
         }
 
         &:disabled {
@@ -52,4 +55,3 @@ $staticProperties: (borderWidth, borderStyle);
         }
     }
 }
-

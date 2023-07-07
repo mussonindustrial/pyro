@@ -1,23 +1,33 @@
 /* A card is a generic container for grouping related UI elements and content.*/
 [psc='Container/card'] {
-    
     @include variant-support(Card);
     @include variant-default(Card, plain);
     @include palette-default(Card, neutral);
 
     /* Calculations */
-    --Card-childRadius: max((var(--Card-radius) - var(--variant-borderWidth, 0px)) - var(--Card-padding), min(var(--Card-padding) / 2, (var(--Card-radius) - var(--variant-borderWidth, 0px)) / 2));
+    --Card-childRadius: max(
+        (var(--Card-radius) - var(--variant-borderWidth, 0px)) -
+            var(--Card-padding),
+        min(
+            var(--Card-padding) / 2,
+            (var(--Card-radius) - var(--variant-borderWidth, 0px)) / 2
+        )
+    );
     --AspectRatio-radius: var(--Card-childRadius);
     --unstable_actionMargin: calc(-1 * var(--variant-borderWidth, 0px));
     --unstable_actionRadius: var(--Card-radius);
-    --CardCover-radius: calc(var(--Card-radius) - var(--variant-borderWidth, 0px));
+    --CardCover-radius: calc(
+        var(--Card-radius) - var(--variant-borderWidth, 0px)
+    );
     --CardOverflow-offset: calc(-1 * var(--Card-padding));
-    --CardOverflow-radius: calc(var(--Card-radius) - var(--variant-borderWidth, 0px));
+    --CardOverflow-radius: calc(
+        var(--Card-radius) - var(--variant-borderWidth, 0px)
+    );
     --Divider-inset: calc(-1 * var(--Card-padding));
 
     /* Default to medium size */
     --Card-radius: var(--radius-md);
-    --Card-padding: 1rem;    
+    --Card-padding: 1rem;
 
     padding: var(--Card-padding);
     border-radius: var(--Card-radius);
@@ -42,7 +52,6 @@
     &[psc='Size/md'] {
         --Card-radius: var(--radius-md);
         --Card-padding: 1rem;
-
     }
 
     &[psc='Size/lg'] {

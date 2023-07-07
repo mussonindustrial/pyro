@@ -14,13 +14,15 @@ canvas {
     border-radius: var(--Canvas-radius);
 
     &:hover {
-        --Canvas-Border: var(--variant-HoverBorder, var(--Canvas-default-HoverBorder));
+        --Canvas-Border: var(
+            --variant-HoverBorder,
+            var(--Canvas-default-HoverBorder)
+        );
     }
-
 
     &:disabled {
         @include component-state(Canvas, Disabled);
-    
+
         pointer-events: none;
         cursor: default;
     }
@@ -28,7 +30,7 @@ canvas {
     &[psc='Variant/plain'],
     &[psc='Variant/outlined'] {
         --Canvas-Bg: var(--palette-background-surface);
-    }   
+    }
 
     &:focus-within,
     &:active {

@@ -1,6 +1,5 @@
 /* Sheets */
 [psc='Container/sheet'] {
-
     @include variant-support(Sheet);
     @include variant-default(Sheet, plain);
     @include palette-default(Sheet, neutral);

@@ -1,18 +1,21 @@
 # Ignition Resource JSON Library
 
-The [Ignition Resource JSON] library lets you easily generate Ignition project `resource.json` files with accurate signatures. 
+The [Ignition Resource JSON] library lets you easily generate Ignition project `resource.json` files with accurate signatures.
 
 Credit to @paul-griffith and their [modification-updater] application for the key signature logic.
 
 ## Installation
 
 Using npm:
+
 ```sh
 npm install --save ignition-resource-json
 ```
+
 ## API
 
 ### Build a new `resource.json` file
+
 ```js
 import { newResource } from 'ignition-resource-json'
 
@@ -44,6 +47,7 @@ console.log(resource)
 ```
 
 ### Parse an existing `resource.json` file
+
 ```js
 import { parseResource } from 'ignition-resource-json'
 
@@ -63,6 +67,7 @@ console.log(resource)
 ```
 
 ### Verify an existing `resource.json` file signature
+
 ```js
 import { parseResource, hasValidSignature } from 'ignition-resource-json'
 
@@ -70,8 +75,6 @@ const resource = await parseResource(fs.readFileSync('view/resource.json'))
 console.log(await hasValidSignature(resource))
 // true
 ```
-
-
 
 [Ignition Resource JSON]: https://github.com/mussonindustrial/ignition-tools/packages/ignition-resource-json
 [modification-updater]: https://github.com/paul-griffith/modification-updater

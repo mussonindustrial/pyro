@@ -3,38 +3,55 @@ $states: (Hover, Active, Disabled);
 $drivenProperties: (Color, Bg, Border);
 $staticProperties: (borderWidth, borderStyle);
 
-@mixin palette-default($component, $palette: primary) {}
+@mixin palette-default($component, $palette: primary) {
+}
 
-@mixin variant-default($component, $variant: solid) {}
+@mixin variant-default($component, $variant: solid) {
+}
 
 @mixin component-state($component, $state) {
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--variant-$(state)$(property), var(--variant-default$(state)$(property)));
+        --$(component)-$(property): var(
+            --variant-$(state) $(property),
+            var(--variant-default$(state) $(property))
+        );
     }
 }
 
 @mixin component-state-forced($component, $variant, $state) {
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--variant-$(variant)$(state)$(property), var(--variant-default$(state)$(property)));
+        --$(component)-$(property): var(
+            --variant-$(variant) $(state) $(property),
+            var(--variant-default$(state) $(property))
+        );
     }
 }
 
 @mixin variant-support($component) {
     @each $property in $staticProperties {
-        --$(component)-$(property): var(--variant-$(property), var(--variant-default-$(property)));
+        --$(component)-$(property): var(
+            --variant-$(property),
+            var(--variant-default-$(property))
+        );
     }
 
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--variant-$(property), var(--variant-default$(property)));
+        --$(component)-$(property): var(
+            --variant-$(property),
+            var(--variant-default$(property))
+        );
     }
 }
 
 @mixin variant-forced($component, $variant) {
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--variant-$(variant)$(property));
+        --$(component)-$(property): var(--variant-$(variant) $(property));
 
         @each $state in $states {
-            --$(component)-$(state)$(property): var(--variant-$(variant)$(state)$(property), var(--variant-$(variant)$(property)));
+            --$(component)-$(state)$(property): var(
+                --variant-$(variant) $(state) $(property),
+                var(--variant-$(variant) $(property))
+            );
         }
     }
 
@@ -44,17 +61,20 @@ $staticProperties: (borderWidth, borderStyle);
 }
 
 @mixin style-forced($component, $variant, $palette) {
-
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--palette-$(palette)-$(variant)$(property));
+        --$(component)-$(property): var(
+            --palette-$(palette)-$(variant) $(property)
+        );
 
         @each $state in $states {
-            --$(component)-$(state)$(property): var(--palette-$(palette)-$(variant)$(state)$(property), var(--palette-$(palette)-$(variant)$(property)));
+            --$(component)-$(state)$(property): var(
+                --palette-$(palette)-$(variant) $(state) $(property),
+                var(--palette-$(palette)-$(variant) $(property))
+            );
         }
     }
 
     @each $property in $staticProperties {
         --$(component)-$(property): var(--variant-$(variant)-$(property));
     }
-    
 }

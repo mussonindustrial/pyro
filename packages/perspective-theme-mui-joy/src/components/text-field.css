@@ -37,13 +37,15 @@
     padding-inline: var(--Input-paddingInline);
 
     &:hover {
-        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder););
+        --Input-Border: var(
+            --variant-HoverBorder,
+            var(--Input-default-HoverBorder) ;
+        );
     }
-
 
     &:disabled {
         @include component-state(Input, Disabled);
-    
+
         pointer-events: none;
         cursor: default;
     }
@@ -53,14 +55,12 @@
         --Input-Bg: var(--palette-background-surface);
     }
 
-
     &::placeholder {
         font-family: var(--fontFamily-body);
         font-size: var(--fontSize-md);
         color: var(--Input-placeholderColor);
         opacity: var(--Input-placeholderOpacity);
     }
-    
 
     &:focus-within {
         outline-width: var(--Input-focusedThickness);

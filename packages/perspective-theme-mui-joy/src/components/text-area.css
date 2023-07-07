@@ -39,13 +39,15 @@
     padding-inline: var(--Textarea-paddingInline);
 
     &:hover {
-        --Textarea-Border: var(--variant-HoverBorder, var(--Textarea-default-HoverBorder););
+        --Textarea-Border: var(
+            --variant-HoverBorder,
+            var(--Textarea-default-HoverBorder) ;
+        );
     }
-
 
     &:disabled {
         @include component-state(Textarea, Disabled);
-    
+
         pointer-events: none;
         cursor: default;
     }
@@ -55,14 +57,12 @@
         --Textarea-Bg: var(--palette-background-surface);
     }
 
-
     &::placeholder {
         font-family: var(--fontFamily-body);
         font-size: var(--fontSize-md);
         color: var(--Textarea-placeholderColor);
         opacity: var(--Textarea-placeholderOpacity);
     }
-    
 
     &:focus-within {
         outline-width: var(--Textarea-focusedThickness);

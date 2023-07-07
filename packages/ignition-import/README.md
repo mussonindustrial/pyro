@@ -7,10 +7,9 @@ import fs from 'fs'
 import { newNode, newProject, perspective } from 'ignition-import'
 
 const project = newProject({ perspective })
-project.perspective.resources.styleClasses.content = newNode(
-    'MyStyleClass',
-    { style: { base: { style: {} } } }
-)
+project.perspective.resources.styleClasses.content = newNode('MyStyleClass', {
+    style: { base: { style: {} } },
+})
 
 const zip = await project.zip()
 fs.writeFileSync('./project-import.zip', zip)
@@ -19,15 +18,34 @@ fs.writeFileSync('./project-import.zip', zip)
 ## Usage
 
 Add [Ignition Import] to your build tool:
+
 ```bash
 npm install ignition-import --save-dev
 ```
 
 Create a new project and include your desired modules:
-```js
-import { alarmNotification, newProject, perspective, reporting, sfc, sqlbridge, vision, webdev } from 'ignition-import'
 
-const project = newProject({ alarmNotification, perspective, reporting, sfc, sqlbridge, vision, webdev })
+```js
+import {
+    alarmNotification,
+    newProject,
+    perspective,
+    reporting,
+    sfc,
+    sqlbridge,
+    vision,
+    webdev,
+} from 'ignition-import'
+
+const project = newProject({
+    alarmNotification,
+    perspective,
+    reporting,
+    sfc,
+    sqlbridge,
+    vision,
+    webdev,
+})
 ```
 
 Then add your resource contents.
@@ -37,10 +55,10 @@ const props = project.perspective.resource.generalProperties
 props.
 ```
 
-
 ## Notes
 
 ### Type Hints
+
 Each module comes with its own resource definitions and type hints for each required file.
 
 ```js
@@ -62,14 +80,13 @@ project.perspective.resources
 ```
 
 ### Resource Contents
+
 The content of a resource file can be specified
 
 ### Resource.json
+
 The required `resource.json` files are automatically generated with correct resource signatures.
-The signature logic is reference from the [modification-updater] application. 
-
-
-
+The signature logic is reference from the [modification-updater] application.
 
 ## Advanced Usage
 
@@ -112,7 +129,6 @@ project.myModule.resources
 //     }>;
 // }
 ```
-
 
 [Ignition Import]: https://github.com/mussonindustrial/ignition-tools/packages/ignition-import
 [modification-updater]: https://github.com/paul-griffith/modification-updater

@@ -1,134 +1,134 @@
 {
-  "custom": {},
-  "params": {},
-  "props": {
-    "defaultSize": {
-      "height": 614,
-      "width": 524
-    }
-  },
-  "root": {
-    "children": [
-      {
-        "meta": {
-          "hasDelegate": true,
-          "name": "Title"
-        },
-        "position": {
-          "basis": "60px",
-          "shrink": 0
-        },
-        "props": {
-          "alignVertical": "center",
-          "style": {
-            "classes": "Section_Text"
-          },
-          "text": "Ignition Application Demos"
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "name": "Description"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "props": {
-          "source": "Preview complete Ignition applications across multiple industries. We\u0027ve worked directly with systems integrators to develop these highly realistic products, giving you a glimpse into what a real Ignition project looks like.\n\nLaunch any of the applications below on mobile or desktop. They\u0027re all mobile-friendly and cross platform compatible.",
-          "style": {
-            "classes": "Page_Margins"
-          }
-        },
-        "type": "ia.display.markdown"
-      },
-      {
-        "meta": {
-          "hasDelegate": true,
-          "name": "Tour"
-        },
-        "position": {
-          "basis": "32px",
-          "shrink": 0
-        },
-        "props": {
-          "alignVertical": "center",
-          "style": {
-            "classes": "Page_Margins Sub_Section_Text",
-            "marginBottom": "0px"
-          },
-          "text": "Tour Ignition\u0027s Apps"
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "name": "Apps"
-        },
-        "propConfig": {
-          "props.instances": {
-            "binding": {
-              "config": {
-                "mode": "direct",
-                "tagPath": "[default]Navigation"
-              },
-              "transforms": [
-                {
-                  "code": "\titems \u003d []\n\tapps \u003d system.util.jsonDecode(value)[\"navigation\"][\"apps\"]\n\tfor app in apps:\n\t\taMap \u003d apps[app]\n\t\titems.append({\"order\":aMap[\"order\"], \"page\":aMap[\"url\"], \"title\":aMap[\"name\"], \"icon\":\"material/%s\" % aMap[\"icon\"]})\n\titems.sort(key\u003dlambda x: x[\"order\"])\n\treturn items",
-                  "type": "script"
-                }
-              ],
-              "type": "tag"
-            }
-          }
-        },
-        "props": {
-          "alignContent": "flex-start",
-          "alignItems": "flex-start",
-          "elementPosition": {
-            "basis": "175px",
-            "grow": 0,
-            "shrink": 0
-          },
-          "elementStyle": {
-            "margin": "6px",
-            "minWidth": "165px"
-          },
-          "path": "Page/Embedded/Feature Selection",
-          "style": {
-            "flexWrap": "wrap",
-            "marginLeft": "6px",
-            "marginRight": "6px"
-          },
-          "useDefaultViewWidth": false,
-          "wrap": "wrap"
-        },
-        "type": "ia.display.flex-repeater"
-      },
-      {
-        "meta": {
-          "hasDelegate": true,
-          "name": "Label"
-        },
-        "position": {
-          "basis": "12px",
-          "shrink": 0
-        },
-        "props": {
-          "text": " "
-        },
-        "type": "ia.display.label"
-      }
-    ],
-    "meta": {
-      "name": "root"
-    },
+    "custom": {},
+    "params": {},
     "props": {
-      "direction": "column",
-      "style": {
-        "classes": "Page"
-      }
+        "defaultSize": {
+            "height": 614,
+            "width": 524
+        }
     },
-    "type": "ia.container.flex"
-  }
+    "root": {
+        "children": [
+            {
+                "meta": {
+                    "hasDelegate": true,
+                    "name": "Title"
+                },
+                "position": {
+                    "basis": "60px",
+                    "shrink": 0
+                },
+                "props": {
+                    "alignVertical": "center",
+                    "style": {
+                        "classes": "Section_Text"
+                    },
+                    "text": "Ignition Application Demos"
+                },
+                "type": "ia.display.label"
+            },
+            {
+                "meta": {
+                    "name": "Description"
+                },
+                "position": {
+                    "shrink": 0
+                },
+                "props": {
+                    "source": "Preview complete Ignition applications across multiple industries. We\u0027ve worked directly with systems integrators to develop these highly realistic products, giving you a glimpse into what a real Ignition project looks like.\n\nLaunch any of the applications below on mobile or desktop. They\u0027re all mobile-friendly and cross platform compatible.",
+                    "style": {
+                        "classes": "Page_Margins"
+                    }
+                },
+                "type": "ia.display.markdown"
+            },
+            {
+                "meta": {
+                    "hasDelegate": true,
+                    "name": "Tour"
+                },
+                "position": {
+                    "basis": "32px",
+                    "shrink": 0
+                },
+                "props": {
+                    "alignVertical": "center",
+                    "style": {
+                        "classes": "Page_Margins Sub_Section_Text",
+                        "marginBottom": "0px"
+                    },
+                    "text": "Tour Ignition\u0027s Apps"
+                },
+                "type": "ia.display.label"
+            },
+            {
+                "meta": {
+                    "name": "Apps"
+                },
+                "propConfig": {
+                    "props.instances": {
+                        "binding": {
+                            "config": {
+                                "mode": "direct",
+                                "tagPath": "[default]Navigation"
+                            },
+                            "transforms": [
+                                {
+                                    "code": "\titems \u003d []\n\tapps \u003d system.util.jsonDecode(value)[\"navigation\"][\"apps\"]\n\tfor app in apps:\n\t\taMap \u003d apps[app]\n\t\titems.append({\"order\":aMap[\"order\"], \"page\":aMap[\"url\"], \"title\":aMap[\"name\"], \"icon\":\"material/%s\" % aMap[\"icon\"]})\n\titems.sort(key\u003dlambda x: x[\"order\"])\n\treturn items",
+                                    "type": "script"
+                                }
+                            ],
+                            "type": "tag"
+                        }
+                    }
+                },
+                "props": {
+                    "alignContent": "flex-start",
+                    "alignItems": "flex-start",
+                    "elementPosition": {
+                        "basis": "175px",
+                        "grow": 0,
+                        "shrink": 0
+                    },
+                    "elementStyle": {
+                        "margin": "6px",
+                        "minWidth": "165px"
+                    },
+                    "path": "Page/Embedded/Feature Selection",
+                    "style": {
+                        "flexWrap": "wrap",
+                        "marginLeft": "6px",
+                        "marginRight": "6px"
+                    },
+                    "useDefaultViewWidth": false,
+                    "wrap": "wrap"
+                },
+                "type": "ia.display.flex-repeater"
+            },
+            {
+                "meta": {
+                    "hasDelegate": true,
+                    "name": "Label"
+                },
+                "position": {
+                    "basis": "12px",
+                    "shrink": 0
+                },
+                "props": {
+                    "text": " "
+                },
+                "type": "ia.display.label"
+            }
+        ],
+        "meta": {
+            "name": "root"
+        },
+        "props": {
+            "direction": "column",
+            "style": {
+                "classes": "Page"
+            }
+        },
+        "type": "ia.container.flex"
+    }
 }

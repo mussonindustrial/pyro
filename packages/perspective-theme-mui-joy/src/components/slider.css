@@ -2,7 +2,10 @@
 .ia-slider {
     @include variant-support(Slider);
 
-    --Slider-size: max(42px, max(var(--Slider-thumbSize), var(--Slider-trackSize)));
+    --Slider-size: max(
+        42px,
+        max(var(--Slider-thumbSize), var(--Slider-trackSize))
+    );
     --Slider-trackRadius: var(--Slider-size);
     --Slider-markBackground: var(--palette-text-tertiary);
 
@@ -16,7 +19,7 @@
     --Slider-thumbWidth: var(--Slider-thumbSize);
     --Slider-thumbBackground: var(--Slider-Color);
     --Slider-thumbColor: var(--Slider-Bg);
-    
+
     --Slider-trackColor: var(--Slider-Color);
     --Slider-trackBackground: var(--Slider-Bg);
     --Slider-trackBorderColor: var(--Slider-Border);
@@ -37,7 +40,6 @@
         @include component-state(Slider, Active);
     }
 
-
     .slider:not(.slider-vertical) {
         .slider-rail {
             height: var(--Slider-trackSize);
@@ -46,12 +48,13 @@
         .slider-track {
             height: var(--Slider-trackSize);
             width: 100%;
-            border-radius: var(--Slider-trackRadius) 0 0 var(--Slider-trackRadius);
+            border-radius: var(--Slider-trackRadius) 0 0
+                var(--Slider-trackRadius);
         }
 
         .slider-handle {
-            margin-left: calc(var(--Slider-thumbWidth)/2 * -1);
-            margin-top: calc(var(--Slider-thumbWidth)/4 * -1);
+            margin-left: calc(var(--Slider-thumbWidth) / 2 * -1);
+            margin-top: calc(var(--Slider-thumbWidth) / 4 * -1);
         }
     }
 
@@ -63,15 +66,15 @@
         .slider-track {
             height: 100%;
             width: var(--Slider-trackSize);
-            border-radius: 0 0 var(--Slider-trackRadius) var(--Slider-trackRadius);
+            border-radius: 0 0 var(--Slider-trackRadius)
+                var(--Slider-trackRadius);
         }
 
         .slider-handle {
-            margin-left: calc(var(--Slider-thumbWidth)/4 * -1);
-            margin-bottom: calc(var(--Slider-thumbWidth)/2 * -1);
+            margin-left: calc(var(--Slider-thumbWidth) / 4 * -1);
+            margin-bottom: calc(var(--Slider-thumbWidth) / 2 * -1);
         }
     }
-
 
     .slider-rail {
         background-color: var(--Slider-railBackground);
@@ -82,21 +85,21 @@
         color: var(--Slider-trackColor);
         background-color: var(--Slider-trackBackground);
 
-        border-width:  var(--variant-borderWidth, 0px);
+        border-width: var(--variant-borderWidth, 0px);
         border-style: var(--variant-borderStyle);
         border-color: var(--Slider-trackBorderColor);
         border-radius: var(--Slider-trackRadius) 0 0 var(--Slider-trackRadius);
     }
 
     .slider .slider-handle {
-
         width: var(--Slider-thumbWidth);
         height: var(--Slider-thumbSize);
 
         color: var(--Slider-thumbColor);
         background-color: var(--Slider-thumbBackground);
 
-        border: var(--variant-borderWidth, 0px) solid var(--Slider-trackBorderColor);
+        border: var(--variant-borderWidth, 0px) solid
+            var(--Slider-trackBorderColor);
         border-radius: var(--Slider-thumbRadius);
 
         box-shadow: var(--Slider-thumbShadow);
@@ -107,7 +110,7 @@
         overflow: visible;
 
         &:before {
-            content: "";
+            content: '';
             box-sizing: border-box;
             display: block;
             position: absolute;
@@ -120,9 +123,7 @@
             border-color: var(--Slider-thumbColor);
             border-radius: inherit;
         }
-
     }
-
 }
 
 [psc='Size/sm'] .ia-slider,

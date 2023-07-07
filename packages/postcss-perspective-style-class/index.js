@@ -28,7 +28,9 @@ module.exports = (options = {}) => {
                 (match) => {
                     // Determine attribute contents, and replace entire attribute.
                     /* eslint-disable-next-line */
-        const classPath = match.match(/(?<=\[psc=['"])(.*?)(?=['"]])/gm)[0]
+                    const classPath = match.match(
+                        /(?<=\[psc=['"])(.*?)(?=['"]])/gm
+                    )[0]
 
                     if (!classPath) {
                         rule.warn(result, 'empty Style Class path')

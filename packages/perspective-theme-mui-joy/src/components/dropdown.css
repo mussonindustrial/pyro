@@ -10,9 +10,31 @@
     --Input-focusedThickness: var(--focus-thickness);
     --Input-focusedHighlight: var(--palette-primary-solidBg);
     --Icon-fontSize: 1.5rem;
-    --Input-decoratorChildOffset: min(calc(var(--Input-paddingInline) - (var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2), var(--Input-paddingInline));
-    --_Input-paddingBlock: max((var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2, 0px);
-    --Input-decoratorChildRadius: max(var(--Input-radius) - var(--variant-borderWidth, 0px) - var(--_Input-paddingBlock), min(var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px), var(--Input-radius) / 2));
+    --Input-decoratorChildOffset: min(
+        calc(
+            var(--Input-paddingInline) -
+                (
+                    var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
+                        var(--Input-decoratorChildHeight)
+                ) / 2
+        ),
+        var(--Input-paddingInline)
+    );
+    --_Input-paddingBlock: max(
+        (
+                var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
+                    var(--Input-decoratorChildHeight)
+            ) / 2,
+        0px
+    );
+    --Input-decoratorChildRadius: max(
+        var(--Input-radius) - var(--variant-borderWidth, 0px) -
+            var(--_Input-paddingBlock),
+        min(
+            var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px),
+            var(--Input-radius) / 2
+        )
+    );
     --Button-minHeight: var(--Input-decoratorChildHeight);
     --IconButton-size: var(--Input-decoratorChildHeight);
     --Button-radius: var(--Input-decoratorChildRadius);
@@ -44,13 +66,15 @@
     padding-inline: var(--Input-paddingInline);
 
     &:hover {
-        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder));
+        --Input-Border: var(
+            --variant-HoverBorder,
+            var(--Input-default-HoverBorder)
+        );
     }
-
 
     &:disabled {
         @include component-state(Input, Disabled);
-    
+
         pointer-events: none;
         cursor: default;
     }
@@ -60,13 +84,13 @@
         --Input-paddingInline: 0.5rem;
         --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
     }
-    
+
     &[psc='Size/md'] {
         --Input-minHeight: 2.5rem;
         --Input-paddingInline: 0.75rem;
-        --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));        
+        --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
     }
-    
+
     &[psc='Size/lg'] {
         --Input-minHeight: 3rem;
         --Input-paddingInline: 1rem;
@@ -97,7 +121,7 @@
 
     &::before {
         box-sizing: border-box;
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         pointer-events: none;
@@ -105,7 +129,9 @@
         z-index: 1;
         border-radius: var(--Input-radius, inherit);
         margin: calc(var(--Input-borderWidth, 0px) * -1);
-        box-shadow: var(--Input-focusedInset, inset) 0 0 0 calc(var(--Input-focused) * var(--Input-focusedThickness)) var(--Input-focusedHighlight);
+        box-shadow: var(--Input-focusedInset, inset) 0 0 0
+            calc(var(--Input-focused) * var(--Input-focusedThickness))
+            var(--Input-focusedHighlight);
     }
 
     &__placeholder {
@@ -113,9 +139,7 @@
     }
 }
 
-
 .iaDropdownCommon {
-
     &_search {
         color: var(--palette-text-primary);
     }
@@ -125,11 +149,8 @@
     }
 }
 
-
 .iaDropdownCommon_clear_value,
 .ia_dropdown__expandIcon.material-icons.md-24 {
-    
-
     --Icon-margin: initial;
 
     min-width: var(--IconButton-size, 2.5rem);
@@ -152,8 +173,8 @@
     margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
     margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
 
-    margin-top: calc(var(--Input-decoratorChildOffset)/2);
-    margin-bottom: calc(var(--Input-decoratorChildOffset)/2);
+    margin-top: calc(var(--Input-decoratorChildOffset) / 2);
+    margin-bottom: calc(var(--Input-decoratorChildOffset) / 2);
     margin-left: var(--Input-decoratorChildOffset);
 
     symbol {
@@ -172,8 +193,6 @@
         font-size: var(--Icon-fontSize, 1.25rem);
         color: var(--Icon-color);
     }
-
-
 }
 
 .ia_dropdown__valuePill {
@@ -198,14 +217,13 @@
     margin-block-end: 3px;
     padding-inline-start: 12px;
     padding-inline-end: 12px;
-
 }
 
 .ia_dropdown__removeValue {
     @include variant-support(Button);
     @include variant-forced(Button, solid);
 
-    --Button-radius: 100%; 
+    --Button-radius: 100%;
 
     margin-right: -7px;
     height: 22px;
@@ -225,7 +243,6 @@
     &:active {
         @include component-state-forced(Button, solid, Active);
     }
-
 }
 
 .iaDropdownCommon_clear_value,
@@ -250,7 +267,6 @@
     &:active {
         @include component-state(Button, Active);
     }
-
 }
 
 .ia_dropdown__optionsModal {
@@ -279,14 +295,25 @@
 
     /* Style */
     font-family: var(--fontFamily-body);
-    padding-block: calc(var(--Option-paddingY) - var(--Option-borderWidth, 0px));
+    padding-block: calc(
+        var(--Option-paddingY) - var(--Option-borderWidth, 0px)
+    );
     margin-inline: var(--ListItemButton-marginInline);
     text-align: initial;
     background-color: initial;
     cursor: pointer;
     margin-block-start: var(--List-gap);
-    padding-inline-start: calc(var(--Option-paddingLeft) + var(--Option-startActionWidth, var(--unstable_startActionWidth, 0px)));
-    padding-inline-end: calc(var(--Option-paddingRight) + var(--Option-endActionWidth, var(--unstable_endActionWidth, 0px)));
+    padding-inline-start: calc(
+        var(--Option-paddingLeft) +
+            var(
+                --Option-startActionWidth,
+                var(--unstable_startActionWidth, 0px)
+            )
+    );
+    padding-inline-end: calc(
+        var(--Option-paddingRight) +
+            var(--Option-endActionWidth, var(--unstable_endActionWidth, 0px))
+    );
     min-block-size: var(--Option-minHeight);
 
     /* Apply component properties */
@@ -298,23 +325,23 @@
     font-size: var(--Option-fontSize);
 
     &:hover {
-        --Option-Bg: var(--palette-neutral-plainHoverBg)
+        --Option-Bg: var(--palette-neutral-plainHoverBg);
     }
 
     &--selected {
         @include style-forced(Option, soft, primary);
-    
+
         font-weight: var(--fontWeight-md);
     }
 }
 
 /* Resets and Adjustments */
-.iaDropdownCommon.iaDropdownCommon_multi-select > div  {
+.iaDropdownCommon.iaDropdownCommon_multi-select > div {
     & > *:first-child:has(.ia_dropdown__valuePill) {
-        margin-left: calc(var(--Input-decoratorChildOffset)*-1);
+        margin-left: calc(var(--Input-decoratorChildOffset) * -1);
     }
     & > *:last-child:has(symbol) {
-        margin-right: calc(var(--Input-decoratorChildOffset)*-1);
+        margin-right: calc(var(--Input-decoratorChildOffset) * -1);
     }
 }
 

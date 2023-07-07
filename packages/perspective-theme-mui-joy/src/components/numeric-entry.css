@@ -12,9 +12,31 @@
     --Input-focusedThickness: var(--focus-thickness);
     --Input-focusedHighlight: var(--palette-primary-solidBg);
     --Icon-fontSize: 0.85rem;
-    --Input-decoratorChildOffset: min(calc(var(--Input-paddingInline) - (var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2), var(--Input-paddingInline));
-    --_Input-paddingBlock: max((var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2, 0px);
-    --Input-decoratorChildRadius: max(var(--Input-radius) - var(--variant-borderWidth, 0px) - var(--_Input-paddingBlock), min(var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px), var(--Input-radius) / 2));
+    --Input-decoratorChildOffset: min(
+        calc(
+            var(--Input-paddingInline) -
+                (
+                    var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
+                        var(--Input-decoratorChildHeight)
+                ) / 2
+        ),
+        var(--Input-paddingInline)
+    );
+    --_Input-paddingBlock: max(
+        (
+                var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
+                    var(--Input-decoratorChildHeight)
+            ) / 2,
+        0px
+    );
+    --Input-decoratorChildRadius: max(
+        var(--Input-radius) - var(--variant-borderWidth, 0px) -
+            var(--_Input-paddingBlock),
+        min(
+            var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px),
+            var(--Input-radius) / 2
+        )
+    );
     --Button-minHeight: var(--Input-decoratorChildHeight);
     --IconButton-size: var(--Input-decoratorChildHeight);
     --Button-radius: var(--Input-decoratorChildRadius);
@@ -45,13 +67,15 @@
     padding-inline: var(--Input-paddingInline);
 
     &:hover {
-        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder););
+        --Input-Border: var(
+            --variant-HoverBorder,
+            var(--Input-default-HoverBorder) ;
+        );
     }
-
 
     &:disabled {
         @include component-state(Input, Disabled);
-    
+
         pointer-events: none;
         cursor: default;
     }
@@ -61,14 +85,12 @@
         --Input-Bg: var(--palette-background-surface);
     }
 
-
     &::placeholder {
         font-family: var(--fontFamily-body);
         font-size: var(--fontSize-md);
         color: var(--Input-placeholderColor);
         opacity: var(--Input-placeholderOpacity);
     }
-    
 
     &:focus-within {
         outline-width: var(--Input-focusedThickness);
@@ -129,8 +151,8 @@
     margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
     margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
 
-    margin-top: calc(var(--Input-decoratorChildOffset)/2) !important;
-    margin-bottom: calc(var(--Input-decoratorChildOffset)/2) !important;
+    margin-top: calc(var(--Input-decoratorChildOffset) / 2) !important;
+    margin-bottom: calc(var(--Input-decoratorChildOffset) / 2) !important;
     margin-left: var(--Input-decoratorChildOffset) !important;
 
     --Button-borderStyle: none;
@@ -167,14 +189,12 @@
         font-size: var(--Icon-fontSize, 1.25rem);
         color: var(--Icon-color);
     }
-    
+
     g {
         width: 100%;
         height: 100%;
     }
-
 }
-
 
 /* Size Support */
 [psc='Size/sm'] [data-component='ia.input.numeric-entry-field'],
@@ -188,7 +208,7 @@
 [psc='Size/md'][data-component='ia.input.numeric-entry-field'] {
     --Input-minHeight: 2.5rem;
     --Input-paddingInline: 0.75rem;
-    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));      
+    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
 }
 
 [psc='Size/lg'] [data-component='ia.input.numeric-entry-field'],
@@ -229,31 +249,35 @@
         &:hover {
             @include component-state-forced(Button, solid, Hover);
         }
-    
+
         &:active {
             @include component-state-forced(Button, solid, Active);
         }
     }
 
     .ia_button--secondary {
-        margin-left: auto; 
+        margin-left: auto;
 
         @include style-forced(Button, plain, primary);
 
         &:hover {
             @include component-state-forced(Button, plain, Hover);
         }
-    
+
         &:active {
             @include component-state-forced(Button, plain, Active);
         }
     }
 
-    &.component-modal-large-viewport.component-modal-below:not(.hide-arrow):after, 
-    &.component-modal-large-viewport.component-modal-below:not(.hide-arrow):before {
+    &.component-modal-large-viewport.component-modal-below:not(
+            .hide-arrow
+        ):after,
+    &.component-modal-large-viewport.component-modal-below:not(
+            .hide-arrow
+        ):before {
         border-bottom-color: var(--palette-neutral-600) !important;
     }
-    
+
     &_content {
         align-items: stretch;
     }
