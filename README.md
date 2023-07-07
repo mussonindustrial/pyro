@@ -13,11 +13,11 @@ This repo includes the following packages:
 ### Packages
 
 -   `ignition-import`: library for building project import files
--   `ignition-resource-json`: library for building and signing `resource.json`  files
+-   `ignition-resource-json`: library for building and signing `resource.json` files
 -   `perspective-theme-mui-joy`: a Perspective theme based on Material UI Joy
 -   `postcss-advanced-variables`: a fork of `postcss-advanced-variables` that drives `perspective-theme-mui-joy`
 -   `postcss-perspective-style-class`: a Postcss plugin for generating Perspective Style Classes from CSS
--   
+-
 -   `eslint-config-custom`: `eslint` configurations used throughout the monorepo
 -   `ignition-tools-tsconfig`: `tsconfig.json`s used throughout the monorepo
 
