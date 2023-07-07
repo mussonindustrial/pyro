@@ -3,6 +3,8 @@ target/
 build/
 dist/
 
+**/**.css
+
 /examples/
 
 packages/create-perspective-theme/templates

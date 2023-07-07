@@ -1,0 +1,264 @@
+[data-component='ia.input.numeric-entry-field'],
+.ia_numericEntryFieldComponent__modal .ia_inputField,
+.ia_numericEntryFieldComponent__modal .ia_inputField__wrapper {
+    @include variant-support(Input);
+
+    /* Define component properties */
+    --Input-radius: var(--radius-sm);
+    --Input-gap: 0.5rem;
+    --Input-placeholderColor: inherit;
+    --Input-placeholderOpacity: 0.5;
+    --Input-focused: 0;
+    --Input-focusedThickness: var(--focus-thickness);
+    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Icon-fontSize: 0.85rem;
+    --Input-decoratorChildOffset: min(calc(var(--Input-paddingInline) - (var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2), var(--Input-paddingInline));
+    --_Input-paddingBlock: max((var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2, 0px);
+    --Input-decoratorChildRadius: max(var(--Input-radius) - var(--variant-borderWidth, 0px) - var(--_Input-paddingBlock), min(var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px), var(--Input-radius) / 2));
+    --Button-minHeight: var(--Input-decoratorChildHeight);
+    --IconButton-size: var(--Input-decoratorChildHeight);
+    --Button-radius: var(--Input-decoratorChildRadius);
+    --IconButton-radius: var(--Input-decoratorChildRadius);
+
+    /* Default to Medium size */
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+
+    /* Style */
+    box-sizing: border-box;
+    min-width: 0px;
+    min-height: var(--Input-minHeight);
+    overflow: visible;
+    position: relative;
+    display: flex;
+    font-family: var(--fontFamily-body);
+    font-size: var(--fontSize-md);
+
+    /* Apply component properties */
+    color: var(--Input-Color);
+    background-color: var(--Input-Bg, var(--palette-background-surface));
+    border-color: var(--Input-Border);
+    border-width: var(--Input-borderWidth);
+    border-style: var(--Input-borderStyle);
+    border-radius: var(--Input-radius);
+    min-height: var(--Input-minHeight);
+    padding-inline: var(--Input-paddingInline);
+
+    &:hover {
+        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder););
+    }
+
+
+    &:disabled {
+        @include component-state(Input, Disabled);
+    
+        pointer-events: none;
+        cursor: default;
+    }
+
+    &[psc='Variant/plain'],
+    &[psc='Variant/outlined'] {
+        --Input-Bg: var(--palette-background-surface);
+    }
+
+
+    &::placeholder {
+        font-family: var(--fontFamily-body);
+        font-size: var(--fontSize-md);
+        color: var(--Input-placeholderColor);
+        opacity: var(--Input-placeholderOpacity);
+    }
+    
+
+    &:focus-within {
+        outline-width: var(--Input-focusedThickness);
+        outline-style: solid;
+        outline-color: var(--Input-focusedHighlight);
+        outline-offset: min(calc(var(--Input-borderWidth, 0px) * -1), -1px);
+    }
+
+    svg {
+        fill: currentColor;
+    }
+
+    input {
+        border: none;
+        color: var(--Input-Color);
+        background-color: transparent;
+        font-family: var(--fontFamily-body);
+        font-size: var(--fontSize-md);
+        /* margin-inline-start: calc(var(--Input-decoratorChildOffset) * -1); */
+
+        &::placeholder {
+            font-family: var(--fontFamily-body);
+            font-size: var(--fontSize-md);
+            color: var(--Input-placeholderColor);
+            opacity: var(--Input-placeholderOpacity);
+        }
+    }
+}
+
+.ia_numericEntryFieldComponent__modal .ia_inputField,
+.ia_numericEntryFieldComponent__modal .ia_inputField__wrapper {
+    @include style-forced(Input, outlined, primary);
+}
+
+/* Edit Icon */
+.ia_numericEntryFieldComponent__editLink {
+    @include variant-support(Button);
+
+    --Icon-margin: initial;
+
+    min-width: var(--IconButton-size, 2.5rem) !important;
+    min-height: var(--IconButton-size, 2.5rem) !important;
+
+    padding-inline: 0.25rem;
+    padding-block: 0px;
+    margin: var(--IconButton-margin);
+    border-radius: var(--IconButton-radius, var(--radius-sm));
+
+    cursor: pointer;
+    display: inline-flex;
+
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    --variant-borderWidth: 0px;
+
+    margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
+    margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
+
+    margin-top: calc(var(--Input-decoratorChildOffset)/2) !important;
+    margin-bottom: calc(var(--Input-decoratorChildOffset)/2) !important;
+    margin-left: var(--Input-decoratorChildOffset) !important;
+
+    --Button-borderStyle: none;
+    --Button-radius: var(--radius-sm);
+
+    color: var(--Button-Color);
+    background-color: var(--Button-Bg);
+    border-color: var(--Button-Border);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
+    border-radius: var(--Button-radius);
+
+    &:hover {
+        @include component-state(Button, Hover);
+    }
+
+    &:active {
+        @include component-state(Button, Active);
+    }
+
+    svg {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: var(--Icon-margin);
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        fill: currentColor;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: var(--Icon-fontSize, 1.25rem);
+        color: var(--Icon-color);
+    }
+    
+    g {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+
+/* Size Support */
+[psc='Size/sm'] [data-component='ia.input.numeric-entry-field'],
+[psc='Size/sm'][data-component='ia.input.numeric-entry-field'] {
+    --Input-minHeight: 2rem;
+    --Input-paddingInline: 0.5rem;
+    --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
+}
+
+[psc='Size/md'] [data-component='ia.input.numeric-entry-field'],
+[psc='Size/md'][data-component='ia.input.numeric-entry-field'] {
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));      
+}
+
+[psc='Size/lg'] [data-component='ia.input.numeric-entry-field'],
+[psc='Size/lg'][data-component='ia.input.numeric-entry-field'] {
+    --Input-minHeight: 3rem;
+    --Input-paddingInline: 1rem;
+    --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));
+}
+
+/* Resets and Fixes */
+.ia_numericEntryFieldComponent__wrapper,
+.ia_numericEntryFieldComponent__wrapper--readOnly {
+    justify-content: stretch !important;
+    align-items: center !important;
+    height: unset !important;
+    width: 100% !important;
+    border: none;
+    background-color: transparent;
+}
+
+/* Modal */
+.ia_numericEntryFieldComponent__modal {
+    background-color: var(--palette-background-popup);
+    border-color: var(--palette-neutral-outlinedBorder);
+    border-width: var(--variant-outlined-borderWidth);
+    border-style: var(--variant-outlined-borderStyle);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+
+    flex-basis: auto;
+    flex-grow: 1;
+
+    .ia_button--primary {
+        margin-left: 10px;
+
+        @include style-forced(Button, solid, primary);
+
+        &:hover {
+            @include component-state-forced(Button, solid, Hover);
+        }
+    
+        &:active {
+            @include component-state-forced(Button, solid, Active);
+        }
+    }
+
+    .ia_button--secondary {
+        margin-left: auto; 
+
+        @include style-forced(Button, plain, primary);
+
+        &:hover {
+            @include component-state-forced(Button, plain, Hover);
+        }
+    
+        &:active {
+            @include component-state-forced(Button, plain, Active);
+        }
+    }
+
+    &.component-modal-large-viewport.component-modal-below:not(.hide-arrow):after, 
+    &.component-modal-large-viewport.component-modal-below:not(.hide-arrow):before {
+        border-bottom-color: var(--palette-neutral-600) !important;
+    }
+    
+    &_content {
+        align-items: stretch;
+    }
+
+    &:not(.component-modal-large-viewport) &_content {
+        width: 100% !important;
+    }
+}

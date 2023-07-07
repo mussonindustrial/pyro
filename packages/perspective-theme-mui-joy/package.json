@@ -1,0 +1,39 @@
+{
+    "name": "perspective-theme-mui-joy",
+    "version": "0.1.0",
+    "description": "Material UI Joy Theme",
+    "keywords": [
+        "ignition",
+        "theme",
+        "mui",
+        "joy"
+    ],
+    "scripts": {
+        "build": "gulp",
+        "lint": "eslint *.js",
+        "format": "prettier -w ."
+    },
+    "author": "benmusson <ben.d.musson@gmail.com>",
+    "license": "MIT",
+    "repository": "mussonindustrial/ignition-tools",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "type": "commonjs",
+    "devDependencies": {
+        "@csstools/postcss-design-tokens": "^2.0.4",
+        "autoprefixer": "^10.4.14",
+        "cssnano": "^6.0.1",
+        "eslint": "^8.42.0",
+        "gulp": "^4.0.2",
+        "gulp-postcss": "^9.0.1",
+        "ignition-import": "*",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.24",
+        "postcss-advanced-variables": "*",
+        "postcss-import": "^15.1.0",
+        "postcss-nested": "^6.0.1",
+        "postcss-perspective-style-class": "*",
+        "prettier": "^2.8.8"
+    }
+}

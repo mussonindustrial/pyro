@@ -1,0 +1,115 @@
+/* Switch */
+.ia_toggleSwitch {
+    --variant-borderWidth: 0px;
+    --Switch-trackRadius: var(--joy-radius-lg);
+    --Switch-thumbShadow: 0 0 0 1px var(--Switch-trackBackground);
+    --Switch-trackWidth: 48px;
+    --Switch-trackHeight: 24px;
+    --Switch-thumbSize: 16px;
+    --Switch-gap: 8px;
+    font-size: var(--joy-fontSize-md);
+    --unstable_paddingBlock: max((var(--Switch-trackHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Switch-thumbSize)) / 2, 0px);
+    --Switch-thumbRadius: max(var(--Switch-trackRadius) - var(--unstable_paddingBlock), min(var(--unstable_paddingBlock) / 2, var(--Switch-trackRadius) / 2));
+    --Switch-thumbWidth: var(--Switch-thumbSize);
+    --Switch-thumbOffset: max((var(--Switch-trackHeight) - var(--Switch-thumbSize)) / 2, 0px);
+    --Switch-trackBackground: var(--joy-palette-neutral-solidBg, var(--joy-palette-neutral-600, #5A5A72));
+    --Switch-trackColor: var(--joy-palette-neutral-solidColor, var(--joy-palette-common-white, #FFF));
+    --Switch-trackBorderColor: currentColor;
+    --Switch-thumbBackground: var(--joy-palette-neutral-solidColor, var(--joy-palette-common-white, #FFF));
+    --Switch-thumbColor: var(--joy-palette-neutral-solidBg, var(--joy-palette-neutral-600, #5A5A72));
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    font-family: var(--joy-fontFamily-body);
+    position: relative;
+    padding: calc((var(--Switch-thumbSize) / 2) - (var(--Switch-trackHeight) / 2)) calc(-1 * var(--Switch-thumbOffset));
+    background-color: initial;
+    border: none;
+    margin: var(--unstable_Switch-margin);
+}
+	
+.ia_toggleSwitch__track {
+    position: relative;
+    color: var(--Switch-trackColor);
+    height: var(--Switch-trackHeight);
+    width: var(--Switch-trackWidth);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: var(--variant-borderWidth, 0px) solid;
+    border-color: var(--Switch-trackBorderColor);
+    background-color: var(--Switch-trackBackground) !important;
+    border-radius: var(--Switch-trackRadius);
+    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-fontSize-sm);
+    filter: unset;
+}
+
+.ia_toggleSwitch:hover {
+    --Switch-trackBackground: var(--joy-palette-neutral-solidHoverBg, var(--joy-palette-neutral-600, #054DA7));
+    --Switch-trackBorderColor: currentColor;
+    --Switch-thumbColor: var(--joy-palette-neutral-solidHoverBg, var(--joy-palette-neutral-600, #054DA7));
+}
+
+.ia_toggleSwitch__track--selected {
+    background-color: var(--Switch-trackBackground) !important;
+    opacity: 1;
+}
+
+.ia_toggleSwitch__thumbContainer {
+    --Icon-fontSize: calc(var(--Switch-thumbSize) * 0.75);
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - var(--Switch-trackWidth) / 2 + var(--Switch-thumbWidth) / 2 + var(--Switch-thumbOffset));
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: var(--Switch-thumbWidth);
+    height: var(--Switch-thumbSize);
+    border-radius: var(--Switch-thumbRadius);
+    box-shadow: var(--Switch-thumbShadow);
+    color: var(--Switch-thumbColor);
+    background-color: var(--Switch-thumbBackground) !important;
+    transition: all .1s ease-in-out;
+}
+
+.ia_toggleSwitch__thumbContainer:has(.ia_toggleSwitch__thumb--selected) {
+    left: calc(50% + var(--Switch-trackWidth) / 2 - var(--Switch-thumbWidth) / 2 - var(--Switch-thumbOffset));
+}
+
+.ia_toggleSwitch__thumb {
+	display: none;
+}

@@ -5,32 +5,35 @@
 [PostCSS]: https://github.com/postcss/postcss
 
 ```css
-[psc='Folder1/class'] {
-    color: black;
+[psc="Folder1/class"] { 
+  color: black; 
 }
 
-[psc='Folder1/Folder2/class'] {
-    color: black;
+[psc="Folder1/Folder2/class"] { 
+  color: black; 
 }
 
-[psc='Folder1/class1'].otherClass1 .otherClass2 {
-    color: black;
+[psc="Folder1/class1"].otherClass1 .otherClass2 { 
+  color: black; 
 }
+
+
+
 ```
 
 will be processed to:
 
 ```css
-.psc-Folder1\/class {
-    color: black;
+.psc-Folder1\/class { 
+  color: black; 
 }
 
-.psc-Folder1\/Folder2\/class {
-    color: black;
+.psc-Folder1\/Folder2\/class { 
+  color: black; 
 }
 
-.psc-Folder1\/class1.otherClass1 .otherClass2 {
-    color: black;
+.psc-Folder1\/class1.otherClass1 .otherClass2 { 
+  color: black; 
 }
 ```
 
@@ -65,18 +68,17 @@ By default, the plugin will use `/` as the separator for Style Class folders.
 Use this option to specify a custom separator to use in your CSS.
 
 ```js
-postcss([require('postcss-perspective-style-class')({ separator: '-' })])
+postcss([ require('postcss-perspective-style-class')({ separator: '-' }) ])
 ```
-
 ```css
 /* Input */
-[psc='Folder1-class'] {
-    color: black;
+[psc="Folder1-class"] {
+  color: black;
 }
 
 /* Output */
-.psc-Folder1\/class {
-    color: black;
+.psc-Folder1\/class { 
+  color: black;
 }
 ```
 
@@ -86,20 +88,17 @@ A callback function can be specified which will be supplied with a list of the S
 
 ```js
 const cb = (styleClasses) => console.log(styleClasses)
-postcss([require('postcss-perspective-style-class')({ cb })])
+postcss([ require('postcss-perspective-style-class')({ cb }) ])
 ```
-
 ```css
-[psc='Folder1/class1'].otherClass,
-[psc='Folder2/class2'] {
-    color: black;
+[psc="Folder1/class1"].otherClass, 
+[psc="Folder2/class2"] { 
+  color: black; 
 }
 ```
-
 results in:
-
 ```js
-;['Folder1/class1', 'Folder2/class2']
+[ 'Folder1/class1', 'Folder2/class2' ]
 ```
 
 [official docs]: https://github.com/postcss/postcss#usage

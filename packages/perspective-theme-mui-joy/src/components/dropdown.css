@@ -1,0 +1,331 @@
+.ia_dropdown {
+    @include variant-support(Input);
+
+    /* Define component properties */
+    --Input-radius: var(--radius-sm);
+    --Input-gap: 0.5rem;
+    --Input-placeholderColor: inherit;
+    --Input-placeholderOpacity: 0.5;
+    --Input-focused: 0;
+    --Input-focusedThickness: var(--focus-thickness);
+    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Icon-fontSize: 1.5rem;
+    --Input-decoratorChildOffset: min(calc(var(--Input-paddingInline) - (var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2), var(--Input-paddingInline));
+    --_Input-paddingBlock: max((var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Input-decoratorChildHeight)) / 2, 0px);
+    --Input-decoratorChildRadius: max(var(--Input-radius) - var(--variant-borderWidth, 0px) - var(--_Input-paddingBlock), min(var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px), var(--Input-radius) / 2));
+    --Button-minHeight: var(--Input-decoratorChildHeight);
+    --IconButton-size: var(--Input-decoratorChildHeight);
+    --Button-radius: var(--Input-decoratorChildRadius);
+    --IconButton-radius: var(--Input-decoratorChildRadius);
+
+    /* Default to Medium size */
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
+
+    /* Style */
+    box-sizing: border-box;
+    min-width: 0px;
+    min-height: var(--Input-minHeight);
+    position: relative;
+    display: flex;
+    font-family: var(--fontFamily-body);
+    font-size: var(--fontSize-md);
+
+    /* Apply component properties */
+    overflow: visible;
+    color: var(--Input-Color);
+    background-color: var(--Input-Bg, var(--palette-background-surface));
+    border-color: var(--Input-Border);
+    border-width: var(--Input-borderWidth);
+    border-style: var(--Input-borderStyle);
+    border-radius: var(--Input-radius);
+    min-height: var(--Input-minHeight);
+    padding-inline: var(--Input-paddingInline);
+
+    &:hover {
+        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder));
+    }
+
+
+    &:disabled {
+        @include component-state(Input, Disabled);
+    
+        pointer-events: none;
+        cursor: default;
+    }
+
+    &[psc='Size/sm'] {
+        --Input-minHeight: 2rem;
+        --Input-paddingInline: 0.5rem;
+        --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
+    }
+    
+    &[psc='Size/md'] {
+        --Input-minHeight: 2.5rem;
+        --Input-paddingInline: 0.75rem;
+        --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));        
+    }
+    
+    &[psc='Size/lg'] {
+        --Input-minHeight: 3rem;
+        --Input-paddingInline: 1rem;
+        --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));
+    }
+
+    [psc='Variant/plain'],
+    [psc='Variant/outlined'] {
+        --Input-Bg: var(--palette-background-surface);
+    }
+
+    svg {
+        fill: currentColor;
+    }
+
+    input {
+        font-family: var(--fontFamily-body);
+        font-size: var(--fontSize-md);
+    }
+
+    &.iaDropdownCommon > div {
+        overflow: visible;
+    }
+
+    &:focus-within::before {
+        --Input-focused: 1;
+    }
+
+    &::before {
+        box-sizing: border-box;
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        inset: 0px;
+        z-index: 1;
+        border-radius: var(--Input-radius, inherit);
+        margin: calc(var(--Input-borderWidth, 0px) * -1);
+        box-shadow: var(--Input-focusedInset, inset) 0 0 0 calc(var(--Input-focused) * var(--Input-focusedThickness)) var(--Input-focusedHighlight);
+    }
+
+    &__placeholder {
+        opacity: var(--Input-placeholderOpacity);
+    }
+}
+
+
+.iaDropdownCommon {
+
+    &_search {
+        color: var(--palette-text-primary);
+    }
+
+    &_search_enabled {
+        cursor: text;
+    }
+}
+
+
+.iaDropdownCommon_clear_value,
+.ia_dropdown__expandIcon.material-icons.md-24 {
+    
+
+    --Icon-margin: initial;
+
+    min-width: var(--IconButton-size, 2.5rem);
+    min-height: var(--IconButton-size, 2.5rem);
+
+    padding-inline: 0.25rem;
+    padding-block: 0px;
+    margin: var(--IconButton-margin);
+    border-radius: var(--IconButton-radius, var(--radius-sm));
+
+    cursor: pointer;
+    display: inline-flex;
+
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    --variant-borderWidth: 0px;
+
+    margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
+    margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
+
+    margin-top: calc(var(--Input-decoratorChildOffset)/2);
+    margin-bottom: calc(var(--Input-decoratorChildOffset)/2);
+    margin-left: var(--Input-decoratorChildOffset);
+
+    symbol {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: var(--Icon-margin);
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        fill: currentColor;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: var(--Icon-fontSize, 1.25rem);
+        color: var(--Icon-color);
+    }
+
+
+}
+
+.ia_dropdown__valuePill {
+    @include variant-support(Chip);
+    @include variant-forced(Chip, soft);
+
+    --Chip-radius: 1.5rem;
+
+    cursor: pointer;
+
+    color: var(--Chip-Color);
+    background-color: var(--Chip-Bg);
+    border-color: var(--Chip-Border);
+    border-width: var(--Chip-borderWidth);
+    border-style: var(--Chip-borderStyle);
+    border-radius: var(--Chip-radius);
+
+    font-size: var(--joy-fontSize-sm);
+    font-weight: var(--joy-fontWeight-md);
+    font-family: var(--joy-fontFamily-body);
+    margin-block-start: 3px;
+    margin-block-end: 3px;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+
+}
+
+.ia_dropdown__removeValue {
+    @include variant-support(Button);
+    @include variant-forced(Button, solid);
+
+    --Button-radius: 100%; 
+
+    margin-right: -7px;
+    height: 22px;
+    width: 22px;
+
+    color: var(--Button-Color);
+    background-color: var(--Button-Bg);
+    border-color: var(--Button-Border);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
+    border-radius: var(--Button-radius);
+
+    &:hover {
+        @include component-state-forced(Button, solid, Hover);
+    }
+
+    &:active {
+        @include component-state-forced(Button, solid, Active);
+    }
+
+}
+
+.iaDropdownCommon_clear_value,
+.ia_dropdown__expandIcon {
+    @include variant-support(Button);
+
+    --Button-borderStyle: none;
+    --Button-radius: var(--radius-sm);
+
+    color: var(--Button-Color);
+    background-color: var(--Button-Bg);
+    border-color: var(--Button-Border);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
+    border-radius: var(--Button-radius);
+    border-radius: var(--IconButton-radius, var(--radius-sm));
+
+    &:hover {
+        @include component-state(Button, Hover);
+    }
+
+    &:active {
+        @include component-state(Button, Active);
+    }
+
+}
+
+.ia_dropdown__optionsModal {
+    background-color: var(--palette-background-popup);
+    border-color: var(--palette-neutral-outlinedBorder);
+    border-width: var(--variant-outlined-borderWidth);
+    border-style: var(--variant-outlined-borderStyle);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+}
+
+.ia_dropdown__option {
+    @include variant-support(Option);
+    @include style-forced(Option, plain, neutral);
+
+    /* Define component properties */
+    --OptionDivider-gap: 0.375rem;
+    --Option-minHeight: 2.5rem;
+    --Option-paddingY: 0.375rem;
+    --Option-paddingX: 0.75rem;
+    --Option-fontSize: var(--joy-fontSize-md);
+    --Option-paddingLeft: var(--Option-paddingX);
+    --Option-paddingRight: var(--Option-paddingX);
+    --Option-startActionTranslateX: calc(0.5 * var(--Option-paddingLeft));
+    --Option-endActionTranslateX: calc(-0.5 * var(--Option-paddingRight));
+
+    /* Style */
+    font-family: var(--fontFamily-body);
+    padding-block: calc(var(--Option-paddingY) - var(--Option-borderWidth, 0px));
+    margin-inline: var(--ListItemButton-marginInline);
+    text-align: initial;
+    background-color: initial;
+    cursor: pointer;
+    margin-block-start: var(--List-gap);
+    padding-inline-start: calc(var(--Option-paddingLeft) + var(--Option-startActionWidth, var(--unstable_startActionWidth, 0px)));
+    padding-inline-end: calc(var(--Option-paddingRight) + var(--Option-endActionWidth, var(--unstable_endActionWidth, 0px)));
+    min-block-size: var(--Option-minHeight);
+
+    /* Apply component properties */
+    color: var(--Option-Color);
+    background-color: var(--Option-Bg);
+    border-color: var(--Option-Border);
+    border-width: var(--Option-borderWidth);
+    border-style: var(--Option-borderStyle);
+    font-size: var(--Option-fontSize);
+
+    &:hover {
+        --Option-Bg: var(--palette-neutral-plainHoverBg)
+    }
+
+    &--selected {
+        @include style-forced(Option, soft, primary);
+    
+        font-weight: var(--fontWeight-md);
+    }
+}
+
+/* Resets and Adjustments */
+.iaDropdownCommon.iaDropdownCommon_multi-select > div  {
+    & > *:first-child:has(.ia_dropdown__valuePill) {
+        margin-left: calc(var(--Input-decoratorChildOffset)*-1);
+    }
+    & > *:last-child:has(symbol) {
+        margin-right: calc(var(--Input-decoratorChildOffset)*-1);
+    }
+}
+
+.iaDropdownCommon_options_modal .iaDropdownCommon_option.ia_dropdown__option {
+    padding: 8px 8px;
+}
+
+.iaDropdownCommon .iaDropdownCommon_value-container .ia_dropdown__valuePill {
+    align-items: center;
+}
+
+.iaDropdownCommon.ia_dropdown {
+    overflow: visible;
+}

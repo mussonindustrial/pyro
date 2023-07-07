@@ -1,0 +1,55 @@
+$variants: (plain, outlined, soft, solid);
+$states: (Hover, Active, Disabled);
+$drivenProperties: (Color, Bg, Border);
+$staticProperties: (borderWidth, borderStyle);
+
+:root {
+    --variant-plain-borderWidth: 0px;
+    --variant-plain-borderStyle: none;
+    --variant-outlined-borderWidth: 1px;
+    --variant-outlined-borderStyle: solid;
+    --variant-soft-borderWidth: 0px;
+    --variant-soft-borderStyle: none;
+    --variant-solid-borderWidth: 0px;
+    --variant-solid-borderStyle: none;
+
+    /* Default to outlined neutral */
+@each $property in $drivenProperties {
+    --variant-default$(property): var(--palette-neutral-outlined$(property));
+
+    @each $state in $states {
+        --variant-default$(state)$(property): var(--palette-neutral-outlined$(state)$(property), var(--palette-neutral-outlined$(property)));
+    }
+}
+
+@each $property in $staticProperties {
+    --variant-default$(property): var(--variant-outlined-$(property));
+}
+
+
+}
+
+
+@each $variant in $variants {
+    [psc='Variant/$(variant)'] {
+
+        @each $property in $drivenProperties {
+            --variant-$(property): var(--variant-$(variant)$(property), unset );
+
+            @each $state in $states {
+                --variant-$(state)$(property): var(--variant-$(variant)$(state)$(property), var(--variant-$(variant)$(property), unset ));
+            }
+
+        }
+
+        @each $property in $staticProperties {
+            --variant-$(property): var(--variant-$(variant)-$(property), unset );
+        }
+
+        &:disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}
+

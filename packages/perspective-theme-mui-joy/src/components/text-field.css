@@ -1,0 +1,89 @@
+[data-component='ia.input.text-field'] {
+    @include variant-support(Input);
+
+    /* Define component properties */
+    --Input-radius: var(--radius-sm);
+    --Input-gap: 0.5rem;
+    --Input-placeholderColor: var(--Input-Color);
+    --Input-placeholderOpacity: 0.5;
+    --Input-focused: 0;
+    --Input-focusedThickness: var(--focus-thickness);
+    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+
+    /* Default to Medium size */
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+
+    /* Style */
+    box-sizing: border-box;
+    min-width: 0px;
+    min-height: var(--Input-minHeight);
+    overflow: visible;
+    position: relative;
+    display: flex;
+    font-family: var(--fontFamily-body);
+    font-size: var(--fontSize-md);
+
+    /* Apply component properties */
+    color: var(--Input-Color);
+    background-color: var(--Input-Bg, var(--palette-background-surface));
+    border-color: var(--Input-Border);
+    border-width: var(--Input-borderWidth);
+    border-style: var(--Input-borderStyle);
+    border-radius: var(--Input-radius);
+    min-height: var(--Input-minHeight);
+    padding-inline: var(--Input-paddingInline);
+
+    &:hover {
+        --Input-Border: var(--variant-HoverBorder, var(--Input-default-HoverBorder););
+    }
+
+
+    &:disabled {
+        @include component-state(Input, Disabled);
+    
+        pointer-events: none;
+        cursor: default;
+    }
+
+    &[psc='Variant/plain'],
+    &[psc='Variant/outlined'] {
+        --Input-Bg: var(--palette-background-surface);
+    }
+
+
+    &::placeholder {
+        font-family: var(--fontFamily-body);
+        font-size: var(--fontSize-md);
+        color: var(--Input-placeholderColor);
+        opacity: var(--Input-placeholderOpacity);
+    }
+    
+
+    &:focus-within {
+        outline-width: var(--Input-focusedThickness);
+        outline-style: solid;
+        outline-color: var(--Input-focusedHighlight);
+        outline-offset: min(calc(var(--Input-borderWidth, 0px) * -1), -1px);
+    }
+}
+
+[psc='Size/sm'] [data-component='ia.input.text-field'],
+[psc='Size/sm'][data-component='ia.input.text-field'] {
+    --Input-minHeight: 2rem;
+    --Input-paddingInline: 0.5rem;
+}
+
+[psc='Size/md'] [data-component='ia.input.text-field'],
+[psc='Size/md'][data-component='ia.input.text-field'] {
+    --Input-minHeight: 2.5rem;
+    --Input-paddingInline: 0.75rem;
+}
+
+[psc='Size/lg'] [data-component='ia.input.text-field'],
+[psc='Size/lg'][data-component='ia.input.text-field'] {
+    --Input-minHeight: 3rem;
+    --Input-paddingInline: 1rem;
+}

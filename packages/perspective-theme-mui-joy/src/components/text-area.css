@@ -1,0 +1,91 @@
+[data-component='ia.input.text-area'] {
+    @include variant-support(Textarea);
+
+    /* Define component properties */
+    --Textarea-radius: var(--radius-sm);
+    --Textarea-gap: 0.5rem;
+    --Textarea-placeholderColor: var(--Textarea-Color);
+    --Textarea-placeholderOpacity: 0.5;
+    --Textarea-focused: 0;
+    --Textarea-focusedThickness: var(--focus-thickness);
+    --Textarea-focusedHighlight: var(--palette-primary-solidBg);
+    --Textarea-minHeight: 2.5rem;
+    --Textarea-paddingBlock: calc(0.5rem - var(--variant-borderWidth, 0px));
+    --Textarea-paddingInline: 0.75rem;
+
+    /* Default to Medium size */
+    --Textarea-minHeight: 2.5rem;
+    --Textarea-paddingInline: 0.75rem;
+
+    /* Style */
+    box-sizing: border-box;
+    min-width: 0px;
+    min-height: var(--Textarea-minHeight);
+    overflow: visible;
+    position: relative;
+    display: flex;
+    font-family: var(--fontFamily-body);
+    font-size: var(--fontSize-md);
+
+    /* Apply component properties */
+    color: var(--Textarea-Color);
+    background-color: var(--Textarea-Bg, var(--palette-background-surface));
+    border-color: var(--Textarea-Border);
+    border-width: var(--Textarea-borderWidth);
+    border-style: var(--Textarea-borderStyle);
+    border-radius: var(--Textarea-radius);
+    min-height: var(--Textarea-minHeight);
+    padding-block: var(--Textarea-paddingBlock);
+    padding-inline: var(--Textarea-paddingInline);
+
+    &:hover {
+        --Textarea-Border: var(--variant-HoverBorder, var(--Textarea-default-HoverBorder););
+    }
+
+
+    &:disabled {
+        @include component-state(Textarea, Disabled);
+    
+        pointer-events: none;
+        cursor: default;
+    }
+
+    &[psc='Variant/plain'],
+    &[psc='Variant/outlined'] {
+        --Textarea-Bg: var(--palette-background-surface);
+    }
+
+
+    &::placeholder {
+        font-family: var(--fontFamily-body);
+        font-size: var(--fontSize-md);
+        color: var(--Textarea-placeholderColor);
+        opacity: var(--Textarea-placeholderOpacity);
+    }
+    
+
+    &:focus-within {
+        outline-width: var(--Textarea-focusedThickness);
+        outline-style: solid;
+        outline-color: var(--Textarea-focusedHighlight);
+        outline-offset: min(calc(var(--Textarea-borderWidth, 0px) * -1), -1px);
+    }
+}
+
+[psc='Size/sm'] [data-component='ia.input.text-area'],
+[psc='Size/sm'][data-component='ia.input.text-area'] {
+    --Textarea-minHeight: 2rem;
+    --Textarea-paddingInline: 0.5rem;
+}
+
+[psc='Size/md'] [data-component='ia.input.text-area'],
+[psc='Size/md'][data-component='ia.input.text-area'] {
+    --Textarea-minHeight: 2.5rem;
+    --Textarea-paddingInline: 0.75rem;
+}
+
+[psc='Size/lg'] [data-component='ia.input.text-area'],
+[psc='Size/lg'][data-component='ia.input.text-area'] {
+    --Textarea-minHeight: 3rem;
+    --Textarea-paddingInline: 1rem;
+}

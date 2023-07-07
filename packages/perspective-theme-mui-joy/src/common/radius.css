@@ -1,0 +1,13 @@
+:root {
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+}
+
+@each $size in (xs, sm, md, lg, xl) {
+    [psc='Radius/$size'] {
+        border-radius: var(--radius-$(size));
+    }
+}

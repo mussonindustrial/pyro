@@ -1,0 +1,150 @@
+/* Slider generates a background element that can be used for various purposes. */
+.ia-slider {
+    @include variant-support(Slider);
+
+    --Slider-size: max(42px, max(var(--Slider-thumbSize), var(--Slider-trackSize)));
+    --Slider-trackRadius: var(--Slider-size);
+    --Slider-markBackground: var(--palette-text-tertiary);
+
+    /* Default to medium size */
+    --Slider-markSize: 2px;
+    --Slider-trackSize: 6px;
+    --Slider-thumbSize: 14px;
+    --Slider-valueLabelArrowSize: 8px;
+
+    --Slider-thumbRadius: calc(var(--Slider-thumbSize) / 2);
+    --Slider-thumbWidth: var(--Slider-thumbSize);
+    --Slider-thumbBackground: var(--Slider-Color);
+    --Slider-thumbColor: var(--Slider-Bg);
+    
+    --Slider-trackColor: var(--Slider-Color);
+    --Slider-trackBackground: var(--Slider-Bg);
+    --Slider-trackBorderColor: var(--Slider-Border);
+
+    --Slider-railBackground: var(--palette-background-level2);
+
+    &[psc='Variant/plain'],
+    &[psc='Variant/outlined'] {
+        --Slider-thumbColor: var(--palette-background-surface);
+        --Slider-trackBackground: var(--palette-background-surface);
+    }
+
+    &:hover {
+        @include component-state(Slider, Hover);
+    }
+
+    &:active {
+        @include component-state(Slider, Active);
+    }
+
+
+    .slider:not(.slider-vertical) {
+        .slider-rail {
+            height: var(--Slider-trackSize);
+        }
+
+        .slider-track {
+            height: var(--Slider-trackSize);
+            width: 100%;
+            border-radius: var(--Slider-trackRadius) 0 0 var(--Slider-trackRadius);
+        }
+
+        .slider-handle {
+            margin-left: calc(var(--Slider-thumbWidth)/2 * -1);
+            margin-top: calc(var(--Slider-thumbWidth)/4 * -1);
+        }
+    }
+
+    .slider.slider-vertical {
+        .slider-rail {
+            width: var(--Slider-trackSize);
+        }
+
+        .slider-track {
+            height: 100%;
+            width: var(--Slider-trackSize);
+            border-radius: 0 0 var(--Slider-trackRadius) var(--Slider-trackRadius);
+        }
+
+        .slider-handle {
+            margin-left: calc(var(--Slider-thumbWidth)/4 * -1);
+            margin-bottom: calc(var(--Slider-thumbWidth)/2 * -1);
+        }
+    }
+
+
+    .slider-rail {
+        background-color: var(--Slider-railBackground);
+        border-radius: var(--Slider-trackRadius);
+    }
+
+    .slider-track {
+        color: var(--Slider-trackColor);
+        background-color: var(--Slider-trackBackground);
+
+        border-width:  var(--variant-borderWidth, 0px);
+        border-style: var(--variant-borderStyle);
+        border-color: var(--Slider-trackBorderColor);
+        border-radius: var(--Slider-trackRadius) 0 0 var(--Slider-trackRadius);
+    }
+
+    .slider .slider-handle {
+
+        width: var(--Slider-thumbWidth);
+        height: var(--Slider-thumbSize);
+
+        color: var(--Slider-thumbColor);
+        background-color: var(--Slider-thumbBackground);
+
+        border: var(--variant-borderWidth, 0px) solid var(--Slider-trackBorderColor);
+        border-radius: var(--Slider-thumbRadius);
+
+        box-shadow: var(--Slider-thumbShadow);
+
+        background-color: var(--Slider-thumbBackground);
+
+        cursor: pointer;
+        overflow: visible;
+
+        &:before {
+            content: "";
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            background: transparent;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid;
+            border-color: var(--Slider-thumbColor);
+            border-radius: inherit;
+        }
+
+    }
+
+}
+
+[psc='Size/sm'] .ia-slider,
+[psc='Size/sm'].ia-slider {
+    --Slider-markSize: 2px;
+    --Slider-trackSize: 4px;
+    --Slider-thumbSize: 10px;
+    --Slider-valueLabelArrowSize: 6px;
+}
+
+[psc='Size/md'] .ia-slider,
+[psc='Size/md'].ia-slider {
+    --Slider-markSize: 2px;
+    --Slider-trackSize: 6px;
+    --Slider-thumbSize: 14px;
+    --Slider-valueLabelArrowSize: 8px;
+}
+
+[psc='Size/lg'] .ia-slider,
+[psc='Size/lg'].ia-slider {
+    --Slider-markSize: 3px;
+    --Slider-trackSize: 10px;
+    --Slider-thumbSize: 20px;
+    --Slider-valueLabelArrowSize: 10px;
+}

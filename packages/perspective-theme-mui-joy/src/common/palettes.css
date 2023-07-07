@@ -1,0 +1,39 @@
+$palettes: (primary, neutral, danger, info, success, warning);
+$variants: (plain, outlined, soft, solid);
+$states: (Hover, Active, Disabled);
+$attributes: (Color, Bg, Border);
+
+@each $palette in $palettes {
+    [psc='Palette/$(palette)'] {
+
+        @each $variant in $variants {
+            @each $attribute in $attributes {
+
+                --variant-$(variant)$(attribute): var(--palette-$(palette)-$(variant)$(attribute));
+
+                @each $state in $states {
+                    --variant-$(variant)$(state)$(attribute): var(--palette-$(palette)-$(variant)$(state)$(attribute), var(--palette-$(palette)-$(variant)$(attribute)));
+                }
+            }
+        }
+    }
+}
+
+@mixin palette-default($component, $palette: primary) {
+    &:not(:where([psc='Palette/danger'],[psc='Palette/info'],[psc='Palette/neutral'],[psc='Palette/primary'],[psc='Palette/success'],[psc='Palette/warning']))  {
+        
+        @each $variant in $variants {
+            @each $property in $drivenProperties {
+                --$(component)-default-$(variant)$(property): var(--palette-$(palette)-$(variant)$(property));
+
+                @each $state in $states {
+                  --$(component)-default-$(variant)$(state)$(property): var(--palette-$(palette)-$(variant)$(state)$(property), var(--palette-$(palette)-$(variant)$(property)));
+                }
+            }
+
+            @each $property in $staticProperties {
+                --$(component)-default-$(variant)-$(property): var(--variant-$(variant)-$(property));
+            }
+        }
+    }
+}

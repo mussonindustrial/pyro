@@ -1,0 +1,16 @@
+.docked-view:has([psc='Dock/Glass'])::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10;
+    background-color: color-mix(in srgb, var(--palette-background-popup) 85%, transparent);
+    backdrop-filter: blur(10px);
+}
+
+.docked-view.dock-cover-shadow-left,
+.docked-view.dock-cover-shadow-right,
+.docked-view.dock-cover-shadow-top,
+.docked-view.dock-cover-shadow-bottom {
+    box-shadow: var(--shadow-xl);
+}

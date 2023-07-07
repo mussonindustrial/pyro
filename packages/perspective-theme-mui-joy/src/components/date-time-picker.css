@@ -1,0 +1,4 @@
+.ia_dateTimePickerComponent {
+    @include variant-support(DateTime);
+
+}

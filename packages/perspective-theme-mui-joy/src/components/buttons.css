@@ -1,0 +1,83 @@
+/* Button */
+[data-component='ia.input.button'],
+.ia_button--primary,
+.ia_button--secondary {
+    @include variant-support(Button);
+
+    /* Default to Medium size */
+    --Icon-margin: initial;
+    --Icon-fontSize: 1.5rem;
+    --CircularProgress-size: 24px;
+    --Button-gap: 0.5rem;
+    min-height: var(--Button-minHeight, 2.5rem);
+    font-size: var(--fontSize-sm);
+
+    /* Style */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+
+    font-family: var(--fontFamily-body);
+    font-weight: var(--fontWeight-lg);
+    line-height: 1;
+    padding-block: 0.25rem;
+    padding-inline: 1rem;
+
+    /* Apply component properties */
+    color: var(--Button-Color);
+    background-color: var(--Button-Bg);
+    border-color: var(--Button-Border);
+    border-width: var(--Button-borderWidth);
+    border-style: var(--Button-borderStyle);
+    border-radius: var(--Button-radius, var(--radius-sm));
+    margin: var(--Button-margin);
+
+
+    &:hover {
+        @include component-state(Button, Hover);
+    }
+
+    &:active {
+        @include component-state(Button, Active);
+    }
+
+    &:disabled {
+        @include component-state(Button, Disabled);
+
+        pointer-events: none;
+        cursor: default;
+    }
+
+    svg {
+        fill: currentColor;
+        flex-shrink: 0;
+    }
+}
+
+
+[psc='Size/sm'] [data-component='ia.input.button'],
+[psc='Size/sm'][data-component='ia.input.button']  {
+    min-height: var(--Button-minHeight, 2rem);
+    padding-block: 2px;
+    padding-inline: 0.75rem;
+    font-size: var(--fontSize-sm);
+}
+
+[psc='Size/md'] [data-component='ia.input.button'],
+[psc='Size/md'][data-component='ia.input.button']  {
+    min-height: var(--Button-minHeight, 2.5rem);
+    padding-block: 0.25rem;
+    padding-inline: 1rem;
+    font-size: var(--fontSize-sm);
+}
+
+[psc='Size/lg'] [data-component='ia.input.button'],
+[psc='Size/lg'][data-component='ia.input.button']  {
+    min-height: var(--Button-minHeight, 3rem);
+    padding-block: 0.375rem;
+    padding-inline: 1.5rem;
+    font-size: var(--fontSize-md);
+}

@@ -1,0 +1,14 @@
+/* Sheets */
+[psc='Container/sheet'] {
+
+    @include variant-support(Sheet);
+    @include variant-default(Sheet, plain);
+    @include palette-default(Sheet, neutral);
+
+    /* Variant */
+    color: var(--Sheet-Color);
+    background-color: var(--Sheet-Bg, var(--joy-palette-background-surface));
+    border-color: var(--Sheet-Border);
+    border-width: var(--Sheet-borderWidth);
+    border-style: var(--Sheet-borderStyle);
+}
