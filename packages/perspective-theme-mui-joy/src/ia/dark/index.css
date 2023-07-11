@@ -1,0 +1,6 @@
+@import './variables.css';
+@import '../light/fonts.css';
+@import '../light/app/index.css';
+@import '../light/common/index.css';
+@import '../light/palette/index.css';
+@import './palette/index.css';

@@ -1,6 +1,9 @@
 @import 'colors/light.css' (prefers-color-scheme: light);
 @import 'colors/dark.css' (prefers-color-scheme: dark);
 
+@import 'ia/light' (prefers-color-scheme: light);
+@import 'ia/dark' (prefers-color-scheme: dark);
+
 @import 'common';
 
 @import 'classes';
