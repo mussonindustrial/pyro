@@ -1,3 +1,3 @@
 # `tsconfig`
 
-Collection of internal tsconfigs shared between [perspective-tools/packages/](https://github.com/mussonindustrial/perspective-tools/tree/main/packages)
+Collection of internal tsconfigs shared between [ignition-tools/packages/](https://github.com/mussonindustrial/ignition-tools/tree/main/packages)

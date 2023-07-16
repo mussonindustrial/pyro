@@ -1,4 +1,6 @@
 import crypto from 'crypto'
+import fs from 'fs'
+import path from 'path'
 import { serializeScope, toByte, toByteArray } from './util'
 import {
     Resource,
@@ -7,9 +9,9 @@ import {
     ResourceProperties,
 } from './types'
 
-export async function newResource<T extends ResourceFiles>(
+export async function newResource<T extends string>(
     props: Partial<ResourceProperties>,
-    files: T
+    files: ResourceFiles<T>
 ) {
     const resource = {
         scope: props.scope || 'none',
@@ -35,14 +37,29 @@ export async function newResource<T extends ResourceFiles>(
     return resource
 }
 
-export async function parseResource<T extends ResourceFiles>(resource: Buffer) {
-    const loaded = JSON.parse(resource.toString()) as Resource<T>
-    return loaded as Resource<T>
+export async function parseResource<T extends string[]>(folder: string) {
+    const r = fs.readFileSync(path.join(folder, 'resource.json'))
+
+    const resource = JSON.parse(r.toString()) as Resource<T[number]>
+
+    let files = {}
+    for (const file of resource.files) {
+        const f = file as string
+        files = {
+            ...files,
+            [f]: fs.readFileSync(path.join(folder, f)),
+        }
+    }
+
+    return {
+        resource,
+        files: files as ResourceFiles<T[number]>,
+    }
 }
 
-export async function calculateSignature<T extends ResourceFiles>(
+export async function calculateSignature<T extends string>(
     resource: Resource<T>,
-    files: T
+    files: ResourceFiles<T>
 ) {
     const hash = crypto.createHash('sha256')
 
@@ -62,8 +79,9 @@ export async function calculateSignature<T extends ResourceFiles>(
     hash.update(toByte(resource.overridable))
 
     for (const path of resource.files.sort()) {
-        hash.update(path)
-        const file = files[path]
+        const p = path as keyof typeof files
+        hash.update(p)
+        const file = files[p]
         if (file) {
             hash.update(file)
         } else {
@@ -87,9 +105,9 @@ export async function calculateSignature<T extends ResourceFiles>(
     return digest.toString('hex')
 }
 
-export async function hasValidSignature<T extends ResourceFiles>(
+export async function hasValidSignature<T extends string>(
     resource: Resource<T>,
-    files: T
+    files: ResourceFiles<T>
 ) {
     return (
         resource.attributes.lastModificationSignature ===

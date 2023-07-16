@@ -92,8 +92,8 @@ it('should produce expected signature with style class example', async () => {
         }
     )
 
-    const referencePath = path.join(testsFolder, 'sample1', 'resource.json')
-    const reference = await parseResource(fs.readFileSync(referencePath))
+    const reference = (await parseResource(path.join(testsFolder, 'sample1')))
+        .resource
 
     expect(resource.attributes.lastModificationSignature).toBe(
         reference.attributes.lastModificationSignature
@@ -119,8 +119,8 @@ it('should produce expected signature with Vision window example', async () => {
         }
     )
 
-    const referencePath = path.join(testsFolder, 'sample2', 'resource.json')
-    const reference = await parseResource(fs.readFileSync(referencePath))
+    const reference = (await parseResource(path.join(testsFolder, 'sample2')))
+        .resource
 
     expect(resource.attributes.lastModificationSignature).toBe(
         reference.attributes.lastModificationSignature
@@ -135,18 +135,42 @@ it('should produce expected signature with Perspective view example', async () =
             scope: 'G',
             version: 1,
             restricted: false,
-            overridable: true,
+            overridable: false,
             actor: 'admin',
-            timestamp: '2020-05-06T18:22:14Z',
+            timestamp: '2022-01-05T18:19:55Z',
         },
         {
-            'view.json': fs.readFileSync(view),
             'thumbnail.png': fs.readFileSync(thumbnail),
+            'view.json': fs.readFileSync(view),
         }
     )
 
-    const referencePath = path.join(testsFolder, 'sample3', 'resource.json')
-    const reference = await parseResource(fs.readFileSync(referencePath))
+    const reference = (await parseResource(path.join(testsFolder, 'sample3')))
+        .resource
+
+    expect(resource.attributes.lastModificationSignature).toBe(
+        reference.attributes.lastModificationSignature
+    )
+})
+
+it('should produce expected signature with Perspective general properties example', async () => {
+    const data = path.join(testsFolder, 'sample4', 'data.bin')
+    const resource = await newResource(
+        {
+            scope: 'G',
+            version: 1,
+            restricted: false,
+            overridable: true,
+            actor: 'admin',
+            timestamp: '2021-12-23T19:55:44Z',
+        },
+        {
+            'data.bin': fs.readFileSync(data),
+        }
+    )
+
+    const reference = (await parseResource(path.join(testsFolder, 'sample4')))
+        .resource
 
     expect(resource.attributes.lastModificationSignature).toBe(
         reference.attributes.lastModificationSignature
@@ -154,33 +178,19 @@ it('should produce expected signature with Perspective view example', async () =
 })
 
 it('should verify correct signatures', async () => {
-    const resource = await parseResource(
-        fs.readFileSync(path.join(testsFolder, 'sample1', 'resource.json'))
+    const reference = await parseResource<['style.json']>(
+        path.join(testsFolder, 'sample1')
     )
 
-    let files = {}
-    resource.files.forEach((file) => {
-        files = {
-            ...files,
-            [file]: fs.readFileSync(path.join(testsFolder, 'sample1', file)),
-        }
-    })
-
-    expect(await hasValidSignature(resource, files)).toEqual(true)
+    expect(
+        await hasValidSignature(reference.resource, reference.files)
+    ).toEqual(true)
 })
 
 it('should verify incorrect signatures', async () => {
-    const resource = await parseResource(
-        fs.readFileSync(path.join(testsFolder, 'incorrect1', 'resource.json'))
-    )
+    const reference = await parseResource(path.join(testsFolder, 'incorrect1'))
 
-    let files = {}
-    resource.files.forEach((file) => {
-        files = {
-            ...files,
-            [file]: fs.readFileSync(path.join(testsFolder, 'incorrect1', file)),
-        }
-    })
-
-    expect(await hasValidSignature(resource, files)).toEqual(false)
+    expect(
+        await hasValidSignature(reference.resource, reference.files)
+    ).toEqual(false)
 })

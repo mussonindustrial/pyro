@@ -1,14 +1,17 @@
 {
-    "scope": "G",
-    "version": 1,
-    "restricted": false,
-    "overridable": true,
-    "files": ["thumbnail.png", "view.json"],
-    "attributes": {
-        "lastModificationSignature": "e86aeeb367e98741786baf6a8632ce29301ab5827ebb2d7d6e07c3664ab07ae5",
-        "lastModification": {
-            "actor": "admin",
-            "timestamp": "2020-05-06T18:22:14Z"
-        }
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": false,
+  "files": [
+    "thumbnail.png",
+    "view.json"
+  ],
+  "attributes": {
+    "lastModificationSignature": "3997d8f779b3c73dff658cb92ceb9b6de64a66aad2b4e04df9f45a46824f3a3f",
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2022-01-05T18:19:55Z"
     }
+  }
 }
