@@ -15,6 +15,8 @@ it('should produce expected checksum', async () => {
         ?.file('StyleClass/resource.json')
         ?.async('string')
 
+    console.log(resource)
+
     expect(JSON.parse(resource!).attributes.lastModificationSignature).toEqual(
         '469a4d209743a8ac22aa87d150af6ef7b95b2818fee0ef805d13f70c6952b14c'
     )

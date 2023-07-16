@@ -8,23 +8,11 @@ export const ScopePrimitives = {
     A: 7,
 } as const
 
-type UnionToTuple<T> = PickOne<T> extends infer U
-    ? Exclude<T, U> extends never
-        ? [T]
-        : [...UnionToTuple<Exclude<T, U>>, U]
-    : never
-
-type Contra<T> = T extends any ? (arg: T) => void : never
-
-type InferContra<T> = [T] extends [(arg: infer I) => void] ? I : never
-
-type PickOne<T> = InferContra<InferContra<Contra<Contra<T>>>>
-
 export type ResourceFiles<T extends string> = {
-    [key in T]: Buffer
+    [key in T]: string | Buffer | DataView
 }
 
-export type ResourceProperties = {
+export type FlatResourceProps = {
     scope: Scope
     version: number
     documentation?: string
@@ -34,10 +22,29 @@ export type ResourceProperties = {
     actor: string
     timestamp: string
     signature: string
-    customAttributes: Record<string, any>
+    customAttributes: Record<string, unknown>
 }
 
-export type Resource<T> = {
+// UnionToIntersection<A | B> = A & B
+type UnionToIntersection<U> = (
+    U extends unknown ? (arg: U) => 0 : never
+) extends (arg: infer I) => 0
+    ? I
+    : never
+
+// LastInUnion<A | B> = B
+type LastInUnion<U> = UnionToIntersection<
+    U extends unknown ? (x: U) => 0 : never
+> extends (x: infer L) => 0
+    ? L
+    : never
+
+// UnionToTuple<A, B> = [A, B]
+type UnionToTuple<T, Last = LastInUnion<T>> = [T] extends [never]
+    ? []
+    : [Last, ...UnionToTuple<Exclude<T, Last>>]
+
+export type ResourceProps<T extends string> = {
     scope: Scope
     version: number
     documentation?: string
@@ -57,5 +64,20 @@ export type CommonResourceAttributes = {
 }
 
 export type ResourceAttributes = CommonResourceAttributes & {
-    customAttributes: Record<string, any>
+    customAttributes: Record<string, unknown>
 }
+
+export type Resource<T extends string> = {
+    props: ResourceProps<T>
+    files: ResourceFiles<T>
+}
+
+type DeepPartial<T> = T extends object
+    ? {
+          [P in keyof T]?: DeepPartial<T[P]>
+      }
+    : T
+
+export type PartialResourceProps<T extends string> = DeepPartial<
+    ResourceProps<T>
+>

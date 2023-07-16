@@ -8,8 +8,8 @@ import {
     isFolder,
     isNode,
 } from './resources'
-import { getResourceContents } from './resourceJSON'
 import _ from 'lodash'
+import { createResourceJson } from './resourceJson'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)
@@ -95,7 +95,7 @@ async function zipResource<T>(
         }
 
         if (generated) {
-            f.file('resource.json', await getResourceContents(filePaths, f))
+            await createResourceJson(filePaths, f)
         }
     }
     if (isFolder(resource)) {

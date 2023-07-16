@@ -22,27 +22,44 @@ import { newResource } from 'ignition-resource-json'
 
 const resource = await newResource(
     {
-        scope: 'gateway',
+        scope: 'G',
         version: 1,
         restricted: false,
         overridable: true,
-        actor: 'bmusson',
-        timestamp: '2023-06-28T17:48:27Z',
+        attributes: {
+            lastModification: {
+                actor: 'bmusson',
+                timestamp: '2023-06-28T17:48:27Z',
+            },
+        },
     },
     {
         'style.json': fs.readFileSync('./style/style.json'),
     }
 )
-console.log(resource)
+console.log(JSON.stringify(resource, null, 2))
 // {
-//   scope: 'G',
-//   version: 1,
-//   restricted: false,
-//   overridable: true,
-//   files: [ 'style.json' ],
-//   attributes: {
-//     lastModification: { actor: 'bmusson', timestamp: '2023-06-28T17:48:27Z' },
-//     lastModificationSignature: '469a4d209743a8ac22aa87d150af6ef7b95b2818fee0ef805d13f70c6952b14c'
+//   "props": {
+//     "scope": "G",
+//     "version": 1,
+//     "restricted": false,
+//     "overridable": true,
+//     "files": [
+//       "style.json"
+//     ],
+//     "attributes": {
+//       "lastModification": {
+//         "actor": "bmusson",
+//         "timestamp": "2023-06-28T17:48:27Z"
+//       },
+//       "lastModificationSignature": "469a4d209743a8ac22aa87d150af6ef7b95b2818fee0ef805d13f70c6952b14c"
+//     }
+//   },
+//   "files": {
+//     "style.json": {
+//       "type": "Buffer",
+//       "data": [...]
+//     }
 //   }
 // }
 ```
@@ -53,19 +70,27 @@ console.log(resource)
 import fs from 'fs'
 import { parseResource } from 'ignition-resource-json'
 
-const resource = await parseResource(fs.readFileSync('./view/resource.json'))
-console.log(resource)
+const MyView = (await parseResource('./views/MyView')))
+console.log(JSON.stringify(MyView.props, null, 2))
 // {
-//   scope: 'G',
-//   version: 1,
-//   restricted: false,
-//   overridable: true,
-//   files: [ 'thumbnail.png', 'view.json' ],
-//   attributes: {
-//     lastModificationSignature: 'e86aeeb367e98741786baf6a8632ce29301ab5827ebb2d7d6e07c3664ab07ae5',
-//     lastModification: { actor: 'admin', timestamp: '2020-05-06T18:22:14Z' }
+//   "scope": "G",
+//   "version": 1,
+//   "restricted": false,
+//   "overridable": false,
+//   "files": [
+//     "thumbnail.png",
+//     "view.json"
+//   ],
+//   "attributes": {
+//     "lastModification": {
+//       "actor": "admin",
+//       "timestamp": "2022-01-05T18:19:55Z"
+//     },
+//     "lastModificationSignature": "3997d8f779b3c73dff658cb92ceb9b6de64a66aad2b4e04df9f45a46824f3a3f"
 //   }
 // }
+
+const view = JSON.parse(MyView.files['view.json'].toString())
 ```
 
 ### Verify an existing `resource.json` file signature
@@ -74,17 +99,22 @@ console.log(resource)
 import fs from 'fs'
 import { parseResource, hasValidSignature } from 'ignition-resource-json'
 
-const resource = await parseResource(fs.readFileSync('./view/resource.json'))
-let files = {}
-resource.files.forEach((file) => {
-    files = {
-        ...files,
-        [file]: fs.readFileSync(`./view/${file}`),
-    }
-})
+const MyView = await parseResource('./views/MyView'))
 
-console.log(await hasValidSignature(resource, files))
+console.log(await hasValidSignature(MyView))
 // true
+```
+
+### Updating an existing `resource.json` file signature
+
+```js
+import fs from 'fs'
+import { parseResource, updateSignature } from 'ignition-resource-json'
+
+const MyView = await parseResource('./views/MyView'))
+
+console.log(await updateSignature(MyView))
+// true (if updated)
 ```
 
 [Ignition Resource JSON]: https://github.com/mussonindustrial/ignition-tools/packages/ignition-resource-json
