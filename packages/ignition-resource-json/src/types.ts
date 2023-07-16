@@ -8,7 +8,21 @@ export const ScopePrimitives = {
     A: 7,
 } as const
 
-export type ResourceFiles = Record<string, Buffer>
+type UnionToTuple<T> = PickOne<T> extends infer U
+    ? Exclude<T, U> extends never
+        ? [T]
+        : [...UnionToTuple<Exclude<T, U>>, U]
+    : never
+
+type Contra<T> = T extends any ? (arg: T) => void : never
+
+type InferContra<T> = [T] extends [(arg: infer I) => void] ? I : never
+
+type PickOne<T> = InferContra<InferContra<Contra<Contra<T>>>>
+
+export type ResourceFiles<T extends string> = {
+    [key in T]: Buffer
+}
 
 export type ResourceProperties = {
     scope: Scope
@@ -23,14 +37,14 @@ export type ResourceProperties = {
     customAttributes: Record<string, any>
 }
 
-export type Resource<T extends ResourceFiles> = {
+export type Resource<T> = {
     scope: Scope
     version: number
     documentation?: string
     locked?: boolean
     restricted: boolean
     overridable: boolean
-    files: [Extract<keyof T, string>]
+    files: UnionToTuple<T>
     attributes: ResourceAttributes
 }
 

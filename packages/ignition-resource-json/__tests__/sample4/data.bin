@@ -1,0 +1,12 @@
+{
+  "updateMode": "Instant",
+  "updateMessage": "This project has been changed. Please save your work, this session will automatically update in {timeLeft} seconds.",
+  "updateTimeout": 30,
+  "theme": "light",
+  "locale": "Browser",
+  "idp": "1",
+  "timezone": "Gateway Timezone",
+  "desktopPageTimeoutSeconds": 60,
+  "mobilePageTimeoutSeconds": 600,
+  "thumbnailPath": "ig8icon.jpg"
+}
