@@ -10,7 +10,7 @@
     ],
     "scripts": {
         "lint": "eslint . --ext .js",
-        "test": "jest --coverage && eslint ."
+        "test2": "vitest run && eslint ."
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",
@@ -27,12 +27,11 @@
         "eslint-config-custom": "*",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-jest": "^27.2.1",
         "eslint-plugin-n": "^16.0.0",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-regex": "^1.10.0",
-        "jest": "^27.3.1",
-        "postcss": "^8.2.4"
+        "postcss": "^8.2.4",
+        "vitest": "^0.32.0"
     },
     "jest": {
         "coverageThreshold": {

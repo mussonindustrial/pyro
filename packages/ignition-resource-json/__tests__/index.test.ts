@@ -103,8 +103,8 @@ it('should produce expected signature with style class example', async () => {
             overridable: true,
             attributes: {
                 lastModification: {
-                    actor: 'bmusson',
-                    timestamp: '2023-06-28T17:48:27Z',
+                    actor: 'admin',
+                    timestamp: '2020-05-06T18:13:04Z',
                 },
             },
         },

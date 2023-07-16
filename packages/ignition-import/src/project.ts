@@ -9,7 +9,7 @@ import {
     isNode,
 } from './resources'
 import _ from 'lodash'
-import { createResourceJson } from './resourceJson'
+import { createResourceJson } from './resourceJson2'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)

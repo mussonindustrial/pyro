@@ -1,0 +1,6 @@
+node_modules/
+target/
+build/
+dist/
+
+__tests__/**/**

@@ -22,3 +22,6 @@ crates/next-transform-dynamic/tests
 
 # generators
 *.hbs
+
+# test samples
+**/__tests__/**
