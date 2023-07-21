@@ -4,12 +4,12 @@ import {
     FolderResource,
     Node,
     NodeResource,
-    ResourceInstance,
     isFolder,
     isNode,
 } from './resources'
 import _ from 'lodash'
 import { createResourceJson } from './resourceJson2'
+import { ResourceFiles } from 'ignition-resource-json'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)
@@ -29,14 +29,14 @@ export const newProject = function <T extends object>(modules: T) {
     }
 }
 
-async function zipModule<T>(
+async function zipModule<T extends string>(
     zip: JSZip,
     module: {
         path: string
         resources: Record<string, FolderResource<T> | NodeResource<T>>
     }
 ) {
-    console.log(`Zip-ing module ${module.path}`)
+    // console.log(`Zip-ing module ${module.path}`)
     let generated = false
 
     const moduleFolder = zip.folder(module.path)
@@ -48,7 +48,7 @@ async function zipModule<T>(
     }
 
     for (const resource of Object.values(module.resources)) {
-        console.log(`Zip-ing resource ${resource.path}`)
+        // console.log(`Zip-ing resource ${resource.path}`)
         const resourceSaved = await zipResource(
             moduleFolder,
             resource.path,
@@ -66,10 +66,10 @@ async function zipModule<T>(
     return zip
 }
 
-async function zipResource<T>(
+async function zipResource<T extends string>(
     zip: JSZip,
     key: string,
-    filePaths: ResourceInstance<T>,
+    filePaths: ResourceFiles<T>,
     resource: Node<T> | Folder<T>
 ) {
     let generated = false
@@ -82,14 +82,14 @@ async function zipResource<T>(
     }
 
     if (isNode(resource)) {
-        let key: keyof typeof filePaths
-        for (key in filePaths) {
-            let data = resource.content[key]
+        let path: keyof typeof filePaths
+        for (path in filePaths) {
+            let data = resource.content[path]
             if (data) {
                 if (typeof data === 'object') {
                     data = JSON.stringify(data, null, `\t`)
                 }
-                f.file(filePaths[key], data)
+                f.file(path, data)
                 generated = true
             }
         }
@@ -109,7 +109,7 @@ async function zipResource<T>(
 
     if (!generated) {
         zip.remove(key)
-        console.log(`no content generated, removing ${key}`)
+        // console.log(`no content generated, removing ${key}`)
     }
     return generated
 }

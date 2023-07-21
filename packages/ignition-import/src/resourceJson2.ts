@@ -1,9 +1,8 @@
-import { ResourceInstance } from './resources'
 import JSZip from 'jszip'
-import { newResource } from 'ignition-resource-json'
+import { ResourceFiles, newResource } from 'ignition-resource-json'
 
-export async function createResourceJson<T>(
-    filePaths: ResourceInstance<T>,
+export async function createResourceJson<T extends string>(
+    filePaths: ResourceFiles<T>,
     folder: JSZip
 ) {
     let files = {}

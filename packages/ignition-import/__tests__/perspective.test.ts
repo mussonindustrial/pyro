@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest'
 import fs from 'fs'
-import { newNode, newProject, perspective, vision } from 'ignition-import'
+import { newProject, perspective, vision } from 'ignition-import'
 
 function getProject() {
     return newProject({ perspective, vision })
@@ -21,38 +21,33 @@ function emptyStyle() {
 }
 
 function addExampleStyleClasses(p: typeof perspective) {
-    p.resources.styleClasses.content = {
-        'top-level-psc': {
-            type: 'node',
-            content: {
-                style: emptyStyle(),
-            },
-        },
-        Folder: {
-            type: 'folder',
-            content: {
-                'PSC-In-Folder': {
-                    type: 'node',
-                    content: {
-                        style: emptyStyle(),
-                    },
-                },
-                Folder2: {
-                    type: 'folder',
-                    content: {
-                        'PSC-in-Nested-Folder': {
-                            type: 'node',
-                            content: {
-                                style: emptyStyle(),
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    }
+
+
+    
+    p.resources.styleClasses.node('top-level-psc', {
+        'style.json': emptyStyle(),
+    })
+
+    p.resources.styleClasses.folder('Folder').node('PSC-In-Folder', {
+        'style.json': emptyStyle(),
+    })
+
+    const test = p.resources.styleClasses.folder('Hm')
+
+    // p.resources.styleClasses.folder('Folder').folder('Folder2').node('PSC-in-Nested-Folder', {
+    //     'style.json': emptyStyle(),
+    // })
+
+    // p.resources.styleClasses.folder('Folder', 'Folder2').node('PSC-in-Nested-Folder', {
+    //     'style.json': emptyStyle(),
+    // })
+
+    p.resources.styleClasses.node(['Folder', 'Folder2', 'PSC-in-Nested-Folder'], {
+        'style.json': emptyStyle(),
+    })
+    
     p.resources.pageConfig.content = {
-        config: 'test',
+        'config.json': 'test',
     }
     return p
 }
@@ -67,14 +62,14 @@ it('should have correct perspective module path', async () => {
 
 it('should allow for style-class definitions', async () => {
     const p = addExampleStyleClasses(getPerspective())
-    console.log(p)
+
     expect(
         p.resources.styleClasses.content.Folder.content.Folder2.content
     ).toStrictEqual({
         'PSC-in-Nested-Folder': {
             type: 'node',
             content: {
-                style: emptyStyle(),
+                'style.json': emptyStyle(),
             },
         },
     })
