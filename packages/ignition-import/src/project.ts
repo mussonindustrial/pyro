@@ -8,8 +8,7 @@ import {
     isNode,
 } from './resources'
 import _ from 'lodash'
-import { createResourceJson } from './resourceJson2'
-import { ResourceFiles } from 'ignition-resource-json'
+import { createResourceJson } from './resourceJson'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)
@@ -29,11 +28,14 @@ export const newProject = function <T extends object>(modules: T) {
     }
 }
 
-async function zipModule<T extends string>(
+async function zipModule<const TResourceFiles extends readonly string[]>(
     zip: JSZip,
     module: {
         path: string
-        resources: Record<string, FolderResource<T> | NodeResource<T>>
+        resources: Record<
+            string,
+            FolderResource<TResourceFiles> | NodeResource<TResourceFiles>
+        >
     }
 ) {
     // console.log(`Zip-ing module ${module.path}`)
@@ -66,11 +68,11 @@ async function zipModule<T extends string>(
     return zip
 }
 
-async function zipResource<T extends string>(
+async function zipResource<const TResourceFiles extends readonly string[]>(
     zip: JSZip,
     key: string,
-    filePaths: ResourceFiles<T>,
-    resource: Node<T> | Folder<T>
+    filePaths: TResourceFiles,
+    resource: Node<TResourceFiles[number]> | Folder<TResourceFiles[number]>
 ) {
     let generated = false
     const f = zip.folder(key)
@@ -82,9 +84,8 @@ async function zipResource<T extends string>(
     }
 
     if (isNode(resource)) {
-        let path: keyof typeof filePaths
-        for (path in filePaths) {
-            let data = resource.content[path]
+        for (const path of filePaths) {
+            let data = resource.files[path as TResourceFiles[number]]
             if (data) {
                 if (typeof data === 'object') {
                     data = JSON.stringify(data, null, `\t`)
@@ -99,7 +100,7 @@ async function zipResource<T extends string>(
         }
     }
     if (isFolder(resource)) {
-        for (const [key, res] of Object.entries(resource.content)) {
+        for (const [key, res] of Object.entries(resource.children)) {
             const result = await zipResource(f, key, filePaths, res)
             if (result) {
                 generated = true

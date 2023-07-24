@@ -1,136 +1,144 @@
 import { ResourceFiles } from 'ignition-resource-json'
 
-export type Node<T extends string> = {
-    type: 'node'
-    content: ResourceFiles<T>
-}
+type NodeType = 'folder' | 'node'
 
-type FolderFunction<TResource extends string> = {
-    (...path: string[]): Folder<TResource>
-}
-
-type NodeFunction<TResource extends string> = {
-    (node: string, content: ResourceFiles<TResource>): void
-    (path: string[], content: ResourceFiles<TResource>): void
-}
-
-export type Folder<TResource extends string> = {
-    type: 'folder'
-    content: {
+export class Folder<TResource extends string> {
+    type: NodeType = 'folder'
+    children: {
         [key: string]: Node<TResource> | Folder<TResource>
+    } = {}
+
+    folder(...path: string[]): Folder<TResource> {
+        const folder = new Folder()
+        let childFolder = folder
+
+        let children: string[] = []
+        let childName = ''
+
+        childName = path.shift() as string
+
+        if (childName) {
+            children = path
+        }
+
+        if (children.length !== 0) {
+            for (const p of children) {
+                childFolder = childFolder.folder(p)
+            }
+        }
+
+        this.children[childName] = folder
+        return childFolder
     }
-    folder: FolderFunction<TResource>
-    node: NodeFunction<TResource>
+
+    node(path: string | string[], content: ResourceFiles<TResource>): void {
+        if (path instanceof Array) {
+            const nodeName = path.pop()
+            if (nodeName) {
+                if (path.length > 0) {
+                    this.folder(...path).node(nodeName, content)
+                } else {
+                    return this.node(nodeName, content)
+                }
+            }
+        } else {
+            this.children[path] = newNode(content)
+        }
+    }
+
+    get(...path: string[]): Folder<TResource> | Node<TResource> | undefined {
+        const p = path.shift()
+        if (p === undefined) {
+            return undefined
+        }
+
+        let node = this.children[p]
+        for (const subPath of path) {
+            if (isFolder(node)) {
+                node = node.children[subPath]
+            } else {
+                break
+            }
+        }
+        return node
+    }
 }
 
-export type BaseResource<TResource extends string> = {
+export class Node<TResource extends string> {
+    type: NodeType = 'node'
+    files: ResourceFiles<TResource>
+
+    constructor(files: ResourceFiles<TResource>) {
+        this.files = files
+    }
+}
+
+interface BaseResource<TResourceFiles extends readonly string[]> {
     path: string
-    filePaths: ResourceFiles<TResource>
+    filePaths: TResourceFiles
 }
 
-export type NodeResource<TResource extends string> = BaseResource<TResource> &
-    Node<TResource>
+export class NodeResource<const TResourceFiles extends readonly string[]>
+    extends Node<TResourceFiles[number]>
+    implements BaseResource<TResourceFiles>
+{
+    path: string
+    filePaths: TResourceFiles
 
-export type FolderResource<TResource extends string> = BaseResource<TResource> &
-    Folder<TResource>
+    constructor(path: string, filePaths: TResourceFiles) {
+        const files: any = {}
+        for (const path of filePaths.keys()) {
+            files[path] = ''
+        }
+        super(files)
+        this.path = path
+        this.filePaths = filePaths
+    }
+}
 
-export function isNode<TResource extends string>(
-    resource: unknown
-): resource is Node<TResource> {
-    return (resource as Node<TResource>).type == 'node'
+export class FolderResource<const TResourceFiles extends readonly string[]>
+    extends Folder<TResourceFiles[number]>
+    implements BaseResource<TResourceFiles>
+{
+    path: string
+    filePaths: TResourceFiles
+
+    constructor(path: string, filePaths: TResourceFiles) {
+        super()
+        this.path = path
+        this.filePaths = filePaths
+    }
 }
 
 export function isFolder<TResource extends string>(
-    resource: unknown
+    resource: Folder<TResource> | Node<TResource>
 ): resource is Folder<TResource> {
     return (resource as Folder<TResource>).type == 'folder'
 }
 
-const newNode = function <TResource extends string>(
-    content: ResourceFiles<TResource>
-) {
-    return {
-        type: 'node',
-        content,
-    } as Node<TResource>
+export function isNode<TResource extends string>(
+    node: Folder<TResource> | Node<TResource>
+): node is Node<TResource> {
+    return (node as Node<TResource>).type == 'node'
 }
 
-const newFolder = function <
-    TResource extends string,
-    TFolderChildren extends string
->(content: {
-    [key in TFolderChildren]: Node<TResource> | Folder<TResource>
-}) {
-    return {
-        type: 'folder',
-        content,
-        folder: function (...path: string[]): Folder<TResource> {
-            const folder = newFolder({})
-            let childFolder = folder
-
-            let children: string[] = []
-            let childName = ''
-
-            childName = path.shift() as string
-
-            if (childName) {
-                children = path
-            }
-
-            if (children.length !== 0) {
-                for (const p of children) {
-                    childFolder = childFolder.folder(p)
-                }
-            }
-
-            this.content[childName] = folder
-            return childFolder
-        },
-        node: function (
-            path: string | string[],
-            content: ResourceFiles<TResource>
-        ): void {
-            if (path instanceof Array) {
-                const nodeName = path.pop()
-                if (nodeName) {
-                    if (path.length > 0) {
-                        this.folder(...path).node(nodeName, content)
-                    } else {
-                        return this.node(nodeName, content)
-                    }
-                }
-            } else {
-                this.content[path] = newNode(content)
-            }
-        },
-    } as Folder<TResource>
+export function newFolder<T extends string>(): Folder<T> {
+    return new Folder<T>()
 }
-
-const newBaseResource = function <
-    const TResourceFiles extends readonly string[]
->(path: string, filePaths: TResourceFiles) {
-    return {
-        path,
-        filePaths,
-    } as BaseResource<TResourceFiles[number]>
+export function newNode<T extends string>(files: ResourceFiles<T>): Node<T> {
+    return new Node<T>(files)
 }
 
 export const newNodeResource = function <
     const TResourceFiles extends readonly string[]
 >(path: string, filePaths: TResourceFiles) {
-    return {
-        ...newBaseResource(path, filePaths),
-        ...(newNode({}) as Node<TResourceFiles[number]>),
-    } as NodeResource<TResourceFiles[number]>
+    return new NodeResource(path, filePaths)
 }
 
 export const newFolderResource = function <
     const TResourceFiles extends readonly string[]
 >(path: string, filePaths: TResourceFiles) {
-    return {
-        ...newBaseResource(path, filePaths),
-        ...newFolder({}),
-    } as FolderResource<TResourceFiles[number]>
+    return new FolderResource(path, filePaths)
 }
 
 export const newModule = function <T>(path: string, resources: T) {

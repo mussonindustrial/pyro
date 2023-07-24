@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest'
 import fs from 'fs'
-import { newProject, perspective, vision } from 'ignition-import'
+import { Folder, newProject, perspective, vision } from 'ignition-import'
 
 function getProject() {
     return newProject({ perspective, vision })
@@ -22,8 +22,6 @@ function emptyStyle() {
 
 function addExampleStyleClasses(p: typeof perspective) {
 
-
-    
     p.resources.styleClasses.node('top-level-psc', {
         'style.json': emptyStyle(),
     })
@@ -46,7 +44,7 @@ function addExampleStyleClasses(p: typeof perspective) {
         'style.json': emptyStyle(),
     })
     
-    p.resources.pageConfig.content = {
+    p.resources.pageConfig.files = {
         'config.json': 'test',
     }
     return p
@@ -64,15 +62,15 @@ it('should allow for style-class definitions', async () => {
     const p = addExampleStyleClasses(getPerspective())
 
     expect(
-        p.resources.styleClasses.content.Folder.content.Folder2.content
-    ).toStrictEqual({
+        JSON.stringify((p.resources.styleClasses.get('Folder', 'Folder2') as Folder<'style.json'>).children)
+    ).toStrictEqual(JSON.stringify({
         'PSC-in-Nested-Folder': {
             type: 'node',
-            content: {
+            files: {
                 'style.json': emptyStyle(),
             },
         },
-    })
+    }))
 })
 
 // it('should perform a zip', async () => {
