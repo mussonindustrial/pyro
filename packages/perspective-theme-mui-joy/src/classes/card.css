@@ -64,4 +64,18 @@
     &[psc='Variant/outlined'] {
         --Card-Bg: var(--palette-background-surface);
     }
+
+    [psc='Container/card-overflow'] {
+        margin-left: var(--CardOverflow-offset);
+        margin-right: var(--CardOverflow-offset);
+        padding: 0px var(--Card-padding);
+    }
+
+    *:first-child[psc='Container/card-overflow'] {
+        margin-top: var(--CardOverflow-offset);
+    }
+
+    *:last-child[psc='Container/card-overflow'] {
+        margin-bottom: var(--CardOverflow-offset);
+    }
 }
