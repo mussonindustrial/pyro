@@ -1,0 +1,133 @@
+[psc='Container/chip'],
+[psc='Container/chip-button'] {
+    @include variant-support(Chip);
+    @include variant-default(Chip, outlined);
+    @include palette-default(Chip, neutral);
+
+    --Chip-decoratorChildOffset: min(calc(var(--Chip-paddingInline) - (var(--_Chip-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Chip-decoratorChildHeight)) / 2), var(--Chip-paddingInline));
+    --Chip-decoratorChildRadius: max(var(--_Chip-radius) - var(--variant-borderWidth, 0px) - var(--_Chip-paddingBlock), min(var(--_Chip-paddingBlock) + var(--variant-borderWidth, 0px), var(--_Chip-radius) / 2));
+    --Chip-deleteRadius: var(--Chip-decoratorChildRadius);
+    --Chip-deleteSize: var(--Chip-decoratorChildHeight);
+    --Avatar-radius: var(--Chip-decoratorChildRadius);
+    --Avatar-size: var(--Chip-decoratorChildHeight);
+    --Icon-margin: initial;
+    --unstable_actionRadius: var(--_Chip-radius);
+    --_Chip-radius: var(--Chip-radius, 1.5rem);
+    --_Chip-paddingBlock: max((var(--_Chip-minHeight) - 2 * var(--variant-borderWidth, 0px) - var(--Chip-decoratorChildHeight)) / 2, 0px);
+    
+    --Chip-deleteMargin: 0 calc(var(--Chip-decoratorChildOffset) * -1) 0 0;
+
+    min-height: var(--_Chip-minHeight);
+    max-width: max-content;
+    padding-inline: var(--Chip-paddingInline);
+    border-radius: var(--_Chip-radius);
+
+    font-weight: var(--fontWeight-md);
+    font-family: var(--fontFamily-body);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+
+    /* Default to medium size */
+    --Chip-gap: 0.375rem;
+    --Chip-paddingInline: 0.75rem;
+    --Chip-decoratorChildHeight: min(1.375rem, var(--_Chip-minHeight));
+    --Icon-fontSize: calc(var(--_Chip-minHeight) / 1.778);
+    --_Chip-minHeight: var(--Chip-minHeight, 2rem);
+    font-size: var(--fontSize-sm);
+
+    /* Defaults */
+    border-style: none;
+
+    /* Variant */
+    color: var(--Chip-Color);
+    background-color: var(--Chip-Bg);
+    border-color: var(--Chip-Border);
+    border-width: var(--Chip-borderWidth);
+    border-style: var(--Chip-borderStyle);
+
+    &[psc='Size/sm'] {
+        --Chip-gap: 0.25rem;
+        --Chip-paddingInline: 0.5rem;
+        --Chip-decoratorChildHeight: calc(min(1.125rem, var(--_Chip-minHeight)) - 2 * var(--variant-borderWidth, 0px));
+        --Icon-fontSize: calc(var(--_Chip-minHeight) / 1.714);
+        --_Chip-minHeight: var(--Chip-minHeight, 1.5rem);
+        font-size: var(--fontSize-xs);
+    }
+
+    &[psc='Size/md'] {
+        --Chip-gap: 0.375rem;
+        --Chip-paddingInline: 0.75rem;
+        --Chip-decoratorChildHeight: min(1.375rem, var(--_Chip-minHeight));
+        --Icon-fontSize: calc(var(--_Chip-minHeight) / 1.778);
+        --_Chip-minHeight: var(--Chip-minHeight, 2rem);
+        font-size: var(--fontSize-sm);
+    }
+
+    &[psc='Size/lg'] {
+        --Chip-gap: 0.5rem;
+        --Chip-paddingInline: 1rem;
+        --Chip-decoratorChildHeight: min(1.75rem, var(--_Chip-minHeight));
+        --Icon-fontSize: calc(var(--_Chip-minHeight) / 2);
+        --_Chip-minHeight: var(--Chip-minHeight, 2.5rem);
+        font-size: var(--fontSize-md);
+    }
+
+    *:last-child {
+        margin-inline-start: var(--Chip-gap);
+    }
+
+    *:first-child {
+        margin-inline-end: var(--Chip-gap);
+    }
+
+    *:only-child {
+        margin-inline-end: 0px;
+        margin-inline-start: 0px;
+    }
+}
+
+[psc='Container/chip-button'] {
+    &:hover {
+        @include component-state(Chip, Hover);
+        cursor: pointer;
+    }
+
+    &:active {
+        @include component-state(Chip, Active);
+    }
+
+    &:disabled {
+        @include component-state(Chip, Disabled);
+
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+[psc='Container/chip'] [psc='Container/chip-delete'][data-component="ia.input.button"],
+[psc='Container/chip-button'] [psc='Container/chip-delete'][data-component="ia.input.button"]
+{
+    border-radius: var(--Chip-deleteRadius);
+    height: var(--Chip-decoratorChildHeight);
+    min-height: var(--Chip-decoratorChildHeight);;
+    width: var(--Chip-decoratorChildHeight);
+    min-width: var(--Chip-decoratorChildHeight);
+    margin: var(--Chip-deleteMargin);
+    padding: 0px;
+}
+
+
+
+/* Resets */
+
+.responsive-container > [psc='Container/chip'],
+.responsive-container > [psc='Container/chip-button'] {
+    min-height: var(--_Chip-minHeight);
+    max-width: max-content;
+}
