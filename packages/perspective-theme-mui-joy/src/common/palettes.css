@@ -8,13 +8,13 @@ $attributes: (Color, Bg, Border);
         @each $variant in $variants {
             @each $attribute in $attributes {
                 --variant-$(variant)$(attribute): var(
-                    --palette-$(palette)-$(variant) $(attribute)
+                    --palette-$(palette)-$(variant)$(attribute)
                 );
 
                 @each $state in $states {
                     --variant-$(variant)$(state)$(attribute): var(
-                        --palette-$(palette)-$(variant) $(state) $(attribute),
-                        var(--palette-$(palette)-$(variant) $(attribute))
+                        --palette-$(palette)-$(variant)$(state)$(attribute),
+                        var(--palette-$(palette)-$(variant)$(attribute))
                     );
                 }
             }
@@ -36,13 +36,13 @@ $attributes: (Color, Bg, Border);
         @each $variant in $variants {
             @each $property in $drivenProperties {
                 --$(component)-default-$(variant)$(property): var(
-                    --palette-$(palette)-$(variant) $(property)
+                    --palette-$(palette)-$(variant)$(property)
                 );
 
                 @each $state in $states {
                     --$(component)-default-$(variant)$(state)$(property): var(
-                        --palette-$(palette)-$(variant) $(state) $(property),
-                        var(--palette-$(palette)-$(variant) $(property))
+                        --palette-$(palette)-$(variant)$(state)$(property),
+                        var(--palette-$(palette)-$(variant)$(property))
                     );
                 }
             }
