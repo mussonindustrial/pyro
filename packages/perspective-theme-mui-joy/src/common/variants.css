@@ -21,7 +21,7 @@ $staticProperties: (borderWidth, borderStyle);
 
         @each $state in $states {
             --variant-default$(state)$(property): var(
-                --palette-neutral-outlined$(state) $(property),
+                --palette-neutral-outlined$(state)$(property),
                 var(--palette-neutral-outlined$(property))
             );
         }
@@ -35,12 +35,12 @@ $staticProperties: (borderWidth, borderStyle);
 @each $variant in $variants {
     [psc='Variant/$(variant)'] {
         @each $property in $drivenProperties {
-            --variant-$(property): var(--variant-$(variant) $(property), unset);
+            --variant-$(property): var(--variant-$(variant)$(property), unset);
 
             @each $state in $states {
                 --variant-$(state)$(property): var(
-                    --variant-$(variant) $(state) $(property),
-                    var(--variant-$(variant) $(property), unset)
+                    --variant-$(variant)$(state)$(property),
+                    var(--variant-$(variant)$(property), unset)
                 );
             }
         }
