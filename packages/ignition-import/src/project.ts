@@ -4,12 +4,11 @@ import {
     FolderResource,
     Node,
     NodeResource,
-    ResourceInstance,
     isFolder,
     isNode,
 } from './resources'
 import _ from 'lodash'
-import { createResourceJson } from './resourceJson2'
+import { createResourceJson } from './resourceJson'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)
@@ -29,14 +28,17 @@ export const newProject = function <T extends object>(modules: T) {
     }
 }
 
-async function zipModule<T>(
+async function zipModule<const TResourceFiles extends readonly string[]>(
     zip: JSZip,
     module: {
         path: string
-        resources: Record<string, FolderResource<T> | NodeResource<T>>
+        resources: Record<
+            string,
+            FolderResource<TResourceFiles> | NodeResource<TResourceFiles>
+        >
     }
 ) {
-    console.log(`Zip-ing module ${module.path}`)
+    // console.log(`Zip-ing module ${module.path}`)
     let generated = false
 
     const moduleFolder = zip.folder(module.path)
@@ -48,7 +50,7 @@ async function zipModule<T>(
     }
 
     for (const resource of Object.values(module.resources)) {
-        console.log(`Zip-ing resource ${resource.path}`)
+        // console.log(`Zip-ing resource ${resource.path}`)
         const resourceSaved = await zipResource(
             moduleFolder,
             resource.path,
@@ -66,11 +68,11 @@ async function zipModule<T>(
     return zip
 }
 
-async function zipResource<T>(
+async function zipResource<const TResourceFiles extends readonly string[]>(
     zip: JSZip,
     key: string,
-    filePaths: ResourceInstance<T>,
-    resource: Node<T> | Folder<T>
+    filePaths: TResourceFiles,
+    resource: Node<TResourceFiles[number]> | Folder<TResourceFiles[number]>
 ) {
     let generated = false
     const f = zip.folder(key)
@@ -82,14 +84,13 @@ async function zipResource<T>(
     }
 
     if (isNode(resource)) {
-        let key: keyof typeof filePaths
-        for (key in filePaths) {
-            let data = resource.content[key]
+        for (const path of filePaths) {
+            let data = resource.files[path as TResourceFiles[number]]
             if (data) {
                 if (typeof data === 'object') {
                     data = JSON.stringify(data, null, `\t`)
                 }
-                f.file(filePaths[key], data)
+                f.file(path, data)
                 generated = true
             }
         }
@@ -99,7 +100,7 @@ async function zipResource<T>(
         }
     }
     if (isFolder(resource)) {
-        for (const [key, res] of Object.entries(resource.content)) {
+        for (const [key, res] of Object.entries(resource.children)) {
             const result = await zipResource(f, key, filePaths, res)
             if (result) {
                 generated = true
@@ -109,7 +110,7 @@ async function zipResource<T>(
 
     if (!generated) {
         zip.remove(key)
-        console.log(`no content generated, removing ${key}`)
+        // console.log(`no content generated, removing ${key}`)
     }
     return generated
 }

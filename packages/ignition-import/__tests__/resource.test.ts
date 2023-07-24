@@ -1,22 +1,53 @@
 import { it, expect } from 'vitest'
-import { newNode, newProject, perspective } from '../src'
+import { Folder, Node, newFolderResource, newProject, perspective } from '../src'
 import JSZip from 'jszip'
 
-it('should produce expected checksum', async () => {
-    const project = newProject({ perspective })
-    project.perspective.resources.styleClasses.content = newNode('StyleClass', {
-        style: { base: { style: {} } },
-    })
 
-    const zip = await JSZip.loadAsync(await project.zip())
-    const resource = await zip
-        .folder(perspective.path)
-        ?.folder(perspective.resources.styleClasses.path)
-        ?.file('StyleClass/resource.json')
-        ?.async('string')
+function newTestFolderResource() {
+    return newFolderResource('test-resource', ['test.json'])
+}
 
-    console.log(resource)
+it('should support folder creation', async () => {
+    const resource = newTestFolderResource()
+    resource.folder('Test Folder')
 
-    // expect(JSON.parse(resource!).attributes.lastModificationSignature).toMatchInlineSnapshot(
-    // '"60b3ec24f97a14fd5093ad49b9eb045cb41589214e8d301c057f4d7eec035818"')
+    expect(resource.children['Test Folder']).toBeDefined()
+    expect((resource.get('Test Folder') as Folder<'test.json'>).children).toStrictEqual({})
+})
+
+it('should support nested folder creation', async () => {
+    const resource = newTestFolderResource()
+    resource.folder('Test Folder', 'Nested Folder')
+
+    expect(resource.children['Nested Folder']).toBeUndefined()
+    expect(resource.get('Test Folder', 'Nested Folder')).toBeDefined()
+
+})
+
+it('should support node creation', async () => {
+    const resource = newTestFolderResource()
+    resource.node('Test Node', {'test.json': 'test-value'})
+
+    expect((resource.get('Test Node') as Node<'test.json'>).files['test.json']).toStrictEqual('test-value')
+})
+
+it('should support node creation using array', async () => {
+    const resource = newTestFolderResource()
+    resource.node(['Test Node'], {'test.json': 'test-value'})
+
+    expect((resource.get('Test Node') as Node<'test.json'>).files['test.json']).toStrictEqual('test-value')
+})
+
+it('should support node creation using folder paths', async () => {
+    const resource = newTestFolderResource()
+    resource.node(['Test Folder', 'Test Node'], {'test.json': 'test-value'})
+
+    expect((resource.get('Test Folder', 'Test Node') as Node<'test.json'>).files['test.json']).toStrictEqual('test-value')
+})
+
+it('should support node creation using deep folder paths', async () => {
+    const resource = newTestFolderResource()
+    resource.node(['Test Folder', 'Nested Folder', 'Test Node'], {'test.json': 'test-value'})
+
+    expect((resource.get('Test Folder', 'Nested Folder', 'Test Node') as Node<'test.json'>).files['test.json']).toStrictEqual('test-value')
 })

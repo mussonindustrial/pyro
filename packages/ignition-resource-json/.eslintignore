@@ -3,4 +3,5 @@ target/
 build/
 dist/
 
-__tests__/**/**
+__tests__/**/**.json
+__tests__/**/**.css
