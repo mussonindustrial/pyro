@@ -17,25 +17,22 @@ async function generateProjectImport(styleClasses) {
     const project = ignition.newProject({ perspective })
 
     const emptyStyle = {
-        base: {
-            style: {},
-        },
+        'style.json': JSON.stringify(
+            {
+                base: {
+                    style: {},
+                },
+            },
+            null,
+            4
+        ),
     }
 
-    const save = (path) => {
-        const [next, ...rest] = path.split('/')
-        const remaining = rest.join('/')
-
-        if (remaining !== '') {
-            return ignition.newFolder(next, save(remaining))
-        }
-        return ignition.newNode(next, { style: emptyStyle })
-    }
-
-    let content = project.perspective.resources.styleClasses.content
     styleClasses.forEach((styleClass) => {
-        content = _.merge(content, save(styleClass))
+        const path = styleClass.split('/')
+        project.perspective.resources.styleClasses.node(path, emptyStyle)
     })
+
     fs.writeFile(
         path.join(output, 'project-import.zip'),
         await project.zip(),
