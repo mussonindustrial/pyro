@@ -10,8 +10,7 @@
     ],
     "scripts": {
         "build": "gulp",
-        "lint": "eslint *.js",
-        "format": "prettier -w ."
+        "lint": "eslint *.js"
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",
