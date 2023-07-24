@@ -12,8 +12,8 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin component-state($component, $state) {
     @each $property in $drivenProperties {
         --$(component)-$(property): var(
-            --variant-$(state) $(property),
-            var(--variant-default$(state) $(property))
+            --variant-$(state)$(property),
+            var(--variant-default$(state)$(property))
         );
     }
 }
@@ -21,8 +21,8 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin component-state-forced($component, $variant, $state) {
     @each $property in $drivenProperties {
         --$(component)-$(property): var(
-            --variant-$(variant) $(state) $(property),
-            var(--variant-default$(state) $(property))
+            --variant-$(variant)$(state)$(property),
+            var(--variant-default$(state)$(property))
         );
     }
 }
@@ -45,12 +45,12 @@ $staticProperties: (borderWidth, borderStyle);
 
 @mixin variant-forced($component, $variant) {
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(--variant-$(variant) $(property));
+        --$(component)-$(property): var(--variant-$(variant)$(property));
 
         @each $state in $states {
             --$(component)-$(state)$(property): var(
-                --variant-$(variant) $(state) $(property),
-                var(--variant-$(variant) $(property))
+                --variant-$(variant)$(state)$(property),
+                var(--variant-$(variant)$(property))
             );
         }
     }
@@ -63,13 +63,13 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin style-forced($component, $variant, $palette) {
     @each $property in $drivenProperties {
         --$(component)-$(property): var(
-            --palette-$(palette)-$(variant) $(property)
+            --palette-$(palette)-$(variant)$(property)
         );
 
         @each $state in $states {
             --$(component)-$(state)$(property): var(
-                --palette-$(palette)-$(variant) $(state) $(property),
-                var(--palette-$(palette)-$(variant) $(property))
+                --palette-$(palette)-$(variant)$(state)$(property),
+                var(--palette-$(palette)-$(variant)$(property))
             );
         }
     }
