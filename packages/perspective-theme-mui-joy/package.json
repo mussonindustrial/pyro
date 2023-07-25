@@ -35,7 +35,7 @@
         "ignition-import": "*",
         "lodash": "^4.17.21",
         "postcss": "^8.4.24",
-        "postcss-advanced-variables": "*",
+        "@ignition-tools/postcss-advanced-variables": "*",
         "postcss-import": "^15.1.0",
         "postcss-nested": "^6.0.1",
         "postcss-perspective-style-class": "*",

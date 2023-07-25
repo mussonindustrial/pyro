@@ -19,8 +19,7 @@
         "test:watch": "vitest",
         "lint": "eslint src/**/*.ts",
         "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore",
-        "check-types": "tsc --noEmit",
-        "release": "npm publish"
+        "check-types": "tsc --noEmit"
     },
     "author": "Musson Industrial",
     "license": "MIT",
@@ -36,8 +35,8 @@
     "devDependencies": {
         "@types/lodash": "^4.14.195",
         "eslint": "^8.42.0",
-        "eslint-config-custom": "*",
-        "ignition-tools-tsconfig": "*",
+        "@ignition-tools/eslint-config-custom": "*",
+        "@ignition-tools/tsconfig": "*",
         "json-schema-to-ts": "^2.9.1",
         "lodash": "^4.17.21",
         "tsup": "^6.7.0",
