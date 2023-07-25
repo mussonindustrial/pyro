@@ -73,9 +73,15 @@
 
     *:first-child[psc='Container/card-overflow'] {
         margin-top: var(--CardOverflow-offset);
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
     }
 
     *:last-child[psc='Container/card-overflow'] {
         margin-bottom: var(--CardOverflow-offset);
+        border-bottom: 0px;
+        border-left: 0px;
+        border-right: 0px;
     }
 }

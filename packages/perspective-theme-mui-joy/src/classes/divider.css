@@ -1,0 +1,104 @@
+/* A divider is a thin line that groups content in lists and layouts. */
+[psc='Container/divider-horizontal'],
+[psc='Container/divider-vertical'] {
+    --Divider-thickness: 1px;
+    --Divider-lineColor: var(--palette-divider);
+    --Divider-gap: 8px;
+    --Divider-childPosition: 50%;
+    white-space: nowrap;
+    border: 0px;
+    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-fontSize-sm);
+
+    &:empty {
+        background-color: var(--Divider-lineColor);
+
+        &:before,
+        &:after {
+            content: none;
+        }
+    }
+
+    &:before,
+    &:after {
+        position: relative;
+        background-color: var(--Divider-lineColor);
+        content: '';
+    }
+
+    &:before {
+        flex-basis: var(--Divider-childPosition);
+    }
+
+    &:after {
+        flex-basis: calc(100% - var(--Divider-childPosition));
+    }
+
+    &[psc='Container/card-overflow'] {
+        --_Divider-inset: var(--Divider-inset, 0px);
+    }
+}
+
+[psc='Container/divider-horizontal'] {
+    margin-inline: var(--_Divider-inset);
+    margin-block: initial;
+
+    &:empty {
+        inline-size: initial;
+        block-size: var(--Divider-thickness);
+    }
+
+    &:before,
+    &:after {
+        inline-size: initial;
+        block-size: var(--Divider-thickness);
+    }
+
+    &:before {
+        margin-inline-end: min(
+            var(--Divider-childPosition) * 999,
+            var(--Divider-gap)
+        );
+        margin-block-end: initial;
+    }
+
+    &:after {
+        margin-inline-start: min(
+            (100% - var(--Divider-childPosition)) * 999,
+            var(--Divider-gap)
+        );
+        margin-block-start: initial;
+    }
+}
+
+[psc='Container/divider-vertical'] {
+    margin-inline: initial;
+    margin-block: var(--_Divider-inset);
+
+    &:empty {
+        inline-size: var(--Divider-thickness);
+        block-size: initial;
+    }
+
+    &:before,
+    &:after {
+        inline-size: var(--Divider-thickness);
+        block-size: initial;
+    }
+
+    &:before {
+        margin-inline-end: initial;
+        margin-block-end: min(
+            var(--Divider-childPosition) * 999,
+            var(--Divider-gap)
+        );
+    }
+
+    &:after {
+        margin-inline-start: initial;
+        margin-block-start: min(
+            (100% - var(--Divider-childPosition)) * 999,
+            var(--Divider-gap)
+        );
+    }
+}
