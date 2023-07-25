@@ -1,6 +1,6 @@
 {
     "name": "postcss-perspective-style-class",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "PostCSS plugin for Perspective Style Classes",
     "keywords": [
         "postcss",
