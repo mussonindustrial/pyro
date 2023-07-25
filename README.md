@@ -15,11 +15,6 @@
 </p>
 </div>
 
-<br />
-
-
-  
-
 ## Directory
 
 | Package                                                                       | Description                                                                      | Release Notes                                                                                                                                   |
