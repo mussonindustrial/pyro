@@ -10,7 +10,8 @@
     ],
     "scripts": {
         "build": "gulp",
-        "lint": "eslint *.js"
+        "lint": "eslint *.js",
+        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",

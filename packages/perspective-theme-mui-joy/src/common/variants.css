@@ -20,6 +20,7 @@ $staticProperties: (borderWidth, borderStyle);
         );
 
         @each $state in $states {
+            /* prettier-ignore */
             --variant-default$(state)$(property): var(
                 --palette-neutral-outlined$(state)$(property),
                 var(--palette-neutral-outlined$(property))
@@ -35,9 +36,11 @@ $staticProperties: (borderWidth, borderStyle);
 @each $variant in $variants {
     [psc='Variant/$(variant)'] {
         @each $property in $drivenProperties {
+            /* prettier-ignore */
             --variant-$(property): var(--variant-$(variant)$(property), unset);
 
             @each $state in $states {
+                /* prettier-ignore */
                 --variant-$(state)$(property): var(
                     --variant-$(variant)$(state)$(property),
                     var(--variant-$(variant)$(property), unset)

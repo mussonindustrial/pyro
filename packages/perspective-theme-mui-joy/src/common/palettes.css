@@ -7,11 +7,13 @@ $attributes: (Color, Bg, Border);
     [psc='Palette/$(palette)'] {
         @each $variant in $variants {
             @each $attribute in $attributes {
+                /* prettier-ignore */
                 --variant-$(variant)$(attribute): var(
                     --palette-$(palette)-$(variant)$(attribute)
                 );
 
                 @each $state in $states {
+                    /* prettier-ignore */
                     --variant-$(variant)$(state)$(attribute): var(
                         --palette-$(palette)-$(variant)$(state)$(attribute),
                         var(--palette-$(palette)-$(variant)$(attribute))
@@ -35,11 +37,13 @@ $attributes: (Color, Bg, Border);
         ) {
         @each $variant in $variants {
             @each $property in $drivenProperties {
+                /* prettier-ignore */
                 --$(component)-default-$(variant)$(property): var(
                     --palette-$(palette)-$(variant)$(property)
                 );
 
                 @each $state in $states {
+                    /* prettier-ignore */
                     --$(component)-default-$(variant)$(state)$(property): var(
                         --palette-$(palette)-$(variant)$(state)$(property),
                         var(--palette-$(palette)-$(variant)$(property))
