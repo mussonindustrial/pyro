@@ -173,6 +173,9 @@
             "outputs": ["dist/**/*", ".next/**/*"],
             "dependsOn": ["^build"]
         },
+        "release": {
+            "dependsOn": ["^test"]
+        },
         "topo": {
             "dependsOn": ["^topo"]
         },
