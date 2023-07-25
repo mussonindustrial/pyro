@@ -1,77 +1,39 @@
-[![build](https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml/badge.svg)](https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml)
+<div align="center">
+  <h1>
+  <i>Ignition Tools</i>
+</h1>
+<h3>Tools and resources for Ignition by Inductive Automation 🛠️</h3>
+<h4 ><b><i>This is an unofficial repo</i></b></h4>
+<p>
+  <img alt="Build" src="https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml/badge.svg"/>
+</p>
+</div>
 
-# Ignition Tools
+<br />
 
-Tools and resources for working with Ignition by Inductive Automation.
 
-_This is an unofficial repo._
+  
 
-## What's inside?
+## Directory
 
-This repo includes the following packages:
+| Package                                                                       | Description                                                                      | Release Notes                                                                                                                                   |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ignition-import](packages/ignition-import)                                   | A library for building project import files.                                     | [![version](https://img.shields.io/npm/v/ignition-import.svg?label=%20)](packages/ignition-import/CHANGELOG.md)                                 |
+| [ignition-resource-json](packages/ignition-resource-json)                     | A library for building and signing `resource.json` files.                        | [![version](https://img.shields.io/npm/v/ignition-resource-json.svg?label=%20)](packages/ignition-resource-json/CHANGELOG.md)                   |
+| [perspective-theme-mui-joy](packages/perspective-theme-mui-joy)               | A Perspective theme based on Material UI Joy.                                    | [Release Notes](packages/perspective-theme-mui-joy/CHANGELOG.md)                                                                                |
+| [postcss-perspective-style-class](packages/postcss-perspective-style-class)   | A Postcss plugin for generating Perspective Style Classes from CSS.              | [![version](https://img.shields.io/npm/v/postcss-perspective-style-class.svg?label=%20)](packages/postcss-perspective-style-class/CHANGELOG.md) |
 
-### Packages
-
--   `ignition-import`: library for building project import files
--   `ignition-resource-json`: library for building and signing `resource.json` files
--   `perspective-theme-mui-joy`: a Perspective theme based on Material UI Joy
--   `postcss-advanced-variables`: a fork of `postcss-advanced-variables` that drives `perspective-theme-mui-joy`
--   `postcss-perspective-style-class`: a Postcss plugin for generating Perspective Style Classes from CSS
--
--   `eslint-config-custom`: `eslint` configurations used throughout the monorepo
--   `ignition-tools-tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This repo has some additional tools already setup for you:
-
--   [TypeScript](https://www.typescriptlang.org/) for static type checking
--   [ESLint](https://eslint.org/) for code linting
--   [Prettier](https://prettier.io) for code formatting
-
-## Contributing
-
-This library is a [Turborepo] monorepo.
-For more information about Turborepo, [visit turbo.build/repo](https://turbo.build/repo).
-
-[Turborepo]: https://github.com/vercel/turbo
-
-### Cloning
+## Installation / Building
 
 ```sh
 git clone https://github.com/mussonindustrial/ignition-tools
 cd ignition-tools
 npm install
-```
-
-### Formatting
-
-Formatting is handled by [Prettier](https://prettier.io).
-
-```sh
-npm run format
-```
-
-### Linting
-
-Linting is handled by [ESLint](https://eslint.org/).
-
-```sh
-npm run lint
-```
-
-### Testing
-
-Testing is handled by [Vitest](https://github.com/vitest-dev/vitest)
-
-```sh
-npm run test
-```
-
-### Building
-
-```sh
 npm run build
 ```
+
+## Links
+
+- [License (MIT)](LICENSE)
+- [Musson Industrial](https://mussonindustrial.com/)
+- [Inductive Automation](https://inductiveautomation.com/)
