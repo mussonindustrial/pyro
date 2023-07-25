@@ -8,6 +8,7 @@
         "mui",
         "joy"
     ],
+    "private": true,
     "scripts": {
         "build": "gulp",
         "lint": "eslint *.js",
@@ -15,7 +16,11 @@
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",
-    "repository": "mussonindustrial/ignition-tools",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mussonindustrial/ignition-tools",
+        "directory": "packages/perspective-theme-mui-joy"
+    },
     "engines": {
         "node": ">=16.0.0"
     },

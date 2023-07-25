@@ -1,5 +1,5 @@
 {
-    "name": "eslint-config-custom",
+    "name": "@ignition-tools/eslint-config-custom",
     "version": "1.0.0",
     "description": "ESLint config for perspective-tools",
     "repository": {
@@ -7,6 +7,7 @@
         "url": "https://github.com/mussonindustrial/perspective-tools",
         "directory": "packages/eslint-config-custom"
     },
+    "private": true,
     "bugs": {
         "url": "https://github.com/mussonindustrial/perspective-tools/issues"
     },

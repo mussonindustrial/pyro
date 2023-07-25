@@ -11,7 +11,7 @@
         "prepare": "husky install",
         "test": "turbo run test --no-daemon",
         "test:watch": "turbo run test:watch --no-daemon",
-        "release": "turbo run release"
+        "release": "turbo build && changeset version && changeset publish"
     },
     "devDependencies": {
         "@turbo/gen": "^1.9.7",

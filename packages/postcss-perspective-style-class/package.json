@@ -14,7 +14,11 @@
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",
-    "repository": "mussonindustrial/postcss-perspective-style-class",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mussonindustrial/ignition-tools",
+        "directory": "packages/postcss-perspective-style-class"
+    },
     "engines": {
         "node": ">=16.0.0"
     },
