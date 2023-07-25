@@ -44,7 +44,7 @@ module.exports = {
     plugins: [
         require('postcss-import'),
         require('@csstools/postcss-design-tokens'),
-        require('postcss-advanced-variables'),
+        require('@ignition-tools/postcss-advanced-variables'),
         require('postcss-nested'),
         require('postcss-perspective-style-class')({
             cb: generateProjectImport,
