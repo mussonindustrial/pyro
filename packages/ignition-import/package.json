@@ -18,8 +18,9 @@
         "test": "vitest run",
         "test:watch": "vitest",
         "lint": "eslint src/**/*.ts",
+        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore",
         "check-types": "tsc --noEmit",
-        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
+        "release": "npm publish"
     },
     "author": "Musson Industrial",
     "license": "MIT",

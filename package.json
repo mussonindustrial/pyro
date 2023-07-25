@@ -11,7 +11,7 @@
         "prepare": "husky install",
         "test": "turbo run test --no-daemon",
         "test:watch": "turbo run test:watch --no-daemon",
-        "vitest": "vitest"
+        "release": "npm run build && npm run test && npm run release"
     },
     "devDependencies": {
         "@turbo/gen": "^1.9.7",
@@ -41,5 +41,11 @@
     "packageManager": "npm@8.19.2",
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "dependencies": {
+        "@changesets/cli": "^2.26.2",
+        "changeset": "^0.2.6",
+        "init": "^0.1.2",
+        "npx": "^10.2.2"
+    }
 }
