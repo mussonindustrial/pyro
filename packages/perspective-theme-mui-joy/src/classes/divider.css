@@ -1,7 +1,6 @@
 /* A divider is a thin line that groups content in lists and layouts. */
 [psc='Container/divider-horizontal'],
 [psc='Container/divider-vertical'] {
-
     --Divider-thickness: 1px;
     --Divider-lineColor: var(--palette-divider);
     --Divider-gap: 8px;
@@ -24,7 +23,7 @@
     &:after {
         position: relative;
         background-color: var(--Divider-lineColor);
-        content: "";
+        content: '';
     }
 
     &:before {
@@ -41,7 +40,6 @@
 }
 
 [psc='Container/divider-horizontal'] {
-
     margin-inline: var(--_Divider-inset);
     margin-block: initial;
 
@@ -57,18 +55,23 @@
     }
 
     &:before {
-        margin-inline-end: min(var(--Divider-childPosition) * 999, var(--Divider-gap));
+        margin-inline-end: min(
+            var(--Divider-childPosition) * 999,
+            var(--Divider-gap)
+        );
         margin-block-end: initial;
     }
 
     &:after {
-        margin-inline-start: min((100% - var(--Divider-childPosition)) * 999, var(--Divider-gap));
+        margin-inline-start: min(
+            (100% - var(--Divider-childPosition)) * 999,
+            var(--Divider-gap)
+        );
         margin-block-start: initial;
     }
 }
 
 [psc='Container/divider-vertical'] {
-
     margin-inline: initial;
     margin-block: var(--_Divider-inset);
 
@@ -85,11 +88,17 @@
 
     &:before {
         margin-inline-end: initial;
-        margin-block-end: min(var(--Divider-childPosition) * 999, var(--Divider-gap));
+        margin-block-end: min(
+            var(--Divider-childPosition) * 999,
+            var(--Divider-gap)
+        );
     }
 
     &:after {
         margin-inline-start: initial;
-        margin-block-start: min((100% - var(--Divider-childPosition)) * 999, var(--Divider-gap));
+        margin-block-start: min(
+            (100% - var(--Divider-childPosition)) * 999,
+            var(--Divider-gap)
+        );
     }
 }
