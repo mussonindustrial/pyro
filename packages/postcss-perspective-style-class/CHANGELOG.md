@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.3
+
+### Patch Changes
+
+-   c3456d6: changesets test
+
 ## 0.1.2
 
 -   Fixed: Backslash escaping in generated CSS
