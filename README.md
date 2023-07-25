@@ -6,6 +6,12 @@
 <h4 ><b><i>This is an unofficial repo</i></b></h4>
 <p>
   <img alt="Build" src="https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml/badge.svg"/>
+  <a href="https://github.com/mussonindustrial/ignition-tools/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" />
+  </a>
 </p>
 </div>
 
