@@ -16,5 +16,3 @@ yarn-error.log
 *.vsix
 
 output/
-backstop_data/html_report/
-bitmaps_test/
