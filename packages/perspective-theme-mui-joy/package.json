@@ -12,7 +12,8 @@
     "scripts": {
         "build": "gulp",
         "lint": "eslint *.js",
-        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
+        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore",
+        "test": "backstop test"
     },
     "author": "benmusson <ben.d.musson@gmail.com>",
     "license": "MIT",
@@ -27,7 +28,9 @@
     "type": "commonjs",
     "devDependencies": {
         "@csstools/postcss-design-tokens": "^2.0.4",
+        "@ignition-tools/postcss-advanced-variables": "*",
         "autoprefixer": "^10.4.14",
+        "backstopjs": "^6.2.2",
         "cssnano": "^6.0.1",
         "eslint": "^8.42.0",
         "gulp": "^4.0.2",
@@ -35,7 +38,6 @@
         "ignition-import": "*",
         "lodash": "^4.17.21",
         "postcss": "^8.4.24",
-        "@ignition-tools/postcss-advanced-variables": "*",
         "postcss-import": "^15.1.0",
         "postcss-nested": "^6.0.1",
         "postcss-perspective-style-class": "*",
