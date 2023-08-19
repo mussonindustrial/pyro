@@ -16,6 +16,10 @@ export class Folder<TResource extends string> {
         let childName = ''
 
         childName = path.shift() as string
+        const child = this.children[childName]
+        if (isFolder(child)) {
+            return child
+        }
 
         if (childName) {
             children = path
@@ -113,13 +117,13 @@ export class FolderResource<const TResourceFiles extends readonly string[]>
 export function isFolder<TResource extends string>(
     resource: Folder<TResource> | Node<TResource>
 ): resource is Folder<TResource> {
-    return (resource as Folder<TResource>).type == 'folder'
+    return (resource as Folder<TResource>)?.type == 'folder'
 }
 
 export function isNode<TResource extends string>(
     node: Folder<TResource> | Node<TResource>
 ): node is Node<TResource> {
-    return (node as Node<TResource>).type == 'node'
+    return (node as Node<TResource>)?.type == 'node'
 }
 
 export function newFolder<T extends string>(): Folder<T> {
