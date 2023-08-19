@@ -1,6 +1,6 @@
 {
     "name": "ignition-import",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Ignition project resource builder.",
     "main": "dist/index.js",
     "types": "src/index.ts",
