@@ -18,7 +18,7 @@ export class Folder<TResource extends string> {
         childName = path.shift() as string
         const child = this.children[childName]
         if (isFolder(child)) {
-            return child
+            return child.folder(...path)
         }
 
         if (childName) {
