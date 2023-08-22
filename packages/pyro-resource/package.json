@@ -3,7 +3,7 @@
     "version": "0.2.2",
     "description": "Ignition project resource builder.",
     "main": "dist/index.js",
-    "types": "src/index.ts",
+    "types": "dist/index.d.ts",
     "type": "module",
     "repository": {
         "type": "git",
