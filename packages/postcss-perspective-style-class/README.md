@@ -65,7 +65,11 @@ By default, the plugin will use `/` as the separator for Style Class folders.
 Use this option to specify a custom separator to use in your CSS.
 
 ```js
-postcss([require('@mussonindustrial/postcss-perspective-style-class')({ separator: '-' })])
+postcss([
+    require('@mussonindustrial/postcss-perspective-style-class')({
+        separator: '-',
+    }),
+])
 ```
 
 ```css
