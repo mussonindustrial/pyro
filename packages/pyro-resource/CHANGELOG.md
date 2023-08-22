@@ -1,5 +1,13 @@
 # ignition-import
 
+## 0.2.3
+
+### Patch Changes
+
+-   cbc0868: changed types path in package.json
+-   Updated dependencies [cbc0868]
+    -   @mussonindustrial/pyro-resource-signature@0.1.3
+
 ## 0.2.2
 
 ### Patch Changes

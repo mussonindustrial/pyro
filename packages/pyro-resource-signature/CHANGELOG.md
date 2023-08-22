@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-resource-signature
 
+## 0.1.3
+
+### Patch Changes
+
+-   cbc0868: changed types path in package.json
+
 ## 0.1.2
 
 ### Patch Changes
