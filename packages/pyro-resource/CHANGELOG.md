@@ -1,5 +1,13 @@
 # ignition-import
 
+## 0.2.2
+
+### Patch Changes
+
+-   bff7f8f: now emit typescript declarations
+-   Updated dependencies [bff7f8f]
+    -   @mussonindustrial/pyro-resource-signature@0.1.2
+
 ## 0.2.1
 
 ### Patch Changes
