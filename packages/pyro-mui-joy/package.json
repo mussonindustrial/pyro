@@ -1,14 +1,13 @@
 {
     "name": "@mussonindustrial/pyro-mui-joy",
     "version": "0.1.0",
-    "description": "Material UI Joy Theme for Ignition",
+    "description": "A port of Material UI Joy Theme for Ignition by Inductive Automation",
     "keywords": [
         "ignition",
         "theme",
         "mui",
         "joy"
     ],
-    "private": true,
     "scripts": {
         "build": "gulp",
         "lint": "eslint *.js",
