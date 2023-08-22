@@ -1,6 +1,6 @@
-# Pyro Resource Signature Library
+# pyro-resource-signature
 
-The [Pyro Resource Signature Library] library lets you generate Ignition project `resource.json` files with accurate signatures.
+The [pyro-resource-signature] library lets you generate Ignition project `resource.json` files with accurate signatures.
 
 Credit to @paul-griffith and their [modification-updater] application for the key signature logic.
 
@@ -117,5 +117,5 @@ console.log(await updateSignature(MyView))
 // true (if updated)
 ```
 
-[Pyro Resource Signature Library]: https://github.com/mussonindustrial/pyro/packages/pyro-resource-signature
+[pyro-resource-signature]: https://github.com/mussonindustrial/pyro/packages/pyro-resource-signature
 [modification-updater]: https://github.com/paul-griffith/modification-updater
