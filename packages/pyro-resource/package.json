@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/pyro-resource",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Ignition project resource builder.",
     "main": "dist/index.js",
     "types": "src/index.ts",
