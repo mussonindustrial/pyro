@@ -1,10 +1,10 @@
-# Ignition Import
+# Pyro Import
 
-The [Ignition Import] library lets you easily build Ignition compatible project import files.
+The [Pyro Import] library lets you easily build Ignition-compatible project import files.
 
 ```js
 import fs from 'fs'
-import { newNode, newProject, perspective } from 'ignition-import'
+import { newNode, newProject, perspective } from '@mussonindustrial/pyro-resource'
 
 const project = newProject({ perspective })
 project.perspective.resources.styleClasses.content = newNode('MyStyleClass', {
@@ -20,7 +20,7 @@ fs.writeFileSync('./project-import.zip', zip)
 Add [Ignition Import] to your build tool:
 
 ```bash
-npm install ignition-import --save-dev
+npm install pyro-import --save-dev
 ```
 
 Create a new project and include your desired modules:
@@ -35,7 +35,7 @@ import {
     sqlbridge,
     vision,
     webdev,
-} from 'ignition-import'
+} from 'pyro-resource'
 
 const project = newProject({
     alarmNotification,
@@ -48,7 +48,7 @@ const project = newProject({
 })
 ```
 
-Then add your resource contents.
+Then add your resource content.
 
 ```js
 const props = project.perspective.resource.generalProperties
@@ -86,7 +86,7 @@ The content of a resource file can be specified
 ### Resource.json
 
 The required `resource.json` files are automatically generated with correct resource signatures.
-The signature logic is reference from the [modification-updater] application.
+The signature logic is referenced from the [modification-updater] application.
 
 ## Advanced Usage
 
@@ -98,7 +98,7 @@ import {
     newModule,
     newNodeResource,
     newProject,
-} from 'ignition-import'
+} from '@mussonindustrial/pyro-resource'
 
 const myFolderResource = newFolderResource('my-resource', {
     file: 'file.json',
@@ -130,5 +130,5 @@ project.myModule.resources
 // }
 ```
 
-[Ignition Import]: https://github.com/mussonindustrial/ignition-tools/packages/ignition-import
+[Pyro Import]: https://github.com/mussonindustrial/pyro/packages/pyro-resource
 [modification-updater]: https://github.com/paul-griffith/modification-updater

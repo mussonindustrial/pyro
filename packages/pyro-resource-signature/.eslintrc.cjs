@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    extends: ['custom'],
+    extends: ['pyro'],
     env: {
         browser: true,
         commonjs: true,

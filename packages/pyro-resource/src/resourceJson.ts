@@ -1,5 +1,5 @@
 import JSZip from 'jszip'
-import { newResource } from 'ignition-resource-json'
+import { newResource } from '@mussonindustrial/pyro-resource-signature'
 
 export async function createResourceJson<
     const TResourceFiles extends readonly string[]

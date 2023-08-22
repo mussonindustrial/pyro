@@ -1,9 +1,8 @@
 <div align="center">
   <h1>
-  <i>Ignition Tools</i>
+  <i>Pyro</i>
 </h1>
-<h3>Tools and resources for Ignition by Inductive Automation 🛠️</h3>
-<h4 ><b><i>This is an unofficial repo</i></b></h4>
+<h3>Resources, tools, and assets for Ignition by Inductive Automation 🛠️</h3>
 <p>
   <img alt="Build" src="https://github.com/mussonindustrial/ignition-tools/actions/workflows/build.js.yml/badge.svg"/>
   <a href="https://github.com/mussonindustrial/ignition-tools/blob/main/LICENSE">
