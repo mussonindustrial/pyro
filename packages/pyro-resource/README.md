@@ -21,7 +21,7 @@ fs.writeFileSync('./project-import.zip', zip)
 
 ## Usage
 
-Add [Ignition Import] to your build tool:
+Add [pyro-resource] to your build tool:
 
 ```bash
 npm install @mussonindustrial/pyro-resource --save-dev
