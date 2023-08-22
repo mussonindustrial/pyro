@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/eslint-config-pyro",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ESLint config for pyro",
     "repository": {
         "type": "git",
