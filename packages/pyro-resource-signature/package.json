@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/pyro-resource-signature",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Library for building and signing Ignition resource.json files.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
