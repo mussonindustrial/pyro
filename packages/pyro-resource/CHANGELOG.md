@@ -1,5 +1,16 @@
 # ignition-import
 
+## 1.0.0
+
+### Major Changes
+
+-   c93c1af: initial public release
+
+### Patch Changes
+
+-   Updated dependencies [c93c1af]
+    -   @mussonindustrial/pyro-resource-signature@1.0.0
+
 ## 0.2.3
 
 ### Patch Changes
