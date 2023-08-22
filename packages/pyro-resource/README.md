@@ -4,7 +4,11 @@ The [Pyro Import] library lets you easily build Ignition-compatible project impo
 
 ```js
 import fs from 'fs'
-import { newNode, newProject, perspective } from '@mussonindustrial/pyro-resource'
+import {
+    newNode,
+    newProject,
+    perspective,
+} from '@mussonindustrial/pyro-resource'
 
 const project = newProject({ perspective })
 project.perspective.resources.styleClasses.content = newNode('MyStyleClass', {
@@ -20,7 +24,7 @@ fs.writeFileSync('./project-import.zip', zip)
 Add [Ignition Import] to your build tool:
 
 ```bash
-npm install pyro-import --save-dev
+npm install @mussonindustrial/pyro-resource --save-dev
 ```
 
 Create a new project and include your desired modules:
@@ -35,7 +39,7 @@ import {
     sqlbridge,
     vision,
     webdev,
-} from 'pyro-resource'
+} from '@mussonindustrial/pyro-resource'
 
 const project = newProject({
     alarmNotification,
