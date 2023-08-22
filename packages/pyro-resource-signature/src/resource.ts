@@ -24,7 +24,7 @@ export async function newResource<T extends string>(
                 actor:
                     props.attributes?.lastModification?.actor ??
                     process.env.USER ??
-                    'ignition-resource-json',
+                    'pyro-resource-signature',
                 timestamp:
                     props.attributes?.lastModification?.timestamp ??
                     new Date().toISOString(),
