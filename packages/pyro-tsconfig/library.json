@@ -7,6 +7,8 @@
         "skipLibCheck": true,
         "resolveJsonModule": true,
         "outDir": "dist",
-        "allowJs": false
+        "allowJs": false,
+        "declaration": true,
+        "declarationDir": "./types"
     }
 }

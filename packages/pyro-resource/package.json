@@ -14,7 +14,7 @@
         "url": "https://github.com/mussonindustrial/pyro/issues"
     },
     "scripts": {
-        "build": "tsup-node",
+        "build": "tsup-node --dts",
         "test": "vitest run",
         "test:watch": "vitest",
         "lint": "eslint src/**/*.ts",
