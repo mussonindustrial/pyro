@@ -3,7 +3,7 @@
     "version": "0.1.1",
     "description": "Library for building and signing Ignition resource.json files.",
     "main": "dist/index.js",
-    "types": "src/index.ts",
+    "types": "dist/index.d.ts",
     "type": "module",
     "repository": {
         "type": "git",
