@@ -1,5 +1,5 @@
 {
-    "name": "ignition-import",
+    "name": "@mussonindustrial/pyro-resource",
     "version": "0.2.0",
     "description": "Ignition project resource builder.",
     "main": "dist/index.js",
@@ -7,11 +7,11 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mussonindustrial/ignition-tools",
-        "directory": "packages/ignition-resource"
+        "url": "https://github.com/mussonindustrial/pyro",
+        "directory": "packages/pyro-resource"
     },
     "bugs": {
-        "url": "https://github.com/mussonindustrial/ignition-tools/issues"
+        "url": "https://github.com/mussonindustrial/pyro/issues"
     },
     "scripts": {
         "build": "tsup-node",
@@ -35,8 +35,8 @@
     "devDependencies": {
         "@types/lodash": "^4.14.195",
         "eslint": "^8.42.0",
-        "@ignition-tools/eslint-config-custom": "*",
-        "@ignition-tools/tsconfig": "*",
+        "@mussonindustrial/eslint-config-pyro": "*",
+        "@mussonindustrial/pyro-tsconfig": "*",
         "json-schema-to-ts": "^2.9.1",
         "lodash": "^4.17.21",
         "tsup": "^6.7.0",
@@ -45,6 +45,6 @@
     },
     "dependencies": {
         "jszip": "^3.10.1",
-        "ignition-resource-json": "*"
+        "@mussonindustrial/pyro-resource-signature": "*"
     }
 }

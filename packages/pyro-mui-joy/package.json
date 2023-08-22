@@ -1,7 +1,7 @@
 {
-    "name": "perspective-theme-mui-joy",
+    "name": "@mussonindustrial/pyro-mui-joy",
     "version": "0.1.0",
-    "description": "Material UI Joy Theme",
+    "description": "Material UI Joy Theme for Ignition",
     "keywords": [
         "ignition",
         "theme",
@@ -14,12 +14,12 @@
         "lint": "eslint *.js",
         "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
     },
-    "author": "benmusson <ben.d.musson@gmail.com>",
+    "author": "Musson Industrial",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mussonindustrial/ignition-tools",
-        "directory": "packages/perspective-theme-mui-joy"
+        "url": "https://github.com/mussonindustrial/pyro",
+        "directory": "packages/pyro-mui-joy"
     },
     "engines": {
         "node": ">=16.0.0"
@@ -32,13 +32,13 @@
         "eslint": "^8.42.0",
         "gulp": "^4.0.2",
         "gulp-postcss": "^9.0.1",
-        "ignition-import": "*",
+        "@mussonindustrial/pyro-resource": "*",
         "lodash": "^4.17.21",
         "postcss": "^8.4.24",
-        "@ignition-tools/postcss-advanced-variables": "*",
+        "@mussonindustrial/postcss-advanced-variables": "*",
         "postcss-import": "^15.1.0",
         "postcss-nested": "^6.0.1",
-        "postcss-perspective-style-class": "*",
+        "@mussonindustrial/postcss-perspective-style-class": "*",
         "prettier": "^2.8.8"
     }
 }

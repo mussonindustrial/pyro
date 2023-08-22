@@ -1,6 +1,6 @@
-# Ignition Resource JSON Library
+# Pyro Resource Signature Library
 
-The [Ignition Resource JSON] library lets you easily generate Ignition project `resource.json` files with accurate signatures.
+The [Pyro Resource Signature Library] library lets you generate Ignition project `resource.json` files with accurate signatures.
 
 Credit to @paul-griffith and their [modification-updater] application for the key signature logic.
 
@@ -9,7 +9,7 @@ Credit to @paul-griffith and their [modification-updater] application for the ke
 Using npm:
 
 ```sh
-npm install --save ignition-resource-json
+npm install --save @mussonindustrial/pyro-resource-signature
 ```
 
 ## API
@@ -18,7 +18,7 @@ npm install --save ignition-resource-json
 
 ```js
 import fs from 'fs'
-import { newResource } from 'ignition-resource-json'
+import { newResource } from '@mussonindustrial/pyro-resource-signature'
 
 const resource = await newResource(
     {
@@ -68,7 +68,7 @@ console.log(JSON.stringify(resource, null, 2))
 
 ```js
 import fs from 'fs'
-import { parseResource } from 'ignition-resource-json'
+import { parseResource } from '@mussonindustrial/pyro-resource-signature'
 
 const MyView = (await parseResource('./views/MyView')))
 console.log(JSON.stringify(MyView.props, null, 2))
@@ -97,7 +97,7 @@ const view = JSON.parse(MyView.files['view.json'].toString())
 
 ```js
 import fs from 'fs'
-import { parseResource, hasValidSignature } from 'ignition-resource-json'
+import { parseResource, hasValidSignature } from '@mussonindustrial/pyro-resource-signature'
 
 const MyView = await parseResource('./views/MyView'))
 
@@ -109,7 +109,7 @@ console.log(await hasValidSignature(MyView))
 
 ```js
 import fs from 'fs'
-import { parseResource, updateSignature } from 'ignition-resource-json'
+import { parseResource, updateSignature } from '@mussonindustrial/pyro-resource-signature'
 
 const MyView = await parseResource('./views/MyView'))
 
@@ -117,5 +117,5 @@ console.log(await updateSignature(MyView))
 // true (if updated)
 ```
 
-[Ignition Resource JSON]: https://github.com/mussonindustrial/ignition-tools/packages/ignition-resource-json
+[Pyro Resource Signature Library]: https://github.com/mussonindustrial/pyro/packages/pyro-resource-signature
 [modification-updater]: https://github.com/paul-griffith/modification-updater

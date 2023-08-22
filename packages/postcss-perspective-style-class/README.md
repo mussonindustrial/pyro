@@ -39,7 +39,7 @@ will be processed to:
 **Step 1:** Install the plugin:
 
 ```sh
-npm install --save-dev postcss postcss-perspective-style-class
+npm install --save-dev postcss @mussonindustrial/postcss-perspective-style-class
 ```
 
 **Step 2:** Check your project for existing PostCSS config: `postcss.config.js` in the project root, `"postcss"` section in `package.json` or `postcss` in bundle config.
@@ -51,7 +51,7 @@ If you do not use PostCSS, add it according to [official docs] and set this plug
 ```diff
 module.exports = {
   plugins: [
-+   require('postcss-perspective-style-class'),
++   require('@mussonindustrial/postcss-perspective-style-class'),
     require('autoprefixer')
   ]
 }
@@ -65,7 +65,11 @@ By default, the plugin will use `/` as the separator for Style Class folders.
 Use this option to specify a custom separator to use in your CSS.
 
 ```js
-postcss([require('postcss-perspective-style-class')({ separator: '-' })])
+postcss([
+    require('@mussonindustrial/postcss-perspective-style-class')({
+        separator: '-',
+    }),
+])
 ```
 
 ```css
@@ -86,7 +90,7 @@ A callback function can be specified which will be supplied with a list of the S
 
 ```js
 const cb = (styleClasses) => console.log(styleClasses)
-postcss([require('postcss-perspective-style-class')({ cb })])
+postcss([require('@mussonindustrial/postcss-perspective-style-class')({ cb })])
 ```
 
 ```css

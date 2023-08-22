@@ -1,4 +1,4 @@
-import { ResourceFiles } from 'ignition-resource-json'
+import { ResourceFiles } from '@mussonindustrial/pyro-resource-signature'
 
 type NodeType = 'folder' | 'node'
 

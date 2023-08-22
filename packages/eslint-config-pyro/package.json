@@ -1,15 +1,15 @@
 {
-    "name": "@ignition-tools/eslint-config-custom",
+    "name": "@mussonindustrial/eslint-config-pyro",
     "version": "1.0.0",
-    "description": "ESLint config for perspective-tools",
+    "description": "ESLint config for pyro",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mussonindustrial/perspective-tools",
-        "directory": "packages/eslint-config-custom"
+        "url": "https://github.com/mussonindustrial/pyro",
+        "directory": "packages/eslint-config-pyro"
     },
     "private": true,
     "bugs": {
-        "url": "https://github.com/mussonindustrial/perspective-tools/issues"
+        "url": "https://github.com/mussonindustrial/pyro/issues"
     },
     "scripts": {
         "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"

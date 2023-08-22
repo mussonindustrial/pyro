@@ -1,5 +1,5 @@
 {
-    "name": "postcss-perspective-style-class",
+    "name": "@mussonindustrial/postcss-perspective-style-class",
     "version": "0.2.3",
     "description": "PostCSS plugin for Perspective Style Classes",
     "keywords": [
@@ -12,11 +12,11 @@
         "lint": "eslint . --ext .js",
         "test2": "vitest run && eslint ."
     },
-    "author": "benmusson <ben.d.musson@gmail.com>",
+    "author": "Musson Industrial",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mussonindustrial/ignition-tools",
+        "url": "https://github.com/mussonindustrial/pyro",
         "directory": "packages/postcss-perspective-style-class"
     },
     "engines": {
@@ -28,7 +28,7 @@
     "devDependencies": {
         "clean-publish": "^3.4.2",
         "eslint": "^8.42.0",
-        "@ignition-tools/eslint-config-custom": "*",
+        "@mussonindustrial/eslint-config-pyro": "*",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-n": "^16.0.0",

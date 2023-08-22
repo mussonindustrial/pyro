@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const ignition = require('ignition-import')
+const ignition = require('@mussonindustrial/pyro-resource')
 const _ = require('lodash')
 
 const output = './output'
@@ -44,9 +44,9 @@ module.exports = {
     plugins: [
         require('postcss-import'),
         require('@csstools/postcss-design-tokens'),
-        require('@ignition-tools/postcss-advanced-variables'),
+        require('@mussonindustrial/postcss-advanced-variables'),
         require('postcss-nested'),
-        require('postcss-perspective-style-class')({
+        require('@mussonindustrial/postcss-perspective-style-class')({
             cb: generateProjectImport,
         }),
         require('autoprefixer'),

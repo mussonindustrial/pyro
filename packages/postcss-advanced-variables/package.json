@@ -1,5 +1,5 @@
 {
-    "name": "@ignition-tools/postcss-advanced-variables",
+    "name": "@mussonindustrial/postcss-advanced-variables",
     "version": "4.0.0",
     "description": "Use Sass-like variables, conditionals, and iterators in CSS",
     "author": "Jonathan Neal <jonathantneal@hotmail.com>",
@@ -38,7 +38,7 @@
         "babel-eslint": "^10",
         "babel-plugin-array-includes": "^2.0.3",
         "eslint": "^8.42.0",
-        "eslint-config-custom": "*",
+        "@mussonindustrial/eslint-config-pyro": "*",
         "postcss": "^8.2.4",
         "postcss-scss": "^3.0.5",
         "postcss-tape": "^6.0.1",
