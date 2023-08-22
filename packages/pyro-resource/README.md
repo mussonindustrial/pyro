@@ -1,6 +1,6 @@
-# Pyro Import
+# pyro-resource
 
-The [Pyro Import] library lets you easily build Ignition-compatible project import files.
+The [pyro-resource] library lets you build Ignition-compatible project resource files.
 
 ```js
 import fs from 'fs'
@@ -134,5 +134,5 @@ project.myModule.resources
 // }
 ```
 
-[Pyro Import]: https://github.com/mussonindustrial/pyro/packages/pyro-resource
+[pyro-resource]: https://github.com/mussonindustrial/pyro/packages/pyro-resource
 [modification-updater]: https://github.com/paul-griffith/modification-updater
