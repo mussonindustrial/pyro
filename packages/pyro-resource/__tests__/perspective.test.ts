@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest'
 import fs from 'fs'
-import { Folder, newProject, perspective, vision } from 'ignition-import'
+import { Folder, newProject, perspective, vision } from '../src'
 
 function getProject() {
     return newProject({ perspective, vision })
