@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/postcss-perspective-style-class",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "description": "PostCSS plugin for Perspective Style Classes",
     "keywords": [
         "postcss",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.4
+
+### Patch Changes
+
+-   fc29bb5: renamed monorepo to `pyro`
+
 ## 0.2.3
 
 ### Patch Changes

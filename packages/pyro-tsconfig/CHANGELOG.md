@@ -1,11 +1,7 @@
-# Change Log
+# @mussonindustrial/pyro-tsconfig
 
-## 0.1.1
+## 0.0.1
 
 ### Patch Changes
 
 -   fc29bb5: renamed monorepo to `pyro`
-
-# 0.1.0
-
--   Creation
