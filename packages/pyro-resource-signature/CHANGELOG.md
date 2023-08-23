@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-resource-signature
 
+## 1.0.1
+
+### Patch Changes
+
+-   68ef7c7: updated README and license
+
 ## 1.0.0
 
 ### Major Changes

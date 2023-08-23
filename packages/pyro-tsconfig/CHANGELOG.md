@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-tsconfig
 
+## 0.0.4
+
+### Patch Changes
+
+-   6cbd82b: allow js
+
 ## 0.0.3
 
 ### Patch Changes

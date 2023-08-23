@@ -1,5 +1,16 @@
 # ignition-import
 
+## 1.1.0
+
+### Minor Changes
+
+-   b5bb32f: node and folders now use Ignition's '/' path delimiter
+
+### Patch Changes
+
+-   Updated dependencies [68ef7c7]
+    -   @mussonindustrial/pyro-resource-signature@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
