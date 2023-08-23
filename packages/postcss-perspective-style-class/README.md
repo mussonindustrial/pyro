@@ -1,4 +1,4 @@
-# postcss-perspective-style-class
+# postcss-perspective-style-class[<img src="https://cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40" align="right">][pyro]
 
 [PostCSS] plugin for generating Perspective Style Classes using attribute syntax.
 
@@ -107,3 +107,4 @@ results in:
 ```
 
 [official docs]: https://github.com/postcss/postcss#usage
+[pyro]: https://github.com/mussonindustrial/pyro
