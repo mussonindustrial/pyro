@@ -9,6 +9,7 @@ import {
 } from './resources'
 import _ from 'lodash'
 import { createResourceJson } from './resourceJson'
+import chalk from 'chalk'
 
 export const newProject = function <T extends object>(modules: T) {
     const clonedModules = _.cloneDeep(modules)
@@ -38,7 +39,7 @@ async function zipModule<const TResourceFiles extends readonly string[]>(
         >
     }
 ) {
-    // console.log(`Zip-ing module ${module.path}`)
+    console.log(`${chalk.blue(module.path)}`)
     let generated = false
 
     const moduleFolder = zip.folder(module.path)
@@ -50,7 +51,6 @@ async function zipModule<const TResourceFiles extends readonly string[]>(
     }
 
     for (const resource of Object.values(module.resources)) {
-        // console.log(`Zip-ing resource ${resource.path}`)
         const resourceSaved = await zipResource(
             moduleFolder,
             resource.path,
@@ -58,7 +58,10 @@ async function zipModule<const TResourceFiles extends readonly string[]>(
             resource
         )
         if (resourceSaved) {
+            console.log(`${chalk.green('✓')} ${resource.path}`)
             generated = true
+        } else {
+            console.log(`${chalk.gray('-')} ${chalk.gray(resource.path)}`)
         }
     }
 
@@ -101,7 +104,7 @@ async function zipResource<const TResourceFiles extends readonly string[]>(
     }
     if (isFolder(resource)) {
         for (const [key, res] of Object.entries(resource.children)) {
-            const result = await zipResource(f, key, filePaths, res)
+            const result = await zipResource(f, key, filePaths, res!)
             if (result) {
                 generated = true
             }
@@ -110,7 +113,7 @@ async function zipResource<const TResourceFiles extends readonly string[]>(
 
     if (!generated) {
         zip.remove(key)
-        // console.log(`no content generated, removing ${key}`)
+        // console.log(`no content generated for ${key}`)
     }
     return generated
 }

@@ -1,18 +1,18 @@
-# pyro-resource
+# pyro-resource [<img src="https://cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40" align="right">][pyro]
 
-The [pyro-resource] library lets you build Ignition-compatible project resource files.
+[![NPM Version][npm-img]][npm-url]
+
+[pyro-resource] lets you build Ignition-compatible project resource files in JavaScript.
 
 ```js
 import fs from 'fs'
-import {
-    newNode,
-    newProject,
-    perspective,
-} from '@mussonindustrial/pyro-resource'
+import { newProject, perspective } from '@mussonindustrial/pyro-resource'
 
 const project = newProject({ perspective })
-project.perspective.resources.styleClasses.content = newNode('MyStyleClass', {
-    style: { base: { style: {} } },
+
+const styleClasses = project.perspective.resources.styleClasses
+styleClasses.node('MyStyleClass', {
+    'style.json': '{ base: { style: {} } }',
 })
 
 const zip = await project.zip()
@@ -21,13 +21,13 @@ fs.writeFileSync('./project-import.zip', zip)
 
 ## Usage
 
-Add [pyro-resource] to your build tool:
+1. Add [pyro-resource] to your build tool:
 
 ```bash
-npm install @mussonindustrial/pyro-resource --save-dev
+npm install @mussonindustrial/pyro-resource
 ```
 
-Create a new project and include your desired modules:
+2. Create a new project and include your desired modules.
 
 ```js
 import {
@@ -36,7 +36,7 @@ import {
     perspective,
     reporting,
     sfc,
-    sqlbridge,
+    sqlBridge,
     vision,
     webdev,
 } from '@mussonindustrial/pyro-resource'
@@ -46,55 +46,69 @@ const project = newProject({
     perspective,
     reporting,
     sfc,
-    sqlbridge,
+    sqlBridge,
     vision,
     webdev,
 })
 ```
 
-Then add your resource content.
+3. Add your resource content.
 
 ```js
-const props = project.perspective.resource.generalProperties
-props.
+const pageConfig = project.perspective.resources.pageConfig
+// Setting node content.
+pageConfig.set({
+    'config.json': '{}',
+})
+
+const styleClasses = project.perspective.resources.styleClasses
+// Creating a node.
+styleClasses.node('MyStyleClass', {
+    'style.json': '{ base: { style: {} } }',
+})
+
+// Creating a node in a folder.
+styleClasses.node('Folder/StyleClass', {
+    'style.json': '{ base: { style: {} } }',
+})
+
+// Creating a folder.
+const folder = styleClasses.folder('Folder2')
+folder.node('InAFolder', {
+    'style.json': '{ base: { style: {} } }',
+})
 ```
 
-## Notes
+4. Zip the project and write to disk.
 
-### Type Hints
+```js
+const zip = await project.zip()
+fs.writeFileSync('./projectImport.zip', zip)
+```
 
-Each module comes with its own resource definitions and type hints for each required file.
+## `resource.json` Files
+
+The required `resource.json` files are generated and signed using [pyro-resource-signature].
+
+## Type Hints
+
+Each module comes with resource definitions and type hints for the required files.
 
 ```js
 project.perspective.resources
 // (property) resources: {
-//     generalProperties: NodeResource<{
-//         data: string;
-//     }>;
-//     pageConfig: NodeResource<{
-//         config: string;
-//     }>;
-//     sessionProperties: NodeResource<{
-//         props: string;
-//     }>;
+//     generalProperties: NodeResource<readonly ["data.bin"]>;
+//     pageConfig: NodeResource<readonly ["config.json"]>;
+//     sessionProperties: NodeResource<readonly ["props.json"]>;
 //     sessionScripts: NodeResource<...>;
 //     styleClasses: FolderResource<...>;
 //     views: FolderResource<...>;
 // }
 ```
 
-### Resource Contents
+## Custom Modules and Resources
 
-The content of a resource file can be specified
-
-### Resource.json
-
-The required `resource.json` files are automatically generated with correct resource signatures.
-The signature logic is referenced from the [modification-updater] application.
-
-## Advanced Usage
-
-Custom module definitions can be created.
+Custom module definitions can be created in order to support 3rd party modules (with complete type hinting).
 
 ```js
 import {
@@ -104,15 +118,13 @@ import {
     newProject,
 } from '@mussonindustrial/pyro-resource'
 
-const myFolderResource = newFolderResource('my-resource', {
-    file: 'file.json',
-})
+const myFolderResource = newFolderResource('my-resource', ['file.json'])
 
-const mySingletonResource = newNodeResource('my-singleton-resource', {
-    file: 'file.json',
-    image: 'image.png',
-    anotherFile: 'another.xml',
-})
+const mySingletonResource = newNodeResource('my-singleton-resource', [
+    'file.json',
+    'image.png',
+    'another.xml',
+])
 
 const myModule = newModule('com.acme.module', {
     myFolderResource,
@@ -123,16 +135,19 @@ const project = newProject({ myModule })
 
 project.myModule.resources
 // (property) resources: {
-//     myFolderResource: FolderResource<{
-//         file: string;
-//     }>;
-//     mySingletonResource: NodeResource<{
-//         file: string;
-//         image: string;
-//         anotherFile: string;
-//     }>;
+//     myFolderResource: FolderResource<readonly ["file.json"]>;
+//     mySingletonResource: NodeResource<readonly ["file.json", "image.png", "another.xml"]>;
 // }
 ```
 
+## Copyright and Licensing
+
+Copyright (C) 2023 Musson Industrial
+
+Free use of this software is granted under the terms of the MIT License.
+
+[npm-img]: https://img.shields.io/npm/v/@mussonindustrial/pyro-resource.svg
+[npm-url]: https://www.npmjs.com/package/@mussonindustrial/pyro-resource
+[pyro]: https://github.com/mussonindustrial/pyro
 [pyro-resource]: https://github.com/mussonindustrial/pyro/packages/pyro-resource
-[modification-updater]: https://github.com/paul-griffith/modification-updater
+[pyro-resource-signature]: https://github.com/mussonindustrial/pyro/packages/pyro-resource-signature

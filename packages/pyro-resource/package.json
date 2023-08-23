@@ -33,17 +33,18 @@
         }
     },
     "devDependencies": {
-        "@types/lodash": "^4.14.195",
-        "eslint": "^8.42.0",
         "@mussonindustrial/eslint-config-pyro": "*",
         "@mussonindustrial/pyro-tsconfig": "*",
+        "@types/lodash": "^4.14.195",
+        "eslint": "^8.42.0",
         "tsup": "^6.7.0",
         "typescript": "^5.1.3",
         "vitest": "^0.32.0"
     },
     "dependencies": {
+        "@mussonindustrial/pyro-resource-signature": "*",
+        "chalk": "^4",
         "jszip": "^3.10.1",
-        "lodash": "^4.17.21",
-        "@mussonindustrial/pyro-resource-signature": "*"
+        "lodash": "^4.17.21"
     }
 }

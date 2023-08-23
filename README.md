@@ -1,8 +1,12 @@
 <div align="center">
   <h1>
-  <i>Pyro</i>
+    <i>Pyro</i>
 </h1>
 <h3>Resources, tools, and assets for Ignition by Inductive Automation 🛠️</h3>
+  <a href="https://mussonindustrial.com">
+        <img src="https://cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40">
+  </a>
+  <br><br>
 <p>
   <img alt="Build" src="https://github.com/mussonindustrial/pyro/actions/workflows/build.js.yml/badge.svg"/>
   <a href="https://github.com/mussonindustrial/pyro/blob/main/LICENSE">
@@ -11,6 +15,7 @@
   <a href="https://github.com/prettier/prettier">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" />
   </a>
+
 </p>
 </div>
 

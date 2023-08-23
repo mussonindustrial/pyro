@@ -30,17 +30,7 @@ function addExampleStyleClasses(p: typeof perspective) {
         'style.json': emptyStyle(),
     })
 
-    const test = p.resources.styleClasses.folder('Hm')
-
-    // p.resources.styleClasses.folder('Folder').folder('Folder2').node('PSC-in-Nested-Folder', {
-    //     'style.json': emptyStyle(),
-    // })
-
-    // p.resources.styleClasses.folder('Folder', 'Folder2').node('PSC-in-Nested-Folder', {
-    //     'style.json': emptyStyle(),
-    // })
-
-    p.resources.styleClasses.node(['Folder', 'Folder2', 'PSC-in-Nested-Folder'], {
+    p.resources.styleClasses.node('Folder/Folder2/PSC-in-Nested-Folder', {
         'style.json': emptyStyle(),
     })
     
@@ -62,7 +52,7 @@ it('should allow for style-class definitions', async () => {
     const p = addExampleStyleClasses(getPerspective())
 
     expect(
-        JSON.stringify((p.resources.styleClasses.get('Folder', 'Folder2') as Folder<'style.json'>).children)
+        JSON.stringify((p.resources.styleClasses.get('Folder/Folder2') as Folder<'style.json'>).children)
     ).toStrictEqual(JSON.stringify({
         'PSC-in-Nested-Folder': {
             type: 'node',

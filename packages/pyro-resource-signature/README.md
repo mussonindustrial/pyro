@@ -1,8 +1,8 @@
-# pyro-resource-signature
+# pyro-resource-signature [<img src="https://cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40" align="right">][pyro]
 
-The [pyro-resource-signature] library lets you generate Ignition project `resource.json` files with accurate signatures.
+[![NPM Version][npm-img]][npm-url]
 
-Credit to @paul-griffith and their [modification-updater] application for the key signature logic.
+[pyro-resource-signature] lets you generate Ignition project `resource.json` files with accurate signatures.
 
 ## Installation
 
@@ -117,5 +117,12 @@ console.log(await updateSignature(MyView))
 // true (if updated)
 ```
 
+## Acknowledgements
+
+-   @paul-griffith's [modification-updater] application for the key signature logic.
+
+[npm-img]: https://img.shields.io/npm/v/@mussonindustrial/pyro-resource-signature.svg
+[npm-url]: https://www.npmjs.com/package/@mussonindustrial/pyro-resource-signature
+[pyro]: https://github.com/mussonindustrial/pyro
 [pyro-resource-signature]: https://github.com/mussonindustrial/pyro/packages/pyro-resource-signature
 [modification-updater]: https://github.com/paul-griffith/modification-updater
