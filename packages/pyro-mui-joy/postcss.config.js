@@ -29,8 +29,7 @@ async function generateProjectImport(styleClasses) {
     }
 
     styleClasses.forEach((styleClass) => {
-        const path = styleClass.split('/')
-        project.perspective.resources.styleClasses.node(path, emptyStyle)
+        project.perspective.resources.styleClasses.node(styleClass, emptyStyle)
     })
 
     fs.writeFile(
