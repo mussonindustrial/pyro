@@ -1,70 +1,68 @@
 import { ResourceFiles } from '@mussonindustrial/pyro-resource-signature'
 
-type NodeType = 'folder' | 'node'
+export type NodeType = 'folder' | 'node'
 
 export class Folder<TResource extends string> {
     type: NodeType = 'folder'
     children: {
-        [key: string]: Node<TResource> | Folder<TResource>
+        [key: string]: Node<TResource> | Folder<TResource> | undefined
     } = {}
+    delimiter = '/'
 
-    folder(...path: string[]): Folder<TResource> {
-        const folder = new Folder()
-        let childFolder = folder
+    folder(path: string): Folder<TResource> {
+        const pathSegments = path.split(this.delimiter)
 
-        let children: string[] = []
-        let childName = ''
-
-        childName = path.shift() as string
-        const child = this.children[childName]
-        if (isFolder(child)) {
-            return child.folder(...path)
-        }
-
-        if (childName) {
-            children = path
-        }
-
-        if (children.length !== 0) {
-            for (const p of children) {
-                childFolder = childFolder.folder(p)
+        let f: Folder<TResource> = this
+        for (const pathSegment of pathSegments) {
+            let child = f.children[pathSegment]
+            if (child === undefined) {
+                child = new Folder()
+                f.children[pathSegment] = child
             }
-        }
-
-        this.children[childName] = folder
-        return childFolder
-    }
-
-    node(path: string | string[], content: ResourceFiles<TResource>): void {
-        if (path instanceof Array) {
-            const nodeName = path.pop()
-            if (nodeName) {
-                if (path.length > 0) {
-                    this.folder(...path).node(nodeName, content)
-                } else {
-                    return this.node(nodeName, content)
-                }
-            }
-        } else {
-            this.children[path] = newNode(content)
-        }
-    }
-
-    get(...path: string[]): Folder<TResource> | Node<TResource> | undefined {
-        const p = path.shift()
-        if (p === undefined) {
-            return undefined
-        }
-
-        let node = this.children[p]
-        for (const subPath of path) {
-            if (isFolder(node)) {
-                node = node.children[subPath]
+            if (isFolder(child)) {
+                f = child
             } else {
-                break
+                throw new Error(
+                    `found non-folder object at position '${pathSegment}' of folder path '${path}'`
+                )
             }
         }
-        return node
+
+        return f
+    }
+
+    node(path: string, content: ResourceFiles<TResource>): void {
+        const pathSegments = path.split(this.delimiter)
+        const nodeName = pathSegments.pop()!
+
+        if (pathSegments.length > 0) {
+            const folderPath = pathSegments.join(this.delimiter)
+            this.folder(folderPath).node(nodeName, content)
+        } else {
+            this.children[nodeName] = newNode(content)
+        }
+    }
+
+    get(path: string): Folder<TResource> | Node<TResource> | undefined {
+        const pathSegments = path.split(this.delimiter)
+
+        let item: Folder<TResource> | Node<TResource> = this
+        for (const pathSegment of pathSegments) {
+            if (isFolder(item)) {
+                let child: Folder<TResource> | Node<TResource> | undefined =
+                    item.children[pathSegment]
+                if (child === undefined) {
+                    return undefined
+                } else {
+                    item = child
+                }
+            } else {
+                throw Error(
+                    `found non-folder object at position '${pathSegment}' of folder path '${path}'`
+                )
+            }
+        }
+        return item
     }
 }
 
@@ -74,6 +72,10 @@ export class Node<TResource extends string> {
 
     constructor(files: ResourceFiles<TResource>) {
         this.files = files
+    }
+
+    set(content: ResourceFiles<TResource>): void {
+        this.files = content
     }
 }
 
@@ -126,10 +128,10 @@ export function isNode<TResource extends string>(
     return (node as Node<TResource>)?.type == 'node'
 }
 
-export function newFolder<T extends string>(): Folder<T> {
+function newFolder<T extends string>(): Folder<T> {
     return new Folder<T>()
 }
-export function newNode<T extends string>(files: ResourceFiles<T>): Node<T> {
+function newNode<T extends string>(files: ResourceFiles<T>): Node<T> {
     return new Node<T>(files)
 }
 
