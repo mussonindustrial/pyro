@@ -14,10 +14,11 @@ export async function newResource<T extends string>(
     files: ResourceFiles<T>
 ) {
     const newProps = {
-        scope: props.scope ?? 'none',
+        scope: props.scope ?? 'A',
         version: props.version ?? 1,
         restricted: props.restricted ?? false,
         overridable: props.overridable ?? true,
+        documentation: props.documentation ?? undefined,
         files: Object.keys(files),
         attributes: {
             lastModification: {
