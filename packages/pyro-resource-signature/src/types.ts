@@ -44,16 +44,22 @@ type UnionToTuple<T, Last = LastInUnion<T>> = [T] extends [never]
     ? []
     : [Last, ...UnionToTuple<Exclude<T, Last>>]
 
-export type ResourceProps<T extends string> = {
+export type ResourceDefinedProps<T extends string> = {
     scope: Scope
     version: number
+    files: UnionToTuple<T>
+    attributes: ResourceAttributes
+}
+
+export type InstanceDefinedProps = {
     documentation?: string
     locked?: boolean
     restricted: boolean
     overridable: boolean
-    files: UnionToTuple<T>
-    attributes: ResourceAttributes
 }
+
+export type ResourceProps<T extends string> = ResourceDefinedProps<T> &
+    InstanceDefinedProps
 
 export type CommonResourceAttributes = {
     lastModificationSignature: string
