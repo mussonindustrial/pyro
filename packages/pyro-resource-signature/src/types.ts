@@ -31,15 +31,16 @@ type UnionToTuple<T, Last = LastInUnion<T>> = [T] extends [never]
     ? []
     : [Last, ...UnionToTuple<Exclude<T, Last>>]
 
-type Permutations<T extends string, U extends string = T> =
-    T extends any ? (T | `${T}${Permutations<Exclude<U, T>>}`) : never;
+type Permutations<T extends string, U extends string = T> = T extends any
+    ? T | `${T}${Permutations<Exclude<U, T>>}`
+    : never
 
 export type ResourceDefinedProps = {
     scope: Scope
     version: number
 }
 
-export type InstanceDefinedProps<TAttributes={}> = {
+export type InstanceDefinedProps<TAttributes = {}> = {
     documentation?: string
     locked?: boolean
     restricted: boolean
@@ -47,10 +48,13 @@ export type InstanceDefinedProps<TAttributes={}> = {
     attributes: DefaultAttributes & TAttributes
 }
 
-export type UserProvidedProps<TFiles extends string, TAttributes={}> = ResourceDefinedProps & 
-InstanceDefinedProps<TAttributes> & { 
-    files: UnionToTuple<TFiles>
-}
+export type UserProvidedProps<
+    TFiles extends string,
+    TAttributes = {}
+> = ResourceDefinedProps &
+    InstanceDefinedProps<TAttributes> & {
+        files: UnionToTuple<TFiles>
+    }
 
 export type DefaultAttributes = {
     lastModification?: {
@@ -65,9 +69,12 @@ export type SignedResource = {
     }
 }
 
-export type CompleteResourceProps<TFiles extends string, TAttributes={}>  = UserProvidedProps<TFiles, TAttributes> & SignedResource
+export type CompleteResourceProps<
+    TFiles extends string,
+    TAttributes = {}
+> = UserProvidedProps<TFiles, TAttributes> & SignedResource
 
-export type Resource<TFiles extends string, TAttributes={}> = {
+export type Resource<TFiles extends string, TAttributes = {}> = {
     props: CompleteResourceProps<TFiles, TAttributes>
     files: ResourceFiles<TFiles>
 }
@@ -78,6 +85,7 @@ export type DeepPartial<T> = T extends object
       }
     : T
 
-export type PartialResourceProps<TFiles extends string, TAttributes={}> = DeepPartial<
-    UserProvidedProps<TFiles, TAttributes>
->
+export type PartialResourceProps<
+    TFiles extends string,
+    TAttributes = {}
+> = DeepPartial<UserProvidedProps<TFiles, TAttributes>>

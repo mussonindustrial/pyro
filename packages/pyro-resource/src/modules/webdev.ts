@@ -1,6 +1,6 @@
 import { newModule, newFolderResource } from '../resources'
 
-const resources = newFolderResource<{ 
+const resources = newFolderResource<{
     'config.json': any
     'doDelete.py': any
     'doGet.py': any
@@ -10,7 +10,7 @@ const resources = newFolderResource<{
     'doPost.py': any
     'doPut.py': any
     'doTrace.py': any
-    }>('resources', {
+}>('resources', {
     scope: 'G',
     version: 1,
 })

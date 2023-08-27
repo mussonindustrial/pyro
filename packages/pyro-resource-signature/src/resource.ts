@@ -10,11 +10,10 @@ import {
 } from './types'
 import { calculateSignature } from './crypto'
 
-export async function newResource<TFiles extends string, TAttributes={}>(
+export async function newResource<TFiles extends string, TAttributes = {}>(
     props: PartialResourceProps<TFiles, TAttributes>,
     files: ResourceFiles<TFiles>
 ) {
-
     let userProps = {
         scope: props.scope ?? 'A',
         version: props.version ?? 1,
@@ -42,7 +41,9 @@ export async function newResource<TFiles extends string, TAttributes={}>(
     } as Resource<TFiles, TAttributes>
 }
 
-export async function parseResource<TFiles extends string[], TExtProps={}>(folder: string) {
+export async function parseResource<TFiles extends string[], TExtProps = {}>(
+    folder: string
+) {
     const r = fs.readFileSync(path.join(folder, 'resource.json'))
 
     const props = JSON.parse(r.toString())
@@ -62,7 +63,7 @@ export async function parseResource<TFiles extends string[], TExtProps={}>(folde
     } as Resource<TFiles[number], TExtProps>
 }
 
-async function applySignature<TFiles extends string, TAttributes={}>(
+async function applySignature<TFiles extends string, TAttributes = {}>(
     props: UserProvidedProps<TFiles, TAttributes>,
     files: ResourceFiles<TFiles>
 ) {

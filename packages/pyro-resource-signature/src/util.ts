@@ -14,7 +14,7 @@ export function toByte(value: boolean) {
 }
 
 export function serializeScope(scope: Scope): number {
-    let s = 0;
+    let s = 0
     for (const c of scope) {
         s += ScopePrimitives[c as keyof typeof ScopePrimitives]
     }
@@ -22,14 +22,15 @@ export function serializeScope(scope: Scope): number {
 }
 
 export function deserializeScope(value: number): Scope {
-
     const bits = value.toString(2).padStart(3, '0')
     let i = 0
     let scope = ''
     for (const b of bits.split('').reverse().join('')) {
         if (Number(b) !== 0) {
-            scope += (Object.keys(ScopePrimitives) as (keyof typeof ScopePrimitives)[]).find((key) => ScopePrimitives[key] === 1 << i)
-        }        
+            scope += (
+                Object.keys(ScopePrimitives) as (keyof typeof ScopePrimitives)[]
+            ).find((key) => ScopePrimitives[key] === 1 << i)
+        }
         i++
     }
 
@@ -38,7 +39,7 @@ export function deserializeScope(value: number): Scope {
     }
 
     const allScopes = ['G', 'C', 'D']
-    if (allScopes.every(char => scope.split('').includes(char))) {
+    if (allScopes.every((char) => scope.split('').includes(char))) {
         scope = 'A'
     }
 

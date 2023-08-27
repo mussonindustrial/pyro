@@ -75,7 +75,7 @@ async function zipResource<TResource, TProps>(
     zip: JSZip,
     key: string,
     root: NodeResource<TResource, TProps> | FolderResource<TResource, TProps>,
-    resource: Node<TResource, TProps> | Folder<TResource, TProps>,
+    resource: Node<TResource, TProps> | Folder<TResource, TProps>
 ) {
     let generated = false
     const f = zip.folder(key)

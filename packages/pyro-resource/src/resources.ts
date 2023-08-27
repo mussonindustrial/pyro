@@ -5,12 +5,17 @@ import {
 
 export type NodeType = 'folder' | 'node'
 
-export type ResourceInstanceProps<TAttributes> = Partial<InstanceDefinedProps & {attributes: TAttributes}>
+export type ResourceInstanceProps<TAttributes> = Partial<
+    InstanceDefinedProps & { attributes: TAttributes }
+>
 
 export class Folder<TResource, TAttributes> {
     type: NodeType = 'folder'
     children: {
-        [key: string]: Node<TResource, TAttributes> | Folder<TResource, TAttributes> | undefined
+        [key: string]:
+            | Node<TResource, TAttributes>
+            | Folder<TResource, TAttributes>
+            | undefined
     } = {}
     delimiter = '/'
 
@@ -52,14 +57,23 @@ export class Folder<TResource, TAttributes> {
         }
     }
 
-    get(path: string): Folder<TResource, TAttributes> | Node<TResource, TAttributes> | undefined {
+    get(
+        path: string
+    ):
+        | Folder<TResource, TAttributes>
+        | Node<TResource, TAttributes>
+        | undefined {
         const pathSegments = path.split(this.delimiter)
 
-        let item: Folder<TResource, TAttributes> | Node<TResource, TAttributes> = this
+        let item:
+            | Folder<TResource, TAttributes>
+            | Node<TResource, TAttributes> = this
         for (const pathSegment of pathSegments) {
             if (isFolder(item)) {
-                let child: Folder<TResource, TAttributes> | Node<TResource, TAttributes> | undefined =
-                    item.children[pathSegment]
+                let child:
+                    | Folder<TResource, TAttributes>
+                    | Node<TResource, TAttributes>
+                    | undefined = item.children[pathSegment]
                 if (child === undefined) {
                     return undefined
                 } else {
@@ -94,9 +108,14 @@ export class Node<TResource, TAttributes> {
 interface BaseResource<TResource, TAttributes> {
     path: string
     rootProps: ResourceDefinedProps
-    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    getDefaultAttributes?: DefaultAttributeProvider<
+        Node<TResource, TAttributes>,
+        TAttributes
+    >
 
-    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>): void
+    setDefaultAttributeProvider(
+        fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    ): void
 }
 
 export class NodeResource<TResource, TAttributes>
@@ -105,12 +124,18 @@ export class NodeResource<TResource, TAttributes>
 {
     path: string
     rootProps: ResourceDefinedProps
-    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    getDefaultAttributes?: DefaultAttributeProvider<
+        Node<TResource, TAttributes>,
+        TAttributes
+    >
 
     constructor(
         path: string,
         rootProps: ResourceDefinedProps,
-        getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+        getDefaultAttributes?: DefaultAttributeProvider<
+            Node<TResource, TAttributes>,
+            TAttributes
+        >
     ) {
         const files: any = {}
         super(files)
@@ -119,7 +144,9 @@ export class NodeResource<TResource, TAttributes>
         this.getDefaultAttributes = getDefaultAttributes
     }
 
-    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>) {
+    setDefaultAttributeProvider(
+        fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    ) {
         this.getDefaultAttributes = fn
     }
 }
@@ -130,12 +157,18 @@ export class FolderResource<TResource, TAttributes>
 {
     path: string
     rootProps: ResourceDefinedProps
-    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    getDefaultAttributes?: DefaultAttributeProvider<
+        Node<TResource, TAttributes>,
+        TAttributes
+    >
 
     constructor(
         path: string,
         rootProps: ResourceDefinedProps,
-        getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+        getDefaultAttributes?: DefaultAttributeProvider<
+            Node<TResource, TAttributes>,
+            TAttributes
+        >
     ) {
         super()
         this.path = path
@@ -143,14 +176,16 @@ export class FolderResource<TResource, TAttributes>
         this.getDefaultAttributes = getDefaultAttributes
     }
 
-    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>) {
+    setDefaultAttributeProvider(
+        fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    ) {
         this.getDefaultAttributes = fn
     }
 }
 
-type DefaultAttributeProvider<TResource, TAttributes={}> = {
-    (resource: TResource): TAttributes;
-  };
+type DefaultAttributeProvider<TResource, TAttributes = {}> = {
+    (resource: TResource): TAttributes
+}
 
 function newFolder<TResource, TAttributes>(): Folder<TResource, TAttributes> {
     return new Folder()
@@ -162,20 +197,34 @@ function newNode<TResource, TAttributes>(
     return new Node(files, props)
 }
 
-export function newNodeResource<TResource, TAttributes={}>(
+export function newNodeResource<TResource, TAttributes = {}>(
     path: string,
     rootProps: ResourceDefinedProps,
-    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    getDefaultAttributes?: DefaultAttributeProvider<
+        Node<TResource, TAttributes>,
+        TAttributes
+    >
 ) {
-    return new NodeResource<TResource, TAttributes>(path, rootProps, getDefaultAttributes)
+    return new NodeResource<TResource, TAttributes>(
+        path,
+        rootProps,
+        getDefaultAttributes
+    )
 }
 
-export function newFolderResource<TResource, TAttributes={}>(
+export function newFolderResource<TResource, TAttributes = {}>(
     path: string,
     rootProps: ResourceDefinedProps,
-    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    getDefaultAttributes?: DefaultAttributeProvider<
+        Node<TResource, TAttributes>,
+        TAttributes
+    >
 ) {
-    return new FolderResource<TResource, TAttributes>(path, rootProps, getDefaultAttributes)
+    return new FolderResource<TResource, TAttributes>(
+        path,
+        rootProps,
+        getDefaultAttributes
+    )
 }
 
 export const newModule = function <T>(path: string, resources: T) {
