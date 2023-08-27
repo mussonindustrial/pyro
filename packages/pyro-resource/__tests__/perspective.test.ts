@@ -67,5 +67,8 @@ it('should perform a zip', async () => {
     const p = getProject()
     addExampleStyleClasses(p.perspective)
     const zip = await p.zip()
+    if (!fs.existsSync('./.temp')){
+        fs.mkdirSync('./.temp');
+    }
     fs.writeFileSync('./.temp/perspective.zip', zip)
 })

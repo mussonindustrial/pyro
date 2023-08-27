@@ -28,5 +28,8 @@ it('should perform a zip', async () => {
     })
     
     const zip = await p.zip()
+    if (!fs.existsSync('./.temp')){
+        fs.mkdirSync('./.temp');
+    }
     fs.writeFileSync('./.temp/named-query.zip', zip)
 })
