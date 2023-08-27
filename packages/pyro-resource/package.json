@@ -44,6 +44,7 @@
     "dependencies": {
         "@mussonindustrial/pyro-resource-signature": "*",
         "chalk": "^4",
+        "csstype": "^3.1.2",
         "jszip": "^3.10.1",
         "lodash": "^4.17.21"
     }

@@ -9,21 +9,19 @@ import {
 } from '../src/util'
 import { Resource, hasValidSignature, newResource, parseResource } from '../src'
 
-function expectSignatureMatch<T extends string>(
-    resource1: Resource<T>,
-    resource2: Resource<T>
+function signatureMatch<TFiles extends string, TExtProps={}>(
+    resource1: Resource<TFiles, TExtProps>,
+    resource2: Resource<TFiles, TExtProps>
 ) {
-    expect(resource1.props.attributes.lastModificationSignature).toBe(
-        resource2.props.attributes.lastModificationSignature
-    )
+    return resource1.props.attributes.lastModificationSignature == resource2.props.attributes.lastModificationSignature
 }
 
-async function expectValidSignature<T extends string>(resource: Resource<T>) {
-    expect(await hasValidSignature(resource)).toEqual(true)
+async function validSignature<TFiles extends string, TExtProps={}>(resource: Resource<TFiles, TExtProps>) {
+    return (await hasValidSignature(resource))
 }
 
-async function expectInvalidSignature<T extends string>(resource: Resource<T>) {
-    expect(await hasValidSignature(resource)).toEqual(false)
+async function invalidSignature<TFiles extends string, TExtProps={}>(resource: Resource<TFiles, TExtProps>) {
+    return !(await hasValidSignature(resource))
 }
 
 const testsFolder = path.join('.', '__tests__')
@@ -48,6 +46,10 @@ it('should serialize all scope', async () => {
     expect(serializeScope('A')).toMatchInlineSnapshot('7')
 })
 
+it('should serialize combined scope', async () => {
+    expect(serializeScope('CD')).toMatchInlineSnapshot('6')
+})
+
 it('should deserialize none scope', async () => {
     expect(deserializeScope(0)).toMatchInlineSnapshot('"N"')
 })
@@ -66,6 +68,10 @@ it('should deserialize common scope', async () => {
 
 it('should deserialize all scope', async () => {
     expect(deserializeScope(7)).toMatchInlineSnapshot('"A"')
+})
+
+it('should deserialize complex scope', async () => {
+    expect(deserializeScope(5)).toMatchInlineSnapshot('"GC"')
 })
 
 it('should convert numbers to byte array buffer', async () => {
@@ -115,7 +121,7 @@ it('should produce expected signature with style class example', async () => {
 
     const reference = await parseResource(path.join(testsFolder, 'sample1'))
 
-    expectSignatureMatch(resource, reference)
+    expect(signatureMatch(resource, reference)).toBe(true)
 })
 
 it('should produce expected signature with Vision window example', async () => {
@@ -131,9 +137,7 @@ it('should produce expected signature with Vision window example', async () => {
                     actor: 'admin',
                     timestamp: '2019-05-01T17:38:33Z',
                 },
-                customAttributes: {
-                    'xml-format-version': 1,
-                },
+                'xml-format-version': 1,
             },
         },
         {
@@ -143,7 +147,7 @@ it('should produce expected signature with Vision window example', async () => {
 
     const reference = await parseResource(path.join(testsFolder, 'sample2'))
 
-    expectSignatureMatch(resource, reference)
+    expect(signatureMatch(resource, reference)).toBe(true)
 })
 
 it('should produce expected signature with Perspective view example', async () => {
@@ -170,7 +174,7 @@ it('should produce expected signature with Perspective view example', async () =
 
     const reference = await parseResource(path.join(testsFolder, 'sample3'))
 
-    expectSignatureMatch(resource, reference)
+    expect(signatureMatch(resource, reference)).toBe(true)
 })
 
 it('should produce expected signature with Perspective general properties example', async () => {
@@ -195,17 +199,17 @@ it('should produce expected signature with Perspective general properties exampl
 
     const reference = await parseResource(path.join(testsFolder, 'sample4'))
 
-    expectSignatureMatch(resource, reference)
+    expect(signatureMatch(resource, reference)).toBe(true)
 })
 
 it('should verify correct signatures', async () => {
     const reference = await parseResource(path.join(testsFolder, 'sample1'))
 
-    expectValidSignature(reference)
+    expect(await validSignature(reference)).toBe(true)
 })
 
 it('should verify incorrect signatures', async () => {
     const reference = await parseResource(path.join(testsFolder, 'incorrect1'))
 
-    expectInvalidSignature(reference)
+    expect(await invalidSignature(reference)).toBe(true)
 })

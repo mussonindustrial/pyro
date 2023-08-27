@@ -14,16 +14,34 @@ export function toByte(value: boolean) {
 }
 
 export function serializeScope(scope: Scope): number {
-    return ScopePrimitives[scope]
+    let s = 0
+    for (const c of scope) {
+        s += ScopePrimitives[c as keyof typeof ScopePrimitives]
+    }
+    return s
 }
 
 export function deserializeScope(value: number): Scope {
-    const scope = (
-        Object.keys(ScopePrimitives) as (keyof typeof ScopePrimitives)[]
-    ).find((key) => ScopePrimitives[key] === value)
-
-    if (scope === undefined) {
-        throw new RangeError(`Scope value ${value} could not be deserialized.`)
+    const bits = value.toString(2).padStart(3, '0')
+    let i = 0
+    let scope = ''
+    for (const b of bits.split('').reverse().join('')) {
+        if (Number(b) !== 0) {
+            scope += (
+                Object.keys(ScopePrimitives) as (keyof typeof ScopePrimitives)[]
+            ).find((key) => ScopePrimitives[key] === 1 << i)
+        }
+        i++
     }
-    return scope
+
+    if (scope === '') {
+        return 'N'
+    }
+
+    const allScopes = ['G', 'C', 'D']
+    if (allScopes.every((char) => scope.split('').includes(char))) {
+        scope = 'A'
+    }
+
+    return scope as Scope
 }

@@ -1,10 +1,10 @@
 import crypto from 'crypto'
 
-import { CommonResourceAttributes, Resource } from './types'
+import { Resource, DeepPartial, DefaultAttributes } from './types'
 import { serializeScope, toByte, toByteArray } from './util'
 
-export async function calculateSignature<T extends string>(
-    resource: Resource<T>
+export async function calculateSignature<TFiles extends string, TExtProps = {}>(
+    resource: Resource<TFiles, TExtProps>
 ) {
     const hash = crypto.createHash('sha256')
 
@@ -36,7 +36,8 @@ export async function calculateSignature<T extends string>(
 
     const signatureAttributes = {
         ...resource.props.attributes,
-    } as Partial<CommonResourceAttributes>
+    } as DeepPartial<TExtProps & DefaultAttributes>
+    // @ts-ignore
     delete signatureAttributes.lastModificationSignature
 
     Object.entries(signatureAttributes)
@@ -50,8 +51,8 @@ export async function calculateSignature<T extends string>(
     return digest.toString('hex')
 }
 
-export async function hasValidSignature<T extends string>(
-    resource: Resource<T>
+export async function hasValidSignature<TFiles extends string, TExtProps = {}>(
+    resource: Resource<TFiles, TExtProps>
 ) {
     return (
         resource.props.attributes.lastModificationSignature ===
@@ -59,7 +60,9 @@ export async function hasValidSignature<T extends string>(
     )
 }
 
-export async function updateSignature<T extends string>(resource: Resource<T>) {
+export async function updateSignature<TFiles extends string, TExtProps = {}>(
+    resource: Resource<TFiles, TExtProps>
+) {
     const signature = await calculateSignature(resource)
 
     if (resource.props.attributes.lastModificationSignature === signature) {

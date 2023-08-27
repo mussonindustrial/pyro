@@ -1,9 +1,16 @@
 import JSZip from 'jszip'
-import { newResource } from '@mussonindustrial/pyro-resource-signature'
+import {
+    ResourceFiles,
+    newResource,
+} from '@mussonindustrial/pyro-resource-signature'
+import { FolderResource, Node, NodeResource } from './resources'
 
-export async function createResourceJson<
-    const TResourceFiles extends readonly string[]
->(filePaths: TResourceFiles, folder: JSZip) {
+export async function createResourceJson<TResource, TProps>(
+    folder: JSZip,
+    root: FolderResource<TResource, TProps> | NodeResource<TResource, TProps>,
+    resource: Node<TResource, TProps>
+) {
+    const filePaths = Object.keys(resource.files as {})
     let files = {}
     for (const path of filePaths) {
         files = {
@@ -11,7 +18,18 @@ export async function createResourceJson<
             [path]: await folder.file(path)?.async('nodebuffer'),
         }
     }
-    const resource = await newResource({}, files)
-    const content = JSON.stringify(resource.props, null, 2)
+    const allProps = {
+        ...root.rootProps,
+        ...resource.props,
+        attributes: {
+            ...resource.props?.attributes,
+            ...root.getDefaultAttributes?.call(root, resource),
+        },
+    }
+    const resourceJson = await newResource(
+        allProps,
+        files as ResourceFiles<any>
+    )
+    const content = JSON.stringify(resourceJson.props, null, 2)
     folder.file('resource.json', content)
 }
