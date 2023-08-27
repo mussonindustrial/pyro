@@ -1,18 +1,23 @@
-import { ResourceFiles } from '@mussonindustrial/pyro-resource-signature'
+import {
+    InstanceDefinedProps,
+    ResourceDefinedProps,
+} from '@mussonindustrial/pyro-resource-signature'
 
 export type NodeType = 'folder' | 'node'
 
-export class Folder<TResource extends string> {
+export type ResourceInstanceProps<TAttributes> = Partial<InstanceDefinedProps & {attributes: TAttributes}>
+
+export class Folder<TResource, TAttributes> {
     type: NodeType = 'folder'
     children: {
-        [key: string]: Node<TResource> | Folder<TResource> | undefined
+        [key: string]: Node<TResource, TAttributes> | Folder<TResource, TAttributes> | undefined
     } = {}
     delimiter = '/'
 
-    folder(path: string): Folder<TResource> {
+    folder(path: string): Folder<TResource, TAttributes> {
         const pathSegments = path.split(this.delimiter)
 
-        let f: Folder<TResource> = this
+        let f: Folder<TResource, TAttributes> = this
         for (const pathSegment of pathSegments) {
             let child = f.children[pathSegment]
             if (child === undefined) {
@@ -31,25 +36,29 @@ export class Folder<TResource extends string> {
         return f
     }
 
-    node(path: string, content: ResourceFiles<TResource>): void {
+    node(
+        path: string,
+        content: TResource,
+        props?: ResourceInstanceProps<TAttributes>
+    ): void {
         const pathSegments = path.split(this.delimiter)
         const nodeName = pathSegments.pop()!
 
         if (pathSegments.length > 0) {
             const folderPath = pathSegments.join(this.delimiter)
-            this.folder(folderPath).node(nodeName, content)
+            this.folder(folderPath).node(nodeName, content, props)
         } else {
-            this.children[nodeName] = newNode(content)
+            this.children[nodeName] = newNode(content, props)
         }
     }
 
-    get(path: string): Folder<TResource> | Node<TResource> | undefined {
+    get(path: string): Folder<TResource, TAttributes> | Node<TResource, TAttributes> | undefined {
         const pathSegments = path.split(this.delimiter)
 
-        let item: Folder<TResource> | Node<TResource> = this
+        let item: Folder<TResource, TAttributes> | Node<TResource, TAttributes> = this
         for (const pathSegment of pathSegments) {
             if (isFolder(item)) {
-                let child: Folder<TResource> | Node<TResource> | undefined =
+                let child: Folder<TResource, TAttributes> | Node<TResource, TAttributes> | undefined =
                     item.children[pathSegment]
                 if (child === undefined) {
                     return undefined
@@ -66,85 +75,107 @@ export class Folder<TResource extends string> {
     }
 }
 
-export class Node<TResource extends string> {
+export class Node<TResource, TAttributes> {
     type: NodeType = 'node'
-    files: ResourceFiles<TResource>
+    files: TResource
+    props?: ResourceInstanceProps<TAttributes>
 
-    constructor(files: ResourceFiles<TResource>) {
+    constructor(files: TResource, props?: ResourceInstanceProps<TAttributes>) {
         this.files = files
+        this.props = props
     }
 
-    set(content: ResourceFiles<TResource>): void {
+    set(content: TResource, props?: ResourceInstanceProps<TAttributes>): void {
         this.files = content
+        this.props = props
     }
 }
 
-interface BaseResource<TResourceFiles extends readonly string[]> {
+interface BaseResource<TResource, TAttributes> {
     path: string
-    filePaths: TResourceFiles
+    rootProps: ResourceDefinedProps
+    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+
+    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>): void
 }
 
-export class NodeResource<const TResourceFiles extends readonly string[]>
-    extends Node<TResourceFiles[number]>
-    implements BaseResource<TResourceFiles>
+export class NodeResource<TResource, TAttributes>
+    extends Node<TResource, TAttributes>
+    implements BaseResource<TResource, TAttributes>
 {
     path: string
-    filePaths: TResourceFiles
+    rootProps: ResourceDefinedProps
+    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
 
-    constructor(path: string, filePaths: TResourceFiles) {
+    constructor(
+        path: string,
+        rootProps: ResourceDefinedProps,
+        getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    ) {
         const files: any = {}
-        for (const path of filePaths.keys()) {
-            files[path] = ''
-        }
         super(files)
         this.path = path
-        this.filePaths = filePaths
+        this.rootProps = rootProps
+        this.getDefaultAttributes = getDefaultAttributes
+    }
+
+    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>) {
+        this.getDefaultAttributes = fn
     }
 }
 
-export class FolderResource<const TResourceFiles extends readonly string[]>
-    extends Folder<TResourceFiles[number]>
-    implements BaseResource<TResourceFiles>
+export class FolderResource<TResource, TAttributes>
+    extends Folder<TResource, TAttributes>
+    implements BaseResource<TResource, TAttributes>
 {
     path: string
-    filePaths: TResourceFiles
+    rootProps: ResourceDefinedProps
+    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
 
-    constructor(path: string, filePaths: TResourceFiles) {
+    constructor(
+        path: string,
+        rootProps: ResourceDefinedProps,
+        getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+    ) {
         super()
         this.path = path
-        this.filePaths = filePaths
+        this.rootProps = rootProps
+        this.getDefaultAttributes = getDefaultAttributes
+    }
+
+    setDefaultAttributeProvider(fn: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>) {
+        this.getDefaultAttributes = fn
     }
 }
 
-export function isFolder<TResource extends string>(
-    resource: Folder<TResource> | Node<TResource>
-): resource is Folder<TResource> {
-    return (resource as Folder<TResource>)?.type == 'folder'
+type DefaultAttributeProvider<TResource, TAttributes={}> = {
+    (resource: TResource): TAttributes;
+  };
+
+function newFolder<TResource, TAttributes>(): Folder<TResource, TAttributes> {
+    return new Folder()
+}
+function newNode<TResource, TAttributes>(
+    files: TResource,
+    props?: ResourceInstanceProps<TAttributes>
+): Node<TResource, TAttributes> {
+    return new Node(files, props)
 }
 
-export function isNode<TResource extends string>(
-    node: Folder<TResource> | Node<TResource>
-): node is Node<TResource> {
-    return (node as Node<TResource>)?.type == 'node'
+export function newNodeResource<TResource, TAttributes={}>(
+    path: string,
+    rootProps: ResourceDefinedProps,
+    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+) {
+    return new NodeResource<TResource, TAttributes>(path, rootProps, getDefaultAttributes)
 }
 
-function newFolder<T extends string>(): Folder<T> {
-    return new Folder<T>()
-}
-function newNode<T extends string>(files: ResourceFiles<T>): Node<T> {
-    return new Node<T>(files)
-}
-
-export const newNodeResource = function <
-    const TResourceFiles extends readonly string[]
->(path: string, filePaths: TResourceFiles) {
-    return new NodeResource(path, filePaths)
-}
-
-export const newFolderResource = function <
-    const TResourceFiles extends readonly string[]
->(path: string, filePaths: TResourceFiles) {
-    return new FolderResource(path, filePaths)
+export function newFolderResource<TResource, TAttributes={}>(
+    path: string,
+    rootProps: ResourceDefinedProps,
+    getDefaultAttributes?: DefaultAttributeProvider<Node<TResource, TAttributes>, TAttributes>
+) {
+    return new FolderResource<TResource, TAttributes>(path, rootProps, getDefaultAttributes)
 }
 
 export const newModule = function <T>(path: string, resources: T) {
@@ -152,4 +183,16 @@ export const newModule = function <T>(path: string, resources: T) {
         path,
         resources,
     }
+}
+
+export function isFolder<TResource, TAttributes>(
+    resource: Folder<TResource, TAttributes> | Node<TResource, TAttributes>
+): resource is Folder<TResource, TAttributes> {
+    return (resource as Folder<TResource, TAttributes>)?.type == 'folder'
+}
+
+export function isNode<TResource, TAttributes>(
+    node: Folder<TResource, TAttributes> | Node<TResource, TAttributes>
+): node is Node<TResource, TAttributes> {
+    return (node as Node<TResource, TAttributes>)?.type == 'node'
 }

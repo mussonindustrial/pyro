@@ -1,22 +1,49 @@
 import { newModule, newFolderResource, newNodeResource } from '../resources'
 
-const clientEventScripts = newNodeResource('client-event-scripts', ['data.bin'])
+const clientEventScripts = newNodeResource<{ 'data.bin': any }>(
+    'client-event-scripts',
+    { scope: 'G', version: 1 }
+)
 
-const clientTags = newNodeResource('client-tags', ['data.bin'])
+const clientTags = newNodeResource<{ 'data.bin': any }>('client-tags', {
+    scope: 'G',
+    version: 1,
+})
 
-const designerProperties = newNodeResource('designer-properties', ['data.bin'])
+const designerProperties = newNodeResource<{ 'data.bin': any }>(
+    'designer-properties',
+    { scope: 'G', version: 1 }
+)
 
-const generalProperties = newNodeResource('general-properties', ['data.bin'])
+const generalProperties = newNodeResource<{ 'data.bin': any }>(
+    'general-properties',
+    { scope: 'G', version: 1 }
+)
 
-const launchProperties = newNodeResource('launch-properties', ['data.bin'])
+const launchProperties = newNodeResource<{ 'data.bin': any }>(
+    'launch-properties',
+    { scope: 'G', version: 1 }
+)
 
-const loginProperties = newNodeResource('login-properties', ['data.bin'])
+const loginProperties = newNodeResource<{ 'data.bin': any }>(
+    'login-properties',
+    { scope: 'G', version: 1 }
+)
 
-const templates = newFolderResource('templates', ['data.bin'])
+const templates = newFolderResource<{ 'data.bin': any }>('templates', {
+    scope: 'G',
+    version: 1,
+})
 
-const uiProperties = newNodeResource('ui-properties', ['data.bin'])
+const uiProperties = newNodeResource<{ 'data.bin': any }>('ui-properties', {
+    scope: 'G',
+    version: 1,
+})
 
-const windows = newFolderResource('windows', ['window.bin', 'thumbnail.png'])
+const windows = newFolderResource<{ 'window.bin': any; 'thumbnail.png': any }>(
+    'windows',
+    { scope: 'G', version: 1 }
+)
 
 export const vision = newModule('com.inductiveautomation.vision', {
     clientEventScripts,
