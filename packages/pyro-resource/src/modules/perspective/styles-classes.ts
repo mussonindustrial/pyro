@@ -2,10 +2,10 @@ import type * as CSS from 'csstype'
 
 import { newFolderResource } from '../../resources'
 
-export const styleClass = newFolderResource<StyleClassFiles>(
-    'style-classes',
-    { scope: 'G', version: 2 }
-)
+export const styleClass = newFolderResource<StyleClassFiles>('style-classes', {
+    scope: 'G',
+    version: 2,
+})
 
 type StyleClassFiles = {
     'style.json': StyleClass

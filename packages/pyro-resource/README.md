@@ -91,26 +91,28 @@ fs.writeFileSync('./projectImport.zip', zip)
 The required `resource.json` files are generated and signed using [pyro-resource-signature].
 
 ## Resource Attributes
+
 Some resource types require additional attributes.
 For example, let's look at Name Queries.
 
 ```js
-import {
-    newProject,
-    ignition
-} from '@mussonindustrial/pyro-resource'
+import { newProject, ignition } from '@mussonindustrial/pyro-resource'
 
 const project = newProject({ ignition })
 const nq = p.ignition.resources.namedQuery
-nq.node('test', {
-    'query.sql': 'content'
-}, {
-    documentation: 'Text goes here.',
-    attributes: {
-        database: 'Test',
-        maxReturnSize: 500
+nq.node(
+    'test',
+    {
+        'query.sql': 'content',
+    },
+    {
+        documentation: 'Text goes here.',
+        attributes: {
+            database: 'Test',
+            maxReturnSize: 500,
+        },
     }
-})
+)
 ```
 
 ## Custom Modules and Resources
