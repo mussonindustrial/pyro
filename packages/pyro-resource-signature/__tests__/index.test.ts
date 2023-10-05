@@ -9,18 +9,18 @@ import {
 } from '../src/util'
 import { Resource, hasValidSignature, newResource, parseResource } from '../src'
 
-function signatureMatch<TFiles extends string, TExtProps={}>(
-    resource1: Resource<TFiles, TExtProps>,
-    resource2: Resource<TFiles, TExtProps>
+function signatureMatch<TFiles extends string, TAttributes={}>(
+    resource1: Resource<TFiles, TAttributes>,
+    resource2: Resource<TFiles, TAttributes>
 ) {
     return resource1.props.attributes.lastModificationSignature == resource2.props.attributes.lastModificationSignature
 }
 
-async function validSignature<TFiles extends string, TExtProps={}>(resource: Resource<TFiles, TExtProps>) {
+async function validSignature<TFiles extends string, TAttributes={}>(resource: Resource<TFiles, TAttributes>) {
     return (await hasValidSignature(resource))
 }
 
-async function invalidSignature<TFiles extends string, TExtProps={}>(resource: Resource<TFiles, TExtProps>) {
+async function invalidSignature<TFiles extends string, TAttributes={}>(resource: Resource<TFiles, TAttributes>) {
     return !(await hasValidSignature(resource))
 }
 

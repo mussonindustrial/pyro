@@ -1,7 +1,7 @@
 import { it, expect } from 'vitest'
 import fs from 'fs'
 import { Folder, newProject, perspective, vision } from '../src'
-import { StyleClass } from '../src/modules/perspective/stylesClasses'
+import { StyleClass } from '../src/modules/perspective/styles-classes'
 
 function getProject() {
     return newProject({ perspective, vision })
@@ -22,15 +22,15 @@ function emptyStyle(): StyleClass {
 
 function addExampleStyleClasses(p: typeof perspective) {
 
-    p.resources.styleClasses.node('top-level-psc', {
+    p.resources.styleClass.node('top-level-psc', {
         'style.json': emptyStyle(),
     })
 
-    p.resources.styleClasses.folder('Folder').node('PSC-In-Folder', {
+    p.resources.styleClass.folder('Folder').node('PSC-In-Folder', {
         'style.json': emptyStyle(),
     })
 
-    p.resources.styleClasses.node('Folder/Folder2/PSC-in-Nested-Folder', {
+    p.resources.styleClass.node('Folder/Folder2/PSC-in-Nested-Folder', {
         'style.json': emptyStyle(),
     }, {documentation: 'Test Documentation!'})
     

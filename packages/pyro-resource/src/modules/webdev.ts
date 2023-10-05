@@ -1,6 +1,6 @@
 import { newModule, newFolderResource } from '../resources'
 
-const resources = newFolderResource<{
+const resource = newFolderResource<{
     'config.json': any
     'doDelete.py': any
     'doGet.py': any
@@ -16,5 +16,5 @@ const resources = newFolderResource<{
 })
 
 export const webdev = newModule('com.inductiveautomation.webdev', {
-    resources,
+    resource,
 })

@@ -1,5 +1,5 @@
 import { newModule, newFolderResource, newNodeResource } from '../../resources'
-import { styleClasses } from './stylesClasses'
+import { styleClass } from './styles-classes'
 
 const generalProperties = newNodeResource<{ 'data.bin': any }>(
     'general-properties',
@@ -21,7 +21,7 @@ const sessionScripts = newNodeResource<{ 'data.bin': any }>('session-scripts', {
     version: 1,
 })
 
-const views = newFolderResource<{ 'view.json': any; 'thumbnail.png'?: any }>(
+const view = newFolderResource<{ 'view.json': any; 'thumbnail.png'?: any }>(
     'views',
     { scope: 'G', version: 1 }
 )
@@ -31,6 +31,7 @@ export const perspective = newModule('com.inductiveautomation.perspective', {
     pageConfig,
     sessionProperties,
     sessionScripts,
-    styleClasses,
-    views,
+    styleClass,
+    view,
 })
+export default perspective

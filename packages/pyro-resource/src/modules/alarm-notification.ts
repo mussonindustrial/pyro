@@ -1,6 +1,6 @@
 import { newModule, newFolderResource } from '../resources'
 
-const alarmPipelines = newFolderResource<{ 'data.bin': any }>(
+const alarmPipeline = newFolderResource<{ 'data.bin': any }>(
     'alarm-pipelines',
     { scope: 'G', version: 1 }
 )
@@ -8,6 +8,6 @@ const alarmPipelines = newFolderResource<{ 'data.bin': any }>(
 export const alarmNotification = newModule(
     'com.inductiveautomation.alarm-notification',
     {
-        alarmPipelines,
+        alarmPipeline,
     }
 )

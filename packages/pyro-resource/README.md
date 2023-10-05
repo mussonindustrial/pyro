@@ -90,20 +90,27 @@ fs.writeFileSync('./projectImport.zip', zip)
 
 The required `resource.json` files are generated and signed using [pyro-resource-signature].
 
-## Type Hints
-
-Each module comes with resource definitions and type hints for the required files.
+## Resource Attributes
+Some resource types require additional attributes.
+For example, let's look at Name Queries.
 
 ```js
-project.perspective.resources
-// (property) resources: {
-//     generalProperties: NodeResource<readonly ["data.bin"]>;
-//     pageConfig: NodeResource<readonly ["config.json"]>;
-//     sessionProperties: NodeResource<readonly ["props.json"]>;
-//     sessionScripts: NodeResource<...>;
-//     styleClasses: FolderResource<...>;
-//     views: FolderResource<...>;
-// }
+import {
+    newProject,
+    ignition
+} from '@mussonindustrial/pyro-resource'
+
+const project = newProject({ ignition })
+const nq = p.ignition.resources.namedQuery
+nq.node('test', {
+    'query.sql': 'content'
+}, {
+    documentation: 'Text goes here.',
+    attributes: {
+        database: 'Test',
+        maxReturnSize: 500
+    }
+})
 ```
 
 ## Custom Modules and Resources

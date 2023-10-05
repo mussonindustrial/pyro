@@ -2,7 +2,7 @@ import type * as CSS from 'csstype'
 
 import { newFolderResource } from '../../resources'
 
-export const styleClasses = newFolderResource<StyleClassFiles>(
+export const styleClass = newFolderResource<StyleClassFiles>(
     'style-classes',
     { scope: 'G', version: 2 }
 )
