@@ -271,9 +271,9 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-[psc='Variant/color-inversion'] [psc='Variant/soft'] {
+[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/soft'] {
     @each $palette in $palettes {
-        &[psc='Palette/$(palette)'] * {
+        &[psc='Joy/Palette/$(palette)'] * {
             --Badge-ringColor: var(--palette-$(palette)-softBg);
             --shadowChannel: var(--palette-$(palette)-darkChannel);
 
@@ -366,9 +366,9 @@ $palettes: (primary, neutral, danger, info, success, warning);
     }
 }
 
-[psc='Variant/color-inversion'] [psc='Variant/solid'] {
+[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/solid'] {
     @each $palette in $palettes {
-        &[psc='Palette/$(palette)'] * {
+        &[psc='Joy/Palette/$(palette)'] * {
             --Badge-ringColor: var(--palette-$(palette)-solidBg);
             --shadowChannel: var(--palette-$(palette)-darkChannel);
 

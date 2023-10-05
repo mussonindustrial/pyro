@@ -4,7 +4,7 @@ $states: (Hover, Active, Disabled);
 $attributes: (Color, Bg, Border);
 
 @each $palette in $palettes {
-    [psc='Palette/$(palette)'] {
+    [psc='Joy/Palette/$(palette)'] {
         @each $variant in $variants {
             @each $attribute in $attributes {
                 /* prettier-ignore */
@@ -27,12 +27,12 @@ $attributes: (Color, Bg, Border);
 @mixin palette-default($component, $palette: primary) {
     &:not(
             :where(
-                    [psc='Palette/danger'],
-                    [psc='Palette/info'],
-                    [psc='Palette/neutral'],
-                    [psc='Palette/primary'],
-                    [psc='Palette/success'],
-                    [psc='Palette/warning']
+                    [psc='Joy/Palette/danger'],
+                    [psc='Joy/Palette/info'],
+                    [psc='Joy/Palette/neutral'],
+                    [psc='Joy/Palette/primary'],
+                    [psc='Joy/Palette/success'],
+                    [psc='Joy/Palette/warning']
                 )
         ) {
         @each $variant in $variants {

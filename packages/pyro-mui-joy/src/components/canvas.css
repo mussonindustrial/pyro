@@ -27,8 +27,8 @@ canvas {
         cursor: default;
     }
 
-    &[psc='Variant/plain'],
-    &[psc='Variant/outlined'] {
+    &[psc='Joy/Variant/plain'],
+    &[psc='Joy/Variant/outlined'] {
         --Canvas-Bg: var(--palette-background-surface);
     }
 

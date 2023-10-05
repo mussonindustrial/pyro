@@ -26,8 +26,8 @@
 
     --Slider-railBackground: var(--palette-background-level2);
 
-    &[psc='Variant/plain'],
-    &[psc='Variant/outlined'] {
+    &[psc='Joy/Variant/plain'],
+    &[psc='Joy/Variant/outlined'] {
         --Slider-thumbColor: var(--palette-background-surface);
         --Slider-trackBackground: var(--palette-background-surface);
     }
@@ -126,24 +126,24 @@
     }
 }
 
-[psc='Size/sm'] .ia-slider,
-[psc='Size/sm'].ia-slider {
+[psc='Joy/Size/sm'] .ia-slider,
+[psc='Joy/Size/sm'].ia-slider {
     --Slider-markSize: 2px;
     --Slider-trackSize: 4px;
     --Slider-thumbSize: 10px;
     --Slider-valueLabelArrowSize: 6px;
 }
 
-[psc='Size/md'] .ia-slider,
-[psc='Size/md'].ia-slider {
+[psc='Joy/Size/md'] .ia-slider,
+[psc='Joy/Size/md'].ia-slider {
     --Slider-markSize: 2px;
     --Slider-trackSize: 6px;
     --Slider-thumbSize: 14px;
     --Slider-valueLabelArrowSize: 8px;
 }
 
-[psc='Size/lg'] .ia-slider,
-[psc='Size/lg'].ia-slider {
+[psc='Joy/Size/lg'] .ia-slider,
+[psc='Joy/Size/lg'].ia-slider {
     --Slider-markSize: 3px;
     --Slider-trackSize: 10px;
     --Slider-thumbSize: 20px;

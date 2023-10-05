@@ -1,5 +1,5 @@
 /*Typography*/
-[psc='Typography/root'] {
+[psc='Joy/Typography/root'] {
     /* Variant */
     --variant-borderWidth: unset;
     --variant-borderStyle: unset;
@@ -11,7 +11,7 @@
     --variant-DisabledBg: unset;
 }
 
-[psc='Typography/inherit'] {
+[psc='Joy/Typography/inherit'] {
     /* Variant */
     color: inherit;
     background-color: inherit;
@@ -29,7 +29,7 @@
     border-radius: var(--radius-xs);
 }
 
-[psc='Typography/display1'] {
+[psc='Joy/Typography/display1'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl7, 4.5rem));
     font-weight: var(--fontWeight-xl, 700);
@@ -38,7 +38,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/display2'] {
+[psc='Joy/Typography/display2'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl6, 3.75rem));
     font-weight: var(--fontWeight-xl, 700);
@@ -47,7 +47,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h1'] {
+[psc='Joy/Typography/h1'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl5, 3rem));
     font-weight: var(--fontWeight-lg, 600);
@@ -56,7 +56,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h2'] {
+[psc='Joy/Typography/h2'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl4, 2.25rem));
     font-weight: var(--fontWeight-lg, 600);
@@ -65,7 +65,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h3'] {
+[psc='Joy/Typography/h3'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl3, 1.875rem));
     font-weight: var(--fontWeight-md, 500);
@@ -73,7 +73,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h4'] {
+[psc='Joy/Typography/h4'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl2, 1.5rem));
     font-weight: var(--fontWeight-md, 500);
@@ -81,7 +81,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h5'] {
+[psc='Joy/Typography/h5'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-xl, 1.25rem));
     font-weight: var(--fontWeight-md, 500);
@@ -89,7 +89,7 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/h6'] {
+[psc='Joy/Typography/h6'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-lg, 1.125rem));
     font-weight: var(--fontWeight-md, 500);
@@ -97,35 +97,35 @@
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/body1'] {
+[psc='Joy/Typography/body1'] {
     color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
     font-size: var(--Typography-fontSize, var(--fontSize-md, 1rem));
     line-height: var(--lineHeight-md, 1.5);
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/body2'] {
+[psc='Joy/Typography/body2'] {
     color: var(--palette-text-primary, var(--palette-neutral-600, #5a5a72));
     font-size: var(--Typography-fontSize, var(--fontSize-sm, 0.875rem));
     line-height: var(--lineHeight-md, 1.5);
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/body3'] {
+[psc='Joy/Typography/body3'] {
     color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
     font-size: var(--Typography-fontSize, var(--fontSize-xs, 0.75rem));
     line-height: var(--lineHeight-md, 1.5);
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/body4'] {
+[psc='Joy/Typography/body4'] {
     color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
     font-size: var(--Typography-fontSize, var(--fontSize-xs2, 0.625rem));
     line-height: var(--lineHeight-md, 1.5);
     margin: var(--Typography-margin, 0px);
 }
 
-[psc='Typography/body5'] {
+[psc='Joy/Typography/body5'] {
     color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
     font-size: var(--Typography-fontSize, var(--fontSize-xs3, 0.5rem));
     line-height: var(--lineHeight-md, 1.5);

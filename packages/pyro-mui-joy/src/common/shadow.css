@@ -29,7 +29,7 @@
 }
 
 @each $size in (xs, sm, md, lg, xl) {
-    [psc='Shadow/$size'] {
+    [psc='Joy/Shadow/$size'] {
         box-shadow: var(--shadow-$(size));
     }
 }

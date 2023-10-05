@@ -7,7 +7,7 @@
 }
 
 @each $size in (xs, sm, md, lg, xl) {
-    [psc='Radius/$size'] {
+    [psc='Joy/Radius/$size'] {
         border-radius: var(--radius-$(size));
     }
 }

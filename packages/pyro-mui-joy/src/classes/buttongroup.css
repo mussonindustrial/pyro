@@ -1,6 +1,6 @@
 $gaps: (5px, 10px);
 
-[psc='Container/buttongroup-connected'] {
+[psc='Joy/Container/buttongroup-connected'] {
     *:first-child {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
