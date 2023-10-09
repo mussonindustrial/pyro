@@ -1,5 +1,5 @@
 /* A card is a generic container for grouping related UI elements and content.*/
-[psc='Container/card'] {
+[psc='Joy/Container/card'] {
     @include variant-support(Card);
     @include variant-default(Card, plain);
     @include palette-default(Card, neutral);
@@ -44,41 +44,41 @@
     border-width: var(--Card-borderWidth);
     border-style: var(--Card-borderStyle);
 
-    &[psc='Size/sm'] {
+    &[psc='Joy/Size/sm'] {
         --Card-radius: var(--radius-sm);
         --Card-padding: 0.5rem;
     }
 
-    &[psc='Size/md'] {
+    &[psc='Joy/Size/md'] {
         --Card-radius: var(--radius-md);
         --Card-padding: 1rem;
     }
 
-    &[psc='Size/lg'] {
+    &[psc='Joy/Size/lg'] {
         --Card-radius: var(--radius-lg);
         --Card-padding: 1.5rem;
         font-size: var(--fontSize-md);
     }
 
-    &[psc='Variant/plain'],
-    &[psc='Variant/outlined'] {
+    &[psc='Joy/Variant/plain'],
+    &[psc='Joy/Variant/outlined'] {
         --Card-Bg: var(--palette-background-surface);
     }
 
-    [psc='Container/card-overflow'] {
+    [psc='Joy/Container/card-overflow'] {
         margin-left: var(--CardOverflow-offset);
         margin-right: var(--CardOverflow-offset);
         padding: 0px var(--Card-padding);
     }
 
-    *:first-child[psc='Container/card-overflow'] {
+    *:first-child[psc='Joy/Container/card-overflow'] {
         margin-top: var(--CardOverflow-offset);
         border-top: 0px;
         border-left: 0px;
         border-right: 0px;
     }
 
-    *:last-child[psc='Container/card-overflow'] {
+    *:last-child[psc='Joy/Container/card-overflow'] {
         margin-bottom: var(--CardOverflow-offset);
         border-bottom: 0px;
         border-left: 0px;

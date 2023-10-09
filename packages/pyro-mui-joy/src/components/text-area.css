@@ -52,8 +52,8 @@
         cursor: default;
     }
 
-    &[psc='Variant/plain'],
-    &[psc='Variant/outlined'] {
+    &[psc='Joy/Variant/plain'],
+    &[psc='Joy/Variant/outlined'] {
         --Textarea-Bg: var(--palette-background-surface);
     }
 
@@ -72,20 +72,20 @@
     }
 }
 
-[psc='Size/sm'] [data-component='ia.input.text-area'],
-[psc='Size/sm'][data-component='ia.input.text-area'] {
+[psc='Joy/Size/sm'] [data-component='ia.input.text-area'],
+[psc='Joy/Size/sm'][data-component='ia.input.text-area'] {
     --Textarea-minHeight: 2rem;
     --Textarea-paddingInline: 0.5rem;
 }
 
-[psc='Size/md'] [data-component='ia.input.text-area'],
-[psc='Size/md'][data-component='ia.input.text-area'] {
+[psc='Joy/Size/md'] [data-component='ia.input.text-area'],
+[psc='Joy/Size/md'][data-component='ia.input.text-area'] {
     --Textarea-minHeight: 2.5rem;
     --Textarea-paddingInline: 0.75rem;
 }
 
-[psc='Size/lg'] [data-component='ia.input.text-area'],
-[psc='Size/lg'][data-component='ia.input.text-area'] {
+[psc='Joy/Size/lg'] [data-component='ia.input.text-area'],
+[psc='Joy/Size/lg'][data-component='ia.input.text-area'] {
     --Textarea-minHeight: 3rem;
     --Textarea-paddingInline: 1rem;
 }

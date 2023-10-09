@@ -1,8 +1,9 @@
 @import 'fonts.css';
+@import 'global.css';
+@import 'mixins.css';
 @import 'palettes.css';
 @import 'radius.css';
+@import 'scrollbar.css';
 @import 'shadow.css';
-@import 'variants.css';
-@import 'mixins.css';
-@import 'global.css';
 @import 'typography.css';
+@import 'variants.css';

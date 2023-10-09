@@ -80,8 +80,8 @@
         cursor: default;
     }
 
-    &[psc='Variant/plain'],
-    &[psc='Variant/outlined'] {
+    &[psc='Joy/Variant/plain'],
+    &[psc='Joy/Variant/outlined'] {
         --Input-Bg: var(--palette-background-surface);
     }
 
@@ -197,22 +197,22 @@
 }
 
 /* Size Support */
-[psc='Size/sm'] [data-component='ia.input.numeric-entry-field'],
-[psc='Size/sm'][data-component='ia.input.numeric-entry-field'] {
+[psc='Joy/Size/sm'] [data-component='ia.input.numeric-entry-field'],
+[psc='Joy/Size/sm'][data-component='ia.input.numeric-entry-field'] {
     --Input-minHeight: 2rem;
     --Input-paddingInline: 0.5rem;
     --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
 }
 
-[psc='Size/md'] [data-component='ia.input.numeric-entry-field'],
-[psc='Size/md'][data-component='ia.input.numeric-entry-field'] {
+[psc='Joy/Size/md'] [data-component='ia.input.numeric-entry-field'],
+[psc='Joy/Size/md'][data-component='ia.input.numeric-entry-field'] {
     --Input-minHeight: 2.5rem;
     --Input-paddingInline: 0.75rem;
     --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
 }
 
-[psc='Size/lg'] [data-component='ia.input.numeric-entry-field'],
-[psc='Size/lg'][data-component='ia.input.numeric-entry-field'] {
+[psc='Joy/Size/lg'] [data-component='ia.input.numeric-entry-field'],
+[psc='Joy/Size/lg'][data-component='ia.input.numeric-entry-field'] {
     --Input-minHeight: 3rem;
     --Input-paddingInline: 1rem;
     --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));

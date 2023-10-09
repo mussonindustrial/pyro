@@ -79,26 +79,26 @@
         cursor: default;
     }
 
-    &[psc='Size/sm'] {
+    &[psc='Joy/Size/sm'] {
         --Input-minHeight: 2rem;
         --Input-paddingInline: 0.5rem;
         --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
     }
 
-    &[psc='Size/md'] {
+    &[psc='Joy/Size/md'] {
         --Input-minHeight: 2.5rem;
         --Input-paddingInline: 0.75rem;
         --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
     }
 
-    &[psc='Size/lg'] {
+    &[psc='Joy/Size/lg'] {
         --Input-minHeight: 3rem;
         --Input-paddingInline: 1rem;
         --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));
     }
 
-    [psc='Variant/plain'],
-    [psc='Variant/outlined'] {
+    [psc='Joy/Variant/plain'],
+    [psc='Joy/Variant/outlined'] {
         --Input-Bg: var(--palette-background-surface);
     }
 

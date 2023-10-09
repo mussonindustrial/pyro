@@ -1,0 +1,26 @@
+/** Scroll Bar **/
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--palette-neutral-200);
+    border-radius: var(--radius-md);
+    border: 6px solid transparent;
+    background-clip: content-box;
+
+    &:hover {
+        background-color: var(--palette-neutral-400);
+    }
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

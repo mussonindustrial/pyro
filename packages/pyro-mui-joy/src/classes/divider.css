@@ -1,6 +1,6 @@
 /* A divider is a thin line that groups content in lists and layouts. */
-[psc='Container/divider-horizontal'],
-[psc='Container/divider-vertical'] {
+[psc='Joy/Container/divider-horizontal'],
+[psc='Joy/Container/divider-vertical'] {
     --Divider-thickness: 1px;
     --Divider-lineColor: var(--palette-divider);
     --Divider-gap: 8px;
@@ -34,12 +34,12 @@
         flex-basis: calc(100% - var(--Divider-childPosition));
     }
 
-    &[psc='Container/card-overflow'] {
+    &[psc='Joy/Container/card-overflow'] {
         --_Divider-inset: var(--Divider-inset, 0px);
     }
 }
 
-[psc='Container/divider-horizontal'] {
+[psc='Joy/Container/divider-horizontal'] {
     margin-inline: var(--_Divider-inset);
     margin-block: initial;
 
@@ -71,7 +71,7 @@
     }
 }
 
-[psc='Container/divider-vertical'] {
+[psc='Joy/Container/divider-vertical'] {
     margin-inline: initial;
     margin-block: var(--_Divider-inset);
 

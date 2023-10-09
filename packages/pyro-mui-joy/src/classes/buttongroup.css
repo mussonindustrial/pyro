@@ -1,6 +1,7 @@
 $gaps: (5px, 10px);
 
-[psc='Container/buttongroup-connected'] {
+/* [psc='Joy/Container/buttongroup-connected'] {
+
     *:first-child {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -12,6 +13,61 @@ $gaps: (5px, 10px);
     }
 
     *:not(:first-child):not(:last-child) {
+        margin-left: -1px;
         border-radius: 0px;
+    }
+} */
+
+[psc='Joy/Container/buttongroup-connected'] {
+    --ButtonGroup-separatorSize: 1px;
+    --ButtonGroup-separatorColor: var(
+        --variant-outlinedBorder,
+        var(
+            --palette-neutral-outlinedBorder,
+            var(--palette-neutral-300, #cdd7e1)
+        )
+    );
+    --ButtonGroup-radius: var(--radius-sm);
+    --Divider-inset: 0.5rem;
+    --unstable_childRadius: calc(
+        (1 - var(--ButtonGroup-connected)) * var(--ButtonGroup-radius) -
+            var(--variant-borderWidth, 0px)
+    );
+    --ButtonGroup-connected: 1;
+    gap: 0px;
+    border-radius: var(--ButtonGroup-radius);
+
+    & > :first-child {
+        --Button-radius: var(--ButtonGroup-radius) var(--unstable_childRadius)
+            var(--unstable_childRadius) var(--ButtonGroup-radius);
+        --IconButton-radius: var(--ButtonGroup-radius)
+            var(--unstable_childRadius) var(--unstable_childRadius)
+            var(--ButtonGroup-radius);
+        border-right: var(--ButtonGroup-separatorSize) solid
+            var(--ButtonGroup-separatorColor);
+    }
+    & > :last-child {
+        --Button-radius: var(--unstable_childRadius) var(--ButtonGroup-radius)
+            var(--ButtonGroup-radius) var(--unstable_childRadius);
+        --IconButton-radius: var(--unstable_childRadius)
+            var(--ButtonGroup-radius) var(--ButtonGroup-radius)
+            var(--unstable_childRadius);
+        border-left: var(--ButtonGroup-separatorSize) solid
+            var(--ButtonGroup-separatorColor);
+    }
+
+    & > :not(:first-child):not(:only-child) {
+        --Button-margin: 0 0 0 calc(var(--ButtonGroup-separatorSize) * -1);
+        --IconButton-margin: 0 0 0 calc(var(--ButtonGroup-separatorSize) * -1);
+    }
+
+    & > :not(:first-child):not(:last-child):not(:only-child) {
+        --Button-radius: var(--unstable_childRadius);
+        --IconButton-radius: var(--unstable_childRadius);
+        border-radius: var(--unstable_childRadius);
+        border-left: var(--ButtonGroup-separatorSize) solid
+            var(--ButtonGroup-separatorColor);
+        border-right: var(--ButtonGroup-separatorSize) solid
+            var(--ButtonGroup-separatorColor);
     }
 }

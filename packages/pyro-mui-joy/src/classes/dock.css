@@ -1,4 +1,4 @@
-.docked-view:has([psc='Dock/Glass'])::before {
+.docked-view:has([psc='Joy/Dock/Glass'])::before {
     content: '';
     width: 100%;
     height: 100%;
