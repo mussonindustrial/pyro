@@ -276,7 +276,7 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/soft'] {
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/soft'] {
     @each $palette in $palettes {
         &[psc='Joy/Palette/$(palette)'] * {
             --Badge-ringColor: var(--palette-$(palette)-softBg);
@@ -374,7 +374,7 @@ $palettes: (primary, neutral, danger, info, success, warning);
     }
 }
 
-[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/solid'] {
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid'] {
     @each $palette in $palettes {
         &[psc='Joy/Palette/$(palette)'] * {
             --Badge-ringColor: var(--palette-$(palette)-solidBg);
