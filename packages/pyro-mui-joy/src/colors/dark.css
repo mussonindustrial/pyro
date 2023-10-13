@@ -270,7 +270,15 @@ $palettes: (primary, neutral, danger, info, success, warning);
     --shadowChannel: 0 0 0;
 
     --palette-background-highlight: rgba(0, 58, 117, 0.1);
-    --palette-background-highlight-image: radial-gradient(at 51% 52%, rgba(31, 38, 46, 0.5) 0px, transparent 50%),radial-gradient(at 80% 0%, rgba(0, 58, 117, 0.3) 0px, transparent 50%),radial-gradient(at 0% 95%, rgba(0, 58, 117, 0.5) 0px, transparent 50%),radial-gradient(at 0% 5%, rgba(0, 58, 117, 0.5) 0px, transparent 35%),radial-gradient(at 93% 85%, rgba(0, 58, 117, 0.3) 0px, transparent 50%);
+    --palette-background-highlight-image: radial-gradient(
+            at 51% 52%,
+            rgba(31, 38, 46, 0.5) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 0%, rgba(0, 58, 117, 0.3) 0px, transparent 50%),
+        radial-gradient(at 0% 95%, rgba(0, 58, 117, 0.5) 0px, transparent 50%),
+        radial-gradient(at 0% 5%, rgba(0, 58, 117, 0.5) 0px, transparent 35%),
+        radial-gradient(at 93% 85%, rgba(0, 58, 117, 0.3) 0px, transparent 50%);
 
     color: var(--palette-common-white);
 }
