@@ -1,4 +1,5 @@
-[data-component='ia.input.text-field'] {
+[data-component='ia.input.text-field'],
+.filterCommon .ia_inputField {
     @include variant-support(Input);
 
     /* Define component properties */

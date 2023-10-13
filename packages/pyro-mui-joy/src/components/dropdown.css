@@ -1,4 +1,5 @@
-.ia_dropdown {
+.ia_dropdown,
+.ia_select {
     @include variant-support(Input);
 
     /* Define component properties */
@@ -355,4 +356,12 @@
 
 .iaDropdownCommon.ia_dropdown {
     overflow: visible;
+}
+
+.iaSelectCommon {
+    align-items: stretch;
+    justify-content: stretch;
+}
+.iaSelectCommon_select {
+    height: unset !important;
 }
