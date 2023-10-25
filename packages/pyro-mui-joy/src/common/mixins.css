@@ -64,6 +64,30 @@ $staticProperties: (borderWidth, borderStyle);
     }
 }
 
+@mixin palette-forced($component, $palette) {
+    @each $step in $steps {
+        /* prettier-ignore */
+        --palette-$(step): var(--palette-$(palette)-$(step));
+    }
+
+    @each $variant in $variants {
+        @each $attribute in $attributes {
+            /* prettier-ignore */
+            --palette-$(variant)$(attribute): var(
+                --palette-$(palette)-$(variant)$(attribute)
+            );
+
+            @each $state in $states {
+                /* prettier-ignore */
+                --palette-$(variant)$(state)$(attribute): var(
+                    --palette-$(palette)-$(variant)$(state)$(attribute),
+                    var(--palette-$(palette)-$(variant)$(attribute))
+                );
+            }
+        }
+    }
+}
+
 @mixin style-forced($component, $variant, $palette) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
