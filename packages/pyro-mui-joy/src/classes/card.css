@@ -66,20 +66,19 @@
     }
 
     [psc='Joy/Container/card-overflow'] {
-        margin-left: var(--CardOverflow-offset);
-        margin-right: var(--CardOverflow-offset);
+        margin-block: var(--CardOverflow-offset);
         padding: 0px var(--Card-padding);
     }
 
     *:first-child[psc='Joy/Container/card-overflow'] {
-        margin-top: var(--CardOverflow-offset);
+        margin-inline: var(--CardOverflow-offset) 0px;
         border-top: 0px;
         border-left: 0px;
         border-right: 0px;
     }
 
     *:last-child[psc='Joy/Container/card-overflow'] {
-        margin-bottom: var(--CardOverflow-offset);
+        margin-inline: 0px var(--CardOverflow-offset);
         border-bottom: 0px;
         border-left: 0px;
         border-right: 0px;
