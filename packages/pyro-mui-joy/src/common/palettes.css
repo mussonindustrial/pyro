@@ -2,19 +2,27 @@ $palettes: (primary, neutral, danger, info, success, warning);
 $variants: (plain, outlined, soft, solid);
 $states: (Hover, Active, Disabled);
 $attributes: (Color, Bg, Border);
+$steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 
 @each $palette in $palettes {
     [psc='Joy/Palette/$(palette)'] {
+        --_Input-focusedHighlight: var(--palette-$(palette)-500);
+
+        @each $step in $steps {
+            /* prettier-ignore */
+            --palette-$(step): var(--palette-$(palette)-$(step));
+        }
+
         @each $variant in $variants {
             @each $attribute in $attributes {
                 /* prettier-ignore */
-                --variant-$(variant)$(attribute): var(
+                --palette-$(variant)$(attribute): var(
                     --palette-$(palette)-$(variant)$(attribute)
                 );
 
                 @each $state in $states {
                     /* prettier-ignore */
-                    --variant-$(variant)$(state)$(attribute): var(
+                    --palette-$(variant)$(state)$(attribute): var(
                         --palette-$(palette)-$(variant)$(state)$(attribute),
                         var(--palette-$(palette)-$(variant)$(attribute))
                     );

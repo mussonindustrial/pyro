@@ -269,6 +269,17 @@ $palettes: (primary, neutral, danger, info, success, warning);
     --shadowRing: 0 0 #000;
     --shadowChannel: 0 0 0;
 
+    --palette-background-highlight: rgba(0, 58, 117, 0.1);
+    --palette-background-highlight-image: radial-gradient(
+            at 51% 52%,
+            rgba(31, 38, 46, 0.5) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 0%, rgba(0, 58, 117, 0.3) 0px, transparent 50%),
+        radial-gradient(at 0% 95%, rgba(0, 58, 117, 0.5) 0px, transparent 50%),
+        radial-gradient(at 0% 5%, rgba(0, 58, 117, 0.5) 0px, transparent 35%),
+        radial-gradient(at 93% 85%, rgba(0, 58, 117, 0.3) 0px, transparent 50%);
+
     color: var(--palette-common-white);
 }
 
@@ -276,183 +287,89 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/soft'] {
-    @each $palette in $palettes {
-        &[psc='Joy/Palette/$(palette)'] * {
-            --Badge-ringColor: var(--palette-$(palette)-softBg);
-            --shadowChannel: var(--palette-$(palette)-darkChannel);
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/soft'] * {
+    --Badge-ringColor: var(--palette-softBg);
+    --shadowChannel: var(--palette-darkChannel);
 
-            --palette-focusVisible: var(--palette-$(palette)-300);
-            --palette-background-body: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.1
-            );
-            --palette-background-surface: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.08
-            );
-            --palette-background-level1: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.2
-            );
-            --palette-background-level2: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.4
-            );
-            --palette-background-level3: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.6
-            );
-            --palette-text-primary: var(--palette-$(palette)-100);
-            --palette-text-secondary: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.72
-            );
-            --palette-text-tertiary: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.6
-            );
-            --palette-divider: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.2
-            );
-            --variant-plainColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 1
-            );
-            --variant-plainHoverColor: var(--palette-$(palette)-50);
-            --variant-plainHoverBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.16
-            );
-            --variant-plainActiveBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.32
-            );
-            --variant-plainDisabledColor: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.72
-            );
-            --variant-outlinedColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 1
-            );
-            --variant-outlinedBg: initial;
-            --variant-outlinedBorder: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.4
-            );
-            --variant-outlinedHoverColor: var(--palette-$(palette)-50);
-            --variant-outlinedHoverBorder: var(--palette-$(palette)-600);
-            --variant-outlinedHoverBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.16
-            );
-            --variant-outlinedActiveBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.32
-            );
-            --variant-outlinedDisabledColor: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.72
-            );
-            --variant-outlinedDisabledBorder: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.2
-            );
-            --variant-softColor: var(--palette-$(palette)-100);
-            --variant-softBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.24
-            );
-            --variant-softHoverColor: var(--palette-common-white);
-            --variant-softHoverBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.32
-            );
-            --variant-softActiveBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.48
-            );
-            --variant-softDisabledColor: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.72
-            );
-            --variant-softDisabledBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.12
-            );
-            --variant-solidColor: var(--palette-common-white);
-            --variant-solidBg: var(--palette-$(palette)-500);
-            --variant-solidHoverColor: var(--palette-common-white);
-            --variant-solidHoverBg: var(--palette-$(palette)-400);
-            --variant-solidActiveBg: var(--palette-$(palette)-400);
-            --variant-solidDisabledColor: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.72
-            );
-            --variant-solidDisabledBg: rgba(
-                var(--palette-$(palette)-mainChannel) / 0.12
-            );
-        }
-    }
+    --palette-focusVisible: var(--palette-300);
+    --palette-background-body: rgba(var(--palette-mainChannel) / 0.1);
+    --palette-background-surface: rgba(var(--palette-mainChannel) / 0.08);
+    --palette-background-level1: rgba(var(--palette-mainChannel) / 0.2);
+    --palette-background-level2: rgba(var(--palette-mainChannel) / 0.4);
+    --palette-background-level3: rgba(var(--palette-mainChannel) / 0.6);
+    --palette-text-primary: var(--palette-100);
+    --palette-text-secondary: rgba(var(--palette-lightChannel) / 0.72);
+    --palette-text-tertiary: rgba(var(--palette-lightChannel) / 0.6);
+    --palette-divider: rgba(var(--palette-lightChannel) / 0.2);
+    --variant-plainColor: rgba(var(--palette-lightChannel) / 1);
+    --variant-plainHoverColor: var(--palette-50);
+    --variant-plainHoverBg: rgba(var(--palette-mainChannel) / 0.16);
+    --variant-plainActiveBg: rgba(var(--palette-mainChannel) / 0.32);
+    --variant-plainDisabledColor: rgba(var(--palette-mainChannel) / 0.72);
+    --variant-outlinedColor: rgba(var(--palette-lightChannel) / 1);
+    --variant-outlinedBg: initial;
+    --variant-outlinedBorder: rgba(var(--palette-mainChannel) / 0.4);
+    --variant-outlinedHoverColor: var(--palette-50);
+    --variant-outlinedHoverBorder: var(--palette-600);
+    --variant-outlinedHoverBg: rgba(var(--palette-mainChannel) / 0.16);
+    --variant-outlinedActiveBg: rgba(var(--palette-mainChannel) / 0.32);
+    --variant-outlinedDisabledColor: rgba(var(--palette-mainChannel) / 0.72);
+    --variant-outlinedDisabledBorder: rgba(var(--palette-mainChannel) / 0.2);
+    --variant-softColor: var(--palette-100);
+    --variant-softBg: rgba(var(--palette-mainChannel) / 0.24);
+    --variant-softHoverColor: var(--palette-common-white);
+    --variant-softHoverBg: rgba(var(--palette-mainChannel) / 0.32);
+    --variant-softActiveBg: rgba(var(--palette-mainChannel) / 0.48);
+    --variant-softDisabledColor: rgba(var(--palette-mainChannel) / 0.72);
+    --variant-softDisabledBg: rgba(var(--palette-mainChannel) / 0.12);
+    --variant-solidColor: var(--palette-common-white);
+    --variant-solidBg: var(--palette-500);
+    --variant-solidHoverColor: var(--palette-common-white);
+    --variant-solidHoverBg: var(--palette-400);
+    --variant-solidActiveBg: var(--palette-400);
+    --variant-solidDisabledColor: rgba(var(--palette-mainChannel) / 0.72);
+    --variant-solidDisabledBg: rgba(var(--palette-mainChannel) / 0.12);
 }
 
-[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/solid'] {
-    @each $palette in $palettes {
-        &[psc='Joy/Palette/$(palette)'] * {
-            --Badge-ringColor: var(--palette-$(palette)-solidBg);
-            --shadowChannel: var(--palette-$(palette)-darkChannel);
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid'] * {
+    --Badge-ringColor: var(--palette-solidBg);
+    --shadowChannel: var(--palette-darkChannel);
 
-            --palette-focusVisible: var(--palette-$(palette)-200);
-            --palette-background-body: rgba(0 0 0 / 0.1);
-            --palette-background-surface: rgba(0 0 0 / 0.06);
-            --palette-background-level1: rgba(
-                var(--palette-$(palette)-darkChannel) / 0.2
-            );
-            --palette-background-level2: rgba(
-                var(--palette-$(palette)-darkChannel) / 0.36
-            );
-            --palette-background-level3: rgba(
-                var(--palette-$(palette)-darkChannel) / 0.6
-            );
-            --palette-text-primary: var(--palette-common-white);
-            --palette-text-secondary: var(--palette-$(palette)-100);
-            --palette-text-tertiary: var(--palette-$(palette)-200);
-            --palette-divider: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.32
-            );
-            --variant-plainColor: var(--palette-$(palette)-50);
-            --variant-plainHoverColor: var(--palette-common-white);
-            --variant-plainHoverBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.12
-            );
-            --variant-plainActiveBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.32
-            );
-            --variant-plainDisabledColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.72
-            );
-            --variant-outlinedColor: var(--palette-$(palette)-50);
-            --variant-outlinedBorder: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.5
-            );
-            --variant-outlinedHoverColor: var(--palette-common-white);
-            --variant-outlinedHoverBorder: var(--palette-$(palette)-300);
-            --variant-outlinedHoverBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.12
-            );
-            --variant-outlinedActiveBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.32
-            );
-            --variant-outlinedDisabledColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.72
-            );
-            --variant-outlinedDisabledBorder: rgba(255 255 255 / 0.2);
-            --variant-softColor: var(--palette-common-white);
-            --variant-softBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.24
-            );
-            --variant-softHoverColor: var(--palette-common-white);
-            --variant-softHoverBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.36
-            );
-            --variant-softActiveBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.16
-            );
-            --variant-softDisabledColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.72
-            );
-            --variant-softDisabledBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.1
-            );
-            --variant-solidColor: var(--palette-$(palette)-500);
-            --variant-solidBg: var(--palette-common-white);
-            --variant-solidHoverColor: var(--palette-$(palette)-700);
-            --variant-solidHoverBg: var(--palette-common-white);
-            --variant-solidActiveBg: var(--palette-$(palette)-200);
-            --variant-solidDisabledColor: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.72
-            );
-            --variant-solidDisabledBg: rgba(
-                var(--palette-$(palette)-lightChannel) / 0.1
-            );
-        }
-    }
+    --palette-focusVisible: var(--palette-200);
+    --palette-background-body: rgba(0 0 0 / 0.1);
+    --palette-background-surface: rgba(0 0 0 / 0.06);
+    --palette-background-level1: rgba(var(--palette-darkChannel) / 0.2);
+    --palette-background-level2: rgba(var(--palette-darkChannel) / 0.36);
+    --palette-background-level3: rgba(var(--palette-darkChannel) / 0.6);
+    --palette-text-primary: var(--palette-common-white);
+    --palette-text-secondary: var(--palette-100);
+    --palette-text-tertiary: var(--palette-200);
+    --palette-divider: rgba(var(--palette-lightChannel) / 0.32);
+    --variant-plainColor: var(--palette-50);
+    --variant-plainHoverColor: var(--palette-common-white);
+    --variant-plainHoverBg: rgba(var(--palette-lightChannel) / 0.12);
+    --variant-plainActiveBg: rgba(var(--palette-lightChannel) / 0.32);
+    --variant-plainDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
+    --variant-outlinedColor: var(--palette-50);
+    --variant-outlinedBorder: rgba(var(--palette-lightChannel) / 0.5);
+    --variant-outlinedHoverColor: var(--palette-common-white);
+    --variant-outlinedHoverBorder: var(--palette-300);
+    --variant-outlinedHoverBg: rgba(var(--palette-lightChannel) / 0.12);
+    --variant-outlinedActiveBg: rgba(var(--palette-lightChannel) / 0.32);
+    --variant-outlinedDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
+    --variant-outlinedDisabledBorder: rgba(255 255 255 / 0.2);
+    --variant-softColor: var(--palette-common-white);
+    --variant-softBg: rgba(var(--palette-lightChannel) / 0.24);
+    --variant-softHoverColor: var(--palette-common-white);
+    --variant-softHoverBg: rgba(var(--palette-lightChannel) / 0.36);
+    --variant-softActiveBg: rgba(var(--palette-lightChannel) / 0.16);
+    --variant-softDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
+    --variant-softDisabledBg: rgba(var(--palette-lightChannel) / 0.1);
+    --variant-solidColor: var(--palette-500);
+    --variant-solidBg: var(--palette-common-white);
+    --variant-solidHoverColor: var(--palette-700);
+    --variant-solidHoverBg: var(--palette-common-white);
+    --variant-solidActiveBg: var(--palette-200);
+    --variant-solidDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
+    --variant-solidDisabledBg: rgba(var(--palette-lightChannel) / 0.1);
 }

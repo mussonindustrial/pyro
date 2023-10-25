@@ -1,4 +1,4 @@
-[data-component='ia.input.text-field'] {
+.ia_inputField {
     @include variant-support(Input);
 
     /* Define component properties */
@@ -8,7 +8,10 @@
     --Input-placeholderOpacity: 0.5;
     --Input-focused: 0;
     --Input-focusedThickness: var(--focus-thickness);
-    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Input-focusedHighlight: var(
+        --_Input-focusedHighlight,
+        var(--joy-palette-focusVisible)
+    );
     --Input-minHeight: 2.5rem;
     --Input-paddingInline: 0.75rem;
 
@@ -62,27 +65,34 @@
     }
 
     &:focus-within {
-        outline-width: var(--Input-focusedThickness);
-        outline-style: solid;
-        outline-color: var(--Input-focusedHighlight);
-        outline-offset: min(calc(var(--Input-borderWidth, 0px) * -1), -1px);
+        box-shadow: var(--Input-focusedInset, inset) 0 0 0
+            var(--Input-focusedThickness) var(--Input-focusedHighlight);
     }
 }
 
-[psc='Joy/Size/sm'] [data-component='ia.input.text-field'],
-[psc='Joy/Size/sm'][data-component='ia.input.text-field'] {
+[psc='Joy/Size/sm'] .ia_inputField,
+[psc='Joy/Size/sm'].ia_inputField {
     --Input-minHeight: 2rem;
     --Input-paddingInline: 0.5rem;
+    font-size: var(--fontSize-sm, 0.875rem);
 }
 
-[psc='Joy/Size/md'] [data-component='ia.input.text-field'],
-[psc='Joy/Size/md'][data-component='ia.input.text-field'] {
+[psc='Joy/Size/md'] .ia_inputField,
+[psc='Joy/Size/md'].ia_inputField {
     --Input-minHeight: 2.5rem;
     --Input-paddingInline: 0.75rem;
+    font-size: var(--fontSize-md, 1rem);
 }
 
-[psc='Joy/Size/lg'] [data-component='ia.input.text-field'],
-[psc='Joy/Size/lg'][data-component='ia.input.text-field'] {
+[psc='Joy/Size/lg'] .ia_inputField,
+[psc='Joy/Size/lg'].ia_inputField {
     --Input-minHeight: 3rem;
     --Input-paddingInline: 1rem;
+    font-size: var(--fontSize-lg, 1.125rem);
+}
+
+/* Resets */
+[data-component='ia.input.password-field'] .ia_inputField {
+    height: unset !important;
+    height: unset !important;
 }

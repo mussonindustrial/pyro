@@ -18,10 +18,16 @@ $staticProperties: (borderWidth, borderStyle);
         --variant-default$(property): var(
             --palette-neutral-outlined$(property)
         );
+        --variant-$(property): var(--palette-neutral-outlined$(property));
 
         @each $state in $states {
             /* prettier-ignore */
             --variant-default$(state)$(property): var(
+                --palette-neutral-outlined$(state)$(property),
+                var(--palette-neutral-outlined$(property))
+            );
+            /* prettier-ignore */
+            --variant-$(state)$(property): var(
                 --palette-neutral-outlined$(state)$(property),
                 var(--palette-neutral-outlined$(property))
             );
@@ -37,13 +43,13 @@ $staticProperties: (borderWidth, borderStyle);
     [psc='Joy/Variant/$(variant)'] {
         @each $property in $drivenProperties {
             /* prettier-ignore */
-            --variant-$(property): var(--variant-$(variant)$(property), unset);
+            --variant-$(property): var(--palette-$(variant)$(property), unset);
 
             @each $state in $states {
                 /* prettier-ignore */
                 --variant-$(state)$(property): var(
-                    --variant-$(variant)$(state)$(property),
-                    var(--variant-$(variant)$(property), unset)
+                    --palette-$(variant)$(state)$(property),
+                    var(--palette-$(variant)$(property), unset)
                 );
             }
         }

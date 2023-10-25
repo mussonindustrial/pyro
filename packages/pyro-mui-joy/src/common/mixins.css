@@ -48,19 +48,43 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin variant-forced($component, $variant) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
-        --$(component)-$(property): var(--variant-$(variant)$(property));
+        --variant-$(property): var(--palette-$(variant)$(property));
 
         @each $state in $states {
             /* prettier-ignore */
-            --$(component)-$(state)$(property): var(
-                --variant-$(variant)$(state)$(property),
-                var(--variant-$(variant)$(property))
+            --variant-$(state)$(property): var(
+                --palette-$(variant)$(state)$(property),
+                var(--palette-$(variant)$(property))
             );
         }
     }
 
     @each $property in $staticProperties {
-        --$(component)-$(property): var(--variant-$(variant)-$(property));
+        --variant-$(property): var(--variant-$(variant)-$(property));
+    }
+}
+
+@mixin palette-forced($component, $palette) {
+    @each $step in $steps {
+        /* prettier-ignore */
+        --palette-$(step): var(--palette-$(palette)-$(step));
+    }
+
+    @each $variant in $variants {
+        @each $attribute in $attributes {
+            /* prettier-ignore */
+            --palette-$(variant)$(attribute): var(
+                --palette-$(palette)-$(variant)$(attribute)
+            );
+
+            @each $state in $states {
+                /* prettier-ignore */
+                --palette-$(variant)$(state)$(attribute): var(
+                    --palette-$(palette)-$(variant)$(state)$(attribute),
+                    var(--palette-$(palette)-$(variant)$(attribute))
+                );
+            }
+        }
     }
 }
 
