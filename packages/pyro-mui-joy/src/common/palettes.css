@@ -7,6 +7,9 @@ $steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 @each $palette in $palettes {
     [psc='Joy/Palette/$(palette)'] {
         --_Input-focusedHighlight: var(--palette-$(palette)-500);
+        --palette-mainChannel: var(--palette-$(palette)-mainChannel);
+        --palette-lightChannel: var(--palette-$(palette)-lightChannel);
+        --palette-darkChannel: var(--palette-$(palette)-darkChannel);
 
         @each $step in $steps {
             /* prettier-ignore */
