@@ -1,0 +1,23 @@
+.ia_popup {
+    background-color: var(--palette-background-level3);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow: visible;
+    border: none;
+    height: unset !important;
+}
+
+.ia_popup__header {
+    background-color: unset !important;
+    border-bottom: unset !important;
+}
+
+[psc='Joy/Popup/auto-height'] {
+    min-height: unset !important;
+    max-height: unset !important;
+}
+
+[psc='Joy/Popup/auto-width'] {
+    min-width: unset !important;
+    max-width: unset !important;
+}
