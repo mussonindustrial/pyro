@@ -1,5 +1,12 @@
 # @mussonindustrial/pyro-resource-signature
 
+## 2.0.0
+
+### Major Changes
+
+-   3235bda: Added support for resource attribute definitions.
+    The type definition for a resource now includes the type of its attributes.
+
 ## 1.0.1
 
 ### Patch Changes
