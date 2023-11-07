@@ -1,5 +1,18 @@
 # ignition-import
 
+## 2.0.0
+
+### Major Changes
+
+-   3235bda: Added support for resource attribute definitions.
+    The type definition for a resource now includes the type of its attributes.
+
+### Patch Changes
+
+-   3235bda: Added support for 'ignition' scoped resource (named queries, designer props, global props, and python scripts)
+-   Updated dependencies [3235bda]
+    -   @mussonindustrial/pyro-resource-signature@2.0.0
+
 ## 1.1.0
 
 ### Minor Changes
