@@ -1,5 +1,11 @@
 :root {
-    --fontFamily-body: 'Public Sans',
+    @font-face {
+        font-family: 'Inter';
+        src: url(/data/perspective/fonts/Inter-VariableFont.ttf)
+            format('truetype');
+    }
+
+    /* --fontFamily-body: 'Public Sans',
         var(
             --fontFamily-fallback,
             var(
@@ -35,10 +41,42 @@
         Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --fontFamily-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol'; */
+
+    --fontFamily-body: 'Inter',
+        var(
+            --joy-fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        );
+    --display: 'Inter',
+        var(
+            --joy-fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        );
+    --fontFamily-code: Source Code Pro, ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --fontFamily-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol';
 
-    --fontSize-xs3: 0.5rem;
-    --fontSize-xs2: 0.625rem;
     --fontSize-xs: 0.75rem;
     --fontSize-sm: 0.875rem;
     --fontSize-md: 1rem;
@@ -47,23 +85,18 @@
     --fontSize-xl2: 1.5rem;
     --fontSize-xl3: 1.875rem;
     --fontSize-xl4: 2.25rem;
-    --fontSize-xl5: 3rem;
-    --fontSize-xl6: 3.75rem;
-    --fontSize-xl7: 4.5rem;
 
-    --fontWeight-xs: 200;
     --fontWeight-sm: 300;
     --fontWeight-md: 500;
     --fontWeight-lg: 600;
     --fontWeight-xl: 700;
-    --fontWeight-xl2: 800;
-    --fontWeight-xl3: 900;
-
     --focus-thickness: 2px;
 
-    --lineHeight-sm: 1.25;
+    --lineHeight-xs: 1.33334;
+    --lineHeight-sm: 1.42858;
     --lineHeight-md: 1.5;
-    --lineHeight-lg: 1.7;
+    --lineHeight-lg: 1.55556;
+    --lineHeight-xl: 1.66667;
 
     --letterSpacing-sm: -0.01em;
     --letterSpacing-md: 0.083em;

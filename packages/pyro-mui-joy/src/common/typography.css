@@ -1,133 +1,261 @@
+$levels: (
+    h1,
+    h2,
+    h3,
+    h4,
+    title-lg,
+    title-md,
+    title-sm,
+    body-lg,
+    body-md,
+    body-sm,
+    body-xs
+);
+
 /*Typography*/
-[psc='Joy/Typography/root'] {
-    /* Variant */
-    --variant-borderWidth: unset;
-    --variant-borderStyle: unset;
-    --variant-Color: unset;
-    --variant-DisabledColor: unset;
-    --variant-Bg: unset;
-    --variant-HoverBg: unset;
-    --variant-ActiveBg: unset;
-    --variant-DisabledBg: unset;
-}
+@each $level in $levels {
+    [psc='Joy/Typography/$(level)'] {
+        @include variant-support(Typography);
 
-[psc='Joy/Typography/inherit'] {
-    /* Variant */
-    color: inherit;
-    background-color: inherit;
-    border-color: inherit;
-    border-width: inherit;
-    border-style: inherit;
-    border-radius: inherit;
+        /* Variant */
+        /* Apply component properties */
+        color: var(
+            --Typography-Color,
+            rgba(
+                var(
+                        --palette-mainChannel,
+                        var(
+                            --palette-text-primary,
+                            var(--palette-neutral-800, #25252d)
+                        )
+                    ) /
+                    1
+            )
+        );
+        background-color: var(--Typography-Bg);
+        border-color: var(--Typography-Border);
+        border-width: var(--Typography-borderWidth);
+        border-style: var(--Typography-borderStyle);
+        border-radius: var(--Typography-radius, var(--radius-xs));
 
-    /* Variant */
-    color: var(--variant-Color);
-    background-color: var(--variant-Bg);
-    border-color: var(--variant-Border);
-    border-width: var(--variant-borderWidth);
-    border-style: var(--variant-borderStyle);
-    border-radius: var(--radius-xs);
-}
+        font-family: var(
+            --fontFamily-body,
+            'Inter',
+            var(
+                --fontFamily-fallback,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif,
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+                'Segoe UI Symbol'
+            )
+        );
+        margin: var(--Typography-margin, 0px);
 
-[psc='Joy/Typography/display1'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl7, 4.5rem));
-    font-weight: var(--fontWeight-xl, 700);
-    line-height: var(--lineHeight-sm, 1.25);
-    letter-spacing: var(--letterSpacing-sm, -0.01em);
-    margin: var(--Typography-margin, 0px);
-}
-
-[psc='Joy/Typography/display2'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl6, 3.75rem));
-    font-weight: var(--fontWeight-xl, 700);
-    line-height: var(--lineHeight-sm, 1.25);
-    letter-spacing: var(--letterSpacing-sm, -0.01em);
-    margin: var(--Typography-margin, 0px);
+        /*Remove outline unless specifically assigned.*/
+        &:not([psc='Joy/Variant/outlined']) {
+            border-style: unset;
+        }
+    }
 }
 
 [psc='Joy/Typography/h1'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl5, 3rem));
-    font-weight: var(--fontWeight-lg, 600);
-    line-height: var(--lineHeight-sm, 1.25);
-    letter-spacing: var(--letterSpacing-sm, -0.01em);
-    margin: var(--Typography-margin, 0px);
+    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+
+    font-family: var(
+        --fontFamily-display,
+        'Inter',
+        var(
+            --fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        )
+    );
+    font-weight: var(--fontWeight-xl, 700);
+    font-size: var(--Typography-fontSize, var(--fontSize-xl4, 2.25rem));
+    line-height: var(--lineHeight-xs, 1.33334);
+    letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h2'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl4, 2.25rem));
-    font-weight: var(--fontWeight-lg, 600);
-    line-height: var(--lineHeight-sm, 1.25);
-    letter-spacing: var(--letterSpacing-sm, -0.01em);
-    margin: var(--Typography-margin, 0px);
+    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+
+    font-family: var(
+        --fontFamily-display,
+        'Inter',
+        var(
+            --fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        )
+    );
+    font-weight: var(--fontWeight-xl, 700);
+    font-size: var(--Typography-fontSize, var(--fontSize-xl3, 1.875rem));
+    line-height: var(--lineHeight-xs, 1.33334);
+    letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h3'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl3, 1.875rem));
-    font-weight: var(--fontWeight-md, 500);
-    line-height: var(--lineHeight-sm, 1.25);
-    margin: var(--Typography-margin, 0px);
+    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+
+    font-family: var(
+        --fontFamily-display,
+        'Inter',
+        var(
+            --fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        )
+    );
+    font-weight: var(--fontWeight-lg, 600);
+    font-size: var(--Typography-fontSize, var(--fontSize-xl2, 1.5rem));
+    line-height: var(--lineHeight-xs, 1.33334);
+    letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h4'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
-    font-size: var(--Typography-fontSize, var(--fontSize-xl2, 1.5rem));
-    font-weight: var(--fontWeight-md, 500);
-    line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
-}
+    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
 
-[psc='Joy/Typography/h5'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
+    font-family: var(
+        --fontFamily-display,
+        'Inter',
+        var(
+            --fontFamily-fallback,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol'
+        )
+    );
+    font-weight: var(--fontWeight-lg, 600);
     font-size: var(--Typography-fontSize, var(--fontSize-xl, 1.25rem));
-    font-weight: var(--fontWeight-md, 500);
     line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
+    letter-spacing: -0.025em;
 }
 
-[psc='Joy/Typography/h6'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
+[psc='Joy/Typography/title-lg'] {
+    font-weight: var(--fontWeight-lg, 600);
     font-size: var(--Typography-fontSize, var(--fontSize-lg, 1.125rem));
-    font-weight: var(--fontWeight-md, 500);
-    line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
+    line-height: var(--lineHeight-xs, 1.33334);
 }
 
-[psc='Joy/Typography/body1'] {
-    color: var(--palette-text-primary, var(--palette-neutral-800, #25252d));
+[psc='Joy/Typography/title-md'] {
+    font-weight: var(--fontWeight-md, 500);
     font-size: var(--Typography-fontSize, var(--fontSize-md, 1rem));
     line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
 }
 
-[psc='Joy/Typography/body2'] {
-    color: var(--palette-text-primary, var(--palette-neutral-600, #5a5a72));
+[psc='Joy/Typography/title-sm'] {
+    --Icon-fontSize: calc(1em * var(--lineHeight-sm, 1.42858));
+    font-weight: var(--fontWeight-md, 500);
+    font-size: var(--Typography-fontSize, var(--fontSize-sm, 0.875rem));
+    line-height: var(--lineHeight-sm, 1.42858);
+}
+
+[psc='Joy/Typography/body-lg'] {
+    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    color: var(
+        --Typography-Color,
+        rgba(
+            var(
+                    --palette-mainChannel,
+                    var(
+                        --palette-text-secondary,
+                        var(--palette-neutral-800, #25252d)
+                    )
+                ) / 1
+        )
+    );
+    font-size: var(--Typography-fontSize, var(--fontSize-lg, 1.125rem));
+    line-height: var(--lineHeight-md, 1.5);
+}
+
+[psc='Joy/Typography/body-md'] {
+    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    color: var(
+        --Typography-Color,
+        rgba(
+            var(
+                    --palette-mainChannel,
+                    var(
+                        --palette-text-secondary,
+                        var(--palette-neutral-800, #25252d)
+                    )
+                ) / 1
+        )
+    );
+    font-size: var(--Typography-fontSize, var(--fontSize-md, 1rem));
+    line-height: var(--lineHeight-md, 1.5);
+}
+
+[psc='Joy/Typography/body-sm'] {
+    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    color: var(
+        --Typography-Color,
+        rgba(
+            var(
+                    --palette-mainChannel,
+                    var(
+                        --palette-text-tertiary,
+                        var(--palette-neutral-800, #25252d)
+                    )
+                ) / 1
+        )
+    );
     font-size: var(--Typography-fontSize, var(--fontSize-sm, 0.875rem));
     line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
 }
 
-[psc='Joy/Typography/body3'] {
-    color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
+[psc='Joy/Typography/body-xs'] {
+    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    color: var(
+        --Typography-Color,
+        rgba(
+            var(
+                    --palette-mainChannel,
+                    var(
+                        --palette-text-tertiary,
+                        var(--palette-neutral-800, #25252d)
+                    )
+                ) / 1
+        )
+    );
+    font-weight: var(--fontWeight-md, 500);
     font-size: var(--Typography-fontSize, var(--fontSize-xs, 0.75rem));
     line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
-}
-
-[psc='Joy/Typography/body4'] {
-    color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
-    font-size: var(--Typography-fontSize, var(--fontSize-xs2, 0.625rem));
-    line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
-}
-
-[psc='Joy/Typography/body5'] {
-    color: var(--palette-text-primary, var(--palette-neutral-500, #73738c));
-    font-size: var(--Typography-fontSize, var(--fontSize-xs3, 0.5rem));
-    line-height: var(--lineHeight-md, 1.5);
-    margin: var(--Typography-margin, 0px);
 }
