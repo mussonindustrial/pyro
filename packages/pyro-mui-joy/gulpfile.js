@@ -1,5 +1,6 @@
 var postcss = require('gulp-postcss')
 var gulp = require('gulp')
+var path = require('path')
 var fs = require('fs')
 var screenshots = require('./screenshots')
 
@@ -13,6 +14,20 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', function () {
+
+    if (!fs.existsSync(output)) {
+        fs.mkdirSync(output, { recursive: true })
+    }
+
+    fs.copyFile(
+        path.join(source, 'fonts', 'Inter-VariableFont.ttf'),
+        path.join(output, 'Inter-VariableFont.ttf'),
+        (err) => {
+            if (err) {
+              console.log("Error copying fonts: ", err);
+            }
+    })
+    
     return gulp.src('./src/*.css').pipe(postcss()).pipe(gulp.dest('./output'))
 })
 
