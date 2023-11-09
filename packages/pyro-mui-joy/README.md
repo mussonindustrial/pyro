@@ -8,6 +8,7 @@
 > This repo is currently in active development, and breaking changes are to be expected.
 
 ## About Joy UI
+
 Joy UI is an open-source React component library that follows a lightly opinionated design direction, for a clean and modern UI that gives you plenty of room to customize the look and feel.
 
 Maintained by MUI, Joy UI is an alternative to Material UI for projects that don't adhere to Material Design guidelines as a design system starting point.
@@ -15,11 +16,12 @@ Maintained by MUI, Joy UI is an alternative to Material UI for projects that don
 Joy UI follows a lightly opinionated design direction called Joy Design. Simple and functional, it offers a thoughtfully crafted set of defaults to ensure that your next project looks and feels great before you even begin customizing.
 
 ## Installation
+
 This project generates several files required for installation:
 
-- Light (joy-light), dark (joy-dark), and Auto (joy-auto) CSS theme files for *Perspective* 
-- An *Ignition* project import file containing a full set of *Perspective Style Classes*
-- A set of fonts
+-   Light (joy-light), dark (joy-dark), and Auto (joy-auto) CSS theme files for _Perspective_
+-   An _Ignition_ project import file containing a full set of _Perspective Style Classes_
+-   A set of fonts
 
 ## Features
 
