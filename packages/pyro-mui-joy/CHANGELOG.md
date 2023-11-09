@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+-   cbc8ba0: added automatic screenshot captures
+-   c44c1aa: added fonts to release content
+
 ## 0.2.0
 
 ### Minor Changes
