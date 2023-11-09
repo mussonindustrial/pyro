@@ -160,9 +160,9 @@ $palettes: (primary, neutral, danger, info, success, warning);
     --palette-info-solidActiveBg: var(--palette-info-700, #12467b);
     --palette-info-solidDisabledColor: var(--palette-neutral-400, #9fa6ad);
     --palette-info-solidDisabledBg: var(--palette-neutral-100, #f0f4f8);
-    --palette-info-mainChannel: 11 107 203;
-    --palette-info-lightChannel: 199 223 247;
-    --palette-info-darkChannel: 18 70 123;
+    --palette-info-mainChannel: 129 77 222;
+    --palette-info-lightChannel: 225 203 255;
+    --palette-info-darkChannel: 48 23 97;
     --palette-success-50: #f6fef6;
     --palette-success-100: #e3fbe3;
     --palette-success-200: #c7f7c7;
@@ -291,47 +291,11 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-:where([psc='Joy/Variant/soft'][psc='Joy/Variant/color-inversion']) * {
-    /* --Badge-ringColor: var(--palette-softBg);
-    --shadowChannel: var(--palette-darkChannel); */
-
-    /* --palette-focusVisible: var(--palette-500);
-    --palette-background-body: rgba(var(--palette-mainChannel) / 0.1);
-    --palette-background-surface: rgba(var(--palette-mainChannel) / 0.08);
-    --palette-background-level1: rgba(var(--palette-mainChannel) / 0.2);
-    --palette-background-level2: rgba(var(--palette-mainChannel) / 0.32);
-    --palette-background-level3: rgba(var(--palette-mainChannel) / 0.48);
-    --palette-text-primary: var(--palette-700);
-    --palette-text-secondary: rgba(var(--palette-darkChannel) / 0.8);
-    --palette-text-tertiary: rgba(var(--palette-darkChannel) / 0.68);
-    --palette-divider: rgba(var(--palette-mainChannel) / 0.32);
-    --palette-plainColor: rgba(var(--palette-darkChannel) / 0.8);
-    --palette-plainHoverColor: rgba(var(--palette-darkChannel) / 1);
-    --palette-plainHoverBg: rgba(var(--palette-mainChannel) / 0.12);
-    --palette-plainActiveBg: rgba(var(--palette-mainChannel) / 0.24);
-    --palette-plainDisabledColor: rgba(var(--palette-mainChannel) / 0.6);
-    --palette-outlinedColor: rgba(var(--palette-mainChannel) / 1);
-    --palette-outlinedBorder: rgba(var(--palette-mainChannel) / 0.4);--joy
-    --palette-outlinedHoverColor: var(--palette-600);
-    --palette-outlinedHoverBorder: var(--palette-300);
-    --palette-outlinedHoverBg: rgba(var(--palette-mainChannel) / 0.12);
-    --palette-outlinedActiveBg: rgba(var(--palette-mainChannel) / 0.24);
-    --palette-outlinedDisabledColor: rgba(var(--palette-mainChannel) / 0.6);
-    --palette-outlinedDisabledBorder: rgba(var(--palette-mainChannel) / 0.12);
-    --palette-softColor: var(--palette-600);
-    --palette-softBg: rgba(var(--palette-mainChannel) / 0.72);
-    --palette-softHoverColor: var(--palette-700);
-    --palette-softHoverBg: var(--palette-200);
-    --palette-softActiveBg: var(--palette-300);
-    --palette-softDisabledColor: rgba(var(--palette-mainChannel) / 0.6);
-    --palette-softDisabledBg: rgba(var(--palette-mainChannel) / 0.08);
-    --palette-solidColor: var(--palette-common-white);
-    --palette-solidBg: var(--palette-600);
-    --palette-solidHoverColor: var(--palette-common-white);
-    --palette-solidHoverBg: var(--palette-500);
-    --palette-solidActiveBg: var(--palette-500);
-    --palette-solidDisabledColor: rgba(var(--palette-mainChannel) / 0.6);
-    --palette-solidDisabledBg: rgba(var(--palette-mainChannel) / 0.08); */
+[psc='Joy/Variant/soft'][psc='Joy/Variant/color-inversion']
+    :not(
+        [psc='Joy/Variant/skip-inverted-colors'],
+        [psc='Joy/Variant/skip-inverted-colors'] *
+    ) {
 
     --palette-focusVisible: var(--palette-500, #9a5b13);
     --palette-background-body: rgba(
@@ -401,52 +365,11 @@ $palettes: (primary, neutral, danger, info, success, warning);
     );
 }
 
-:where([psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid'])
-    *
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid'] 
     :not(
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *
     ) {
-    /* --Badge-ringColor: var(--palette-solidBg);
-    --shadowChannel: var(--palette-darkChannel); */
-
-    /* --palette-focusVisible: var(--palette-200);
-    --palette-background-body: rgba(0 0 0 / 0.1);
-    --palette-background-surface: rgba(0 0 0 / 0.06);
-    --palette-background-level1: rgba(var(--palette-darkChannel) / 0.2);
-    --palette-background-level2: rgba(var(--palette-darkChannel) / 0.36);
-    --palette-background-level3: rgba(var(--palette-darkChannel) / 0.6);
-    --palette-text-primary: var(--palette-common-white);
-    --palette-text-secondary: var(--palette-100);
-    --palette-text-tertiary: var(--palette-200);
-    --palette-divider: rgba(var(--palette-lightChannel) / 0.32);
-    --palette-plainColor: var(--palette-50);
-    --palette-plainHoverColor: #fff;
-    --palette-plainHoverBg: rgba(var(--palette-lightChannel) / 0.5);
-    --palette-plainActiveBg: rgba(var(--palette-lightChannel) / 0.32);
-    --palette-plainDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
-    --palette-outlinedColor: var(--palette-50);
-    --palette-outlinedBorder: rgba(var(--palette-lightChannel) / 0.5);
-    --palette-outlinedHoverColor: #fff;
-    --palette-outlinedHoverBorder: var(--palette-300);
-    --palette-outlinedHoverBg: rgba(var(--palette-lightChannel) / 0.12);
-    --palette-outlinedActiveBg: rgba(var(--palette-lightChannel) / 0.32);
-    --palette-outlinedDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
-    --palette-outlinedDisabledBorder: rgba(255 255 255 / 0.2);
-    --palette-softColor: var(--palette-common-white);
-    --palette-softBg: rgba(var(--palette-lightChannel) / 0.24);
-    --palette-softHoverColor: var(--palette-common-white);
-    --palette-softHoverBg: rgba(var(--palette-lightChannel) / 0.36);
-    --palette-softActiveBg: rgba(var(--palette-lightChannel) / 0.16);
-    --palette-softDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
-    --palette-softDisabledBg: rgba(var(--palette-lightChannel) / 0.1);
-    --palette-solidColor: var(--palette-500);
-    --palette-solidBg: var(--palette-common-white);
-    --palette-solidHoverColor: var(--palette-700);
-    --palette-solidHoverBg: var(--palette-common-white);
-    --palette-solidActiveBg: var(--palette-200);
-    --palette-solidDisabledColor: rgba(var(--palette-lightChannel) / 0.72);
-    --palette-solidDisabledBg: rgba(var(--palette-lightChannel) / 0.1); */
 
     --palette-focusVisible: var(--palette-200, #dde7ee);
     --palette-background-body: rgba(0 0 0 / 0.1);
