@@ -42,6 +42,7 @@
         "prettier": "^2.8.8"
     },
     "dependencies": {
+        "glob": "^10.3.10",
         "puppeteer": "^21.5.0"
     }
 }

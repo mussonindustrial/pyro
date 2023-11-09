@@ -1,7 +1,6 @@
 var puppeteer = require('puppeteer')
 var fs = require('fs')
 var path = require('path')
-const { take } = require('lodash')
 
 const output = 'screenshots'
 const themeDir = 'output'
