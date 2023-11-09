@@ -7,35 +7,35 @@
 > **Warning**<br>
 > This repo is currently in active development, and breaking changes are to be expected.
 
+## About Joy UI
+
+Joy UI is an open-source React component library that follows a lightly opinionated design direction, for a clean and modern UI that gives you plenty of room to customize the look and feel.
+
+Maintained by MUI, Joy UI is an alternative to Material UI for projects that don't adhere to Material Design guidelines as a design system starting point.
+
+Joy UI follows a lightly opinionated design direction called Joy Design. Simple and functional, it offers a thoughtfully crafted set of defaults to ensure that your next project looks and feels great before you even begin customizing.
+
+## Installation
+
+This project generates several files required for installation:
+
+-   Light (joy-light), dark (joy-dark), and Auto (joy-auto) CSS theme files for _Perspective_
+-   An _Ignition_ project import file containing a full set of _Perspective Style Classes_
+-   A set of fonts
+
 ## Features
 
 -   Light/Dark/Auto Modes
 -   Color Inversion Support
 -   Variant/Palette Support
 
-## Screen Shots
+## Examples
 
-![Typography](./screenshots/output/joy-light/components/typography.png?raw=true)
-![Backgrounds](./screenshots/output/joy-light/components/background.png?raw=true)
-![Cards](./screenshots/output/joy-light/components/card.png?raw=true)
-![Card Overflow](./screenshots/output/joy-light/components/card-overflow.png?raw=true)
-![Color Inversion](./screenshots/output/joy-light/components/color-inversion.png?raw=true)
-![Buttons](./screenshots/output/joy-light/components/button.png?raw=true)
-![Chips](./screenshots/output/joy-light/components/chip.png?raw=true)
-![Dropdowns](./screenshots/output/joy-light/components/dropdown.png?raw=true)
-![Numeric Entry](./screenshots/output/joy-light/components/numeric-entry.png?raw=true)
+You can find example images of [components and views here](https://github.com/mussonindustrial/pyro/tree/main/packages/pyro-mui-joy/screenshots).
 
-## Dark Mode
+## Changelog
 
-![Typography](./screenshots/output/joy-dark/components/typography.png?raw=true)
-![Backgrounds](./screenshots/output/joy-dark/components/background.png?raw=true)
-![Cards](./screenshots/output/joy-dark/components/card.png?raw=true)
-![Card Overflow](./screenshots/output/joy-dark/components/card-overflow.png?raw=true)
-![Color Inversion](./screenshots/output/joy-dark/components/color-inversion.png?raw=true)
-![Buttons](./screenshots/output/joy-dark/components/button.png?raw=true)
-![Chips](./screenshots/output/joy-dark/components/chip.png?raw=true)
-![Dropdowns](./screenshots/output/joy-dark/components/dropdown.png?raw=true)
-![Numeric Entry](./screenshots/output/joy-dark/components/numeric-entry.png?raw=true)
+The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly updated to reflect what's changed in each new release.
 
 ## Copyright and Licensing
 
