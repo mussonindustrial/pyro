@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/pyro-mui-joy",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A port of Material UI Joy Theme for Ignition by Inductive Automation",
     "keywords": [
         "ignition",
