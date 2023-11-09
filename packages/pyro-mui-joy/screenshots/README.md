@@ -1,4 +1,4 @@
-# pyro-mui-joy [<img src="https:/cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40" align="right">][pyro]
+# pyro-mui-joy [<img src="https://cdn.mussonindustrial.com/files/public/images/emblem.svg" alt="Musson Industrial Logo" width="90" height="40" align="right">][pyro]
 
 ## Component Examples
 
