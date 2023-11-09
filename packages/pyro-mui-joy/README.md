@@ -15,27 +15,27 @@
 
 ## Screen Shots
 
-![Typography](./screenshots/joy-light/typography.png?raw=true)
-![Backgrounds](./screenshots/joy-light/background.png?raw=true)
-![Cards](./screenshots/joy-light/card.png?raw=true)
-![Card Overflow](./screenshots/joy-light/card-overflow.png?raw=true)
-![Color Inversion](./screenshots/joy-light/color-inversion.png?raw=true)
-![Buttons](./screenshots/joy-light/button.png?raw=true)
-![Chips](./screenshots/joy-light/chip.png?raw=true)
-![Dropdowns](./screenshots/joy-light/dropdown.png?raw=true)
-![Numeric Entry](./screenshots/joy-light/numeric-entry.png?raw=true)
+![Typography](./screenshots/output/joy-light/components/typography.png?raw=true)
+![Backgrounds](./screenshots/output/joy-light/components/background.png?raw=true)
+![Cards](./screenshots/output/joy-light/components/card.png?raw=true)
+![Card Overflow](./screenshots/output/joy-light/components/card-overflow.png?raw=true)
+![Color Inversion](./screenshots/output/joy-light/components/color-inversion.png?raw=true)
+![Buttons](./screenshots/output/joy-light/components/button.png?raw=true)
+![Chips](./screenshots/output/joy-light/components/chip.png?raw=true)
+![Dropdowns](./screenshots/output/joy-light/components/dropdown.png?raw=true)
+![Numeric Entry](./screenshots/output/joy-light/components/numeric-entry.png?raw=true)
 
 ## Dark Mode
 
-![Typography](./screenshots/joy-dark/typography.png?raw=true)
-![Backgrounds](./screenshots/joy-dark/background.png?raw=true)
-![Cards](./screenshots/joy-dark/card.png?raw=true)
-![Card Overflow](./screenshots/joy-dark/card-overflow.png?raw=true)
-![Color Inversion](./screenshots/joy-dark/color-inversion.png?raw=true)
-![Buttons](./screenshots/joy-dark/button.png?raw=true)
-![Chips](./screenshots/joy-dark/chip.png?raw=true)
-![Dropdowns](./screenshots/joy-dark/dropdown.png?raw=true)
-![Numeric Entry](./screenshots/joy-dark/numeric-entry.png?raw=true)
+![Typography](./screenshots/output/joy-dark/components/typography.png?raw=true)
+![Backgrounds](./screenshots/output/joy-dark/components/background.png?raw=true)
+![Cards](./screenshots/output/joy-dark/components/card.png?raw=true)
+![Card Overflow](./screenshots/output/joy-dark/components/card-overflow.png?raw=true)
+![Color Inversion](./screenshots/output/joy-dark/components/color-inversion.png?raw=true)
+![Buttons](./screenshots/output/joy-dark/components/button.png?raw=true)
+![Chips](./screenshots/output/joy-dark/components/chip.png?raw=true)
+![Dropdowns](./screenshots/output/joy-dark/components/dropdown.png?raw=true)
+![Numeric Entry](./screenshots/output/joy-dark/components/numeric-entry.png?raw=true)
 
 ## Copyright and Licensing
 

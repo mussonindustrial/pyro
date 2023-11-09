@@ -1,14 +1,14 @@
 var postcss = require('gulp-postcss')
 var gulp = require('gulp')
 var fs = require('fs')
-var tests = require('./tests')
+var screenshots = require('./screenshots')
 
 const output = './output'
 const source = './src'
 
 gulp.task('clean', function () {
     fs.rmSync(output, { recursive: true, force: true })
-    tests.cleanScreenshots()
+    screenshots.cleanScreenshots()
     return gulp.src(source)
 })
 
@@ -17,8 +17,8 @@ gulp.task('build', function () {
 })
 
 gulp.task('generate-screenshots', async function () {
-    await tests.generateScreenshots('joy-light')
-    await tests.generateScreenshots('joy-dark')
+    await screenshots.build('joy-light')
+    await screenshots.build('joy-dark')
     return gulp.src(source)
 })
 
