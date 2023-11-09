@@ -14,7 +14,6 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', function () {
-
     if (!fs.existsSync(output)) {
         fs.mkdirSync(output, { recursive: true })
     }
@@ -24,10 +23,11 @@ gulp.task('build', function () {
         path.join(output, 'Inter-VariableFont.ttf'),
         (err) => {
             if (err) {
-              console.log("Error copying fonts: ", err);
+                console.log('Error copying fonts: ', err)
             }
-    })
-    
+        }
+    )
+
     return gulp.src('./src/*.css').pipe(postcss()).pipe(gulp.dest('./output'))
 })
 
