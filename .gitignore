@@ -38,4 +38,3 @@ yarn-error.log*
 # output
 **/dist
 **/.temp
-**/screenshots
