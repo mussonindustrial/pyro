@@ -290,7 +290,7 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/soft']     
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/soft']
     :not(
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *

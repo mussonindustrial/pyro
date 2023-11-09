@@ -296,7 +296,6 @@ $palettes: (primary, neutral, danger, info, success, warning);
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *
     ) {
-
     --palette-focusVisible: var(--palette-500, #9a5b13);
     --palette-background-body: rgba(
         var(--palette-mainChannel, 154 91 19) / 0.1
@@ -365,12 +364,11 @@ $palettes: (primary, neutral, danger, info, success, warning);
     );
 }
 
-[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid'] 
+[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid']
     :not(
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *
     ) {
-
     --palette-focusVisible: var(--palette-200, #dde7ee);
     --palette-background-body: rgba(0 0 0 / 0.1);
     --palette-background-surface: rgba(0 0 0 / 0.06);
