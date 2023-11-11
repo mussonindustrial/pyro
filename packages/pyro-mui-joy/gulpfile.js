@@ -13,21 +13,25 @@ gulp.task('clean', function () {
     return gulp.src(source)
 })
 
+function copyFont(font) {
+    fs.copyFile(
+        path.join(source, 'fonts', font),
+        path.join(output, font),
+        (err) => {
+            if (err) {
+                console.log('Error copying font: ', err)
+            }
+        }
+    )
+}
+
 gulp.task('build', function () {
     if (!fs.existsSync(output)) {
         fs.mkdirSync(output, { recursive: true })
     }
 
-    fs.copyFile(
-        path.join(source, 'fonts', 'Inter-VariableFont.ttf'),
-        path.join(output, 'Inter-VariableFont.ttf'),
-        (err) => {
-            if (err) {
-                console.log('Error copying fonts: ', err)
-            }
-        }
-    )
-
+    copyFont('Inter-italic.var.woff2')
+    copyFont('Inter-roman.var.woff2')
     return gulp.src('./src/*.css').pipe(postcss()).pipe(gulp.dest('./output'))
 })
 
