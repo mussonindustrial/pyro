@@ -1,7 +1,7 @@
 :root {
     @font-face {
-        font-family: 'Inter';
-        src: url(/data/perspective/fonts/Inter-VariableFont.ttf)
+        font-family: 'Inter-VariableFont';
+        src: url("/data/perspective/fonts/Inter-VariableFont.ttf")
             format('truetype');
     }
 
@@ -45,7 +45,7 @@
 
     --fontFamily-body: 'Inter',
         var(
-            --joy-fontFamily-fallback,
+            --fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
