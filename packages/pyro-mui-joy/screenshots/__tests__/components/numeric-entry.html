@@ -1,0 +1,2218 @@
+<html>
+    <head>
+        <!-- <HEAD TOP MARKER> -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>test</title>
+        <link
+            rel="stylesheet"
+            href="/res/perspective/css/PerspectiveClient.48795d90aca914295681.css"
+        />
+        <link rel="stylesheet" href="/data/perspective/themes/joy-auto.css" />
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/data/perspective/symbol-style-classes/testing/joy-auto/0/symbols.css"
+        />
+        <link rel="icon" type="image/png"
+        href="/res/perspective/images/favicon-196x196.png sizes=" 196x196"="">
+        <link
+            rel="icon"
+            type="image/png"
+            href="/res/perspective/images/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/res/perspective/images/favicon-32x32.png"
+            sizes="32x32"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/res/perspective/images/favicon-16x16.png"
+            sizes="16x16"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/res/perspective/images/favicon-128.png"
+            sizes="128x128"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="57x57"
+            href="/res/perspective/images/apple-touch-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="114x114"
+            href="/res/perspective/images/apple-touch-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="72x72"
+            href="/res/perspective/images/apple-touch-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="144x144"
+            href="/res/perspective/images/apple-touch-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="60x60"
+            href="/res/perspective/images/apple-touch-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="120x120"
+            href="/res/perspective/images/apple-touch-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="76x76"
+            href="/res/perspective/images/apple-touch-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="152x152"
+            href="/res/perspective/images/apple-touch-icon-152x152.png"
+        />
+        <meta name="msapplication-TileColor" content="#003E69" />
+        <meta
+            name="msapplication-TileImage"
+            content="/res/perspective/images/mstile-144x144.png"
+        />
+        <meta
+            name="msapplication-square70x70logo"
+            content="/res/perspective/images/mstile-70x70.png"
+        />
+        <meta
+            name="msapplication-square150x150logo"
+            content="/res/perspective/images/mstile-150x150.png"
+        />
+        <meta
+            name="msapplication-wide310x150logo"
+            content="/res/perspective/images/mstile-310x150.png"
+        />
+        <meta
+            name="msapplication-square310x310logo"
+            content="/res/perspective/images/mstile-310x310.png"
+        />
+
+        <!-- This is the template file -->
+        <meta name="application-name" content="&nbsp;" />
+        <!-- <HEAD BOTTOM MARKER> -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/res/perspective/css/PerspectiveComponents.22a296e835cb3dbc4c57.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/res/perspective/css/PerspectiveAmCharts.82406ef3a9ab437b279e.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/res/perspective/css/PerspectiveTimeseriesCharts.ba556fb7b2b4e8c7fe10.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/res/kyvislabs/Components.css?no_cache=1699508855189"
+        />
+        <link
+            rel="stylesheet"
+            href="/data/perspective/style-classes/testing/1348496196/style.css"
+        />
+        <script
+            type="text/javascript"
+            src="/res/perspective/js/PerspectiveComponents.22a296e835cb3dbc4c57.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="/res/perspective/js/PerspectiveTimeseriesCharts.ba556fb7b2b4e8c7fe10.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="/res/kyvislabs/Components.js?no_cache=1699508855565"
+        ></script>
+        <script
+            type="text/javascript"
+            src="/res/perspective/js/PerspectiveAmCharts.82406ef3a9ab437b279e.js"
+        ></script>
+    </head>
+    <body>
+        <!-- <BODY TOP MARKER> -->
+        <div id="app-container">
+            <div class="client-root">
+                <div
+                    class="connection-lost-banner banner-inactive no-print"
+                    style="z-index: 13000"
+                >
+                    <div class="connection-lost-message">
+                        No Connection to Gateway
+                    </div>
+                </div>
+                <div class="center-column flex-col">
+                    <div
+                        class="center view-parent center-disable-transitions"
+                        style="
+                            max-height: calc(100% - 0px);
+                            max-width: calc(100% - 0px);
+                            margin: 0px;
+                        "
+                    >
+                        <div></div>
+                        <div
+                            data-component="ia.container.flex"
+                            data-component-path="C.0"
+                            class="ia_container--root flex-container responsive-container ia_container--primary view"
+                            style="
+                                overflow: auto;
+                                gap: 1rem;
+                                padding: 1rem;
+                                flex-flow: column;
+                                place-content: stretch flex-start;
+                                align-items: stretch;
+                            "
+                        >
+                            <div
+                                data-component="ia.display.flex-repeater"
+                                data-component-path="C.0:0"
+                                class="view-parent"
+                                style="
+                                    overflow: auto;
+                                    gap: 0.5rem;
+                                    flex-flow: column wrap;
+                                    place-content: flex-start;
+                                    align-items: flex-start;
+                                    flex: 0 0 auto;
+                                "
+                            >
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[0].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 0;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[0].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[0]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/primary psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[0]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[0]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/primary psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[0]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[0]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/primary psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[0]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[0]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/primary psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[0]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[1].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 1;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[1].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[1]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/success psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[1]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[1]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/success psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[1]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[1]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/success psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[1]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[1]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/success psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[1]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[2].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 2;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[2].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[2]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/danger psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[2]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[2]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/danger psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[2]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[2]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/danger psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[2]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[2]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/danger psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[2]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[3].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 3;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[3].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[3]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/warning psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[3]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[3]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/warning psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[3]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[3]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/warning psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[3]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[3]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/warning psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[3]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[4].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 4;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[4].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[4]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/info psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[4]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[4]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/info psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[4]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[4]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/info psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[4]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[4]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/info psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[4]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    data-component="ia.container.flex"
+                                    data-component-path="C$0:0[5].0"
+                                    class="flex-container responsive-container ia_container--primary view"
+                                    style="
+                                        overflow: auto;
+                                        flex-flow: column;
+                                        place-content: stretch flex-start;
+                                        align-items: stretch;
+                                        order: 5;
+                                        flex: 1 1 auto;
+                                    "
+                                >
+                                    <div
+                                        data-component="ia.display.flex-repeater"
+                                        data-component-path="C$0:0[5].0:0"
+                                        class="view-parent"
+                                        style="
+                                            overflow: auto;
+                                            gap: 0.5rem;
+                                            flex-flow: wrap;
+                                            place-content: flex-start;
+                                            align-items: flex-start;
+                                            flex: 0 0 auto;
+                                        "
+                                    >
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[5]$0:0[0].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/solid psc-Joy/Palette/neutral psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 0;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[5]$0:0[0].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[5]$0:0[1].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/soft psc-Joy/Palette/neutral psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 1;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[5]$0:0[1].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[5]$0:0[2].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/outlined psc-Joy/Palette/neutral psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 2;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[5]$0:0[2].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input ia-numeral-input ia-numeral-active popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            data-component="ia.container.flex"
+                                            data-component-path="C$0:0[5]$0:0[3].0"
+                                            class="flex-container responsive-container ia_container--primary view psc-Joy/Variant/plain psc-Joy/Palette/neutral psc-Joy/Size/md"
+                                            style="
+                                                overflow: auto;
+                                                max-width: 200px;
+                                                flex-flow: column;
+                                                place-content: stretch
+                                                    flex-start;
+                                                align-items: stretch;
+                                                order: 3;
+                                                flex: 1 1 auto;
+                                            "
+                                        >
+                                            <div
+                                                data-component="ia.input.numeric-entry-field"
+                                                data-component-path="C$0:0[5]$0:0[3].0:0"
+                                                class="ia_numericEntryFieldComponent"
+                                                style="flex: 0 1 auto"
+                                            >
+                                                <div
+                                                    class="ia_numericEntryFieldComponent__wrapper--readOnly"
+                                                >
+                                                    <input
+                                                        class="ia_inputField ia-numeral-input popup-not-draggable"
+                                                        readonly=""
+                                                        type="text"
+                                                        placeholder=""
+                                                        value="0"
+                                                        style="
+                                                            text-align: right;
+                                                        "
+                                                    /><a
+                                                        class="ia_numericEntryFieldComponent__editLink"
+                                                        ><span
+                                                            ><svg
+                                                                viewBox="0 0 24 24"
+                                                                class="ia_numericEntryFieldComponent__editIcon"
+                                                                data-icon="material/edit"
+                                                            >
+                                                                <g>
+                                                                    <g
+                                                                        class="icon"
+                                                                        id="edit"
+                                                                    >
+                                                                        <path
+                                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                                                        ></path>
+                                                                    </g>
+                                                                </g></svg></span
+                                                    ></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="app-modal-wrapper no-print"
+                    tabindex="0"
+                    style="visibility: hidden; opacity: 0; z-index: 14010"
+                >
+                    <div class="app-modal app-modal-closed">
+                        <div class="modal-header">
+                            <div class="modal-title">Session Status</div>
+                            <svg
+                                class="close-icon material-icons md-24"
+                                fill="#FFFFFF"
+                            >
+                                <use
+                                    xlink:href="/res/perspective/icons/material-icons.svg#close"
+                                ></use>
+                            </svg>
+                            <div class="client-status-navbar">
+                                <div
+                                    id="gateway-nav"
+                                    class="status-menu-item"
+                                    style="color: rgb(255, 255, 255)"
+                                >
+                                    GATEWAY
+                                </div>
+                                <div
+                                    id="project-nav"
+                                    class="status-menu-item"
+                                    style="color: rgb(195, 195, 195)"
+                                >
+                                    PROJECT
+                                </div>
+                                <span
+                                    class="selected-underline gateway-select"
+                                ></span>
+                            </div>
+                        </div>
+                        <div
+                            class="status-page-body"
+                            style="overflow-x: hidden"
+                        >
+                            <div
+                                class="react-swipeable-view-container"
+                                style="
+                                    flex-direction: row;
+                                    transition: all 0s ease 0s;
+                                    direction: ltr;
+                                    display: flex;
+                                    will-change: transform;
+                                    transform: translate(0%, 0px);
+                                "
+                            >
+                                <div
+                                    aria-hidden="false"
+                                    data-swipeable="true"
+                                    style="
+                                        width: 100%;
+                                        flex-shrink: 0;
+                                        overflow: auto;
+                                    "
+                                >
+                                    <div
+                                        class="modal-body connection-page --standard"
+                                    >
+                                        <div
+                                            class="modal-connection-status status-connected"
+                                        >
+                                            <div class="gateway-icon">
+                                                <svg
+                                                    class="material-icons md-60"
+                                                >
+                                                    <symbol
+                                                        viewBox="0 0 64 64"
+                                                        id="gateway"
+                                                    >
+                                                        <path
+                                                            d="M32,48 C34.9333333,48 37.3333333,45.6 37.3333333,42.6666667 C37.3333333,39.7333333 34.9333333,37.3333333 32,37.3333333 C29.0666667,37.3333333 26.6666667,39.7333333 26.6666667,42.6666667 C26.6666667,45.6 29.0666667,48 32,48 Z M47.6444444,5.33333333 L16.3555556,5.33333333 C13.2266667,5.33333333 10.6666667,8 10.6666667,11.2592593 L10.6666667,52.7407407 C10.6666667,56 13.2266667,58.6666667 16.3555556,58.6666667 L47.6444444,58.6666667 C50.7733333,58.6666667 53.3333333,56 53.3333333,52.7407407 L53.3333333,11.2592593 C53.3333333,8 50.7733333,5.33333333 47.6444444,5.33333333 Z M48,53.3333333 L16,53.3333333 L16,10.6666667 L48,10.6666667 L48,53.3333333 Z M21.3333333,16 L42.6666667,16 L42.6666667,21.3333333 L21.3333333,21.3333333 L21.3333333,16 Z M21.3333333,26.6666667 L42.6666667,26.6666667 L42.6666667,32 L21.3333333,32 L21.3333333,26.6666667 Z"
+                                                            id="path-1"
+                                                        ></path>
+                                                    </symbol>
+                                                    <use
+                                                        xlink:href="#gateway"
+                                                    ></use>
+                                                </svg>
+                                                <div class="gateway-role"></div>
+                                            </div>
+                                            <div
+                                                class="connection-status-content"
+                                            >
+                                                <div class="gateway-name">
+                                                    Ignition-BenDesktop
+                                                </div>
+                                                <div
+                                                    class="gateway-status-message"
+                                                >
+                                                    <svg
+                                                        class="material-icons md-24"
+                                                    >
+                                                        <symbol
+                                                            viewBox="0 0 24 24"
+                                                            id="done"
+                                                        >
+                                                            <path
+                                                                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                                                            ></path>
+                                                        </symbol>
+                                                        <use
+                                                            xlink:href="#done"
+                                                        ></use>
+                                                    </svg>
+                                                    <div class="message-text">
+                                                        CONNECTED
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="gateway-activity-level"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="modal-detail gateway-url modal-open-page"
+                                        >
+                                            <div class="detail-left">
+                                                <div class="detail-label">
+                                                    Gateway URL
+                                                </div>
+                                                <div class="detail-data">
+                                                    http://localhost:8088
+                                                </div>
+                                            </div>
+                                            <div class="detail-right">
+                                                <div
+                                                    class="detail-action text-button"
+                                                >
+                                                    VISIT GATEWAY
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-detail session-id">
+                                            <div class="detail-left">
+                                                <div class="detail-label">
+                                                    Session ID
+                                                </div>
+                                                <div class="detail-data">
+                                                    b700ef0d-3a08-4b02-8df2-9a2632188033
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-detail page-id">
+                                            <div class="detail-left">
+                                                <div class="detail-label">
+                                                    Page ID
+                                                </div>
+                                                <div class="detail-data">
+                                                    2ce7e240
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    aria-hidden="true"
+                                    data-swipeable="true"
+                                    style="
+                                        width: 100%;
+                                        flex-shrink: 0;
+                                        overflow: auto;
+                                    "
+                                >
+                                    <div class="modal-body project-page">
+                                        <div class="modal-subheader">
+                                            <h4>test</h4>
+                                        </div>
+                                        <div
+                                            class="modal-detail project-description"
+                                        ></div>
+                                        <div class="modal-detail">
+                                            <div class="detail-left">
+                                                <svg
+                                                    class="update-icon material-icons md-24"
+                                                    fill="#86939E"
+                                                >
+                                                    <symbol
+                                                        viewBox="0 0 24 24"
+                                                        id="done"
+                                                    >
+                                                        <path
+                                                            d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                                                        ></path>
+                                                    </symbol>
+                                                    <use
+                                                        xlink:href="#done"
+                                                    ></use>
+                                                </svg>
+                                                <div class="update-status">
+                                                    Project Up to Date
+                                                </div>
+                                                <div class="project-modified">
+                                                    Last modified:
+                                                    2023-11-09T00:47:30-05:00 by
+                                                    bmusson
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="app-bar bar-closed --standard no-print"
+                    style="z-index: 14020"
+                >
+                    <svg class="about-icon material-icons md-30 about-inactive">
+                        <symbol viewBox="0 0 13 16" id="ignition-check">
+                            <path
+                                d="M14.5756743,0.989879369 C14.7278364,1.39664494 14.6718491,1.85209551 14.4257031,2.20987937 C14.3657146,2.34987937 14.0990992,2.7532127 13.6258568,3.41987937 L11.9461796,5.89987937 C11.3196333,6.8732127 10.606437,7.9032127 9.80659074,8.98987937 C9.41666568,9.61987937 9.04673676,10.2698794 8.73679632,10.7498794 C8.42685588,11.2298794 8.12691352,11.6898794 7.82697116,12.1298794 C7.53613125,11.8804595 7.19519726,11.6963198 6.82716329,11.5898794 C7.00712871,11.2298794 7.34706338,10.5298794 7.82697116,9.51987937 C8.30687894,8.50987937 8.81678095,7.44987937 9.00674445,7.03987937 C9.33334835,6.2532127 9.66661764,5.5032127 10.0065523,4.78987937 L10.8963813,2.86987937 L11.5362584,1.44987937 C11.7162238,1.06987937 11.866195,0.839879369 11.866195,0.769879369 C12.0513426,0.365191783 12.4265928,0.0799468194 12.8660028,0.0098793685 C13.2131274,-0.0283991685 13.5634043,0.0451731296 13.8658107,0.219879369 C14.1797609,0.392626236 14.4289411,0.662915763 14.5756743,0.989879369 Z M5.48742075,11.5298794 L5.5574073,11.5198794 C5.19983769,11.5874858 4.85970437,11.7269673 4.55759943,11.9298794 C4.11768396,11.3198794 3.40782038,10.2898794 3.00789723,9.69987937 L2.70795487,9.32987937 C2.52798945,9.06987937 2.39801443,8.87987937 2.3180298,8.73987937 C2.23804517,8.59987937 2.11806823,8.48987937 2.11806823,8.37987937 C1.98044196,8.11321489 1.96227594,7.80069937 2.06807783,7.51987937 C2.18347834,7.23628417 2.40630058,7.00982451 2.68795871,6.88987937 C2.9595064,6.74921132 3.27533205,6.72049438 3.56778964,6.80987937 C3.85438637,6.90806088 4.0865658,7.12214243 4.20766667,7.39987937 C4.24765899,7.50987937 4.30764746,7.62987937 4.35763785,7.77987937 C4.40762825,7.92987937 4.4776148,8.14987937 4.56759751,8.45987937 L4.77755716,9.15987937 C4.99751489,9.86987937 5.31745341,10.9198794 5.48742075,11.5298794 Z M7.59701535,14.4098794 C7.6025195,15.2824637 6.89975426,15.9942991 6.02733769,15.9998159 C5.15492111,16.0053328 4.44321308,15.302442 4.43768563,14.4298579 C4.43215818,13.5572737 5.13490441,12.8454195 6.00732084,12.8398794 C6.87976309,12.8398794 7.58701727,13.5472695 7.58701727,14.4198794 L7.59701535,14.4098794 Z"
+                            ></path>
+                        </symbol>
+                        <use xlink:href="#ignition-check"></use>
+                    </svg>
+                    <div class="app-center-wrapper">
+                        <div class="app-center panel-inactive">
+                            <span class="app-gateway-name"
+                                >Ignition-BenDesktop</span
+                            >
+                            <div class="notification-icon-wrapper">
+                                <div
+                                    class="notification-icons center-icons pipe-inactive"
+                                >
+                                    <svg
+                                        class="timer-icon material-icons md-18"
+                                        fill="#72A7FE"
+                                    >
+                                        <symbol viewBox="0 0 24 24" id="trial">
+                                            <g id="Layer_2" data-name="Layer 2">
+                                                <g
+                                                    id="Layer_1-2"
+                                                    data-name="Layer 1"
+                                                >
+                                                    <path
+                                                        fill="none"
+                                                        d="M0,0H24V24H0Z"
+                                                    ></path>
+                                                    <path
+                                                        d="M15,1H9V3h6ZM11,14h2V8H11Zm8-6.61L20.45,6A11,11,0,0,0,19,4.56L17.62,6A9,9,0,1,0,19,7.39ZM12,20a7,7,0,1,1,7-7A7,7,0,0,1,12,20Z"
+                                                    ></path>
+                                                </g>
+                                            </g>
+                                        </symbol>
+                                        <use xlink:href="#trial"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide-icon-wrapper">
+                        <svg
+                            class="hide-icon material-icons md-32"
+                            fill="#FFFFFF"
+                            aria-label="Hide icon"
+                        >
+                            <symbol viewBox="0 0 24 24" id="expand_more">
+                                <path
+                                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                                ></path>
+                            </symbol>
+                            <use xlink:href="#expand_more"></use>
+                        </svg>
+                    </div>
+                    <div
+                        class="app-tooltip tip-show app-tooltip-hidden"
+                        style="z-index: 14000; visibility: hidden; opacity: 0"
+                    >
+                        Maximize
+                    </div>
+                </div>
+                <div
+                    class="action-panel-overlay no-print overlay-hidden"
+                    style="z-index: -1"
+                >
+                    <div class="action-panel-wrapper" style="bottom: -19.5rem">
+                        <div class="action-panel">
+                            <div class="panel-header">
+                                <div class="user-info">
+                                    <div class="username" title=""></div>
+                                </div>
+                                <div class="sign-out-button text-button">
+                                    SIGN IN
+                                </div>
+                            </div>
+                            <div class="panel-item no-print">
+                                <svg
+                                    class="panel-icon material-icons md-22 trial-icon"
+                                    fill="#86939E"
+                                >
+                                    <symbol viewBox="0 0 24 24" id="trial">
+                                        <g id="Layer_2" data-name="Layer 2">
+                                            <g
+                                                id="Layer_1-2"
+                                                data-name="Layer 1"
+                                            >
+                                                <path
+                                                    fill="none"
+                                                    d="M0,0H24V24H0Z"
+                                                ></path>
+                                                <path
+                                                    d="M15,1H9V3h6ZM11,14h2V8H11Zm8-6.61L20.45,6A11,11,0,0,0,19,4.56L17.62,6A9,9,0,1,0,19,7.39ZM12,20a7,7,0,1,1,7-7A7,7,0,0,1,12,20Z"
+                                                ></path>
+                                            </g>
+                                        </g>
+                                    </symbol>
+                                    <use xlink:href="#trial"></use>
+                                </svg>
+                                <div class="panel-item-message">
+                                    <div class="primary-message">
+                                        Trial Mode Active
+                                    </div>
+                                    <div class="secondary-message">
+                                        Remaining trial time:
+                                    </div>
+                                </div>
+                                <div class="panel-action trial-clock">
+                                    00:22:55
+                                </div>
+                            </div>
+                            <div
+                                class="panel-item panel-open-page panel-gateway-connection no-print"
+                            >
+                                <svg
+                                    class="panel-icon material-icons md-26 gateway-icon"
+                                    fill="#86939E"
+                                >
+                                    <symbol viewBox="0 0 64 64" id="gateway">
+                                        <path
+                                            d="M32,48 C34.9333333,48 37.3333333,45.6 37.3333333,42.6666667 C37.3333333,39.7333333 34.9333333,37.3333333 32,37.3333333 C29.0666667,37.3333333 26.6666667,39.7333333 26.6666667,42.6666667 C26.6666667,45.6 29.0666667,48 32,48 Z M47.6444444,5.33333333 L16.3555556,5.33333333 C13.2266667,5.33333333 10.6666667,8 10.6666667,11.2592593 L10.6666667,52.7407407 C10.6666667,56 13.2266667,58.6666667 16.3555556,58.6666667 L47.6444444,58.6666667 C50.7733333,58.6666667 53.3333333,56 53.3333333,52.7407407 L53.3333333,11.2592593 C53.3333333,8 50.7733333,5.33333333 47.6444444,5.33333333 Z M48,53.3333333 L16,53.3333333 L16,10.6666667 L48,10.6666667 L48,53.3333333 Z M21.3333333,16 L42.6666667,16 L42.6666667,21.3333333 L21.3333333,21.3333333 L21.3333333,16 Z M21.3333333,26.6666667 L42.6666667,26.6666667 L42.6666667,32 L21.3333333,32 L21.3333333,26.6666667 Z"
+                                            id="path-1"
+                                        ></path>
+                                    </symbol>
+                                    <use xlink:href="#gateway"></use>
+                                </svg>
+                                <div class="panel-item-message">
+                                    <div class="primary-message">
+                                        Connected: Ignition-BenDesktop
+                                    </div>
+                                    <div class="secondary-message">
+                                        http://localhost:8088/data/perspective/client/testing
+                                    </div>
+                                </div>
+                                <div class="panel-action arrow-action">
+                                    <svg
+                                        class="material-icons md-24"
+                                        fill="#72A7FE"
+                                    >
+                                        <symbol
+                                            viewBox="0 0 24 24"
+                                            id="keyboard_arrow_right"
+                                        >
+                                            <path
+                                                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                                            ></path>
+                                        </symbol>
+                                        <use
+                                            xlink:href="#keyboard_arrow_right"
+                                        ></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="panel-notifications"></div>
+                            <div class="connection-status">
+                                <svg
+                                    class="gateway-icon material-icons md-16"
+                                    fill="#86939E"
+                                >
+                                    <symbol
+                                        viewBox="0 0 24 24"
+                                        id="no_encryption"
+                                    >
+                                        <path
+                                            d="M21 21.78L4.22 5 3 6.22l2.04 2.04C4.42 8.6 4 9.25 4 10v10c0 1.1.9 2 2 2h12c.23 0 .45-.05.66-.12L19.78 23 21 21.78zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H9.66L20 18.34V10c0-1.1-.9-2-2-2h-1V6c0-2.76-2.24-5-5-5-2.56 0-4.64 1.93-4.94 4.4L8.9 7.24V6z"
+                                        ></path>
+                                    </symbol>
+                                    <use xlink:href="#no_encryption"></use>
+                                </svg>
+                                <div class="connection-security">
+                                    Insecure Connection
+                                </div>
+                                <div class="status-button text-button">
+                                    STATUS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="notification-wrapper no-print"
+                    style="top: 0px; z-index: 13000"
+                ></div>
+            </div>
+        </div>
+
+        <!-- Dependencies -->
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/react-18.2.0.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/react-dom-18.2.0.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/mobx-5.15.7.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/mobx-react-lite-1.5.2.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/mobx-react-6.3.1.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/moment-2.29.4.min.js"
+        ></script>
+        <script
+            type="application/javascript"
+            src="/res/perspective/xhr-length-computable.min.js"
+        ></script>
+
+        <!-- Main -->
+        <script
+            type="application/javascript"
+            src="/res/perspective/js/PerspectiveClient.48795d90aca914295681.js"
+        ></script>
+
+        <script>
+            window.__wsMaxIdleTimeMs = 120000
+            window.__wsIdleTimeIntervalMs = 30000
+            window.__helloResponseTimeoutMs = 10000
+        </script>
+        <script>
+            localStorage.setItem(
+                'redundancy.status',
+                JSON.stringify({
+                    activity_level: 'Active',
+                    role: 'Independent',
+                    peers: [],
+                })
+            )
+        </script>
+        <!-- load the client -->
+        <script>
+            window.__qualityCodes = [
+                { code: 0, name: 'Good_Unspecified' },
+                { code: 2, name: 'Good_WritePending' },
+                { code: 192, name: 'Good' },
+                { code: 200, name: 'Good_Provisional' },
+                { code: 201, name: 'Good_Initial' },
+                { code: 202, name: 'Good_Overload' },
+                { code: 203, name: 'Good_Backfill' },
+                { code: 1073742080, name: 'Uncertain' },
+                { code: 1073742081, name: 'Uncertain_LastKnownValue' },
+                { code: 1073742082, name: 'Uncertain_InitialValue' },
+                { code: 1073742083, name: 'Uncertain_DataSubNormal' },
+                {
+                    code: 1073742084,
+                    name: 'Uncertain_EngineeringUnitsExceeded',
+                },
+                { code: 1073742085, name: 'Uncertain_IncompleteOperation' },
+                { code: -2147483136, name: 'Bad' },
+                { code: -2147483135, name: 'Bad_Unauthorized' },
+                { code: -2147483134, name: 'Bad_AccessDenied' },
+                { code: -2147483133, name: 'Bad_Disabled' },
+                { code: -2147483132, name: 'Bad_Stale' },
+                { code: -2147483131, name: 'Bad_TrialExpired' },
+                { code: -2147483130, name: 'Bad_LicenseExceeded' },
+                { code: -2147483129, name: 'Bad_NotFound' },
+                { code: -2147483128, name: 'Bad_ReferenceNotFound' },
+                { code: -2147483127, name: 'Bad_AggregateNotFound' },
+                { code: -2147483126, name: 'Bad_NotConnected' },
+                { code: -2147483125, name: 'Bad_GatewayCommOff' },
+                { code: -2147483124, name: 'Bad_OutOfRange' },
+                { code: -2147483123, name: 'Bad_DatabaseNotConnected' },
+                { code: -2147483122, name: 'Bad_ReadOnly' },
+                { code: -2147483121, name: 'Bad_Failure' },
+                { code: -2147483120, name: 'Bad_Unsupported' },
+                { code: -1073741056, name: 'Error' },
+                { code: -1073741055, name: 'Error_Configuration' },
+                { code: -1073741054, name: 'Error_ExpressionEval' },
+                { code: -1073741053, name: 'Error_TagExecution' },
+                { code: -1073741052, name: 'Error_TypeConversion' },
+                { code: -1073741051, name: 'Error_DatabaseQuery' },
+                { code: -1073741050, name: 'Error_IO' },
+                { code: -1073741049, name: 'Error_TimeoutExpired' },
+                { code: -1073741048, name: 'Error_Exception' },
+                { code: -1073741047, name: 'Error_InvalidPathSyntax' },
+                { code: -1073741046, name: 'Error_Formatting' },
+                { code: -1073741045, name: 'Error_ScriptEval' },
+                { code: -1073741044, name: 'Error_CycleDetected' },
+            ]
+            window.__assetDigests = {
+                bootstrap: '1pEYRralGrsr+8TAGTeJ+NwsrsOj4xk8PhLiIWSHiP0=',
+                ignition: 'OHO486EHIApZN8QQS1pXsqM4Q3aZT/U2R8vu+BxSZMk=',
+                material: 'Kp7nlEjvsk96AaSnJDC0YNXTLouKrrJ3wDlxwCaZgZs=',
+                symbol_mimic: '+0NSRQ/D1m+Gs3ynJuceFvqDOAIw0yvfM5fbkneEvCY=',
+                'symbol_p&id': '7osguOd5/4WGChLD04YMjQFOxO53jxlUTpiwtb/KK7o=',
+                symbol_simple: 'VYS/8nowWa8QK5BgJ0Xl1YFwyJHzKPgveyWFimd3WIc=',
+            }
+            <!-- before render -->
+            ReactDOM.createRoot(
+                document.getElementById('app-container')
+            ).render(
+                React.createElement(
+                    PerspectiveClient.Client,
+                    {
+                        projectName: 'testing',
+                        projectTitle: 'test',
+                        platformEdition: 'standard',
+                        coBrandingEnabled: false,
+                    },
+                    null
+                )
+            )
+        </script>
+        <!-- <BODY BOTTOM MARKER> -->
+    </body>
+</html>

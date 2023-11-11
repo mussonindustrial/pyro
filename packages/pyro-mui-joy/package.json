@@ -1,6 +1,6 @@
 {
     "name": "@mussonindustrial/pyro-mui-joy",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A port of Material UI Joy Theme for Ignition by Inductive Automation",
     "keywords": [
         "ignition",
@@ -9,7 +9,8 @@
         "joy"
     ],
     "scripts": {
-        "build": "gulp",
+        "build": "gulp all",
+        "generate-screenshots": "gulp generate-screenshots",
         "lint": "eslint *.js",
         "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
     },
@@ -26,18 +27,22 @@
     "type": "commonjs",
     "devDependencies": {
         "@csstools/postcss-design-tokens": "^2.0.4",
+        "@mussonindustrial/postcss-advanced-variables": "*",
+        "@mussonindustrial/postcss-perspective-style-class": "*",
+        "@mussonindustrial/pyro-resource": "*",
         "autoprefixer": "^10.4.14",
         "cssnano": "^6.0.1",
         "eslint": "^8.42.0",
         "gulp": "^4.0.2",
         "gulp-postcss": "^9.0.1",
-        "@mussonindustrial/pyro-resource": "*",
         "lodash": "^4.17.21",
         "postcss": "^8.4.24",
-        "@mussonindustrial/postcss-advanced-variables": "*",
         "postcss-import": "^15.1.0",
         "postcss-nested": "^6.0.1",
-        "@mussonindustrial/postcss-perspective-style-class": "*",
         "prettier": "^2.8.8"
+    },
+    "dependencies": {
+        "glob": "^10.3.10",
+        "puppeteer": "^21.5.0"
     }
 }
