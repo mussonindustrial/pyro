@@ -1,7 +1,7 @@
 :root {
     @font-face {
         font-family: 'Inter-VariableFont';
-        src: url("/data/perspective/fonts/Inter-VariableFont.ttf")
+        src: url('/data/perspective/fonts/Inter-VariableFont.ttf')
             format('truetype');
     }
 
