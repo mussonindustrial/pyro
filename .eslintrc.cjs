@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    extends: ['custom'],
+    extends: ['@mussonindustrial/eslint-config-pyro'],
     env: {
         browser: true,
         commonjs: true,
