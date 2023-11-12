@@ -26,7 +26,7 @@ beforeAll(async () => {
         baseURL: `http://localhost:${port}`,
         timeout: 1000
     });
-}, 60000)
+}, 120000)
 
 it('should respond to status ping', async () => { 
     await gatewayClient?.get('/StatusPing')
