@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+-   703d3d8: switched to variable fonts
+
+### Patch Changes
+
+-   b653a0d: linting :(
+-   dd24357: Fixed font family issue effecting Safari rendering
+-   06b9254: fixed info palette channel regression
+
 ## 0.2.1
 
 ### Patch Changes
