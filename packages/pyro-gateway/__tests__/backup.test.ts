@@ -40,7 +40,6 @@ it('should set the gateway name', async () => {
     .then(function (response) {
         const data = response.data.toString()
         const gatewayName = data.match(/PlatformName=([^;]+);/)
-        console.log(data)
         expect(gatewayName[1]).toBe(containerName)
     })
 })
