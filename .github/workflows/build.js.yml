@@ -24,7 +24,7 @@ jobs:
               uses: actions/cache@v3
               with:
                 path: ci/cache/docker/ignition
-                key: cache-docker-ignition-8.1.33
+                key: cache-docker-ignition
             
             - name: Update Ignition Image Cache if cache miss
               if: steps.cache-docker-ignition.outputs.cache-hit != 'true'
