@@ -24,9 +24,7 @@ npm install @mussonindustrial/pyro-gateway
 ### Start a new Gateway
 
 ```js
-import {
-    IgnitionContainer
-} from '@mussonindustrial/pyro-gateway'
+import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
 const gateway = await new IgnitionContainer('8.1.33')
     .withModules(['perspective'])
@@ -37,9 +35,7 @@ const gateway = await new IgnitionContainer('8.1.33')
 ### Start a Gateway from a Backup
 
 ```js
-import {
-    IgnitionContainer
-} from '@mussonindustrial/pyro-gateway'
+import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
 const gateway = await new IgnitionContainer('8.1.33')
     .withGatewayBackup('/path/to/gateway.gwbk')
@@ -47,12 +43,13 @@ const gateway = await new IgnitionContainer('8.1.33')
 ```
 
 ### Setting Gateway Properties
+
 Gateway properties can be set before startup through the various `.with~` methods.
 
 ```js
 // Current available setter methods
 .withEdition(edition: GatewayEdition)
-.withHTTPPort(port: number) 
+.withHTTPPort(port: number)
 .withHTTPSPort(port: number)
 .withModules(modules: ModuleIdentifier[])
 .withGatewayName(name: string)
@@ -63,9 +60,11 @@ The eventual goal is to provide a complete set of setter methods.
 In the meantime, if you wish the directly set environment or runtime variables, they can be accessed through `gateway.env` and `gateway.runtime` respectively.
 
 ### Reaching your Gateway
+
 By design, Testcontainers maps bound ports to random free ports on the host to avoid port collisions that may arise with locally running software or in between parallel test runs.
 
 You can ask for the mapped port at runtime by using:
+
 ```js
 const httpPort = gateway.getMappedHTTPPort()
 const httpsPort = gateway.getMappedHTTPSPort()
