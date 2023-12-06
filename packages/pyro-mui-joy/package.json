@@ -10,7 +10,7 @@
     ],
     "scripts": {
         "build": "gulp all",
-        "generate-screenshots": "gulp generate-screenshots",
+        "dev": "gulp dev",
         "lint": "eslint *.js",
         "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
     },
@@ -29,6 +29,7 @@
         "@csstools/postcss-design-tokens": "^2.0.4",
         "@mussonindustrial/postcss-advanced-variables": "*",
         "@mussonindustrial/postcss-perspective-style-class": "*",
+        "@mussonindustrial/pyro-gateway": "*",
         "@mussonindustrial/pyro-resource": "*",
         "autoprefixer": "^10.4.14",
         "cssnano": "^6.0.1",
@@ -42,7 +43,9 @@
         "prettier": "^2.8.8"
     },
     "dependencies": {
+        "axios": "^1.6.1",
         "glob": "^10.3.10",
-        "puppeteer": "^21.5.0"
+        "puppeteer": "^21.5.0",
+        "vitest": "^0.34.6"
     }
 }
