@@ -20,10 +20,9 @@ beforeAll(async () => {
     .withGatewayBackup('./__tests__/pyro-gateway-test-restored.gwbk')
     .start()
 
-    const port = gateway.getMappedHTTPPort()
 
     gatewayClient = axios.create({
-        baseURL: `http://localhost:${port}`,
+        baseURL: gateway.getRootURL(),
         timeout: 1000
     });
 }, 60000)

@@ -23,17 +23,17 @@ jobs:
               id: cache-docker-ignition
               uses: actions/cache@v3
               with:
-                path: ci/cache/docker/ignition
-                key: cache-docker-ignition
-            
+                  path: ci/cache/docker/ignition
+                  key: cache-docker-ignition
+
             - name: Update Ignition Image Cache if cache miss
               if: steps.cache-docker-ignition.outputs.cache-hit != 'true'
               run: docker pull inductiveautomation/ignition:8.1.33 && mkdir -p ci/cache/docker/ignition && docker image save inductiveautomation/ignition:8.1.33 --output ./ci/cache/docker/ignition/ignition-8.1.33.tar
-            
+
             - name: Use Ignition Image Cache if cache hit
               if: steps.cache-docker-ignition.outputs.cache-hit == 'true'
               run: docker image load --input ./ci/cache/docker/ignition/ignition-8.1.33.tar
-                    
+
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3

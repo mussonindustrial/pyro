@@ -29,10 +29,6 @@ This project generates several files required for installation:
 -   Color Inversion Support
 -   Variant/Palette Support
 
-## Examples
-
-You can find example images of [components and views here](https://github.com/mussonindustrial/pyro/tree/main/packages/pyro-mui-joy/screenshots).
-
 ## Changelog
 
 The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly updated to reflect what's changed in each new release.
