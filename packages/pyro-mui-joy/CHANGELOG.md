@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+-   ddad16a: added development server functionality
+
 ## 0.3.0
 
 ### Minor Changes
