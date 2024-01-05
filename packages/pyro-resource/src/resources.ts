@@ -22,6 +22,7 @@ export class Folder<TResource, TAttributes> {
     folder(path: string): Folder<TResource, TAttributes> {
         const pathSegments = path.split(this.delimiter)
 
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         let f: Folder<TResource, TAttributes> = this
         for (const pathSegment of pathSegments) {
             let child = f.children[pathSegment]
@@ -65,12 +66,13 @@ export class Folder<TResource, TAttributes> {
         | undefined {
         const pathSegments = path.split(this.delimiter)
 
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         let item:
             | Folder<TResource, TAttributes>
             | Node<TResource, TAttributes> = this
         for (const pathSegment of pathSegments) {
             if (isFolder(item)) {
-                let child:
+                const child:
                     | Folder<TResource, TAttributes>
                     | Node<TResource, TAttributes>
                     | undefined = item.children[pathSegment]
@@ -183,7 +185,7 @@ export class FolderResource<TResource, TAttributes>
     }
 }
 
-type DefaultAttributeProvider<TResource, TAttributes = {}> = {
+type DefaultAttributeProvider<TResource, TAttributes = object> = {
     (resource: TResource): TAttributes
 }
 
@@ -197,7 +199,7 @@ function newNode<TResource, TAttributes>(
     return new Node(files, props)
 }
 
-export function newNodeResource<TResource, TAttributes = {}>(
+export function newNodeResource<TResource, TAttributes = object>(
     path: string,
     rootProps: ResourceDefinedProps,
     getDefaultAttributes?: DefaultAttributeProvider<
@@ -212,7 +214,7 @@ export function newNodeResource<TResource, TAttributes = {}>(
     )
 }
 
-export function newFolderResource<TResource, TAttributes = {}>(
+export function newFolderResource<TResource, TAttributes = object>(
     path: string,
     rootProps: ResourceDefinedProps,
     getDefaultAttributes?: DefaultAttributeProvider<

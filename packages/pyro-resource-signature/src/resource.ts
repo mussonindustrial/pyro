@@ -30,7 +30,7 @@ export async function newResource<TFiles extends string, TAttributes = {}>(
                     'pyro-resource-signature',
                 timestamp:
                     props.attributes?.lastModification?.timestamp ??
-                    new Date().toISOString().split('.')[0]+"Z",
+                    new Date().toISOString().split('.')[0] + 'Z',
             },
         },
     } as UserProvidedProps<TFiles, TAttributes>
