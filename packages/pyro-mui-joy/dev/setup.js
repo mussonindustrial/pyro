@@ -2,6 +2,8 @@ var { IgnitionContainer } = require('@mussonindustrial/pyro-gateway')
 var puppeteer = require('puppeteer')
 var axios = require('axios')
 
+const projectName = 'pyro-mui-joy-testing'
+
 async function createGateway() {
     const gateway = await new IgnitionContainer('8.1.33')
         .withGatewayBackup('./dev/backup.gwbk')
@@ -15,7 +17,7 @@ async function resetTrial(gateway) {
     const browser = await puppeteer.launch({ headless: 'new' })
     const page = await browser.newPage()
 
-    await page.goto(await gateway.getURI(), { waitUntil: 'networkidle2' })
+    await page.goto(await gateway.getRootURL(), { waitUntil: 'networkidle2' })
     await Promise.all([page.click('#login-link'), page.waitForNavigation()])
     await page.$eval('.username-field', (el) => (el.value = 'admin'))
     await page.click('.submit-button')
@@ -28,17 +30,13 @@ async function resetTrial(gateway) {
     await page.click('#reset-trial-anchor')
 }
 
-function getWebdevURI(gateway) {
-    return `${gateway.getURI()}/system/webdev/pyro-mui-joy-testing`
-}
-
 function getTestPageURI(gateway) {
-    return `${gateway.getURI()}/data/perspective/client/pyro-mui-joy-testing/test`
+    return `${gateway.getRootURL()}/data/perspective/client/pyro-mui-joy-testing/test`
 }
 
 async function getWebdevClient(gateway) {
     return axios.create({
-        baseURL: getWebdevURI(gateway).toString(),
+        baseURL: gateway.getWebdevURL(projectName).toString(),
         timeout: 1000,
     })
 }

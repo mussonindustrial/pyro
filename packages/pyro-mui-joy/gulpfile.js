@@ -44,31 +44,47 @@ gulp.task('build', function () {
 gulp.task('dev:start', async function () {
     console.log('Creating development gateway...')
     gateway = await createGateway()
-    console.log(`Development gateway started: ${gateway.getURI()}`)
+    console.log(`Development gateway started: ${gateway.getRootURL()}`)
 
-    gulp.series('build', 'dev:upload')
     return gulp.src(source)
 })
 
-gulp.task('dev:upload', async function () {
-    console.log('Uploading fonts and themes...')
-    await Promise.all([uploadFonts(gateway), uploadThemes(gateway)])
-    // console.log('Uploading fonts...')
-    // await uploadFonts(gateway)
+gulp.task('dev:upload-themes', async function () {
+    console.log('Uploading themes...')
+    await Promise.all([uploadThemes(gateway)])
 
-    // console.log('Uploading themes...')
-    // await uploadThemes(gateway)
+    console.log('Uploading themes complete.')
+    return gulp.src(source)
+})
 
-    // console.log('Uploading project import files...')
-    // await uploadProjectImport(gateway)
+gulp.task('dev:upload-fonts', async function () {
+    console.log('Uploading fonts...')
+    await Promise.all([uploadFonts(gateway)])
 
+    console.log('Uploading fonts complete.')
+    return gulp.src(source)
+})
+
+gulp.task('dev:upload-project', async function () {
+    console.log('Uploading project import...')
+    await Promise.all([uploadProjectImport(gateway)])
+
+    console.log('Uploading project import complete.')
+    return gulp.src(source)
+})
+
+gulp.task(
+    'dev:upload-all',
+    gulp.series('dev:upload-fonts', 'dev:upload-themes', 'dev:upload-project')
+)
+
+gulp.task('dev:refresh', async function () {
     console.log('Requesting project resource scan...')
     await requestScan(gateway)
 
     console.log('Refreshing Perspective Sessions...')
     await refreshSessions(gateway)
 
-    console.log('Upload complete.')
     return gulp.src(source)
 })
 
@@ -77,11 +93,14 @@ gulp.task('dev:watch', function () {
     gulp.watch(
         './src/**/*.*',
         { events: 'all' },
-        gulp.series('clean', 'build', 'dev:upload')
+        gulp.series('clean', 'build', 'dev:upload-all', 'dev:refresh')
     )
 })
 
 gulp.task('all', gulp.series('clean', 'build'))
-gulp.task('dev', gulp.series('dev:start', 'dev:upload', 'dev:watch'))
+gulp.task(
+    'dev',
+    gulp.series('dev:start', 'dev:upload-all', 'dev:refresh', 'dev:watch')
+)
 
 exports.default = gulp

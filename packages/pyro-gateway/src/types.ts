@@ -29,6 +29,7 @@ export type ModuleIdentifier =
 export type EAMType = 'Agent' | 'Controller'
 export type SecurityPolicy = 'ApproveOnly' | 'SpecifiedList' | 'Unrestricted'
 
+// GatewayNetwork contains settings for a gateway network connection.
 export type GatewayNetwork = {
     HOST?: string
     PORT?: number
@@ -40,6 +41,7 @@ export type GatewayNetwork = {
     DESCRIPTION?: string
 }
 
+// EnvironmentVariables is a set of variables that can be passed to an Ignition container.
 export type EnvironmentVariables = {
     TZ?: string
     ACCEPT_IGNITION_EULA?: 'Y'
@@ -93,3 +95,10 @@ export type RuntimeArguments = {
     restorePath?: string
     debugMode?: boolean
 }
+
+export const GATEWAY_PATH = {
+    THEMES: '/usr/local/bin/ignition/data/modules/com.inductiveautomation.perspective/themes/',
+    FONTS: '/usr/local/bin/ignition/data/modules/com.inductiveautomation.perspective/fonts/',
+    PROJECTS: '/usr/local/bin/ignition/data/projects/',
+} as const
+export type GatewayPath = (typeof GATEWAY_PATH)[keyof typeof GATEWAY_PATH]
