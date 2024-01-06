@@ -1,7 +1,7 @@
 $palettes: (primary, neutral, danger, info, success, warning);
 
 :root {
-    /* Dark Theme2 */
+    /* Dark Theme */
     /* --background-color: rgb(0, 30, 60); */
     --background-color: rgb(16, 20, 24);
     --palette-primary-50: #edf5fd;

@@ -3,7 +3,6 @@ $palettes: (primary, neutral, danger, info, success, warning);
 :root {
     /* Light Theme */
     --background-color: rgb(255, 255, 255);
-    /* --background-color: red; */
     --palette-primary-50: #edf5fd;
     --palette-primary-100: #e3effb;
     --palette-primary-200: #c7dff7;
