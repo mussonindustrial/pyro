@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-resource-signature
 
+## 2.0.1
+
+### Patch Changes
+
+-   fa9fc4c: default resource timestamp is now truncated to the nearest second
+
 ## 2.0.0
 
 ### Major Changes

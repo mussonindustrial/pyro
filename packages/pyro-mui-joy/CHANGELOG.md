@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+-   3354f09: Seperate 'card' into 'card-vertical' and 'card-horizontal' for better overflow support
+
+### Patch Changes
+
+-   330bf32: fix broken canvas selector
+-   19b8a55: Introduce date time picker styling
+-   31d3126: fixed font path url
+-   28eb862: (Dev Gateway) - New and improved playground page with URL parameter support
+-   2873734: Fixed broken input field outlines and sizes
+-   4a8c8a2: Fonts and themes are now directly moved into the test container
+
 ## 0.3.1
 
 ### Patch Changes
