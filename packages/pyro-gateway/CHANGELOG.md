@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-gateway
 
+## 0.2.1
+
+### Patch Changes
+
+-   4a8c8a2: Fonts and themes are now directly moved into the test container
+
 ## 0.2.0
 
 ### Minor Changes
