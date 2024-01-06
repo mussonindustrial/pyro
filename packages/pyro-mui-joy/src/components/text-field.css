@@ -1,4 +1,6 @@
-.ia_inputField {
+[data-component='ia.input.text-field'],
+[data-component='ia.input.date-time-input'] .ia_inputField,
+[data-component='ia.input.password-field'] .ia_inputField {
     @include variant-support(Input);
 
     /* Define component properties */
@@ -9,8 +11,8 @@
     --Input-focused: 0;
     --Input-focusedThickness: var(--focus-thickness);
     --Input-focusedHighlight: var(
-        --_Input-focusedHighlight,
-        var(--joy-palette-focusVisible)
+        --variant-focusedHighlight,
+        var(--palette-focusVisible)
     );
     --Input-minHeight: 2.5rem;
     --Input-paddingInline: 0.75rem;
@@ -41,7 +43,7 @@
     &:hover {
         --Input-Border: var(
             --variant-HoverBorder,
-            var(--Input-default-HoverBorder) ;
+            var(--Input-default-HoverBorder)
         );
     }
 
@@ -65,8 +67,13 @@
     }
 
     &:focus-within {
-        box-shadow: var(--Input-focusedInset, inset) 0 0 0
-            var(--Input-focusedThickness) var(--Input-focusedHighlight);
+        outline-width: var(--Input-focusedThickness);
+        outline-style: solid;
+        outline-color: var(--Input-focusedHighlight);
+        outline-offset: min(
+            calc(var(--Input-borderWidth, 0px) * -1),
+            calc(var(--Input-focusedThickness) * -1)
+        );
     }
 }
 
@@ -74,20 +81,23 @@
 [psc='Joy/Size/sm'].ia_inputField {
     --Input-minHeight: 2rem;
     --Input-paddingInline: 0.5rem;
+    --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
     font-size: var(--fontSize-sm, 0.875rem);
 }
 
 [psc='Joy/Size/md'] .ia_inputField,
 [psc='Joy/Size/md'].ia_inputField {
-    --Input-minHeight: 2.5rem;
+    --Input-minHeight: 2.25rem;
     --Input-paddingInline: 0.75rem;
+    --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
     font-size: var(--fontSize-md, 1rem);
 }
 
 [psc='Joy/Size/lg'] .ia_inputField,
 [psc='Joy/Size/lg'].ia_inputField {
-    --Input-minHeight: 3rem;
+    --Input-minHeight: 2.75rem;
     --Input-paddingInline: 1rem;
+    --Input-decoratorChildHeight: min(2.25rem, var(--Input-minHeight));
     font-size: var(--fontSize-lg, 1.125rem);
 }
 

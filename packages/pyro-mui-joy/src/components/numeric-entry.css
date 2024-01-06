@@ -10,7 +10,10 @@
     --Input-placeholderOpacity: 0.5;
     --Input-focused: 0;
     --Input-focusedThickness: var(--focus-thickness);
-    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Input-focusedHighlight: var(
+        --variant-focusedHighlight,
+        var(--palette-focusVisible)
+    );
     --Icon-fontSize: 0.85rem;
     --Input-decoratorChildOffset: min(
         calc(
@@ -43,8 +46,9 @@
     --IconButton-radius: var(--Input-decoratorChildRadius);
 
     /* Default to Medium size */
-    --Input-minHeight: 2.5rem;
+    --Input-minHeight: 2.25rem;
     --Input-paddingInline: 0.75rem;
+    --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
 
     /* Style */
     box-sizing: border-box;
@@ -63,13 +67,13 @@
     border-width: var(--Input-borderWidth);
     border-style: var(--Input-borderStyle);
     border-radius: var(--Input-radius);
-    min-height: var(--Input-minHeight);
+    min-height: var(--Input-minHeight) !important;
     padding-inline: var(--Input-paddingInline);
 
     &:hover {
         --Input-Border: var(
             --variant-HoverBorder,
-            var(--Input-default-HoverBorder) ;
+            var(--Input-default-HoverBorder)
         );
     }
 
@@ -96,7 +100,10 @@
         outline-width: var(--Input-focusedThickness);
         outline-style: solid;
         outline-color: var(--Input-focusedHighlight);
-        outline-offset: min(calc(var(--Input-borderWidth, 0px) * -1), -1px);
+        outline-offset: min(
+            calc(var(--Input-borderWidth, 0px) * -1),
+            calc(var(--Input-focusedThickness) * -1)
+        );
     }
 
     svg {
@@ -127,12 +134,12 @@
 
 /* Edit Icon */
 .ia_numericEntryFieldComponent__editLink {
-    @include variant-support(Button);
+    @include variant-support(IconButton);
 
     --Icon-margin: initial;
 
-    min-width: var(--IconButton-size, 2.5rem) !important;
-    min-height: var(--IconButton-size, 2.5rem) !important;
+    min-width: var(--IconButton-size, 2.25rem) !important;
+    min-height: var(--IconButton-size, 2.25rem) !important;
 
     padding-inline: 0.25rem;
     padding-block: 0px;
@@ -151,26 +158,22 @@
     margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
     margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
 
-    margin-top: calc(var(--Input-decoratorChildOffset) / 2) !important;
-    margin-bottom: calc(var(--Input-decoratorChildOffset) / 2) !important;
-    margin-left: var(--Input-decoratorChildOffset) !important;
-
     --Button-borderStyle: none;
     --Button-radius: var(--radius-sm);
 
-    color: var(--Button-Color);
-    background-color: var(--Button-Bg);
-    border-color: var(--Button-Border);
-    border-width: var(--Button-borderWidth);
-    border-style: var(--Button-borderStyle);
-    border-radius: var(--Button-radius);
+    color: var(--IconButton-Color);
+    background-color: var(--IconButton-Bg);
+    border-color: var(--IconButton-Border);
+    border-width: var(--IconButton-borderWidth);
+    border-style: var(--IconButton-borderStyle);
+    border-radius: var(--IconButton-radius);
 
     &:hover {
-        @include component-state(Button, Hover);
+        @include component-state(IconButton, Hover);
     }
 
     &:active {
-        @include component-state(Button, Active);
+        @include component-state(IconButton, Active);
     }
 
     svg {
@@ -206,16 +209,16 @@
 
 [psc='Joy/Size/md'] [data-component='ia.input.numeric-entry-field'],
 [psc='Joy/Size/md'][data-component='ia.input.numeric-entry-field'] {
-    --Input-minHeight: 2.5rem;
+    --Input-minHeight: 2.25rem;
     --Input-paddingInline: 0.75rem;
-    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
+    --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
 }
 
 [psc='Joy/Size/lg'] [data-component='ia.input.numeric-entry-field'],
 [psc='Joy/Size/lg'][data-component='ia.input.numeric-entry-field'] {
-    --Input-minHeight: 3rem;
+    --Input-minHeight: 2.75rem;
     --Input-paddingInline: 1rem;
-    --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));
+    --Input-decoratorChildHeight: min(2.25rem, var(--Input-minHeight));
 }
 
 /* Resets and Fixes */

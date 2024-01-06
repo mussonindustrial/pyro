@@ -1,5 +1,6 @@
 .ia_dropdown,
-.ia_select {
+.ia_select,
+[psc='Joy/Class/Input'] {
     @include variant-support(Input);
 
     /* Define component properties */
@@ -9,7 +10,10 @@
     --Input-placeholderOpacity: 0.5;
     --Input-focused: 0;
     --Input-focusedThickness: var(--focus-thickness);
-    --Input-focusedHighlight: var(--palette-primary-solidBg);
+    --Input-focusedHighlight: var(
+        --variant-focusedHighlight,
+        var(--palette-focusVisible)
+    );
     --Icon-fontSize: 1.5rem;
     --Input-decoratorChildOffset: min(
         calc(
