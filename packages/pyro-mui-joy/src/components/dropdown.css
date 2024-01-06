@@ -53,7 +53,7 @@
     /* Style */
     box-sizing: border-box;
     min-width: 0px;
-    min-height: var(--Input-minHeight);
+    min-height: var(--Input-minHeight) !important;
     position: relative;
     display: flex;
     font-family: var(--fontFamily-body);
@@ -88,18 +88,21 @@
         --Input-minHeight: 2rem;
         --Input-paddingInline: 0.5rem;
         --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
+        font-size: var(--fontSize-sm, 0.875rem);
     }
 
     &[psc='Joy/Size/md'] {
-        --Input-minHeight: 2.5rem;
+        --Input-minHeight: 2.25rem;
         --Input-paddingInline: 0.75rem;
-        --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
+        --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
+        font-size: var(--fontSize-md, 1rem);
     }
 
     &[psc='Joy/Size/lg'] {
-        --Input-minHeight: 3rem;
+        --Input-minHeight: 2.75rem;
         --Input-paddingInline: 1rem;
-        --Input-decoratorChildHeight: min(2.375rem, var(--Input-minHeight));
+        --Input-decoratorChildHeight: min(2.25rem, var(--Input-minHeight));
+        font-size: var(--fontSize-lg, 1.125rem);
     }
 
     [psc='Joy/Variant/plain'],
