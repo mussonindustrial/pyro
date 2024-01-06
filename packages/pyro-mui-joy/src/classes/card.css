@@ -1,5 +1,7 @@
 /* A card is a generic container for grouping related UI elements and content.*/
-[psc='Joy/Container/card'] {
+[psc='Joy/Container/card'],
+[psc='Joy/Container/card-vertical'],
+[psc='Joy/Container/card-horizontal'] {
     @include variant-support(Card);
     @include variant-default(Card, plain);
     @include palette-default(Card, neutral);
@@ -33,6 +35,7 @@
     border-radius: var(--Card-radius);
     box-shadow: var(--shadow-sm);
     font-family: var(--fontFamily-body);
+    position: relative;
 
     /* Defaults */
     border-style: none;
@@ -65,12 +68,12 @@
         --Card-Bg: var(--palette-background-surface);
     }
 
-    [psc='Joy/Container/card-overflow'] {
+    /* [psc='Joy/Container/card-overflow'] {
         margin-inline: var(--CardOverflow-offset);
         padding: 0px var(--Card-padding);
-    }
+    } */
 
-    :first-child[psc='Joy/Container/card-overflow'] {
+    /* :first-child[psc='Joy/Container/card-overflow'] {
         margin-block: var(--CardOverflow-offset) 0px;
         border-top: 0px;
         border-left: 0px;
@@ -82,5 +85,93 @@
         border-bottom: 0px;
         border-left: 0px;
         border-right: 0px;
+    } */
+}
+
+[psc='Joy/Container/card-overflow'] {
+    align-self: stretch;
+    position: relative;
+    display: flex;
+    flex-direction: var(--_CardOverflow-flexDirection);
+    margin: var(--_CardOverflow-margin);
+    border-radius: var(--_CardOverflow-radius);
+    padding: var(--_CardOverflow-padding);
+    --variant-borderWidth: 0px;
+}
+
+[psc='Joy/Container/card-cover'] {
+    align-self: stretch;
+    position: absolute;
+    display: block;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 0;
+    /* flex-direction: var(--_CardOverflow-flexDirection); */
+    /* margin: var(--_CardOverflow-margin); */
+    border-radius: var(--CardCover-radius);
+    /* --variant-borderWidth: 0px; */
+}
+
+[psc='Joy/Container/card-vertical'] {
+    --_CardOverflow-flexDirection: column;
+    --AspectRatio-margin: 0 calc(-1 * var(--Card-padding));
+    --_CardOverflow-margin: 0 var(--CardOverflow-offset);
+    --_CardOverflow-padding: 0 var(--Card-padding);
+
+    flex-direction: var(--_CardOverflow-flexDirection) !important;
+
+    > [psc='Joy/Container/card-overflow']:first-child {
+        --AspectRatio-radius: calc(
+                var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)
+            )
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0
+            0;
+        --_CardOverflow-radius: var(--CardOverflow-radius)
+            var(--CardOverflow-radius) 0 0;
+        --_CardOverflow-margin: var(--CardOverflow-offset)
+            var(--CardOverflow-offset) 0;
+    }
+
+    > [psc='Joy/Container/card-overflow']:last-child {
+        --AspectRatio-radius: 0 0
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px));
+        --_CardOverflow-radius: 0 0 var(--CardOverflow-radius)
+            var(--CardOverflow-radius);
+        --_CardOverflow-margin: 0 var(--CardOverflow-offset)
+            var(--CardOverflow-offset);
+    }
+}
+
+[psc='Joy/Container/card-horizontal'] {
+    --_CardOverflow-flexDirection: row;
+    --AspectRatio-margin: 0 calc(-1 * var(--Card-padding));
+    --_CardOverflow-margin: var(--CardOverflow-offset) 0;
+    --_CardOverflow-padding: var(--Card-padding) 0;
+
+    flex-direction: var(--_CardOverflow-flexDirection) !important;
+
+    > [psc='Joy/Container/card-overflow']:first-child {
+        --AspectRatio-radius: calc(
+                var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)
+            )
+            0 0
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px));
+        --_CardOverflow-radius: var(--CardOverflow-radius) 0 0
+            var(--CardOverflow-radius);
+        --_CardOverflow-margin: var(--CardOverflow-offset) 0px
+            var(--CardOverflow-offset) var(--CardOverflow-offset);
+    }
+
+    > [psc='Joy/Container/card-overflow']:last-child {
+        --AspectRatio-radius: 0
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))
+            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0;
+        --_CardOverflow-radius: 0 var(--CardOverflow-radius)
+            var(--CardOverflow-radius) 0;
+        --_CardOverflow-margin: var(--CardOverflow-offset)
+            var(--CardOverflow-offset) var(--CardOverflow-offset) 0px;
     }
 }
