@@ -50,6 +50,7 @@ function delay(time) {
         setTimeout(resolve, time)
     })
 }
+
 async function requestScan(gateway) {
     const client = await getWebdevClient(gateway)
     await client.get('/requestScan')
