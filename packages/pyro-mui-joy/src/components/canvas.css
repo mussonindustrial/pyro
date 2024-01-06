@@ -1,4 +1,4 @@
-canvas {
+.canvas {
     @include variant-support(Canvas);
     /* Define component properties */
     --Canvas-radius: var(--radius-sm);
