@@ -11,7 +11,10 @@ import _ from 'lodash'
 import { createResourceJson } from './resourceJson'
 import chalk from 'chalk'
 
-export const newProject = function <T extends object>(modules: T) {
+export const newProject = function <T extends object>(
+    modules: T,
+    props?: ProjectResource
+) {
     const clonedModules = _.cloneDeep(modules)
     return {
         ...clonedModules,
@@ -21,6 +24,8 @@ export const newProject = function <T extends object>(modules: T) {
             for (const module of Object.values(clonedModules)) {
                 await zipModule(zip, module)
             }
+
+            createProjectJson(zip, props)
 
             return await zip.generateAsync({
                 type: 'nodebuffer',
@@ -87,7 +92,7 @@ async function zipResource<TResource, TProps>(
     }
 
     if (isNode(resource)) {
-        const filePaths = Object.keys(resource.files as {})
+        const filePaths = Object.keys(resource.files as object)
 
         for (const path of filePaths) {
             let data: any = resource.files[path as keyof TResource]
@@ -118,4 +123,30 @@ async function zipResource<TResource, TProps>(
         // console.log(`no content generated for ${key}`)
     }
     return generated
+}
+
+export type ProjectResource = {
+    title: string
+    description: string
+    enabled: boolean
+    inheritable: boolean
+}
+
+export const DefaultProjectResource: ProjectResource = {
+    title: 'pyro-resource-export',
+    description: 'Project export generated using `pyro-resource`.',
+    enabled: true,
+    inheritable: true,
+}
+
+export async function createProjectJson(
+    folder: JSZip,
+    props?: ProjectResource
+) {
+    const projectJson = {
+        ...DefaultProjectResource,
+        ...props,
+    }
+    const content = JSON.stringify(projectJson, null, 2)
+    folder.file('project.json', content)
 }
