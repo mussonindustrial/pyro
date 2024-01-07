@@ -14,7 +14,10 @@ function logError(error) {
 
 async function generateProjectImport(styleClasses) {
     const perspective = ignition.perspective
-    const project = ignition.newProject({ perspective })
+    const project = ignition.newProject(
+        { perspective },
+        { title: 'pyro-mui-joy' }
+    )
 
     const emptyStyle = {
         'style.json': JSON.stringify(
