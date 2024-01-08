@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-gateway
 
+## 0.3.0
+
+### Minor Changes
+
+-   4664220: (feat) additional methods for moving files into gateway
+
 ## 0.2.1
 
 ### Patch Changes
