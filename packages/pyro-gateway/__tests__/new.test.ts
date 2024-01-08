@@ -11,7 +11,7 @@ let gatewayClient: AxiosInstance | undefined = undefined
 const containerName = 'pyro-gateway-test'
 
 beforeAll(async () => {
-    gateway = await new IgnitionContainer('8.1.33')
+    gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
     .withLogConsumer(stream => {
         stream.on("err", line => console.error(line));
         stream.on("end", () => console.log("Stream closed"));
@@ -21,7 +21,7 @@ beforeAll(async () => {
     .start()
 
     gatewayClient = axios.create({
-        baseURL: gateway.getRootURL(),
+        baseURL: gateway.getUrl(),
         timeout: 1000
     });
 }, 120000)
@@ -42,3 +42,24 @@ it('should set the gateway name', async () => {
     })
 })
 
+function delay(time: number) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, time)
+    })
+}
+
+it('should perform a project import', async () => {
+    await gateway.importProject('import-test', './__tests__/project-import.zip')
+    // await gateway?.copyFilesToContainer([{
+    //     source: './__tests__/project-import.zip',
+    //     target: gateway.getPath('/data', '/project-import.zip')
+    // }])
+
+    await delay(120000)
+    expect(1, 'message').toBe(1)
+
+}, 120000)
+
+it('should return expected install paths', async () => {
+    expect(gateway?.getPath('/data')).toBe('/usr/local/bin/ignition/data')
+})

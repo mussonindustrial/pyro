@@ -1,6 +1,8 @@
 import { GenericContainer, Wait } from 'testcontainers'
 import { convertValuesToStringsDeep } from './util'
 import {
+    CustomArguments,
+    DefaultCustomArguments,
     DefaultEnvironmentVariables,
     EnvironmentVariables,
     GatewayEdition,
@@ -8,7 +10,7 @@ import {
     ModuleIdentifier,
     RuntimeArguments,
 } from './types'
-import { StartedIgnitionContainer } from './startedContainer'
+import { StartedIgnitionContainer } from './ignition-container-started'
 
 function expandNetworks(networks: GatewayNetwork[]) {
     let result = {}
@@ -50,62 +52,38 @@ export class IgnitionContainer extends GenericContainer {
     version?: string
     env: EnvironmentVariables = { ...DefaultEnvironmentVariables }
     runtime: RuntimeArguments = {}
+    custom: CustomArguments = { ...DefaultCustomArguments }
 
-    constructor(version: string) {
-        super('inductiveautomation/ignition:' + version)
+    constructor(image = 'inductiveautomation/ignition:latest') {
+        super(image)
     }
 
-    public withActivationToken(token: string) {
+    public withActivationToken(token: string): this {
         this.env.IGNITION_ACTIVATION_TOKEN = token
         return this
     }
 
-    public withAdminUsername(username: string) {
+    public withAdminUsername(username: string): this {
         this.env.GATEWAY_ADMIN_USERNAME = username
         return this
     }
 
-    public withAdminPassword(password: string) {
+    public withAdminPassword(password: string): this {
         this.env.GATEWAY_ADMIN_PASSWORD = password
         return this
     }
 
-    public withEdition(edition: GatewayEdition) {
+    public withEdition(edition: GatewayEdition): this {
         this.env.IGNITION_EDITION = edition
         return this
     }
 
-    public withHTTPPort(port: number) {
-        this.env.GATEWAY_HTTP_PORT = port
-        return this
-    }
-
-    public withHTTPSPort(port: number) {
-        this.env.GATEWAY_HTTPS_PORT = port
-        return this
-    }
-
-    public withGANPort(port: number) {
+    public withGANPort(port: number): this {
         this.env.GATEWAY_GAN_PORT = port
         return this
     }
 
-    public withLicenseKey(key: string) {
-        this.env.IGNITION_LICENSE_KEY = key
-        return this
-    }
-
-    public withModules(modules: ModuleIdentifier[]) {
-        this.env.GATEWAY_MODULES_ENABLED = modules
-        return this
-    }
-
-    public withGatewayName(name: string) {
-        this.runtime.name = name
-        return this
-    }
-
-    public withGatewayBackup(path: string) {
+    public withGatewayBackup(path: string, restoreDisabled = false): this {
         this.runtime.restorePath = '/restore.gwbk'
         this.withCopyFilesToContainer([
             {
@@ -113,6 +91,43 @@ export class IgnitionContainer extends GenericContainer {
                 target: '/restore.gwbk',
             },
         ])
+
+        this.env.GATEWAY_RESTORE_DISABLED = restoreDisabled
+        return this
+    }
+
+    public withGatewayName(name: string): this {
+        this.runtime.name = name
+        return this
+    }
+
+    public withHTTPPort(port: number): this {
+        this.env.GATEWAY_HTTP_PORT = port
+        return this
+    }
+
+    public withHTTPSPort(port: number): this {
+        this.env.GATEWAY_HTTPS_PORT = port
+        return this
+    }
+
+    public withInstallPath(installPath: string): this {
+        this.custom.installPath = installPath
+        return this
+    }
+
+    public withLicenseKey(key: string): this {
+        this.env.IGNITION_LICENSE_KEY = key
+        return this
+    }
+
+    public withModules(modules: ModuleIdentifier[]): this {
+        this.env.GATEWAY_MODULES_ENABLED = modules
+        return this
+    }
+
+    public withMaxMemory(memoryMax: number): this {
+        this.runtime.memoryMax = memoryMax
         return this
     }
 
@@ -144,7 +159,8 @@ export class IgnitionContainer extends GenericContainer {
         return new StartedIgnitionContainer(
             await super.start(),
             this.env,
-            this.runtime
+            this.runtime,
+            this.custom
         )
     }
 }
