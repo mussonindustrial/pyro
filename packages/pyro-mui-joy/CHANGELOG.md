@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+-   8ea3553: Use new methods for moving files into gateway
+-   b91d404: Set project import name
+
 ## 0.4.1
 
 ### Patch Changes

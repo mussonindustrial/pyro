@@ -1,5 +1,11 @@
 # ignition-import
 
+## 2.1.0
+
+### Minor Changes
+
+-   3b20238: (feature) Generate project.json file
+
 ## 2.0.0
 
 ### Major Changes
