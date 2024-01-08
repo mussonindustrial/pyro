@@ -136,7 +136,7 @@ export const DefaultProjectResource: ProjectResource = {
     title: 'pyro-resource-export',
     description: 'Project export generated using `pyro-resource`.',
     enabled: true,
-    inheritable: true,
+    inheritable: false,
 }
 
 export async function createProjectJson(
