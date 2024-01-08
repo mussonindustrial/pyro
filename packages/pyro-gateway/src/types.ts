@@ -96,9 +96,27 @@ export type RuntimeArguments = {
     debugMode?: boolean
 }
 
+export type CustomArguments = {
+    installPath: string
+}
+
+export const DefaultCustomArguments: CustomArguments = {
+    installPath: '/usr/local/bin/ignition',
+}
+
 export const GATEWAY_PATH = {
-    THEMES: '/usr/local/bin/ignition/data/modules/com.inductiveautomation.perspective/themes/',
-    FONTS: '/usr/local/bin/ignition/data/modules/com.inductiveautomation.perspective/fonts/',
-    PROJECTS: '/usr/local/bin/ignition/data/projects/',
+    DATA: '/data',
+    LIB: '/lib',
+    LOGS: '/logs',
+    PERSPECTIVE_FONTS:
+        '/data/modules/com.inductiveautomation.perspective/fonts',
+    PERSPECTIVE_ICONS:
+        '/data/modules/com.inductiveautomation.perspective/icons',
+    PERSPECTIVE_THEMES:
+        '/data/modules/com.inductiveautomation.perspective/themes',
+    PROJECTS: '/data/projects',
+    USER_LIB: '/user-lib',
 } as const
-export type GatewayPath = (typeof GATEWAY_PATH)[keyof typeof GATEWAY_PATH]
+export type GatewayPath =
+    | (typeof GATEWAY_PATH)[keyof typeof GATEWAY_PATH]
+    | (string & {})

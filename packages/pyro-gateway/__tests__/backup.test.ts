@@ -11,7 +11,7 @@ let gatewayClient: AxiosInstance | undefined = undefined
 const containerName = 'pyro-gateway-test-restored'
 
 beforeAll(async () => {
-    gateway = await new IgnitionContainer('8.1.33')
+    gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
     .withLogConsumer(stream => {
         stream.on("err", line => console.error(line));
         stream.on("end", () => console.log("Stream closed"));
@@ -22,7 +22,7 @@ beforeAll(async () => {
 
 
     gatewayClient = axios.create({
-        baseURL: gateway.getRootURL(),
+        baseURL: gateway.getUrl(),
         timeout: 1000
     });
 }, 60000)
@@ -42,4 +42,3 @@ it('should set the gateway name', async () => {
         expect(gatewayName[1]).toBe(containerName)
     })
 })
-
