@@ -22,25 +22,30 @@ async function uploadThemes(gateway) {
     const files = await glob('output/themes/**/*.*')
     for (const f of files) {
         const source = f.replaceAll('\\', '/')
-        gateway.copyThemeFileToContainer(source)
+        await gateway.copyThemeFileToContainer(source)
     }
 
     return true
 }
 
 async function uploadFonts(gateway) {
-    gateway.copyFontDirectoryToContainer('output/fonts/Inter')
+    await gateway.copyFontDirectoryToContainer('output/fonts/Inter')
     return true
 }
 
 async function uploadProjectImport(gateway) {
-    const buffer = fs.readFileSync('output/project-import.zip')
-    await uploadResource(
-        gateway,
-        'projectImport',
-        '/project-import.zip',
-        buffer
+    await gateway.importProjectResources(
+        'pyro-mui-joy-testing',
+        'output/project-import.zip'
     )
+
+    // const buffer = fs.readFileSync('output/project-import.zip')
+    // await uploadResource(
+    //     gateway,
+    //     'projectImport',
+    //     '/project-import.zip',
+    //     buffer
+    // )
 
     return true
 }

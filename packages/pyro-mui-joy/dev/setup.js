@@ -5,7 +5,9 @@ var axios = require('axios')
 const projectName = 'pyro-mui-joy-testing'
 
 async function createGateway() {
-    const gateway = await new IgnitionContainer('8.1.33')
+    const gateway = await new IgnitionContainer(
+        'inductiveautomation/ignition:8.1.33'
+    )
         .withGatewayBackup('./dev/backup.gwbk')
         .withModules(['perspective', 'web-developer'])
     gateway.env.GATEWAY_ADMIN_USERNAME = 'admin'
@@ -30,15 +32,11 @@ async function resetTrial(gateway) {
     await page.click('#reset-trial-anchor')
 }
 
-function getTestPageURI(gateway) {
-    return `${gateway.getRootURL()}/data/perspective/client/pyro-mui-joy-testing/test`
-}
-
 async function getWebdevClient(gateway) {
     return axios.create({
-        baseURL: gateway.getWebdevURL(projectName).toString(),
+        baseURL: gateway.getWebdevUrl(projectName).toString(),
         timeout: 1000,
     })
 }
 
-module.exports = { resetTrial, createGateway, getWebdevClient, getTestPageURI }
+module.exports = { resetTrial, createGateway, getWebdevClient }

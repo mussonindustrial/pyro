@@ -44,7 +44,12 @@ gulp.task('build', function () {
 gulp.task('dev:start', async function () {
     console.log('Creating development gateway...')
     gateway = await createGateway()
-    console.log(`Development gateway started: ${gateway.getRootURL()}`)
+    console.log(
+        `Development gateway started: ${gateway.getPerspectiveUrl(
+            'pyro-mui-joy-testing',
+            '/playground'
+        )}`
+    )
 
     return gulp.src(source)
 })
@@ -92,7 +97,7 @@ gulp.task('dev:watch', function () {
     console.log('Watching for source file changes...')
     gulp.watch(
         './src/**/*.*',
-        { events: 'all' },
+        { events: 'all', delay: 1000 },
         gulp.series('clean', 'build', 'dev:upload-all', 'dev:refresh')
     )
 })
