@@ -5,44 +5,40 @@ import {
 } from '../src'
 import axios, { AxiosInstance } from 'axios';
 
-const gateway: StartedIgnitionContainer | undefined = undefined
-const gatewayClient: AxiosInstance | undefined = undefined
+let gateway: StartedIgnitionContainer | undefined = undefined
+let gatewayClient: AxiosInstance | undefined = undefined
 
 const containerName = 'pyro-gateway-test-restored'
 
-// beforeAll(async () => {
-//     gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
-//     .withLogConsumer(stream => {
-//         stream.on("err", line => console.error(line));
-//         stream.on("end", () => console.log("Stream closed"));
-//     })
-//     .withModules(['perspective'])
-//     .withGatewayBackup('./__tests__/pyro-gateway-test-restored.gwbk')
-//     .start()
+beforeAll(async () => {
+    gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
+    .withLogConsumer(stream => {
+        stream.on("err", line => console.error(line));
+        stream.on("end", () => console.log("Stream closed"));
+    })
+    .withModules(['perspective'])
+    .withGatewayBackup('./__tests__/pyro-gateway-test-restored.gwbk')
+    .start()
 
 
-//     gatewayClient = axios.create({
-//         baseURL: gateway.getUrl(),
-//         timeout: 1000
-//     });
-// }, 60000)
+    gatewayClient = axios.create({
+        baseURL: gateway.getUrl(),
+        timeout: 1000
+    });
+}, 60000)
 
-// it('should respond to status ping', async () => { 
-//     await gatewayClient?.get('/StatusPing')
-//     .then(function (response) {
-//         expect(response.data.state).toBe('RUNNING')
-//     })
-// })
+it('should respond to status ping', async () => { 
+    await gatewayClient?.get('/StatusPing')
+    .then(function (response) {
+        expect(response.data.state).toBe('RUNNING')
+    })
+})
 
-// it('should set the gateway name', async () => { 
-//     await gatewayClient?.get('/system/gwinfo')
-//     .then(function (response) {
-//         const data = response.data.toString()
-//         const gatewayName = data.match(/PlatformName=([^;]+);/)
-//         expect(gatewayName[1]).toBe(containerName)
-//     })
-// })
-
-it('should pass', async () => {
-    expect(1).toBe(1)
+it('should set the gateway name', async () => { 
+    await gatewayClient?.get('/system/gwinfo')
+    .then(function (response) {
+        const data = response.data.toString()
+        const gatewayName = data.match(/PlatformName=([^;]+);/)
+        expect(gatewayName[1]).toBe(containerName)
+    })
 })
