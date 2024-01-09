@@ -63,28 +63,35 @@ export class StartedIgnitionContainer extends AbstractStartedContainer {
     }
 
     /**
-     * Get the root URL.
+     * Get the gateway webpage URL
+     * @param https defaults to false
      * @returns
      */
-    public getUrl(): string {
-        const port = this.getHttpPort()
-        return `http://localhost:${port}`
+    public getUrl(https = false): string {
+        let port
+        if (https) {
+            port = this.getHttpsPort()
+            return `https://localhost:${port}`
+        } else {
+            port = this.getHttpPort()
+            return `http://localhost:${port}`
+        }
     }
 
     /**
      * Get the images URL.
      * @returns
      */
-    public getImagesUrl(): string {
-        return `${this.getUrl()}/system/images`
+    public getImagesUrl(https = false): string {
+        return `${this.getUrl(https)}/system/images`
     }
 
     /**
      * Get the gateway info URL.
      * @returns
      */
-    public getInfoUrl(): string {
-        return `${this.getUrl()}/system/gwinfo`
+    public getInfoUrl(https = false): string {
+        return `${this.getUrl(https)}/system/gwinfo`
     }
 
     /**
@@ -93,8 +100,12 @@ export class StartedIgnitionContainer extends AbstractStartedContainer {
      * @param paths additional url paths
      * @returns
      */
-    public getPerspectiveUrl(project: string, ...paths: string[]): string {
-        let uri = `${this.getUrl()}/data/perspective/client/${project}`
+    public getPerspectiveUrl(
+        https = false,
+        project: string,
+        ...paths: string[]
+    ): string {
+        let uri = `${this.getUrl(https)}/data/perspective/client/${project}`
         if (paths.length > 0) {
             uri += '/' + paths.join('/')
         }
@@ -105,8 +116,8 @@ export class StartedIgnitionContainer extends AbstractStartedContainer {
      * Get the status URL.
      * @returns
      */
-    public getStatusUrl(): string {
-        return `${this.getUrl()}/StatusPing`
+    public getStatusUrl(https = false): string {
+        return `${this.getUrl(https)}/StatusPing`
     }
 
     /**
