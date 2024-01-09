@@ -3,6 +3,7 @@ var path = require('path')
 var { glob } = require('glob')
 var axios = require('axios')
 var { getWebdevClient } = require('./setup')
+const { GATEWAY_PATH } = require('@mussonindustrial/pyro-gateway')
 
 async function uploadResource(gateway, resource_type, path, file_buffer) {
     const client = await getWebdevClient(gateway)
@@ -20,16 +21,26 @@ async function uploadResource(gateway, resource_type, path, file_buffer) {
 
 async function uploadThemes(gateway) {
     const files = await glob('output/themes/**/*.*')
+
+    const filesToCopy = []
     for (const f of files) {
-        const source = f.replaceAll('\\', '/')
-        await gateway.copyThemeFileToContainer(source)
+        filesToCopy.push({
+            folder: GATEWAY_PATH.PERSPECTIVE_THEMES,
+            source: f.replaceAll('\\', '/'),
+        })
     }
 
+    await gateway.copyFilesToGateway(filesToCopy)
     return true
 }
 
 async function uploadFonts(gateway) {
-    await gateway.copyFontDirectoryToContainer('output/fonts/Inter')
+    await gateway.copyDirectoriesToGateway([
+        {
+            folder: GATEWAY_PATH.PERSPECTIVE_FONTS,
+            source: 'output/fonts/Inter',
+        },
+    ])
     return true
 }
 
@@ -38,15 +49,6 @@ async function uploadProjectImport(gateway) {
         'pyro-mui-joy-testing',
         'output/project-import.zip'
     )
-
-    // const buffer = fs.readFileSync('output/project-import.zip')
-    // await uploadResource(
-    //     gateway,
-    //     'projectImport',
-    //     '/project-import.zip',
-    //     buffer
-    // )
-
     return true
 }
 
