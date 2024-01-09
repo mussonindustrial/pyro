@@ -1,5 +1,11 @@
 # @mussonindustrial/pyro-gateway
 
+## 0.3.1
+
+### Patch Changes
+
+-   3d02119: Feature: URLs can now specificy HTTP or HTTPS. Defaults to HTTP (as existing)
+
 ## 0.3.0
 
 ### Minor Changes

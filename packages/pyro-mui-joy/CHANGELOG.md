@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+-   fc66e10: Fix: update to latest pyro-gateway API
+-   8183dd0: Fix: remove debug line
+
 ## 0.4.2
 
 ### Patch Changes
