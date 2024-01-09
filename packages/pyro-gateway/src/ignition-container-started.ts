@@ -7,6 +7,7 @@ import {
     GATEWAY_PATH,
     GatewayPath,
     CustomArguments,
+    IgnitionFileToCopy,
 } from './types'
 import { ContentToCopy, FileToCopy } from 'testcontainers/build/types'
 
@@ -130,6 +131,12 @@ export class StartedIgnitionContainer extends AbstractStartedContainer {
         return this.custom.installPath
     }
 
+    /**
+     * Get the full file path to an Ignition directory inside the container.
+     * @param root Ignition directory
+     * @param paths subpaths
+     * @returns
+     */
     public getPath(root: GatewayPath, ...paths: string[]): string {
         let p = this.getInstallPath()
         p += '/' + root
@@ -195,89 +202,48 @@ export class StartedIgnitionContainer extends AbstractStartedContainer {
     }
 
     private async copyFilesToGateway(
-        folder: GatewayPath,
-        source: string,
-        name?: string
+        filesToCopy: IgnitionFileToCopy[]
     ): Promise<void> {
-        if (name === undefined) {
-            name = source.split('/').pop()
+        const files: FileToCopy[] = []
+
+        for (const f of filesToCopy) {
+            if (f.name === undefined) {
+                f.name = f.source.split('/').pop()
+            }
+            if (f.name === undefined) {
+                f.name = f.source
+            }
+
+            const target = this.getPath(f.folder, f.name)
+            files.push({
+                source: f.source,
+                target,
+            })
         }
 
-        const target = folder + '/' + name
-        return this.copyFilesToContainer([
-            {
-                source,
-                target,
-            },
-        ])
+        return this.copyFilesToContainer(files)
     }
 
-    private async copyDirectoryToGateway(
-        folder: GatewayPath,
-        source: string,
-        name?: string
+    private async copyDirectoriesToGateway(
+        filesToCopy: IgnitionFileToCopy[]
     ): Promise<void> {
-        if (name === undefined) {
-            name = source.split('/').pop()
+        const files: FileToCopy[] = []
+
+        for (const f of filesToCopy) {
+            if (f.name === undefined) {
+                f.name = f.source.split('/').pop()
+            }
+            if (f.name === undefined) {
+                f.name = f.source
+            }
+
+            const target = this.getPath(f.folder, f.name)
+            files.push({
+                source: f.source,
+                target,
+            })
         }
 
-        const target = folder + '/' + name
-        return this.copyDirectoriesToContainer([
-            {
-                source,
-                target,
-            },
-        ])
-    }
-
-    public async copyThemeFileToContainer(
-        source: string,
-        name?: string
-    ): Promise<void> {
-        return this.copyFilesToGateway(
-            this.getPath(GATEWAY_PATH.PERSPECTIVE_THEMES),
-            source,
-            name
-        )
-    }
-
-    public async copyThemeDirectoryToContainer(
-        source: string,
-        name?: string
-    ): Promise<void> {
-        return this.copyDirectoryToGateway(
-            this.getPath(GATEWAY_PATH.PERSPECTIVE_THEMES),
-            source,
-            name
-        )
-    }
-
-    public async copyFontFileToContainer(
-        source: string,
-        name?: string
-    ): Promise<void> {
-        return this.copyFilesToGateway(
-            this.getPath(GATEWAY_PATH.PERSPECTIVE_FONTS),
-            source,
-            name
-        )
-    }
-
-    public async copyFontDirectoryToContainer(
-        source: string,
-        name?: string
-    ): Promise<void> {
-        return this.copyDirectoryToGateway(
-            this.getPath(GATEWAY_PATH.PERSPECTIVE_FONTS),
-            source,
-            name
-        )
-    }
-
-    public async copyProjectToContainer(
-        source: string,
-        name?: string
-    ): Promise<void> {
-        return this.copyDirectoryToGateway(GATEWAY_PATH.PROJECTS, source, name)
+        return this.copyDirectoriesToContainer(files)
     }
 }
