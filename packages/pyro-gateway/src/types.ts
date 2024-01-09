@@ -119,4 +119,10 @@ export const GATEWAY_PATH = {
 } as const
 export type GatewayPath =
     | (typeof GATEWAY_PATH)[keyof typeof GATEWAY_PATH]
-    | (string & {})
+    | (string & NonNullable<unknown>)
+
+export type IgnitionFileToCopy = {
+    folder: GatewayPath
+    source: string
+    name?: string
+}

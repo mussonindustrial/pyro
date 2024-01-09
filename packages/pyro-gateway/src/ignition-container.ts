@@ -73,12 +73,17 @@ export class IgnitionContainer extends GenericContainer {
         return this
     }
 
+    public withDebugMode(debugMode: boolean): this {
+        this.runtime.debugMode = debugMode
+        return this
+    }
+
     public withEdition(edition: GatewayEdition): this {
         this.env.IGNITION_EDITION = edition
         return this
     }
 
-    public withGANPort(port: number): this {
+    public withGanPort(port: number): this {
         this.env.GATEWAY_GAN_PORT = port
         return this
     }
@@ -101,12 +106,17 @@ export class IgnitionContainer extends GenericContainer {
         return this
     }
 
-    public withHTTPPort(port: number): this {
+    public withGid(gid: number): this {
+        this.env.IGNITION_GID = gid
+        return this
+    }
+
+    public withHttpPort(port: number): this {
         this.env.GATEWAY_HTTP_PORT = port
         return this
     }
 
-    public withHTTPSPort(port: number): this {
+    public withHttpsPort(port: number): this {
         this.env.GATEWAY_HTTPS_PORT = port
         return this
     }
@@ -128,6 +138,21 @@ export class IgnitionContainer extends GenericContainer {
 
     public withMaxMemory(memoryMax: number): this {
         this.runtime.memoryMax = memoryMax
+        return this
+    }
+
+    public withQuickStart(quickStart: boolean): this {
+        this.env.DISABLE_QUICKSTART = !quickStart
+        return this
+    }
+
+    public withTimezone(timezone: string): this {
+        this.env.TZ = timezone
+        return this
+    }
+
+    public withUid(uid: number): this {
+        this.env.IGNITION_UID = uid
         return this
     }
 
