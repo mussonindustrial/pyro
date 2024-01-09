@@ -57,7 +57,7 @@ const gateway = await new IgnitionContainer(
     .withGatewayBackup('/path/to/gateway.gwbk')
     .start()
 
-gateway.importProjectResources(
+await gateway.importProjectResources(
     'project-to-import-into',
     'path/to/project-export.zip'
 )
@@ -68,17 +68,27 @@ gateway.importProjectResources(
 Gateway properties can be set before startup through the various `.with~` methods.
 
 ```js
-// Current available setter methods
+.withActivationToken(token: string)
+.withAdminUsername(username: string)
+.withAdminPassword(password: string)
+.withDebugMode(debugMode: boolean)
 .withEdition(edition: GatewayEdition)
-.withHTTPPort(port: number)
-.withHTTPSPort(port: number)
-.withModules(modules: ModuleIdentifier[])
-.withGatewayName(name: string)
+.withGanPort(port: number)
 .withGatewayBackup(path: string)
+.withGatewayName(name: string)
+.withGid(gid: number)
+.withHttpPort(port: number)
+.withHttpsPort(port: number)
+.withInstallPath(installPath: string)
+.withLicenseKey(key: string)
+.withModules(modules: ModuleIdentifier[])
+.withMaxMemory(memoryMax: number)
+.withQuickStart(quickStart: boolean)
+.withTimezone(timezone: string)
+.withUid(uid: number)
 ```
 
-The eventual goal is to provide a complete set of setter methods.
-In the meantime, if you wish the directly set environment or runtime variables, they can be accessed through `gateway.env` and `gateway.runtime` respectively.
+Complete details on the available properties and their functions are available at [Ignition Docker Image Documentation]
 
 ### Reaching your Gateway
 
@@ -92,11 +102,72 @@ const httpsPort = gateway.getHttpsPort()
 const ganPort = gateway.getGanPort()
 ```
 
-Note you must get this mapped port even if you manually specify the gateway's HTTP or HTTPS ports.
+These are the ports you will use to access the gateway from outside of the container.
+
+### Interacting with a Running Gateway
+
+#### Gateway URLs
+
+Several convenience methods exist for retrieving gateway URLs.
+These methods will return using the mapped Testcontainers ports for HTTP and HTTPS.
+
+```js
+gateway.getUrl(https = false)
+gateway.getImagesUrl(https = false)
+gateway.getInfoUrl(https = false)
+gateway.getPerspectiveUrl(https = false, project: string, ...paths: string[])
+gateway.getStatusUrl(https = false)
+gateway.getWebdevUrl(https = false, project: string, ...paths: string[])
+```
+
+#### Importing Resources
+
+Resources can be imported into the gateway either through copying files/directories or through project/project resource imports.
+
+##### File / Directory Copying
+
+Extensions of Testcontainer's file/directory copy methods are provided to make it simpler to put files where you need them in Ignition's install directory.
+
+```js
+// Provided destination folders are relative to Ignition's install directory.
+gateway.copyDirectoriesToGateway([
+    {
+        folder: '/user-lib/pylib', // relative to install
+        source: '/path/to/libraryA', // source path
+    },
+    {
+        folder: '/user-lib/pylib', // relative to install
+        source: '/path/to/libraryB', // source path
+    },
+])
+
+gateway.copyFilesToGateway([
+    {
+        folder: GATEWAY_PATH.PERSPECTIVE_THEMES, // provided in library
+        source: '/path/to/my-theme.css', // source path
+    },
+])
+```
+
+#### Project and Resource Import
+
+Full project backups and partial resource export can be imported into the running gateway.
+
+```js
+// Create a new project from an export.
+gateway.importProject('new-project', '/path/to/project.zip')
+
+// Import resources into an existing project.
+gateway.importProjectResources('existing-project', '/path/to/resources.zip')
+```
+
+> [!IMPORTANT]
+> The implementation is pretty naïve at the moment; if you import resources into a project that doesn't exist you'll end up with orphaned files.
+> More work is coming to make it impossible to mess up, but at least it does work.
 
 ## Changelog
 
-The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly updated to reflect what's changed in each new release.
+The [changelog](https://github.com/mussonindustrial/pyro/blob/main/packages/pyro-gateway/CHANGELOG.md) is regularly updated to reflect what's changed in each new release.
 
 ## Copyright and Licensing
 
@@ -109,3 +180,4 @@ Free use of this software is granted under the terms of the MIT License.
 [pyro]: https://github.com/mussonindustrial/pyro
 [pyro-gateway]: https://github.com/mussonindustrial/pyro/tree/main/packages/pyro-gateway
 [Testcontainers]: https://node.testcontainers.org/
+[Ignition Docker Image Documentation]: https://docs.inductiveautomation.com/display/DOC81/Docker+Image
