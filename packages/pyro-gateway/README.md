@@ -26,7 +26,7 @@ npm install @mussonindustrial/pyro-gateway
 ```js
 import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
-const gateway = await new IgnitionContainer('8.1.33')
+const gateway = await new IgnitionContainer('inductiveautomation/ignition:latest')
     .withModules(['perspective'])
     .withGatewayName('My New Gateway')
     .start()
@@ -37,9 +37,21 @@ const gateway = await new IgnitionContainer('8.1.33')
 ```js
 import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
-const gateway = await new IgnitionContainer('8.1.33')
+const gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
     .withGatewayBackup('/path/to/gateway.gwbk')
     .start()
+```
+
+### Import resources into a project
+
+```js
+import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
+
+const gateway = await new IgnitionContainer('inductiveautomation/ignition:latest')
+    .withGatewayBackup('/path/to/gateway.gwbk')
+    .start()
+
+gateway.importProjectResources('project-to-import-into', 'path/to/project-export.zip')
 ```
 
 ### Setting Gateway Properties
@@ -66,8 +78,9 @@ By design, Testcontainers maps bound ports to random free ports on the host to a
 You can ask for the mapped port at runtime by using:
 
 ```js
-const httpPort = gateway.getMappedHTTPPort()
-const httpsPort = gateway.getMappedHTTPSPort()
+const httpPort = gateway.getHttpPort()
+const httpsPort = gateway.getHttpsPort()
+const ganPort = gateway.getGanPort()
 ```
 
 Note you must get this mapped port even if you manually specify the gateway's HTTP or HTTPS ports.
