@@ -54,7 +54,8 @@ import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 const gateway = await new IgnitionContainer(
     'inductiveautomation/ignition:latest'
 )
-    .withGatewayBackup('/path/to/gateway.gwbk')
+    .withEdition('maker')
+    .withDebugMode(true)
     .start()
 
 await gateway.importProjectResources(
@@ -163,7 +164,7 @@ gateway.importProjectResources('existing-project', '/path/to/resources.zip')
 
 > [!IMPORTANT]
 > The implementation is pretty naïve at the moment; if you import resources into a project that doesn't exist you'll end up with orphaned files.
-> More work is coming to make it impossible to mess up, but at least it does work.
+> More work is coming to make it impossible to mess up.
 
 ## Changelog
 
