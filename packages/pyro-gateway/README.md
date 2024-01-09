@@ -26,7 +26,9 @@ npm install @mussonindustrial/pyro-gateway
 ```js
 import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
-const gateway = await new IgnitionContainer('inductiveautomation/ignition:latest')
+const gateway = await new IgnitionContainer(
+    'inductiveautomation/ignition:latest'
+)
     .withModules(['perspective'])
     .withGatewayName('My New Gateway')
     .start()
@@ -37,7 +39,9 @@ const gateway = await new IgnitionContainer('inductiveautomation/ignition:latest
 ```js
 import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
-const gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33')
+const gateway = await new IgnitionContainer(
+    'inductiveautomation/ignition:8.1.33'
+)
     .withGatewayBackup('/path/to/gateway.gwbk')
     .start()
 ```
@@ -47,11 +51,16 @@ const gateway = await new IgnitionContainer('inductiveautomation/ignition:8.1.33
 ```js
 import { IgnitionContainer } from '@mussonindustrial/pyro-gateway'
 
-const gateway = await new IgnitionContainer('inductiveautomation/ignition:latest')
+const gateway = await new IgnitionContainer(
+    'inductiveautomation/ignition:latest'
+)
     .withGatewayBackup('/path/to/gateway.gwbk')
     .start()
 
-gateway.importProjectResources('project-to-import-into', 'path/to/project-export.zip')
+gateway.importProjectResources(
+    'project-to-import-into',
+    'path/to/project-export.zip'
+)
 ```
 
 ### Setting Gateway Properties
