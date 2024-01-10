@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.4.4
+
+### Patch Changes
+
+-   95e3ba8: Fixed numeric entry modal double outline
+-   4f2df16: Fixed perspective url
+
 ## 0.4.3
 
 ### Patch Changes
