@@ -46,8 +46,9 @@ gulp.task('dev:start', async function () {
     gateway = await createGateway()
     console.log(
         `Development gateway started: ${gateway.getPerspectiveUrl(
+            false,
             'pyro-mui-joy-testing',
-            '/playground'
+            'playground'
         )}`
     )
 
