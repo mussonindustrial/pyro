@@ -1,5 +1,4 @@
 [data-component='ia.input.numeric-entry-field'],
-.ia_numericEntryFieldComponent__modal .ia_inputField,
 .ia_numericEntryFieldComponent__modal .ia_inputField__wrapper {
     @include variant-support(Input);
 
