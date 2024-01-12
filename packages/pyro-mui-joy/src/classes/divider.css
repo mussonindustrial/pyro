@@ -9,6 +9,7 @@
     border: 0px;
     font-family: var(--joy-fontFamily-body);
     font-size: var(--joy-fontSize-sm);
+    padding: 0px !important;
 
     &:empty {
         background-color: var(--Divider-lineColor);
