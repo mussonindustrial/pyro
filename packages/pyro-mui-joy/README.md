@@ -29,6 +29,34 @@ This project generates several files required for installation:
 -   Color Inversion Support
 -   Variant/Palette Support
 
+## Building
+
+```sh
+git clone https://github.com/mussonindustrial/pyro
+cd pyro
+npm install
+cd packages/pyro-mui-joy
+npm run build
+```
+
+## Testing
+
+This project provides a docker-based development server for rapid iteration.
+
+> [!IMPORTANT]
+> You must have a container environment (i.e. Docker) installed on your system to use the development server.
+> After the docker container starts, this projects themes, fonts, and Perspective style classes are automatically loaded into the Ignition gateway.
+> When changes are detected to the project's source files, the theme is rebuilt and re-uploaded to the development server.
+
+```sh
+git clone https://github.com/mussonindustrial/pyro
+cd pyro
+npm install
+cd packages/pyro-mui-joy
+npm run build
+npm run dev
+```
+
 ## Changelog
 
 The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly updated to reflect what's changed in each new release.
