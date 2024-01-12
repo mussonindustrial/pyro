@@ -58,7 +58,7 @@
 }
 
 [psc='Joy/Size/sm'] [data-component='ia.input.button'],
-[psc='Joy/Size/sm'][data-component='ia.input.button'],
+[psc='Joy/Size/sm'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/sm'] ~ .ia_passwordFieldComponent__visibilityLink {
     --IconButton-size: 2rem;
     --Icon-fontSize: calc(var(--IconButton-size) / 1.6);
@@ -71,7 +71,7 @@
 }
 
 [psc='Joy/Size/md'] [data-component='ia.input.button'],
-[psc='Joy/Size/md'][data-component='ia.input.button'],
+[psc='Joy/Size/md'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/md'] ~ .ia_passwordFieldComponent__visibilityLink {
     --IconButton-size: 2.25rem;
     --Icon-fontSize: calc(var(--IconButton-size) / 1.5);
@@ -84,7 +84,7 @@
 }
 
 [psc='Joy/Size/lg'] [data-component='ia.input.button'],
-[psc='Joy/Size/lg'][data-component='ia.input.button'],
+[psc='Joy/Size/lg'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/lg'] ~ .ia_passwordFieldComponent__visibilityLink {
     --IconButton-size: 2.75rem;
     --Icon-fontSize: calc(var(--IconButton-size) / 1.571);
