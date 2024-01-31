@@ -291,8 +291,8 @@ $palettes: (primary, neutral, danger, info, success, warning);
     outline: none;
 }
 
-[psc='Joy/Variant/soft'][psc='Joy/Variant/color-inversion']
-    :not(
+/* prettier-ignore */
+[psc='Joy/Variant/soft'] [psc='Joy/Variant/color-inversion']:not(
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *
     ) {
@@ -364,8 +364,8 @@ $palettes: (primary, neutral, danger, info, success, warning);
     );
 }
 
-[psc='Joy/Variant/color-inversion'][psc='Joy/Variant/solid']
-    :not(
+/* prettier-ignore */
+[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/solid']:not(
         [psc='Joy/Variant/skip-inverted-colors'],
         [psc='Joy/Variant/skip-inverted-colors'] *
     ) {
