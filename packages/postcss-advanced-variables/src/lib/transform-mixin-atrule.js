@@ -35,7 +35,7 @@ const getMixinOpts = (node, opts) => {
 									opts
 							  )
 							: undefined
-							
+
 					return { name: paramName, value: paramValue }
 			  })
 			: []
