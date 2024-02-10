@@ -66,54 +66,51 @@ The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly 
 The target for `v1.0.0` is to support all basic Perspective components and provide a full suite of helper style-classes.
 Support for _complex_ Perspective components (charts, menus, equipment schedule, trees, etc.) is not a priority.
 
-- [X] Resources
-  - [X] Color Palette
-    - [X] Light Mode
-    - [X] Dark Mode
-    - [X] Auto Mode
-  - [X] Variant Mixins
-  - [X] Fonts
-  - [ ] Component Showcase
-  - [ ] Screenshots
-- [ ] Perspective Components
-  - [X] Button
-  - [X] Canvas
-  - [ ] Checkbox
-  - [ ] Date-Time Picker (beta)
-  - [X] Drop Down
-  - [X] Numeric Entry
-  - [X] Password Field
-  - [ ] Radio
-  - [ ] Slider (beta)
-  - [ ] Symbol
-  - [ ] Table (beta)
-  - [X] Text Area
-  - [X] Text Field
-  - [ ] Toggle
-- [ ] Helper Classes
-  - [ ] Background Colors
-  - [ ] Button Group (beta)
-  - [X] Card
-    - [X] Base Card
-    - [X] Card Overflow
-    - [X] Card Cover
-  - [ ] Chip
-    - [X] Base Chip
-    - [X] Chip Button
-    - [X] Chip Icons
-    - [ ] Chip Delete Button (beta)
-  - [ ] Color Inversion (beta)
-    - [ ] Soft Context
-    - [ ] Solid Context
-    - [ ] Color Inversion Reset
-  - [X] Divider
-    - [X] Horizontal
-    - [X] Vertical
-  - [X] Sheet
-  - [X] Typography
-
-
-
+-   [x] Resources
+    -   [x] Color Palette
+        -   [x] Light Mode
+        -   [x] Dark Mode
+        -   [x] Auto Mode
+    -   [x] Variant Mixins
+    -   [x] Fonts
+    -   [ ] Component Showcase
+    -   [ ] Screenshots
+-   [ ] Perspective Components
+    -   [x] Button
+    -   [x] Canvas
+    -   [ ] Checkbox
+    -   [ ] Date-Time Picker (beta)
+    -   [x] Drop Down
+    -   [x] Numeric Entry
+    -   [x] Password Field
+    -   [ ] Radio
+    -   [ ] Slider (beta)
+    -   [ ] Symbol
+    -   [ ] Table (beta)
+    -   [x] Text Area
+    -   [x] Text Field
+    -   [ ] Toggle
+-   [ ] Helper Classes
+    -   [ ] Background Colors
+    -   [ ] Button Group (beta)
+    -   [x] Card
+        -   [x] Base Card
+        -   [x] Card Overflow
+        -   [x] Card Cover
+    -   [ ] Chip
+        -   [x] Base Chip
+        -   [x] Chip Button
+        -   [x] Chip Icons
+        -   [ ] Chip Delete Button (beta)
+    -   [ ] Color Inversion (beta)
+        -   [ ] Soft Context
+        -   [ ] Solid Context
+        -   [ ] Color Inversion Reset
+    -   [x] Divider
+        -   [x] Horizontal
+        -   [x] Vertical
+    -   [x] Sheet
+    -   [x] Typography
 
 ## Copyright and Licensing
 
