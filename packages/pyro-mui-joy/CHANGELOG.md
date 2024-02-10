@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.5
+
+### Patch Changes
+
+-   35c5554: Fix: Button now prioritizes its own size, over its parent
+-   a39dc52: Fix: Resolved linting related color-inversion issue
+-   8ab02e0: Fixed: Propogation of undefinited color inversion properties
+-   1ec9827: Feat: basic symbol support
+-   87820db: Fix: Divider is properly sized in card-overflow contexts
+-   dd4d4c6: Fix: Chip icon behaviour is more intuitive
+-   1699c5f: Fix: Major card rework. Removed default shadow, adjusted sizing priority, added card-overflow support to middle elements.
+
 ## 0.4.4
 
 ### Patch Changes

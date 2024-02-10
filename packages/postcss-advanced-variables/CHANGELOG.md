@@ -1,5 +1,11 @@
 # Changes to PostCSS Advanced Variables
 
+## 4.0.2
+
+### Patch Changes
+
+-   72f3bbc: Fix: css variable in @mixin parameter
+
 ## 4.0.1
 
 ### Patch Changes
