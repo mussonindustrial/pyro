@@ -1,8 +1,8 @@
+@import 'common';
+
 @import 'colors/light.css';
 
 @import 'ia/light';
-
-@import 'common';
 
 @import 'classes';
 @import 'components';

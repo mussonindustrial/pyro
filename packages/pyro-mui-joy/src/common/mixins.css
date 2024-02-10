@@ -108,3 +108,14 @@ $staticProperties: (borderWidth, borderStyle);
         --$(component)-$(property): var(--variant-$(variant)-$(property));
     }
 }
+
+@mixin perspective-symbol($theme, $state, $fill, $stroke) {
+    --symbolFill--$(state): var(
+        --$(theme)-symbolFill--$(state),
+        $(fill)
+    ) !important;
+    --symbolStroke--$(state): var(
+        --$(theme)-symbolStroke--$(state),
+        $(stroke)
+    ) !important;
+}

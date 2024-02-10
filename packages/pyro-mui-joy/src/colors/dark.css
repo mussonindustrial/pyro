@@ -1,9 +1,3 @@
-$palettes: (primary, neutral, danger, info, success, warning);
-$variants: (plain, outlined, soft, solid);
-$states: (Hover, Active, Disabled);
-$attributes: (Color, Bg, Border);
-$steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
-
 :root {
     /* Dark Theme */
     /* --background-color: rgb(0, 30, 60); */
@@ -288,6 +282,31 @@ $steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
         radial-gradient(at 93% 85%, rgba(0, 58, 117, 0.3) 0px, transparent 50%);
 
     color: var(--palette-common-white);
+
+    @include perspective-symbol(
+        joy-dark,
+        running,
+        var(--palette-neutral-500),
+        var(--palette-neutral-200)
+    );
+    @include perspective-symbol(
+        joy-dark,
+        stopped,
+        var(--palette-neutral-800),
+        var(--palette-neutral-700)
+    );
+    @include perspective-symbol(
+        joy-dark,
+        default,
+        var(--palette-neutral-800),
+        var(--palette-neutral-700)
+    );
+    @include perspective-symbol(
+        joy-dark,
+        faulted,
+        var(--palette-danger-500),
+        var(--palette-danger-700)
+    );
 }
 
 :focus {

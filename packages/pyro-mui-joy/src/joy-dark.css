@@ -1,8 +1,8 @@
+@import 'common';
+
 @import 'colors/dark.css';
 
 @import 'ia/dark';
-
-@import 'common';
 
 @import 'classes';
 @import 'components';

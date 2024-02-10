@@ -1,9 +1,3 @@
-$palettes: (primary, neutral, danger, info, success, warning);
-$variants: (plain, outlined, soft, solid);
-$states: (Hover, Active, Disabled);
-$attributes: (Color, Bg, Border);
-$steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
-
 :root {
     /* Light Theme */
     --background-color: rgb(255, 255, 255);
@@ -289,6 +283,31 @@ $steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
             rgba(194, 224, 255, 0.2) 0px,
             transparent 50%
         );
+
+    @include perspective-symbol(
+        joy-light,
+        running,
+        var(--palette-common-white),
+        var(--palette-neutral-700)
+    );
+    @include perspective-symbol(
+        joy-light,
+        stopped,
+        var(--palette-neutral-400),
+        var(--palette-neutral-700)
+    );
+    @include perspective-symbol(
+        joy-light,
+        default,
+        var(--palette-neutral-400),
+        var(--palette-neutral-700)
+    );
+    @include perspective-symbol(
+        joy-light,
+        faulted,
+        var(--palette-danger-500),
+        var(--palette-danger-700)
+    );
 }
 
 :focus {
