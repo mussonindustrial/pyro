@@ -1,4 +1,8 @@
 $palettes: (primary, neutral, danger, info, success, warning);
+$variants: (plain, outlined, soft, solid);
+$states: (Hover, Active, Disabled);
+$attributes: (Color, Bg, Border);
+$steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 
 :root {
     /* Light Theme */
@@ -292,10 +296,20 @@ $palettes: (primary, neutral, danger, info, success, warning);
 }
 
 /* prettier-ignore */
-[psc='Joy/Variant/soft'] [psc='Joy/Variant/color-inversion']:not(
-        [psc='Joy/Variant/skip-inverted-colors'],
-        [psc='Joy/Variant/skip-inverted-colors'] *
-    ) {
+[psc='Joy/Variant/soft'] [psc='Joy/Variant/color-inversion'][psc='Joy/Variant/color-inversion']:not(
+    [psc='Joy/Variant/skip-inverted-colors'],
+    [psc='Joy/Variant/skip-inverted-colors'] *
+) {
+
+    @each $variant in $variants {
+        @each $attribute in $attributes {
+            @each $state in $states {
+                /* prettier-ignore */
+                --palette-$(variant)$(state)$(attribute): var(--palette-$(variant)$(attribute));
+            }
+        }
+    }
+
     --palette-focusVisible: var(--palette-500, #9a5b13);
     --palette-background-body: rgba(
         var(--palette-mainChannel, 154 91 19) / 0.1
@@ -365,10 +379,20 @@ $palettes: (primary, neutral, danger, info, success, warning);
 }
 
 /* prettier-ignore */
-[psc='Joy/Variant/color-inversion'] [psc='Joy/Variant/solid']:not(
-        [psc='Joy/Variant/skip-inverted-colors'],
-        [psc='Joy/Variant/skip-inverted-colors'] *
-    ) {
+[psc='Joy/Variant/solid'] [psc='Joy/Variant/color-inversion'][psc='Joy/Variant/color-inversion']:not(
+    [psc='Joy/Variant/skip-inverted-colors'],
+    [psc='Joy/Variant/skip-inverted-colors'] *
+) {
+
+    @each $variant in $variants {
+        @each $attribute in $attributes {
+            @each $state in $states {
+                /* prettier-ignore */
+                --palette-$(variant)$(state)$(attribute): var(--palette-$(variant)$(attribute));
+            }
+        }
+    }
+
     --palette-focusVisible: var(--palette-200, #dde7ee);
     --palette-background-body: rgba(0 0 0 / 0.1);
     --palette-background-surface: rgba(0 0 0 / 0.06);
