@@ -61,6 +61,60 @@ npm run dev
 
 The [changelog](https://github.com/mussonindustrial/pyro/releases) is regularly updated to reflect what's changed in each new release.
 
+## Stable Release Timeline
+
+The target for `v1.0.0` is to support all basic Perspective components and provide a full suite of helper style-classes.
+Support for _complex_ Perspective components (charts, menus, equipment schedule, trees, etc.) is not a priority.
+
+- [X] Resources
+  - [X] Color Palette
+    - [X] Light Mode
+    - [X] Dark Mode
+    - [X] Auto Mode
+  - [X] Variant Mixins
+  - [X] Fonts
+  - [ ] Component Showcase
+  - [ ] Screenshots
+- [ ] Perspective Components
+  - [X] Button
+  - [X] Canvas
+  - [ ] Checkbox
+  - [ ] Date-Time Picker (beta)
+  - [X] Drop Down
+  - [X] Numeric Entry
+  - [X] Password Field
+  - [ ] Radio
+  - [ ] Slider (beta)
+  - [ ] Symbol
+  - [ ] Table (beta)
+  - [X] Text Area
+  - [X] Text Field
+  - [ ] Toggle
+- [ ] Helper Classes
+  - [ ] Background Colors
+  - [ ] Button Group (beta)
+  - [X] Card
+    - [X] Base Card
+    - [X] Card Overflow
+    - [X] Card Cover
+  - [ ] Chip
+    - [X] Base Chip
+    - [X] Chip Button
+    - [X] Chip Icons
+    - [ ] Chip Delete Button (beta)
+  - [ ] Color Inversion (beta)
+    - [ ] Soft Context
+    - [ ] Solid Context
+    - [ ] Color Inversion Reset
+  - [X] Divider
+    - [X] Horizontal
+    - [X] Vertical
+  - [X] Sheet
+  - [X] Typography
+
+
+
+
 ## Copyright and Licensing
 
 Copyright (C) 2023 Musson Industrial
