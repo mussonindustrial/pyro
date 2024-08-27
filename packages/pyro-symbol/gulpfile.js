@@ -113,7 +113,7 @@ gulp.task('dev:refresh', async function () {
 gulp.task('dev:watch', function () {
     console.log('Watching for source file changes...')
     gulp.watch(
-        './src/**/*.*',
+        ['./src/**/*.*', '!./src/icons/cdr/*.*'],
         { events: 'all', delay: 1000 },
         gulp.series('clean', 'build', 'dev:upload-all', 'dev:refresh')
     )
