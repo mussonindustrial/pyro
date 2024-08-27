@@ -28,6 +28,7 @@
 | [pyro-mui-joy](packages/pyro-mui-joy)                                       | A Perspective theme based on Material UI Joy.                       | [![version](https://img.shields.io/npm/v/@mussonindustrial/pyro-mui-joy.svg?label=%20)](packages/pyro-mui-joy/CHANGELOG.md)                                       |
 | [pyro-resource](packages/pyro-resource)                                     | A library for building project import files.                        | [![version](https://img.shields.io/npm/v/@mussonindustrial/pyro-resource.svg?label=%20)](packages/pyro-resource/CHANGELOG.md)                                     |
 | [pyro-resource-signature](packages/pyro-resource-signature)                 | A library for building and signing `resource.json` files.           | [![version](https://img.shields.io/npm/v/@mussonindustrial/pyro-resource-signature.svg?label=%20)](packages/pyro-resource-signature/CHANGELOG.md)                 |
+| [pyro-symbol](packages/pyro-symbol)                                         | A Perspective theme and icons for P&ID symbols.                     | [![version](https://img.shields.io/npm/v/@mussonindustrial/pyro-symbol.svg?label=%20)](packages/pyro-symbol/CHANGELOG.md)                                     |
 
 ## Installation / Building
 
