@@ -17,5 +17,6 @@ yarn-error.log
 
 /output/
 
-# Ignore Corel Draw generated CSS
+# Ignore Corel Draw generated CSS and backups
 src/icons/svg/*.css
+src/icons/cdr/Backup_of_*.cdr
