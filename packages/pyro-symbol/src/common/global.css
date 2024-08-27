@@ -4,9 +4,15 @@
 }
 
 [data-icon^='symbol\/'] {
-    stroke-width: 2px;
+    stroke-width: 5px;
     overflow: visible;
     color: var(--symbolFill);
     fill: var(--symbolFill);
     stroke: var(--symbolStroke);
+    vector-effect: non-scaling-stroke;
 }
+
+[data-icon^='symbol\/'] * {
+    vector-effect: non-scaling-stroke;
+}
+
