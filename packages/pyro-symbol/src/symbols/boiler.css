@@ -1,0 +1,21 @@
+$symbols: (boiler_basic);
+$symbols_short: (boiler_basic_short);
+$symbols_tall: (boiler_basic_long);
+
+@each $symbol in $symbols {
+    @include perspective-symbol-size($symbol, sm, 90px, 150px);
+    @include perspective-symbol-size($symbol, md, 135px, 225px);
+    @include perspective-symbol-size($symbol, lg, 180px, 300px);
+}
+
+@each $symbol in $symbols_short {
+    @include perspective-symbol-size($symbol, sm, 90px, 120px);
+    @include perspective-symbol-size($symbol, md, 135px, 180px);
+    @include perspective-symbol-size($symbol, lg, 180px, 270px);
+}
+
+@each $symbol in $symbols_tall {
+    @include perspective-symbol-size($symbol, sm, 90px, 180px);
+    @include perspective-symbol-size($symbol, md, 135px, 270px);
+    @include perspective-symbol-size($symbol, lg, 180px, 405px);
+}
