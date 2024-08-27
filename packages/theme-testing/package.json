@@ -1,5 +1,5 @@
 {
-    "name": "@mussonindustrial/pyro-mui-joy",
+    "name": "@mussonindustrial/theme-testing",
     "version": "0.4.5",
     "description": "A port of Material UI Joy Theme for Ignition by Inductive Automation",
     "keywords": [
@@ -27,8 +27,8 @@
     "type": "commonjs",
     "exports": {
       ".": {
-        "require": "./dist/index.js",
-        "import": "./dist/index.mjs"
+        "require": "./dist/index.cjs",
+        "import": "./dist/index.js"
       }
     },
     "devDependencies": {
@@ -36,6 +36,7 @@
         "@mussonindustrial/postcss-advanced-variables": "*",
         "@mussonindustrial/postcss-perspective-style-class": "*",
         "@mussonindustrial/pyro-gateway": "*",
+        "@mussonindustrial/pyro-mui-joy": "*",
         "@mussonindustrial/pyro-resource": "*",
         "autoprefixer": "^10.4.14",
         "cssnano": "^6.0.1",
