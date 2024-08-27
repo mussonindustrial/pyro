@@ -26,10 +26,10 @@
     },
     "type": "commonjs",
     "exports": {
-      ".": {
-        "require": "./dist/index.js",
-        "import": "./dist/index.mjs"
-      }
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs"
+        }
     },
     "devDependencies": {
         "@csstools/postcss-design-tokens": "^2.0.4",
