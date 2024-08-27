@@ -1,0 +1,21 @@
+$symbols: (vessel_basic);
+$symbols_short: (vessel_basic_short);
+$symbols_tall: (vessel_basic_tall);
+
+@each $symbol in $symbols {
+    @include perspective-symbol-size($symbol, sm, 150px, 90px);
+    @include perspective-symbol-size($symbol, md, 225px, 135px);
+    @include perspective-symbol-size($symbol, lg, 300px, 180px);
+}
+
+@each $symbol in $symbols_short {
+    @include perspective-symbol-size($symbol, sm, 120px, 90px);
+    @include perspective-symbol-size($symbol, md, 180px, 135px);
+    @include perspective-symbol-size($symbol, lg, 270px, 180px);
+}
+
+@each $symbol in $symbols_tall {
+    @include perspective-symbol-size($symbol, sm, 180px, 90px);
+    @include perspective-symbol-size($symbol, md, 270px, 135px);
+    @include perspective-symbol-size($symbol, lg, 405px, 180px);
+}
