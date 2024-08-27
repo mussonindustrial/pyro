@@ -1,0 +1,26 @@
+:root {
+    @include perspective-symbol-state(
+        joy-light,
+        active,
+        #0b6bcb,
+        #32383e
+    );
+    @include perspective-symbol-state(
+        joy-light,
+        inactive,
+        #9fa6ad,
+        #32383e
+    );
+    @include perspective-symbol-state(
+        joy-light,
+        default,
+        #9fa6ad,
+        #32383e
+    );
+    @include perspective-symbol-state(
+        joy-light,
+        faulted,
+        #c41c1c,
+        #7d1212
+    );
+}

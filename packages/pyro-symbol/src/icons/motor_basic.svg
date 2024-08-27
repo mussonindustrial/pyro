@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<?xml-stylesheet href="motor_basic.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="60px" height="60px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 60 60"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g id="motor">
+  <circle id="motor_body" class="fil0" cx="30" cy="30" r="30"/>
+  <path id="motor_letter" class="fil1" d="M15.69 45l0 -30 5.95 0 7.1 21.24c0.65,1.97 1.13,3.45 1.43,4.44 0.34,-1.09 0.88,-2.7 1.6,-4.81l7.23 -20.87 5.31 0 0 30 -3.81 0 0 -25.1 -8.76 25.1 -3.58 0 -8.66 -25.56 0 25.56 -3.81 0z"/>
+ </g>
+</svg>

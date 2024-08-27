@@ -1,0 +1,7 @@
+$symbols: (pump_basic, pump_vacuum, pump_centrifugal);
+
+@each $symbol in $symbols {
+    @include perspective-symbol-size($symbol, sm, 32px, 32px);
+    @include perspective-symbol-size($symbol, md, 64px, 64px);
+    @include perspective-symbol-size($symbol, lg, 128px, 128px);
+}

@@ -1,0 +1,7 @@
+$symbols: (valve_basic, valve_hand, valve_control, valve_discrete);
+
+@each $symbol in $symbols {
+    @include perspective-symbol-size($symbol, sm, 32px, 32px);
+    @include perspective-symbol-size($symbol, md, 64px, 64px);
+    @include perspective-symbol-size($symbol, lg, 128px, 128px);
+}

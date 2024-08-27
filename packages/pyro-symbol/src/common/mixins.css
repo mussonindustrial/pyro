@@ -1,0 +1,21 @@
+@mixin perspective-symbol-state($theme, $state, $fill, $stroke) {
+    --symbolFill--$(state): var(
+        --$(theme)-symbolFill--$(state),
+        $(fill)
+    ) !important;
+    --symbolStroke--$(state): var(
+        --$(theme)-symbolStroke--$(state),
+        $(stroke)
+    ) !important;
+}
+
+@mixin perspective-symbol-size($icon, $size, $height, $width) {
+    [psc='Symbol/Size/$(size)'][data-icon=symbol\/$(icon)] {
+        height: $(height) !important;
+        width: $(width) !important;
+    }
+    [psc='Symbol/Size/$(size)']:has([data-icon=symbol\/$(icon)]) {
+        height: $(height) !important;
+        width: $(width) !important;
+    }
+}

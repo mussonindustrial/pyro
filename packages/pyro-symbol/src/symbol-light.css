@@ -1,0 +1,21 @@
+/* @import 'common';
+
+@import 'colors/light.css' (prefers-color-scheme: light);
+@import 'colors/dark.css' (prefers-color-scheme: dark);
+
+@import 'ia/light' (prefers-color-scheme: light);
+@import 'ia/dark' (prefers-color-scheme: dark);
+
+@import 'classes';
+@import 'components';
+@import 'designer'; */
+
+/* @import 'common'; */
+
+@import 'common';
+
+@import 'colors/light.css';
+
+@import 'symbols';
+
+@import '../../pyro-mui-joy/output/themes/joy-light.css'

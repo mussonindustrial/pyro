@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<?xml-stylesheet href="valve_basic.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="60px" height="95px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 60 95"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g id="Valve">
+  <g id="ValveBody">
+   <polygon id="ValveBodyRight" class="fil0" points="30,48 45,39.57 60,31.14 60,48 60,64.86 45,56.43 "> </polygon>
+   <polygon id="ValveBodyLeft" class="fil0" points="30,48 15,56.43 0,64.86 0,48 0,31.14 15,39.57 "> </polygon>
+  </g>
+ </g>
+</svg>
