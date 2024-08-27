@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<?xml-stylesheet href="tag_basic.css" type="text/css"?>
+<?xml-stylesheet href="tag_divider.css" type="text/css"?>
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="60px" height="60px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 60 60"
  xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -9,5 +9,6 @@ viewBox="0 0 60 60"
  <g id="tag">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <circle id="tag_body" class="fil0" cx="30" cy="30" r="30"/>
+  <line id="tag_divider" class="fil1" x1="0" y1="30" x2="60" y2= "30" />
  </g>
 </svg>
