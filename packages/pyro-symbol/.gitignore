@@ -18,4 +18,4 @@ yarn-error.log
 /output/
 
 # Ignore Corel Draw generated CSS
-src/icons/svg/*.svg
+src/icons/svg/*.css
