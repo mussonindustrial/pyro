@@ -16,3 +16,6 @@ yarn-error.log
 *.vsix
 
 /output/
+
+# Ignore Corel Draw generated CSS
+src/icons/svg/*.svg
