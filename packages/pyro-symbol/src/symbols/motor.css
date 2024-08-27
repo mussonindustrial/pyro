@@ -5,7 +5,7 @@ $symbols: (motor_basic);
     @include perspective-symbol-size($symbol, md, 64px, 64px);
     @include perspective-symbol-size($symbol, lg, 128px, 128px);
 
-    [data-icon=symbol\/$(symbol)] [id=motor_letter] {
+    [data-icon='symbol\/$(symbol)'] [id='motor_letter'] {
         color: var(--symbolStroke);
         stroke-width: 0px;
     }

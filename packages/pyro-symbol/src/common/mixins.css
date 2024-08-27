@@ -10,11 +10,11 @@
 }
 
 @mixin perspective-symbol-size($icon, $size, $height, $width) {
-    [psc='Symbol/Size/$(size)'][data-icon=symbol\/$(icon)] {
+    [psc='Symbol/Size/$(size)'][data-icon='symbol\/$(icon)'] {
         height: $(height) !important;
         width: $(width) !important;
     }
-    [psc='Symbol/Size/$(size)']:has([data-icon=symbol\/$(icon)]) {
+    [psc='Symbol/Size/$(size)']:has([data-icon='symbol\/$(icon)']) {
         height: $(height) !important;
         width: $(width) !important;
     }

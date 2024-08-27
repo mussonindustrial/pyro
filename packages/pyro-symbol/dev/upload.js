@@ -25,8 +25,6 @@ async function parseSVG(path) {
                 id: name,
                 viewBox,
             }
-            // JSONdata.svg.g.$.class = 'pyro-symbol icon'
-            // JSONdata.svg.g.$.id = name
         }
     })
 
@@ -34,7 +32,7 @@ async function parseSVG(path) {
 }
 
 async function createSymbolLibrary(name) {
-    var path = './src/icons'
+    var path = './src/icons/svg'
 
     const files = await glob(`${path}/*.svg`)
 

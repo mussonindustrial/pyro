@@ -1,12 +1,12 @@
 :root {
-	--symbolStroke: var(--symbolStroke--default);
-	--symbolFill: var(--symbolFill--default);
+    --symbolStroke: var(--symbolStroke--default);
+    --symbolFill: var(--symbolFill--default);
 }
 
-[data-icon^=symbol\/] {
-	stroke-width: 2px;
-	overflow: visible;
-	color: var(--symbolFill);
-	fill: var(--symbolFill);
-	stroke: var(--symbolStroke);
+[data-icon^='symbol\/'] {
+    stroke-width: 2px;
+    overflow: visible;
+    color: var(--symbolFill);
+    fill: var(--symbolFill);
+    stroke: var(--symbolStroke);
 }

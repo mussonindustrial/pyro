@@ -1,7 +1,6 @@
 $states: (default, active, inactive, faulted);
 
 @each $state in $states {
-
     [psc='Symbol/State/$(state)'] {
         --symbolFill: var(--symbolFill--$(state));
         --symbolStroke: var(--symbolStroke--$(state), #23383e);
@@ -10,5 +9,4 @@ $states: (default, active, inactive, faulted);
         fill: var(--symbolFill);
         stroke: var(--symbolStroke); */
     }
-
 }
