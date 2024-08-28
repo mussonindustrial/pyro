@@ -1,0 +1,50 @@
+{
+    "name": "@mussonindustrial/pyro-process",
+    "version": "0.1.0",
+    "description": "A Perspective theme for developing P&ID displays.",
+    "keywords": [
+        "ignition",
+        "theme",
+        "process"
+    ],
+    "scripts": {
+        "build": "gulp all",
+        "dev": "gulp dev",
+        "lint": "eslint *.js",
+        "lint:prettier": "prettier -c . --cache --ignore-path=../../.prettierignore"
+    },
+    "author": "Musson Industrial",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mussonindustrial/pyro",
+        "directory": "packages/pyro-process"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "type": "commonjs",
+    "devDependencies": {
+        "@csstools/postcss-design-tokens": "^2.0.4",
+        "@mussonindustrial/postcss-advanced-variables": "*",
+        "@mussonindustrial/postcss-perspective-style-class": "*",
+        "@mussonindustrial/pyro-gateway": "*",
+        "@mussonindustrial/pyro-resource": "*",
+        "autoprefixer": "^10.4.14",
+        "cssnano": "^6.0.1",
+        "eslint": "^8.42.0",
+        "gulp": "^4.0.2",
+        "gulp-postcss": "^9.0.1",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.24",
+        "postcss-import": "^15.1.0",
+        "postcss-nested": "^6.0.1",
+        "prettier": "^2.8.8"
+    },
+    "dependencies": {
+        "axios": "^1.6.1",
+        "glob": "^10.3.10",
+        "puppeteer": "^21.5.0",
+        "vitest": "^0.34.6"
+    }
+}

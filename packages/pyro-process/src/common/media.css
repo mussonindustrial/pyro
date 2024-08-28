@@ -1,0 +1,88 @@
+$medias: (air, fuel, glycol, water);
+$states: (hover, active, disabled);
+$attributes: (Color, Bg, Border);
+
+/* Default Media */
+:root {
+	--process-media-mainChannel: var(--process-media-default-mainChannel);
+	--process-media-lightChannel: var(--process-media-default-lightChannel);
+	--process-media-darkChannel: var(--process-media-default-darkChannel);
+	--process-media-focusedHighlight: var(--process-media-default-focusedHighlight);
+
+	@each $attribute in $attributes {
+		/* prettier-ignore */
+		--process-media-$(attribute): var(
+	--process-media-default-$(attribute)
+	);
+
+		@each $state in $states {
+			/* prettier-ignore */
+			--process-media-$(state)$(attribute): var(
+		--process-media-default-$(state)$(attribute),
+		var(--process-media-default-$(attribute))
+		);
+		}
+	}
+}
+
+
+@each $media in $medias {
+    [psc='Process/Media/$(media)'] {
+        --process-media-mainChannel: var(--process-media-$(media)-mainChannel);
+        --process-media-lightChannel: var(--process-media-$(media)-lightChannel);
+        --process-media-darkChannel: var(--process-media-$(media)-darkChannel);
+        --process-media-focusedHighlight: var(--process-media-$(media)-focusedHighlight);
+
+        @each $attribute in $attributes {
+            /* prettier-ignore */
+            --process-media-$(attribute): var(
+                --process-media-$(media)-$(attribute)
+            );
+
+            @each $state in $states {
+                /* prettier-ignore */
+                --process-media-$(state)$(attribute): var(
+                    --process-media-$(media)-$(state)$(attribute),
+                    var(--process-media-$(media)-$(attribute))
+                );
+            }
+        }
+    }
+}
+
+@mixin media-default($component) {
+    &:not(
+            :where(
+                    [psc='Process/Media/air'],
+                    [psc='Process/Media/fuel'],
+                    [psc='Process/Media/glycol'],
+                    [psc='Process/Media/water']
+                )
+        ) {
+
+		@each $attribute in $attributes {
+			/* prettier-ignore */
+			--$(component)-default-$(variant)$(property): var(
+			  --palette-$(palette)-$(variant)$(property)
+			);
+
+			@each $state in $states {
+			  /* prettier-ignore */
+			  --$(component)-default-$(variant)$(state)$(property): var(
+				  --palette-$(palette)-$(variant)$(state)$(property),
+				  var(--palette-$(palette)-$(variant)$(property))
+			  );
+			}
+		}
+
+    }
+}
+
+@mixin media-support($component) {
+	@each $attribute in $attributes {
+		--process-$(component)-$(attribute): var(
+	--process-media-$(attribute),
+	var(--process-media-default$(attribute))
+	);
+	}
+}

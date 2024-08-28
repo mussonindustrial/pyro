@@ -1,0 +1,42 @@
+:root {
+	/* Dark Theme */
+	--process-background-body: #E8E8E8;
+
+	--process-media-default-Color: #ededed;
+	--process-media-default-Bg: #a3a3a3;
+	--process-media-default-Border: #606060;
+
+	--process-media-air-mainChannel: rgb(100, 100, 100);
+	--process-media-air-lightChannel: rgb(100, 100, 100);
+	--process-media-air-darkChannel: rgb(100, 100, 100);
+	--process-media-air-focusedHighlight: rgb(100, 100, 100);
+	--process-media-air-Color: #f1d9f4;
+	--process-media-air-Bg: #a06ca5;
+	--process-media-air-Border: #65396a;
+	/*--process-media-air-defaultColor: rgb(100, 100, 100);*/
+	/*--process-media-air-defaultBg: rgb(100, 100, 100);*/
+	/*--process-media-air-defaultBorder: rgb(100, 100, 100);*/
+	/*--process-media-air-hoverColor: rgb(100, 100, 100);*/
+	/*--process-media-air-hoverBg: rgb(100, 100, 100);*/
+	/*--process-media-air-hoverBorder: rgb(100, 100, 100);*/
+	/*--process-media-air-activeColor: rgb(100, 100, 100);*/
+	/*--process-media-air-activeBg: rgb(100, 100, 100);*/
+	/*--process-media-air-activeBorder: rgb(100, 100, 100);*/
+	/*--process-media-air-disabledColor: rgb(100, 100, 100);*/
+	/*--process-media-air-disabledBg: rgb(100, 100, 100);*/
+	/*--process-media-air-disabledBorder: rgb(100, 100, 100);*/
+
+
+
+	--process-media-fuel-Color: #3e210d;
+	--process-media-fuel-Bg: #b68a68;
+	--process-media-fuel-Border: #785841;
+
+	--process-media-water-Color: #254a61;
+	--process-media-water-Bg: #BFCBD4;
+	--process-media-water-Border: #487485;
+
+	--process-media-glycol-Color: #093712;
+	--process-media-glycol-Bg: #84cc98;
+	--process-media-glycol-Border: #498757;
+}

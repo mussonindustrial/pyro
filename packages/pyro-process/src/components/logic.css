@@ -1,0 +1,28 @@
+/* Pipe */
+[psc="Process/Component/logic"] {
+	@include media-support(Logic);
+	--process-Pipe-width: 4px;
+
+	height: var(--process-Logic-width) !important;
+
+	/*border-top-color: var(--process-media-Bg);*/
+	/*border-top-width: var(--process-Logic-width);*/
+	/*border-top-style: double;*/
+
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='4%2c8' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+	background-size: 100% 24px;
+	background-repeat: no-repeat;
+
+
+	&[psc="Process/Size/sm"] {
+		--process-Logic-width: 2px;
+	}
+
+	&[psc="Process/Size/md"] {
+		--process-Logic-width: 4px;
+	}
+
+	&[psc="Process/Size/lg"] {
+		--process-Logic-width: 8px;
+	}
+}

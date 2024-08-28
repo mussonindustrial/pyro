@@ -1,0 +1,50 @@
+/* Vessel */
+[psc="Process/Component/vessel"] {
+	@include media-support(Vessel);
+
+	background-color: var(--process-Vessel-Bg);
+	overflow: visible !important;
+	position: relative;
+	transform-style: preserve-3d;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--process-Vessel-Border);
+
+
+	&[psc="Process/Variant/top"] {
+		&::before {
+			content: "";
+			position: absolute;
+			transform: translateZ(-1px);
+
+			top: calc(-25% - 2px);
+			height: 50%;
+			width: 100%;
+			left: -2px;
+
+			background-color: var(--process-Vessel-Bg);
+
+			border-radius: 10000%;
+			border: solid 2px var(--process-Vessel-Border);
+		}
+	}
+
+	&[psc="Process/Variant/bottom"] {
+		&::after {
+			content: "";
+			position: absolute;
+			transform: translateZ(-1px);
+
+			top: 75%;
+			height: 50%;
+			width: 100%;
+			left: -2px;
+
+			background-color: var(--process-Vessel-Bg);
+
+			border-radius: 10000%;
+			border: solid 2px var(--process-Vessel-Border);
+		}
+	}
+}

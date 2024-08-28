@@ -1,0 +1,62 @@
+/* Pipe */
+[psc="Process/Component/connection"] {
+	@include media-support(Connection);
+	--process-Connection-height: 16px;
+	--process-Connection-borderWidth: calc(var(--process-Connection-height) / 2);
+
+	height: var(--process-Connection-height) !important;
+
+	border-color: var(--process-media-Bg);
+	border-width: var(--process-Connection-borderWidth);
+	border-style: solid;
+
+	color: var(--process-media-Color);
+
+	text-align: center;
+	text-indent: var(--process-Connection-borderWidth);
+
+	&[psc="Process/Direction/left"] {
+		border-right-color: transparent;
+		text-indent: calc(-2 / 3 * var(--process-Connection-borderWidth));
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: calc(-3 * var(--process-Connection-borderWidth));
+
+			border-color: transparent;
+			border-width: var(--process-Connection-borderWidth);
+			border-style: solid;
+			border-right-color: var(--process-media-Bg);
+		}
+	}
+
+	&[psc="Process/Direction/right"] {
+		border-left-color: transparent;
+		text-indent: calc(2 / 3 * var(--process-Connection-borderWidth));
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: calc(-3 * var(--process-Connection-borderWidth));
+
+			border-color: transparent;
+			border-width: var(--process-Connection-borderWidth);
+			border-style: solid;
+			border-left-color: var(--process-media-Bg);
+		}
+	}
+
+
+	&[psc="Process/Size/sm"] {
+		--process-Connection-height: 16px;
+	}
+
+	&[psc="Process/Size/md"] {
+		--process-Connection-height: 24px;
+	}
+
+	&[psc="Process/Size/lg"] {
+		--process-Connection-height: 32px;
+	}
+}

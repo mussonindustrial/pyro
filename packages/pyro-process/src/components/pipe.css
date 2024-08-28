@@ -1,0 +1,24 @@
+/* Pipe */
+[psc="Process/Component/pipe"] {
+	@include media-support(Pipe);
+	--process-Pipe-width: 4px;
+
+	height: var(--process-Pipe-width) !important;
+
+	border-top-style: solid;
+	border-top-color: var(--process-Pipe-Bg);
+	border-top-width: var(--process-Pipe-width);
+
+
+	&[psc="Process/Size/sm"] {
+		--process-Pipe-width: 2px;
+	}
+
+	&[psc="Process/Size/md"] {
+		--process-Pipe-width: 4px;
+	}
+
+	&[psc="Process/Size/lg"] {
+		--process-Pipe-width: 8px;
+	}
+}
