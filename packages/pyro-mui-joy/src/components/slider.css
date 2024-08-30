@@ -2,34 +2,34 @@
 .ia-slider {
     @include variant-support(Slider);
 
-    --Slider-size: max(
+    --joy-Slider-size: max(
         42px,
-        max(var(--Slider-thumbSize), var(--Slider-trackSize))
+        max(var(--joy-Slider-thumbSize), var(--joy-Slider-trackSize))
     );
-    --Slider-trackRadius: var(--Slider-size);
-    --Slider-markBackground: var(--palette-text-tertiary);
+    --joy-Slider-trackRadius: var(--joy-Slider-size);
+    --joy-Slider-markBackground: var(--joy-palette-text-tertiary);
 
     /* Default to medium size */
-    --Slider-markSize: 2px;
-    --Slider-trackSize: 6px;
-    --Slider-thumbSize: 14px;
-    --Slider-valueLabelArrowSize: 8px;
+    --joy-Slider-markSize: 2px;
+    --joy-Slider-trackSize: 6px;
+    --joy-Slider-thumbSize: 14px;
+    --joy-Slider-valueLabelArrowSize: 8px;
 
-    --Slider-thumbRadius: calc(var(--Slider-thumbSize) / 2);
-    --Slider-thumbWidth: var(--Slider-thumbSize);
-    --Slider-thumbBackground: var(--Slider-Color);
-    --Slider-thumbColor: var(--Slider-Bg);
+    --joy-Slider-thumbRadius: calc(var(--joy-Slider-thumbSize) / 2);
+    --joy-Slider-thumbWidth: var(--joy-Slider-thumbSize);
+    --joy-Slider-thumbBackground: var(--joy-Slider-Color);
+    --joy-Slider-thumbColor: var(--joy-Slider-Bg);
 
-    --Slider-trackColor: var(--Slider-Color);
-    --Slider-trackBackground: var(--Slider-Bg);
-    --Slider-trackBorderColor: var(--Slider-Border);
+    --joy-Slider-trackColor: var(--joy-Slider-Color);
+    --joy-Slider-trackBackground: var(--joy-Slider-Bg);
+    --joy-Slider-trackBorderColor: var(--joy-Slider-Border);
 
-    --Slider-railBackground: var(--palette-background-level2);
+    --joy-Slider-railBackground: var(--joy-palette-background-level2);
 
     &[psc='Joy/Variant/plain'],
     &[psc='Joy/Variant/outlined'] {
-        --Slider-thumbColor: var(--palette-background-surface);
-        --Slider-trackBackground: var(--palette-background-surface);
+        --joy-Slider-thumbColor: var(--joy-palette-background-surface);
+        --joy-Slider-trackBackground: var(--joy-palette-background-surface);
     }
 
     &:hover {
@@ -42,69 +42,70 @@
 
     .slider:not(.slider-vertical) {
         .slider-rail {
-            height: var(--Slider-trackSize);
+            height: var(--joy-Slider-trackSize);
         }
 
         .slider-track {
-            height: var(--Slider-trackSize);
+            height: var(--joy-Slider-trackSize);
             width: 100%;
-            border-radius: var(--Slider-trackRadius) 0 0
-                var(--Slider-trackRadius);
+            border-radius: var(--joy-Slider-trackRadius) 0 0
+                var(--joy-Slider-trackRadius);
         }
 
         .slider-handle {
-            margin-left: calc(var(--Slider-thumbWidth) / 2 * -1);
-            margin-top: calc(var(--Slider-thumbWidth) / 4 * -1);
+            margin-left: calc(var(--joy-Slider-thumbWidth) / 2 * -1);
+            margin-top: calc(var(--joy-Slider-thumbWidth) / 4 * -1);
         }
     }
 
     .slider.slider-vertical {
         .slider-rail {
-            width: var(--Slider-trackSize);
+            width: var(--joy-Slider-trackSize);
         }
 
         .slider-track {
             height: 100%;
-            width: var(--Slider-trackSize);
-            border-radius: 0 0 var(--Slider-trackRadius)
-                var(--Slider-trackRadius);
+            width: var(--joy-Slider-trackSize);
+            border-radius: 0 0 var(--joy-Slider-trackRadius)
+                var(--joy-Slider-trackRadius);
         }
 
         .slider-handle {
-            margin-left: calc(var(--Slider-thumbWidth) / 4 * -1);
-            margin-bottom: calc(var(--Slider-thumbWidth) / 2 * -1);
+            margin-left: calc(var(--joy-Slider-thumbWidth) / 4 * -1);
+            margin-bottom: calc(var(--joy-Slider-thumbWidth) / 2 * -1);
         }
     }
 
     .slider-rail {
-        background-color: var(--Slider-railBackground);
-        border-radius: var(--Slider-trackRadius);
+        background-color: var(--joy-Slider-railBackground);
+        border-radius: var(--joy-Slider-trackRadius);
     }
 
     .slider-track {
-        color: var(--Slider-trackColor);
-        background-color: var(--Slider-trackBackground);
+        color: var(--joy-Slider-trackColor);
+        background-color: var(--joy-Slider-trackBackground);
 
-        border-width: var(--variant-borderWidth, 0px);
-        border-style: var(--variant-borderStyle);
-        border-color: var(--Slider-trackBorderColor);
-        border-radius: var(--Slider-trackRadius) 0 0 var(--Slider-trackRadius);
+        border-width: var(--joy-variant-borderWidth, 0px);
+        border-style: var(--joy-variant-borderStyle);
+        border-color: var(--joy-Slider-trackBorderColor);
+        border-radius: var(--joy-Slider-trackRadius) 0 0
+            var(--joy-Slider-trackRadius);
     }
 
     .slider .slider-handle {
-        width: var(--Slider-thumbWidth);
-        height: var(--Slider-thumbSize);
+        width: var(--joy-Slider-thumbWidth);
+        height: var(--joy-Slider-thumbSize);
 
-        color: var(--Slider-thumbColor);
-        background-color: var(--Slider-thumbBackground);
+        color: var(--joy-Slider-thumbColor);
+        background-color: var(--joy-Slider-thumbBackground);
 
-        border: var(--variant-borderWidth, 0px) solid
-            var(--Slider-trackBorderColor);
-        border-radius: var(--Slider-thumbRadius);
+        border: var(--joy-variant-borderWidth, 0px) solid
+            var(--joy-Slider-trackBorderColor);
+        border-radius: var(--joy-Slider-thumbRadius);
 
-        box-shadow: var(--Slider-thumbShadow);
+        box-shadow: var(--joy-Slider-thumbShadow);
 
-        background-color: var(--Slider-thumbBackground);
+        background-color: var(--joy-Slider-thumbBackground);
 
         cursor: pointer;
         overflow: visible;
@@ -120,7 +121,7 @@
             width: 100%;
             height: 100%;
             border: 2px solid;
-            border-color: var(--Slider-thumbColor);
+            border-color: var(--joy-Slider-thumbColor);
             border-radius: inherit;
         }
     }
@@ -128,24 +129,24 @@
 
 [psc='Joy/Size/sm'] .ia-slider,
 [psc='Joy/Size/sm'].ia-slider {
-    --Slider-markSize: 2px;
-    --Slider-trackSize: 4px;
-    --Slider-thumbSize: 10px;
-    --Slider-valueLabelArrowSize: 6px;
+    --joy-Slider-markSize: 2px;
+    --joy-Slider-trackSize: 4px;
+    --joy-Slider-thumbSize: 10px;
+    --joy-Slider-valueLabelArrowSize: 6px;
 }
 
 [psc='Joy/Size/md'] .ia-slider,
 [psc='Joy/Size/md'].ia-slider {
-    --Slider-markSize: 2px;
-    --Slider-trackSize: 6px;
-    --Slider-thumbSize: 14px;
-    --Slider-valueLabelArrowSize: 8px;
+    --joy-Slider-markSize: 2px;
+    --joy-Slider-trackSize: 6px;
+    --joy-Slider-thumbSize: 14px;
+    --joy-Slider-valueLabelArrowSize: 8px;
 }
 
 [psc='Joy/Size/lg'] .ia-slider,
 [psc='Joy/Size/lg'].ia-slider {
-    --Slider-markSize: 3px;
-    --Slider-trackSize: 10px;
-    --Slider-thumbSize: 20px;
-    --Slider-valueLabelArrowSize: 10px;
+    --joy-Slider-markSize: 3px;
+    --joy-Slider-trackSize: 10px;
+    --joy-Slider-thumbSize: 20px;
+    --joy-Slider-valueLabelArrowSize: 10px;
 }

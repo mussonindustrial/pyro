@@ -12,9 +12,9 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin component-state($component, $state) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
-        --$(component)-$(property): var(
-            --variant-$(state)$(property),
-            var(--variant-default$(state)$(property))
+        --joy-$(component)-$(property): var(
+            --joy-variant-$(state)$(property),
+            var(--joy-variant-default$(state)$(property))
         );
     }
 }
@@ -22,25 +22,25 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin component-state-forced($component, $variant, $state) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
-        --$(component)-$(property): var(
-            --variant-$(variant)$(state)$(property),
-            var(--variant-default$(state)$(property))
+        --joy-$(component)-$(property): var(
+            --joy-variant-$(variant)$(state)$(property),
+            var(--joy-variant-default$(state)$(property))
         );
     }
 }
 
 @mixin variant-support($component) {
     @each $property in $staticProperties {
-        --$(component)-$(property): var(
-            --variant-$(property),
-            var(--variant-default-$(property))
+        --joy-$(component)-$(property): var(
+            --joy-variant-$(property),
+            var(--joy-variant-default-$(property))
         );
     }
 
     @each $property in $drivenProperties {
-        --$(component)-$(property): var(
-            --variant-$(property),
-            var(--variant-default$(property))
+        --joy-$(component)-$(property): var(
+            --joy-variant-$(property),
+            var(--joy-variant-default$(property))
         );
     }
 }
@@ -48,40 +48,40 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin variant-forced($component, $variant) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
-        --variant-$(property): var(--palette-$(variant)$(property));
+        --joy-variant-$(property): var(--joy-palette-$(variant)$(property));
 
         @each $state in $states {
             /* prettier-ignore */
-            --variant-$(state)$(property): var(
-                --palette-$(variant)$(state)$(property),
-                var(--palette-$(variant)$(property))
+            --joy-variant-$(state)$(property): var(
+                --joy-palette-$(variant)$(state)$(property),
+                var(--joy-palette-$(variant)$(property))
             );
         }
     }
 
     @each $property in $staticProperties {
-        --variant-$(property): var(--variant-$(variant)-$(property));
+        --joy-variant-$(property): var(--joy-variant-$(variant)-$(property));
     }
 }
 
 @mixin palette-forced($component, $palette) {
     @each $step in $steps {
         /* prettier-ignore */
-        --palette-$(step): var(--palette-$(palette)-$(step));
+        --joy-palette-$(step): var(--joy-palette-$(palette)-$(step));
     }
 
     @each $variant in $variants {
         @each $attribute in $attributes {
             /* prettier-ignore */
-            --palette-$(variant)$(attribute): var(
-                --palette-$(palette)-$(variant)$(attribute)
+            --joy-palette-$(variant)$(attribute): var(
+                --joy-palette-$(palette)-$(variant)$(attribute)
             );
 
             @each $state in $states {
                 /* prettier-ignore */
-                --palette-$(variant)$(state)$(attribute): var(
-                    --palette-$(palette)-$(variant)$(state)$(attribute),
-                    var(--palette-$(palette)-$(variant)$(attribute))
+                --joy-palette-$(variant)$(state)$(attribute): var(
+                    --joy-palette-$(palette)-$(variant)$(state)$(attribute),
+                    var(--joy-palette-$(palette)-$(variant)$(attribute))
                 );
             }
         }
@@ -91,31 +91,33 @@ $staticProperties: (borderWidth, borderStyle);
 @mixin style-forced($component, $variant, $palette) {
     @each $property in $drivenProperties {
         /* prettier-ignore */
-        --$(component)-$(property): var(
-            --palette-$(palette)-$(variant)$(property)
+        --joy-$(component)-$(property): var(
+            --joy-palette-$(palette)-$(variant)$(property)
         );
 
         @each $state in $states {
             /* prettier-ignore */
-            --$(component)-$(state)$(property): var(
-                --palette-$(palette)-$(variant)$(state)$(property),
-                var(--palette-$(palette)-$(variant)$(property))
+            --joy-$(component)-$(state)$(property): var(
+                --joy-palette-$(palette)-$(variant)$(state)$(property),
+                var(--joy-palette-$(palette)-$(variant)$(property))
             );
         }
     }
 
     @each $property in $staticProperties {
-        --$(component)-$(property): var(--variant-$(variant)-$(property));
+        --joy-$(component)-$(property): var(
+            --joy-variant-$(variant)-$(property)
+        );
     }
 }
 
 @mixin perspective-symbol($theme, $state, $fill, $stroke) {
-    --symbolFill--$(state): var(
-        --$(theme)-symbolFill--$(state),
+    --joy-symbolFill--joy-$(state): var(
+        --joy-$(theme)-symbolFill--joy-$(state),
         $(fill)
     ) !important;
-    --symbolStroke--$(state): var(
-        --$(theme)-symbolStroke--$(state),
+    --joy-symbolStroke--joy-$(state): var(
+        --joy-$(theme)-symbolStroke--joy-$(state),
         $(stroke)
     ) !important;
 }

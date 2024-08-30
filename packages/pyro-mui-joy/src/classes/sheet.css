@@ -5,9 +5,12 @@
     @include palette-default(Sheet, neutral);
 
     /* Variant */
-    color: var(--Sheet-Color);
-    background-color: var(--Sheet-Bg, var(--joy-palette-background-surface));
-    border-color: var(--Sheet-Border);
-    border-width: var(--Sheet-borderWidth);
-    border-style: var(--Sheet-borderStyle);
+    color: var(--joy-Sheet-Color);
+    background-color: var(
+        --joy-Sheet-Bg,
+        var(--joy-joy-palette-background-surface)
+    );
+    border-color: var(--joy-Sheet-Border);
+    border-width: var(--joy-Sheet-borderWidth);
+    border-style: var(--joy-Sheet-borderStyle);
 }

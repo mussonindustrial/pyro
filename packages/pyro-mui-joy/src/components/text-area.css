@@ -2,46 +2,51 @@
     @include variant-support(Textarea);
 
     /* Define component properties */
-    --Textarea-radius: var(--radius-sm);
-    --Textarea-gap: 0.5rem;
-    --Textarea-placeholderColor: var(--Textarea-Color);
-    --Textarea-placeholderOpacity: 0.5;
-    --Textarea-focused: 0;
-    --Textarea-focusedThickness: var(--focus-thickness);
-    --Textarea-focusedHighlight: var(--palette-primary-solidBg);
-    --Textarea-minHeight: 2.5rem;
-    --Textarea-paddingBlock: calc(0.5rem - var(--variant-borderWidth, 0px));
-    --Textarea-paddingInline: 0.75rem;
+    --joy-Textarea-radius: var(--joy-radius-sm);
+    --joy-Textarea-gap: 0.5rem;
+    --joy-Textarea-placeholderColor: var(--joy-Textarea-Color);
+    --joy-Textarea-placeholderOpacity: 0.5;
+    --joy-Textarea-focused: 0;
+    --joy-Textarea-focusedThickness: var(--joy-focus-thickness);
+    --joy-Textarea-focusedHighlight: var(--joy-palette-primary-solidBg);
+    --joy-Textarea-minHeight: 2.5rem;
+    --joy-Textarea-paddingBlock: calc(
+        0.5rem - var(--joy-variant-borderWidth, 0px)
+    );
+    --joy-Textarea-paddingInline: 0.75rem;
 
     /* Default to Medium size */
-    --Textarea-minHeight: 2.5rem;
-    --Textarea-paddingInline: 0.75rem;
+    --joy-Textarea-minHeight: 2.5rem;
+    --joy-Textarea-paddingInline: 0.75rem;
 
     /* Style */
     box-sizing: border-box;
     min-width: 0px;
-    min-height: var(--Textarea-minHeight);
+    min-height: var(--joy-Textarea-minHeight);
     overflow: visible;
     position: relative;
     display: flex;
-    font-family: var(--fontFamily-body);
-    font-size: var(--fontSize-md);
+    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-fontSize-md);
 
     /* Apply component properties */
-    color: var(--Textarea-Color);
-    background-color: var(--Textarea-Bg, var(--palette-background-surface));
-    border-color: var(--Textarea-Border);
-    border-width: var(--Textarea-borderWidth);
-    border-style: var(--Textarea-borderStyle);
-    border-radius: var(--Textarea-radius);
-    min-height: var(--Textarea-minHeight);
-    padding-block: var(--Textarea-paddingBlock);
-    padding-inline: var(--Textarea-paddingInline);
+    color: var(--joy-Textarea-Color);
+    background-color: var(
+        --joy-Textarea-Bg,
+        var(--joy-palette-background-surface)
+    );
+    border-color: var(--joy-Textarea-Border);
+    border-width: var(--joy-Textarea-borderWidth);
+    border-style: var(--joy-Textarea-borderStyle);
+    border-radius: var(--joy-Textarea-radius);
+    min-height: var(--joy-Textarea-minHeight);
+    padding-block: var(--joy-Textarea-paddingBlock);
+    padding-inline: var(--joy-Textarea-paddingInline);
 
     &:hover {
-        --Textarea-Border: var(
-            --variant-HoverBorder,
-            var(--Textarea-default-HoverBorder) ;
+        --joy-Textarea-Border: var(
+            --joy-variant-HoverBorder,
+            var(--joy-Textarea-default-HoverBorder) ;
         );
     }
 
@@ -54,38 +59,41 @@
 
     &[psc='Joy/Variant/plain'],
     &[psc='Joy/Variant/outlined'] {
-        --Textarea-Bg: var(--palette-background-surface);
+        --joy-Textarea-Bg: var(--joy-palette-background-surface);
     }
 
     &::placeholder {
-        font-family: var(--fontFamily-body);
-        font-size: var(--fontSize-md);
-        color: var(--Textarea-placeholderColor);
-        opacity: var(--Textarea-placeholderOpacity);
+        font-family: var(--joy-fontFamily-body);
+        font-size: var(--joy-fontSize-md);
+        color: var(--joy-Textarea-placeholderColor);
+        opacity: var(--joy-Textarea-placeholderOpacity);
     }
 
     &:focus-within {
-        outline-width: var(--Textarea-focusedThickness);
+        outline-width: var(--joy-Textarea-focusedThickness);
         outline-style: solid;
-        outline-color: var(--Textarea-focusedHighlight);
-        outline-offset: min(calc(var(--Textarea-borderWidth, 0px) * -1), -1px);
+        outline-color: var(--joy-Textarea-focusedHighlight);
+        outline-offset: min(
+            calc(var(--joy-Textarea-borderWidth, 0px) * -1),
+            -1px
+        );
     }
 }
 
 [psc='Joy/Size/sm'] [data-component='ia.input.text-area'],
 [psc='Joy/Size/sm'][data-component='ia.input.text-area'] {
-    --Textarea-minHeight: 2rem;
-    --Textarea-paddingInline: 0.5rem;
+    --joy-Textarea-minHeight: 2rem;
+    --joy-Textarea-paddingInline: 0.5rem;
 }
 
 [psc='Joy/Size/md'] [data-component='ia.input.text-area'],
 [psc='Joy/Size/md'][data-component='ia.input.text-area'] {
-    --Textarea-minHeight: 2.5rem;
-    --Textarea-paddingInline: 0.75rem;
+    --joy-Textarea-minHeight: 2.5rem;
+    --joy-Textarea-paddingInline: 0.75rem;
 }
 
 [psc='Joy/Size/lg'] [data-component='ia.input.text-area'],
 [psc='Joy/Size/lg'][data-component='ia.input.text-area'] {
-    --Textarea-minHeight: 3rem;
-    --Textarea-paddingInline: 1rem;
+    --joy-Textarea-minHeight: 3rem;
+    --joy-Textarea-paddingInline: 1rem;
 }

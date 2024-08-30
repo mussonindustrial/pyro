@@ -4,50 +4,53 @@
     @include variant-default(Chip, outlined);
     @include palette-default(Chip, neutral);
 
-    --Chip-decoratorChildOffset: min(
+    --joy-Chip-decoratorChildOffset: min(
         calc(
-            var(--Chip-paddingInline) -
+            var(--joy-Chip-paddingInline) -
                 (
-                    var(--_Chip-minHeight) - 2 * var(--variant-borderWidth, 0px) -
-                        var(--Chip-decoratorChildHeight)
+                    var(--joy-_Chip-minHeight) - 2 *
+                        var(--joy-variant-borderWidth, 0px) -
+                        var(--joy-Chip-decoratorChildHeight)
                 ) / 2
         ),
-        var(--Chip-paddingInline)
+        var(--joy-Chip-paddingInline)
     );
-    --Chip-decoratorChildRadius: max(
-        var(--_Chip-radius) - var(--variant-borderWidth, 0px) -
-            var(--_Chip-paddingBlock),
+    --joy-Chip-decoratorChildRadius: max(
+        var(--joy-_Chip-radius) - var(--joy-variant-borderWidth, 0px) -
+            var(--joy-_Chip-paddingBlock),
         min(
-            var(--_Chip-paddingBlock) + var(--variant-borderWidth, 0px),
-            var(--_Chip-radius) / 2
+            var(--joy-_Chip-paddingBlock) + var(--joy-variant-borderWidth, 0px),
+            var(--joy-_Chip-radius) / 2
         )
     );
-    --Chip-deleteRadius: var(--Chip-decoratorChildRadius);
-    --Chip-deleteSize: var(--Chip-decoratorChildHeight);
-    --Avatar-radius: var(--Chip-decoratorChildRadius);
-    --Avatar-size: var(--Chip-decoratorChildHeight);
-    --Icon-margin: initial;
-    --Icon-color: currentColor;
-    --unstable_actionRadius: var(--_Chip-radius);
-    --_Chip-radius: var(--Chip-radius, 1.5rem);
-    --_Chip-paddingBlock: max(
+    --joy-Chip-deleteRadius: var(--joy-Chip-decoratorChildRadius);
+    --joy-Chip-deleteSize: var(--joy-Chip-decoratorChildHeight);
+    --joy-Avatar-radius: var(--joy-Chip-decoratorChildRadius);
+    --joy-Avatar-size: var(--joy-Chip-decoratorChildHeight);
+    --joy-Icon-margin: initial;
+    --joy-Icon-color: currentColor;
+    --joy-unstable_actionRadius: var(--joy-_Chip-radius);
+    --joy-_Chip-radius: var(--joy-Chip-radius, 1.5rem);
+    --joy-_Chip-paddingBlock: max(
         (
-                var(--_Chip-minHeight) - 2 * var(--variant-borderWidth, 0px) -
-                    var(--Chip-decoratorChildHeight)
+                var(--joy-_Chip-minHeight) - 2 *
+                    var(--joy-variant-borderWidth, 0px) -
+                    var(--joy-Chip-decoratorChildHeight)
             ) / 2,
         0px
     );
 
-    --Chip-deleteMargin: 0 calc(var(--Chip-decoratorChildOffset) * -1) 0 0;
+    --joy-Chip-deleteMargin: 0 calc(var(--joy-Chip-decoratorChildOffset) * -1) 0
+        0;
 
-    min-height: var(--_Chip-minHeight);
+    min-height: var(--joy-_Chip-minHeight);
     max-width: max-content;
-    padding-inline: var(--Chip-paddingInline);
-    border-radius: var(--_Chip-radius);
-    gap: var(--Chip-gap);
-    line-height: var(--lineHeight-md);
-    font-weight: var(--fontWeight-md);
-    font-family: var(--fontFamily-body);
+    padding-inline: var(--joy-Chip-paddingInline);
+    border-radius: var(--joy-_Chip-radius);
+    gap: var(--joy-Chip-gap);
+    line-height: var(--joy-lineHeight-md);
+    font-weight: var(--joy-fontWeight-md);
+    font-family: var(--joy-fontFamily-body);
     display: inline-flex;
 
     white-space: nowrap;
@@ -61,68 +64,72 @@
     justify-content: center !important;
 
     /* Default to medium size */
-    --Chip-gap: 0.25rem;
-    --Chip-paddingInline: 0.5rem;
-    --Chip-decoratorChildHeight: calc(
-        var(--_Chip-minHeight) - 0.25rem - 2 * var(--variant-borderWidth)
+    --joy-Chip-gap: 0.25rem;
+    --joy-Chip-paddingInline: 0.5rem;
+    --joy-Chip-decoratorChildHeight: calc(
+        var(--joy-_Chip-minHeight) - 0.25rem - 2 *
+            var(--joy-variant-borderWidth)
     );
-    --Icon-fontSize: var(--fontSize-md);
-    --_Chip-minHeight: var(--Chip-minHeight, 1.5rem);
-    font-size: var(--fontSize-sm);
+    --joy-Icon-fontSize: var(--joy-fontSize-md);
+    --joy-_Chip-minHeight: var(--joy-Chip-minHeight, 1.5rem);
+    font-size: var(--joy-fontSize-sm);
 
     /* Defaults */
     border-style: none;
 
     /* Variant */
-    color: var(--Chip-Color);
-    background-color: var(--Chip-Bg);
-    border-color: var(--Chip-Border);
-    border-width: var(--Chip-borderWidth);
-    border-style: var(--Chip-borderStyle);
+    color: var(--joy-Chip-Color);
+    background-color: var(--joy-Chip-Bg);
+    border-color: var(--joy-Chip-Border);
+    border-width: var(--joy-Chip-borderWidth);
+    border-style: var(--joy-Chip-borderStyle);
 
     &[psc='Joy/Size/sm'] {
-        --Chip-gap: 0.125rem;
-        --Chip-paddingInline: 0.375rem;
-        --Chip-decoratorChildHeight: calc(
-            var(--_Chip-minHeight) - 2 * var(--variant-borderWidth)
+        --joy-Chip-gap: 0.125rem;
+        --joy-Chip-paddingInline: 0.375rem;
+        --joy-Chip-decoratorChildHeight: calc(
+            var(--joy-_Chip-minHeight) - 2 * var(--joy-variant-borderWidth)
         );
-        --Icon-fontSize: var(--fontSize-sm);
-        --_Chip-minHeight: var(--Chip-minHeight, 1.25rem);
-        font-size: var(--fontSize-xs);
+        --joy-Icon-fontSize: var(--joy-fontSize-sm);
+        --joy-_Chip-minHeight: var(--joy-Chip-minHeight, 1.25rem);
+        font-size: var(--joy-fontSize-xs);
     }
 
     &[psc='Joy/Size/md'] {
-        --Chip-gap: 0.25rem;
-        --Chip-paddingInline: 0.5rem;
-        --Chip-decoratorChildHeight: calc(
-            var(--_Chip-minHeight) - 0.25rem - 2 * var(--variant-borderWidth)
+        --joy-Chip-gap: 0.25rem;
+        --joy-Chip-paddingInline: 0.5rem;
+        --joy-Chip-decoratorChildHeight: calc(
+            var(--joy-_Chip-minHeight) - 0.25rem - 2 *
+                var(--joy-variant-borderWidth)
         );
-        --Icon-fontSize: var(--fontSize-md);
-        --_Chip-minHeight: var(--Chip-minHeight, 1.5rem);
-        font-size: var(--fontSize-sm);
+        --joy-Icon-fontSize: var(--joy-fontSize-md);
+        --joy-_Chip-minHeight: var(--joy-Chip-minHeight, 1.5rem);
+        font-size: var(--joy-fontSize-sm);
     }
 
     &[psc='Joy/Size/lg'] {
-        --Chip-gap: 0.375rem;
-        --Chip-paddingInline: 0.75rem;
-        --Chip-decoratorChildHeight: calc(
-            var(--_Chip-minHeight) - 0.375rem - 2 * var(--variant-borderWidth)
+        --joy-Chip-gap: 0.375rem;
+        --joy-Chip-paddingInline: 0.75rem;
+        --joy-Chip-decoratorChildHeight: calc(
+            var(--joy-_Chip-minHeight) - 0.375rem - 2 *
+                var(--joy-variant-borderWidth)
         );
-        --Icon-fontSize: var(--fontSize-lg);
-        --_Chip-minHeight: var(--Chip-minHeight, 1.75rem);
-        font-size: var(--fontSize-md);
+        --joy-Icon-fontSize: var(--joy-fontSize-lg);
+        --joy-_Chip-minHeight: var(--joy-Chip-minHeight, 1.75rem);
+        font-size: var(--joy-fontSize-md);
     }
 
     > *:last-child {
-        --IconButton-margin: 0 calc(var(--Chip-decoratorChildOffset) * -1) 0
-            calc(-1 * var(--Chip-paddingInline) / 3);
-        --Icon-margin: 0 calc(var(--Chip-paddingInline) / -4) 0 0;
+        --joy-IconButton-margin: 0
+            calc(var(--joy-Chip-decoratorChildOffset) * -1) 0
+            calc(-1 * var(--joy-Chip-paddingInline) / 3);
+        --joy-Icon-margin: 0 calc(var(--joy-Chip-paddingInline) / -4) 0 0;
     }
 
     > *:first-child {
-        --IconButton-margin: 0 calc(-1 * var(--Chip-paddingInline) / 3) 0
-            calc(var(--Chip-decoratorChildOffset) * -1);
-        --Icon-margin: 0 0 0 calc(var(--Chip-paddingInline) / -4);
+        --joy-IconButton-margin: 0 calc(-1 * var(--joy-Chip-paddingInline) / 3)
+            0 calc(var(--joy-Chip-decoratorChildOffset) * -1);
+        --joy-Icon-margin: 0 0 0 calc(var(--joy-Chip-paddingInline) / -4);
     }
 
     svg {
@@ -133,11 +140,14 @@
         fill: currentColor;
         flex: 0 0 auto !important;
         transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        margin: var(--Icon-margin);
-        font-size: var(--Icon-fontSize, var(--fontSize-xl2));
+        margin: var(--joy-Icon-margin);
+        font-size: var(--joy-Icon-fontSize, var(--joy-fontSize-xl2));
         color: var(
-            --Icon-color,
-            var(--palette-text-icon, var(--palette-neutral-500, #636b74))
+            --joy-Icon-color,
+            var(
+                --joy-palette-text-icon,
+                var(--joy-palette-neutral-500, #636b74)
+            )
         );
     }
 }
@@ -166,11 +176,11 @@
     [psc='Joy/Container/chip-delete'][data-component='ia.input.button'],
 [psc='Joy/Container/chip-button']
     [psc='Joy/Container/chip-delete'][data-component='ia.input.button'] {
-    --IconButton-size: var(--Chip-deleteSize, 2rem);
-    border-radius: var(--Chip-deleteRadius);
-    min-width: var(--IconButton-size, 2rem);
-    min-height: var(--IconButton-size, 2rem);
-    margin: var(--IconButton-margin);
+    --joy-IconButton-size: var(--joy-Chip-deleteSize, 2rem);
+    border-radius: var(--joy-Chip-deleteRadius);
+    min-width: var(--joy-IconButton-size, 2rem);
+    min-height: var(--joy-IconButton-size, 2rem);
+    margin: var(--joy-IconButton-margin);
     padding: 0px;
 }
 
@@ -178,6 +188,6 @@
 
 .responsive-container > [psc='Joy/Container/chip'],
 .responsive-container > [psc='Joy/Container/chip-button'] {
-    min-height: var(--_Chip-minHeight);
+    min-height: var(--joy-_Chip-minHeight);
     max-width: max-content;
 }

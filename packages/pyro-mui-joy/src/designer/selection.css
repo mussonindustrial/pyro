@@ -1,5 +1,5 @@
 /* Containers */
 .ia_designing__container__addChild {
     @include style-forced(Container, outlined, neutral);
-    color: var(--Container-Color);
+    color: var(--joy-Container-Color);
 }

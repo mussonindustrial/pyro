@@ -1,13 +1,13 @@
 :root {
-    --radius-xs: 4px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
+    --joy-radius-xs: 4px;
+    --joy-radius-sm: 8px;
+    --joy-radius-md: 12px;
+    --joy-radius-lg: 16px;
+    --joy-radius-xl: 20px;
 }
 
 @each $size in (xs, sm, md, lg, xl) {
     [psc='Joy/Radius/$size'] {
-        border-radius: var(--radius-$(size));
+        border-radius: var(--joy-radius-$(size));
     }
 }

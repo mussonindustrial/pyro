@@ -1,18 +1,18 @@
 /* A divider is a thin line that groups content in lists and layouts. */
 [psc='Joy/Container/divider-horizontal'],
 [psc='Joy/Container/divider-vertical'] {
-    --Divider-thickness: 1px;
-    --Divider-lineColor: var(--palette-divider);
-    --Divider-gap: 8px;
-    --Divider-childPosition: 50%;
+    --joy-Divider-thickness: 1px;
+    --joy-Divider-lineColor: var(--joy-palette-divider);
+    --joy-Divider-gap: 8px;
+    --joy-Divider-childPosition: 50%;
     white-space: nowrap;
     border: 0px;
-    font-family: var(--joy-fontFamily-body);
-    font-size: var(--joy-fontSize-sm);
+    font-family: var(--joy-joy-fontFamily-body);
+    font-size: var(--joy-joy-fontSize-sm);
     padding: 0px !important;
 
     &:empty {
-        background-color: var(--Divider-lineColor);
+        background-color: var(--joy-Divider-lineColor);
 
         &:before,
         &:after {
@@ -23,50 +23,50 @@
     &:before,
     &:after {
         position: relative;
-        background-color: var(--Divider-lineColor);
+        background-color: var(--joy-Divider-lineColor);
         content: '';
     }
 
     &:before {
-        flex-basis: var(--Divider-childPosition);
+        flex-basis: var(--joy-Divider-childPosition);
     }
 
     &:after {
-        flex-basis: calc(100% - var(--Divider-childPosition));
+        flex-basis: calc(100% - var(--joy-Divider-childPosition));
     }
 
     &[psc='Joy/Container/card-overflow'] {
-        --_Divider-inset: var(--Divider-inset, 0px);
+        --joy-_Divider-inset: var(--joy-Divider-inset, 0px);
     }
 }
 
 [psc='Joy/Container/divider-horizontal'] {
-    margin-inline: var(--_Divider-inset);
+    margin-inline: var(--joy-_Divider-inset);
     margin-block: initial;
 
     &:empty {
         inline-size: initial;
-        block-size: var(--Divider-thickness);
+        block-size: var(--joy-Divider-thickness);
     }
 
     &:before,
     &:after {
         inline-size: initial;
-        block-size: var(--Divider-thickness);
+        block-size: var(--joy-Divider-thickness);
     }
 
     &:before {
         margin-inline-end: min(
-            var(--Divider-childPosition) * 999,
-            var(--Divider-gap)
+            var(--joy-Divider-childPosition) * 999,
+            var(--joy-Divider-gap)
         );
         margin-block-end: initial;
     }
 
     &:after {
         margin-inline-start: min(
-            (100% - var(--Divider-childPosition)) * 999,
-            var(--Divider-gap)
+            (100% - var(--joy-Divider-childPosition)) * 999,
+            var(--joy-Divider-gap)
         );
         margin-block-start: initial;
     }
@@ -74,32 +74,32 @@
 
 [psc='Joy/Container/divider-vertical'] {
     margin-inline: initial;
-    margin-block: var(--_Divider-inset);
+    margin-block: var(--joy-_Divider-inset);
 
     &:empty {
-        inline-size: var(--Divider-thickness);
+        inline-size: var(--joy-Divider-thickness);
         block-size: initial;
     }
 
     &:before,
     &:after {
-        inline-size: var(--Divider-thickness);
+        inline-size: var(--joy-Divider-thickness);
         block-size: initial;
     }
 
     &:before {
         margin-inline-end: initial;
         margin-block-end: min(
-            var(--Divider-childPosition) * 999,
-            var(--Divider-gap)
+            var(--joy-Divider-childPosition) * 999,
+            var(--joy-Divider-gap)
         );
     }
 
     &:after {
         margin-inline-start: initial;
         margin-block-start: min(
-            (100% - var(--Divider-childPosition)) * 999,
-            var(--Divider-gap)
+            (100% - var(--joy-Divider-childPosition)) * 999,
+            var(--joy-Divider-gap)
         );
     }
 }

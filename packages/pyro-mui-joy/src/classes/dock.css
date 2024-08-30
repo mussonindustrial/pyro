@@ -6,7 +6,7 @@
     z-index: -10;
     background-color: color-mix(
         in srgb,
-        var(--palette-background-popup) 85%,
+        var(--joy-palette-background-popup) 85%,
         transparent
     );
     backdrop-filter: blur(10px);
@@ -16,5 +16,5 @@
 .docked-view.dock-cover-shadow-right,
 .docked-view.dock-cover-shadow-top,
 .docked-view.dock-cover-shadow-bottom {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--joy-shadow-xl);
 }

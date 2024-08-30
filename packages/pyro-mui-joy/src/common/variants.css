@@ -4,38 +4,42 @@ $drivenProperties: (Color, Bg, Border);
 $staticProperties: (borderWidth, borderStyle);
 
 :root {
-    --variant-plain-borderWidth: 0px;
-    --variant-plain-borderStyle: none;
-    --variant-outlined-borderWidth: 1px;
-    --variant-outlined-borderStyle: solid;
-    --variant-soft-borderWidth: 0px;
-    --variant-soft-borderStyle: none;
-    --variant-solid-borderWidth: 0px;
-    --variant-solid-borderStyle: none;
+    --joy-variant-plain-borderWidth: 0px;
+    --joy-variant-plain-borderStyle: none;
+    --joy-variant-outlined-borderWidth: 1px;
+    --joy-variant-outlined-borderStyle: solid;
+    --joy-variant-soft-borderWidth: 0px;
+    --joy-variant-soft-borderStyle: none;
+    --joy-variant-solid-borderWidth: 0px;
+    --joy-variant-solid-borderStyle: none;
 
     /* Default to outlined neutral */
     @each $property in $drivenProperties {
-        --variant-default$(property): var(
-            --palette-neutral-outlined$(property)
+        --joy-variant-default$(property): var(
+            --joy-palette-neutral-outlined$(property)
         );
-        --variant-$(property): var(--palette-neutral-outlined$(property));
+        --joy-variant-$(property): var(
+            --joy-palette-neutral-outlined$(property)
+        );
 
         @each $state in $states {
             /* prettier-ignore */
-            --variant-default$(state)$(property): var(
-                --palette-neutral-outlined$(state)$(property),
-                var(--palette-neutral-outlined$(property))
+            --joy-variant-default$(state)$(property): var(
+                --joy-palette-neutral-outlined$(state)$(property),
+                var(--joy-palette-neutral-outlined$(property))
             );
             /* prettier-ignore */
-            --variant-$(state)$(property): var(
-                --palette-neutral-outlined$(state)$(property),
-                var(--palette-neutral-outlined$(property))
+            --joy-variant-$(state)$(property): var(
+                --joy-palette-neutral-outlined$(state)$(property),
+                var(--joy-palette-neutral-outlined$(property))
             );
         }
     }
 
     @each $property in $staticProperties {
-        --variant-default$(property): var(--variant-outlined-$(property));
+        --joy-variant-default$(property): var(
+            --joy-variant-outlined-$(property)
+        );
     }
 }
 
@@ -43,19 +47,22 @@ $staticProperties: (borderWidth, borderStyle);
     [psc='Joy/Variant/$(variant)'] {
         @each $property in $drivenProperties {
             /* prettier-ignore */
-            --variant-$(property): var(--palette-$(variant)$(property), unset);
+            --joy-variant-$(property): var(--joy-palette-$(variant)$(property), unset);
 
             @each $state in $states {
                 /* prettier-ignore */
-                --variant-$(state)$(property): var(
-                    --palette-$(variant)$(state)$(property),
-                    var(--palette-$(variant)$(property), unset)
+                --joy-variant-$(state)$(property): var(
+                    --joy-palette-$(variant)$(state)$(property),
+                    var(--joy-palette-$(variant)$(property), unset)
                 );
             }
         }
 
         @each $property in $staticProperties {
-            --variant-$(property): var(--variant-$(variant)-$(property), unset);
+            --joy-variant-$(property): var(
+                --joy-variant-$(variant)-$(property),
+                unset
+            );
         }
 
         &:disabled {

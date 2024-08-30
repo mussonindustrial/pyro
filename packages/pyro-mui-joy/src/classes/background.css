@@ -1,32 +1,32 @@
 [psc='Joy/Background/body'] {
-    background-color: var(--palette-background-body);
+    background-color: var(--joy-palette-background-body);
 }
 
 [psc='Joy/Background/surface'] {
-    background-color: var(--palette-background-surface);
+    background-color: var(--joy-palette-background-surface);
 }
 
 [psc='Joy/Background/popup'] {
-    background-color: var(--palette-background-popup);
+    background-color: var(--joy-palette-background-popup);
 }
 
 [psc='Joy/Background/level1'] {
-    background-color: var(--palette-background-level1);
+    background-color: var(--joy-palette-background-level1);
 }
 
 [psc='Joy/Background/level2'] {
-    background-color: var(--palette-background-level2);
+    background-color: var(--joy-palette-background-level2);
 }
 
 [psc='Joy/Background/level3'] {
-    background-color: var(--palette-background-level3);
+    background-color: var(--joy-palette-background-level3);
 }
 
 [psc='Joy/Background/backdrop'] {
-    background-color: var(--palette-background-backdrop);
+    background-color: var(--joy-palette-background-backdrop);
 }
 
 [psc='Joy/Background/highlight'] {
-    background-color: var(--palette-background-highlight);
-    background-image: var(--palette-background-highlight-image);
+    background-color: var(--joy-palette-background-highlight);
+    background-image: var(--joy-palette-background-highlight-image);
 }

@@ -7,45 +7,45 @@
     @include palette-default(Card, neutral);
 
     /* Calculations */
-    --Card-childRadius: max(
-        (var(--Card-radius) - var(--variant-borderWidth, 0px)) -
-            var(--Card-padding),
+    --joy-Card-childRadius: max(
+        (var(--joy-Card-radius) - var(--joy-variant-borderWidth, 0px)) -
+            var(--joy-Card-padding),
         min(
-            var(--Card-padding) / 2,
-            (var(--Card-radius) - var(--variant-borderWidth, 0px)) / 2
+            var(--joy-Card-padding) / 2,
+            (var(--joy-Card-radius) - var(--joy-variant-borderWidth, 0px)) / 2
         )
     );
-    --AspectRatio-radius: var(--Card-childRadius);
-    --unstable_actionMargin: calc(-1 * var(--variant-borderWidth, 0px));
-    --unstable_actionRadius: var(--Card-radius);
-    --CardCover-radius: calc(
-        var(--Card-radius) - var(--variant-borderWidth, 0px)
+    --joy-AspectRatio-radius: var(--joy-Card-childRadius);
+    --joy-unstable_actionMargin: calc(-1 * var(--joy-variant-borderWidth, 0px));
+    --joy-unstable_actionRadius: var(--joy-Card-radius);
+    --joy-CardCover-radius: calc(
+        var(--joy-Card-radius) - var(--joy-variant-borderWidth, 0px)
     );
-    --CardOverflow-offset: calc(-1 * var(--Card-padding));
-    --CardOverflow-radius: calc(
-        var(--Card-radius) - var(--variant-borderWidth, 0px)
+    --joy-CardOverflow-offset: calc(-1 * var(--joy-Card-padding));
+    --joy-CardOverflow-radius: calc(
+        var(--joy-Card-radius) - var(--joy-variant-borderWidth, 0px)
     );
-    --Divider-inset: calc(-1 * var(--Card-padding));
+    --joy-Divider-inset: calc(-1 * var(--joy-Card-padding));
 
     /* Default to medium size */
-    --Card-radius: var(--radius-md);
-    --Card-padding: 1rem;
+    --joy-Card-radius: var(--joy-radius-md);
+    --joy-Card-padding: 1rem;
 
-    padding: var(--Card-padding);
-    border-radius: var(--Card-radius);
-    /* box-shadow: var(--shadow-sm); */
-    font-family: var(--fontFamily-body);
+    padding: var(--joy-Card-padding);
+    border-radius: var(--joy-Card-radius);
+    /* box-shadow: var(--joy-shadow-sm); */
+    font-family: var(--joy-fontFamily-body);
     position: relative;
 
     /* Defaults */
     border-style: none;
 
     /* Variant */
-    color: var(--Card-Color);
-    background-color: var(--Card-Bg, var(--palette-background-surface));
-    border-color: var(--Card-Border);
-    border-width: var(--Card-borderWidth);
-    border-style: var(--Card-borderStyle);
+    color: var(--joy-Card-Color);
+    background-color: var(--joy-Card-Bg, var(--joy-palette-background-surface));
+    border-color: var(--joy-Card-Border);
+    border-width: var(--joy-Card-borderWidth);
+    border-style: var(--joy-Card-borderStyle);
 }
 
 [psc='Joy/Size/sm'] [psc='Joy/Container/card'],
@@ -54,8 +54,8 @@
 [psc='Joy/Size/sm'][psc='Joy/Container/card-horizontal'][psc='Joy/Container/card-horizontal'],
 [psc='Joy/Size/sm'] [psc='Joy/Container/card-vertical'],
 [psc='Joy/Size/sm'][psc='Joy/Container/card-vertical'][psc='Joy/Container/card-vertical'] {
-    --Card-radius: var(--radius-sm);
-    --Card-padding: 0.5rem;
+    --joy-Card-radius: var(--joy-radius-sm);
+    --joy-Card-padding: 0.5rem;
 }
 
 [psc='Joy/Size/md'] [psc='Joy/Container/card'],
@@ -64,8 +64,8 @@
 [psc='Joy/Size/md'][psc='Joy/Container/card-horizontal'][psc='Joy/Container/card-horizontal'],
 [psc='Joy/Size/md'] [psc='Joy/Container/card-vertical'],
 [psc='Joy/Size/md'][psc='Joy/Container/card-vertical'][psc='Joy/Container/card-vertical'] {
-    --Card-radius: var(--radius-md);
-    --Card-padding: 1rem;
+    --joy-Card-radius: var(--joy-radius-md);
+    --joy-Card-padding: 1rem;
 }
 
 [psc='Joy/Size/lg'] [psc='Joy/Container/card'],
@@ -74,20 +74,20 @@
 [psc='Joy/Size/lg'][psc='Joy/Container/card-horizontal'][psc='Joy/Container/card-horizontal'],
 [psc='Joy/Size/lg'] [psc='Joy/Container/card-vertical'],
 [psc='Joy/Size/lg'][psc='Joy/Container/card-vertical'][psc='Joy/Container/card-vertical'] {
-    --Card-radius: var(--radius-lg);
-    --Card-padding: 1.5rem;
-    font-size: var(--fontSize-md);
+    --joy-Card-radius: var(--joy-radius-lg);
+    --joy-Card-padding: 1.5rem;
+    font-size: var(--joy-fontSize-md);
 }
 
 [psc='Joy/Container/card-overflow'] {
     align-self: stretch;
     position: relative;
     display: flex;
-    flex-direction: var(--_CardOverflow-flexDirection);
-    margin: var(--_CardOverflow-margin);
-    border-radius: var(--_CardOverflow-radius);
-    padding: var(--_CardOverflow-padding);
-    --variant-borderWidth: 0px;
+    flex-direction: var(--joy-_CardOverflow-flexDirection);
+    margin: var(--joy-_CardOverflow-margin);
+    border-radius: var(--joy-_CardOverflow-radius);
+    padding: var(--joy-_CardOverflow-padding);
+    --joy-variant-borderWidth: 0px;
 }
 
 [psc='Joy/Container/card-cover'] {
@@ -99,80 +99,101 @@
     top: 0px;
     bottom: 0px;
     z-index: 0;
-    /* flex-direction: var(--_CardOverflow-flexDirection); */
-    /* margin: var(--_CardOverflow-margin); */
-    border-radius: var(--CardCover-radius);
-    /* --variant-borderWidth: 0px; */
+    /* flex-direction: var(--joy-_CardOverflow-flexDirection); */
+    /* margin: var(--joy-_CardOverflow-margin); */
+    border-radius: var(--joy-CardCover-radius);
+    /* --joy-variant-borderWidth: 0px; */
 }
 
 [psc='Joy/Container/card-vertical'] {
-    --_CardOverflow-flexDirection: column;
-    --AspectRatio-margin: 0 calc(-1 * var(--Card-padding));
-    --_CardOverflow-margin: 0 var(--CardOverflow-offset);
-    --_CardOverflow-padding: 0 var(--Card-padding);
+    --joy-_CardOverflow-flexDirection: column;
+    --joy-AspectRatio-margin: 0 calc(-1 * var(--joy-Card-padding));
+    --joy-_CardOverflow-margin: 0 var(--joy-CardOverflow-offset);
+    --joy-_CardOverflow-padding: 0 var(--joy-Card-padding);
 
-    flex-direction: var(--_CardOverflow-flexDirection) !important;
+    flex-direction: var(--joy-_CardOverflow-flexDirection) !important;
 
     > [psc='Joy/Container/card-overflow']:first-child {
-        --AspectRatio-radius: calc(
-                var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)
+        --joy-AspectRatio-radius: calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
             )
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0
-            0;
-        --_CardOverflow-radius: var(--CardOverflow-radius)
-            var(--CardOverflow-radius) 0 0;
-        --_CardOverflow-margin: var(--CardOverflow-offset)
-            var(--CardOverflow-offset) 0;
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            )
+            0 0;
+        --joy-_CardOverflow-radius: var(--joy-CardOverflow-radius)
+            var(--joy-CardOverflow-radius) 0 0;
+        --joy-_CardOverflow-margin: var(--joy-CardOverflow-offset)
+            var(--joy-CardOverflow-offset) 0;
     }
 
     > [psc='Joy/Container/card-overflow'] {
-        --_CardOverflow-margin: var(--CardOverflow-offset)
-            var(--CardOverflow-offset) 0 0;
+        --joy-_CardOverflow-margin: var(--joy-CardOverflow-offset)
+            var(--joy-CardOverflow-offset) 0 0;
     }
 
     > [psc='Joy/Container/card-overflow']:last-child {
-        --AspectRatio-radius: 0 0
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px));
-        --_CardOverflow-radius: 0 0 var(--CardOverflow-radius)
-            var(--CardOverflow-radius);
-        --_CardOverflow-margin: 0 var(--CardOverflow-offset)
-            var(--CardOverflow-offset);
+        --joy-AspectRatio-radius: 0 0
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            )
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            );
+        --joy-_CardOverflow-radius: 0 0 var(--joy-CardOverflow-radius)
+            var(--joy-CardOverflow-radius);
+        --joy-_CardOverflow-margin: 0 var(--joy-CardOverflow-offset)
+            var(--joy-CardOverflow-offset);
     }
 }
 
 [psc='Joy/Container/card-horizontal'] {
-    --_CardOverflow-flexDirection: row;
-    --AspectRatio-margin: 0 calc(-1 * var(--Card-padding));
-    --_CardOverflow-margin: var(--CardOverflow-offset) 0;
-    --_CardOverflow-padding: var(--Card-padding) 0;
+    --joy-_CardOverflow-flexDirection: row;
+    --joy-AspectRatio-margin: 0 calc(-1 * var(--joy-Card-padding));
+    --joy-_CardOverflow-margin: var(--joy-CardOverflow-offset) 0;
+    --joy-_CardOverflow-padding: var(--joy-Card-padding) 0;
 
-    flex-direction: var(--_CardOverflow-flexDirection) !important;
+    flex-direction: var(--joy-_CardOverflow-flexDirection) !important;
 
     > [psc='Joy/Container/card-overflow']:first-child {
-        --AspectRatio-radius: calc(
-                var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)
+        --joy-AspectRatio-radius: calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
             )
             0 0
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px));
-        --_CardOverflow-radius: var(--CardOverflow-radius) 0 0
-            var(--CardOverflow-radius);
-        --_CardOverflow-margin: var(--CardOverflow-offset) 0px
-            var(--CardOverflow-offset) var(--CardOverflow-offset);
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            );
+        --joy-_CardOverflow-radius: var(--joy-CardOverflow-radius) 0 0
+            var(--joy-CardOverflow-radius);
+        --joy-_CardOverflow-margin: var(--joy-CardOverflow-offset) 0px
+            var(--joy-CardOverflow-offset) var(--joy-CardOverflow-offset);
     }
 
     > [psc='Joy/Container/card-overflow'] {
-        --_CardOverflow-margin: 0px 0px var(--CardOverflow-offset)
-            var(--CardOverflow-offset);
+        --joy-_CardOverflow-margin: 0px 0px var(--joy-CardOverflow-offset)
+            var(--joy-CardOverflow-offset);
     }
 
     > [psc='Joy/Container/card-overflow']:last-child {
-        --AspectRatio-radius: 0
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))
-            calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0;
-        --_CardOverflow-radius: 0 var(--CardOverflow-radius)
-            var(--CardOverflow-radius) 0;
-        --_CardOverflow-margin: var(--CardOverflow-offset)
-            var(--CardOverflow-offset) var(--CardOverflow-offset) 0px;
+        --joy-AspectRatio-radius: 0
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            )
+            calc(
+                var(--joy-CardOverflow-radius) -
+                    var(--joy-variant-borderWidth, 0px)
+            )
+            0;
+        --joy-_CardOverflow-radius: 0 var(--joy-CardOverflow-radius)
+            var(--joy-CardOverflow-radius) 0;
+        --joy-_CardOverflow-margin: var(--joy-CardOverflow-offset)
+            var(--joy-CardOverflow-offset) var(--joy-CardOverflow-offset) 0px;
     }
 }

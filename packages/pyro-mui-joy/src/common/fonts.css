@@ -17,9 +17,9 @@
         font-named-instance: 'Italic';
     }
 
-    --fontFamily-body: 'Inter var',
+    --joy-fontFamily-body: 'Inter var',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -31,9 +31,9 @@
             'Segoe UI Emoji',
             'Segoe UI Symbol'
         );
-    --fontFamily-display: 'Inter var',
+    --joy-fontFamily-display: 'Inter var',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -45,38 +45,38 @@
             'Segoe UI Emoji',
             'Segoe UI Symbol'
         );
-    --fontFamily-code: Source Code Pro, ui-monospace, SFMono-Regular, Menlo,
+    --joy-fontFamily-code: Source Code Pro, ui-monospace, SFMono-Regular, Menlo,
         Monaco, Consolas, Liberation Mono, Courier New, monospace;
-    --fontFamily-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol';
+    --joy-fontFamily-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol';
 
-    --fontSize-xs: 0.75rem;
-    --fontSize-sm: 0.875rem;
-    --fontSize-md: 1rem;
-    --fontSize-lg: 1.125rem;
-    --fontSize-xl: 1.25rem;
-    --fontSize-xl2: 1.5rem;
-    --fontSize-xl3: 1.875rem;
-    --fontSize-xl4: 2.25rem;
+    --joy-fontSize-xs: 0.75rem;
+    --joy-fontSize-sm: 0.875rem;
+    --joy-fontSize-md: 1rem;
+    --joy-fontSize-lg: 1.125rem;
+    --joy-fontSize-xl: 1.25rem;
+    --joy-fontSize-xl2: 1.5rem;
+    --joy-fontSize-xl3: 1.875rem;
+    --joy-fontSize-xl4: 2.25rem;
 
-    --fontWeight-sm: 300;
-    --fontWeight-md: 500;
-    --fontWeight-lg: 600;
-    --fontWeight-xl: 700;
-    --focus-thickness: 2px;
+    --joy-fontWeight-sm: 300;
+    --joy-fontWeight-md: 500;
+    --joy-fontWeight-lg: 600;
+    --joy-fontWeight-xl: 700;
+    --joy-focus-thickness: 2px;
 
-    --lineHeight-xs: 1.33334;
-    --lineHeight-sm: 1.42858;
-    --lineHeight-md: 1.5;
-    --lineHeight-lg: 1.55556;
-    --lineHeight-xl: 1.66667;
+    --joy-lineHeight-xs: 1.33334;
+    --joy-lineHeight-sm: 1.42858;
+    --joy-lineHeight-md: 1.5;
+    --joy-lineHeight-lg: 1.55556;
+    --joy-lineHeight-xl: 1.66667;
 
-    --letterSpacing-sm: -0.01em;
-    --letterSpacing-md: 0.083em;
-    --letterSpacing-lg: 0.125em;
+    --joy-letterSpacing-sm: -0.01em;
+    --joy-letterSpacing-md: 0.083em;
+    --joy-letterSpacing-lg: 0.125em;
 
-    font-family: var(--fontFamily-body);
+    font-family: var(--joy-fontFamily-body);
     font-weight: 400;
-    font-size: var(--fontSize-md);
+    font-size: var(--joy-fontSize-md);
 }

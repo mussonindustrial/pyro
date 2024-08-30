@@ -4,22 +4,22 @@
     @include variant-support(Input);
 
     /* Define component properties */
-    --Input-radius: var(--radius-sm);
-    --Input-gap: 0.5rem;
-    --Input-placeholderColor: var(--Input-Color);
-    --Input-placeholderOpacity: 0.5;
-    --Input-focused: 0;
-    --Input-focusedThickness: var(--focus-thickness);
-    --Input-focusedHighlight: var(
-        --variant-focusedHighlight,
-        var(--palette-focusVisible)
+    --joy-Input-radius: var(--joy-radius-sm);
+    --joy-Input-gap: 0.5rem;
+    --joy-Input-placeholderColor: var(--joy-Input-Color);
+    --joy-Input-placeholderOpacity: 0.5;
+    --joy-Input-focused: 0;
+    --joy-Input-focusedThickness: var(--joy-focus-thickness);
+    --joy-Input-focusedHighlight: var(
+        --joy-variant-focusedHighlight,
+        var(--joy-palette-focusVisible)
     );
-    --Input-minHeight: 2.5rem;
-    --Input-paddingInline: 0.75rem;
+    --joy-Input-minHeight: 2.5rem;
+    --joy-Input-paddingInline: 0.75rem;
 
     /* Default to Medium size */
-    --Input-minHeight: 2.5rem;
-    --Input-paddingInline: 0.75rem;
+    --joy-Input-minHeight: 2.5rem;
+    --joy-Input-paddingInline: 0.75rem;
 
     /* Style */
     box-sizing: border-box;
@@ -27,23 +27,26 @@
     overflow: visible;
     position: relative;
     display: flex;
-    font-family: var(--fontFamily-body);
-    font-size: var(--fontSize-md);
+    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-fontSize-md);
 
     /* Apply component properties */
-    color: var(--Input-Color);
-    background-color: var(--Input-Bg, var(--palette-background-surface));
-    border-color: var(--Input-Border);
-    border-width: var(--Input-borderWidth);
-    border-style: var(--Input-borderStyle);
-    border-radius: var(--Input-radius);
-    min-height: var(--Input-minHeight) !important;
-    padding-inline: var(--Input-paddingInline);
+    color: var(--joy-Input-Color);
+    background-color: var(
+        --joy-Input-Bg,
+        var(--joy-palette-background-surface)
+    );
+    border-color: var(--joy-Input-Border);
+    border-width: var(--joy-Input-borderWidth);
+    border-style: var(--joy-Input-borderStyle);
+    border-radius: var(--joy-Input-radius);
+    min-height: var(--joy-Input-minHeight) !important;
+    padding-inline: var(--joy-Input-paddingInline);
 
     &:hover {
-        --Input-Border: var(
-            --variant-HoverBorder,
-            var(--Input-default-HoverBorder)
+        --joy-Input-Border: var(
+            --joy-variant-HoverBorder,
+            var(--joy-Input-default-HoverBorder)
         );
     }
 
@@ -56,49 +59,49 @@
 
     &[psc='Joy/Variant/plain'],
     &[psc='Joy/Variant/outlined'] {
-        --Input-Bg: var(--palette-background-surface);
+        --joy-Input-Bg: var(--joy-palette-background-surface);
     }
 
     &::placeholder {
-        font-family: var(--fontFamily-body);
-        font-size: var(--fontSize-md);
-        color: var(--Input-placeholderColor);
-        opacity: var(--Input-placeholderOpacity);
+        font-family: var(--joy-fontFamily-body);
+        font-size: var(--joy-fontSize-md);
+        color: var(--joy-Input-placeholderColor);
+        opacity: var(--joy-Input-placeholderOpacity);
     }
 
     &:focus-within {
-        outline-width: var(--Input-focusedThickness);
+        outline-width: var(--joy-Input-focusedThickness);
         outline-style: solid;
-        outline-color: var(--Input-focusedHighlight);
+        outline-color: var(--joy-Input-focusedHighlight);
         outline-offset: min(
-            calc(var(--Input-borderWidth, 0px) * -1),
-            calc(var(--Input-focusedThickness) * -1)
+            calc(var(--joy-Input-borderWidth, 0px) * -1),
+            calc(var(--joy-Input-focusedThickness) * -1)
         );
     }
 }
 
 [psc='Joy/Size/sm'] .ia_inputField,
 [psc='Joy/Size/sm'].ia_inputField {
-    --Input-minHeight: 2rem;
-    --Input-paddingInline: 0.5rem;
-    --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
-    font-size: var(--fontSize-sm, 0.875rem);
+    --joy-Input-minHeight: 2rem;
+    --joy-Input-paddingInline: 0.5rem;
+    --joy-Input-decoratorChildHeight: min(1.5rem, var(--joy-Input-minHeight));
+    font-size: var(--joy-fontSize-sm, 0.875rem);
 }
 
 [psc='Joy/Size/md'] .ia_inputField,
 [psc='Joy/Size/md'].ia_inputField {
-    --Input-minHeight: 2.25rem;
-    --Input-paddingInline: 0.75rem;
-    --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
-    font-size: var(--fontSize-md, 1rem);
+    --joy-Input-minHeight: 2.25rem;
+    --joy-Input-paddingInline: 0.75rem;
+    --joy-Input-decoratorChildHeight: min(1.75rem, var(--joy-Input-minHeight));
+    font-size: var(--joy-fontSize-md, 1rem);
 }
 
 [psc='Joy/Size/lg'] .ia_inputField,
 [psc='Joy/Size/lg'].ia_inputField {
-    --Input-minHeight: 2.75rem;
-    --Input-paddingInline: 1rem;
-    --Input-decoratorChildHeight: min(2.25rem, var(--Input-minHeight));
-    font-size: var(--fontSize-lg, 1.125rem);
+    --joy-Input-minHeight: 2.75rem;
+    --joy-Input-paddingInline: 1rem;
+    --joy-Input-decoratorChildHeight: min(2.25rem, var(--joy-Input-minHeight));
+    font-size: var(--joy-fontSize-lg, 1.125rem);
 }
 
 /* Resets */

@@ -6,28 +6,30 @@ $steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
 
 @each $palette in $palettes {
     [psc='Joy/Palette/$(palette)'] {
-        --palette-mainChannel: var(--palette-$(palette)-mainChannel);
-        --palette-lightChannel: var(--palette-$(palette)-lightChannel);
-        --palette-darkChannel: var(--palette-$(palette)-darkChannel);
-        --palette-focusedHighlight: var(--palette-$(palette)-focusedHighlight);
+        --joy-palette-mainChannel: var(--joy-palette-$(palette)-mainChannel);
+        --joy-palette-lightChannel: var(--joy-palette-$(palette)-lightChannel);
+        --joy-palette-darkChannel: var(--joy-palette-$(palette)-darkChannel);
+        --joy-palette-focusedHighlight: var(
+            --joy-palette-$(palette)-focusedHighlight
+        );
 
         @each $step in $steps {
             /* prettier-ignore */
-            --palette-$(step): var(--palette-$(palette)-$(step));
+            --joy-palette-$(step): var(--joy-palette-$(palette)-$(step));
         }
 
         @each $variant in $variants {
             @each $attribute in $attributes {
                 /* prettier-ignore */
-                --palette-$(variant)$(attribute): var(
-                    --palette-$(palette)-$(variant)$(attribute)
+                --joy-palette-$(variant)$(attribute): var(
+                    --joy-palette-$(palette)-$(variant)$(attribute)
                 );
 
                 @each $state in $states {
                     /* prettier-ignore */
-                    --palette-$(variant)$(state)$(attribute): var(
-                        --palette-$(palette)-$(variant)$(state)$(attribute),
-                        var(--palette-$(variant)$(attribute))
+                    --joy-palette-$(variant)$(state)$(attribute): var(
+                        --joy-palette-$(palette)-$(variant)$(state)$(attribute),
+                        var(--joy-palette-$(variant)$(attribute))
                     );
                 }
             }
@@ -49,22 +51,22 @@ $steps: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
         @each $variant in $variants {
             @each $property in $drivenProperties {
                 /* prettier-ignore */
-                --$(component)-default-$(variant)$(property): var(
-                    --palette-$(palette)-$(variant)$(property)
+                --joy-$(component)-default-$(variant)$(property): var(
+                    --joy-palette-$(palette)-$(variant)$(property)
                 );
 
                 @each $state in $states {
                     /* prettier-ignore */
-                    --$(component)-default-$(variant)$(state)$(property): var(
-                        --palette-$(palette)-$(variant)$(state)$(property),
-                        var(--palette-$(palette)-$(variant)$(property))
+                    --joy-$(component)-default-$(variant)$(state)$(property): var(
+                        --joy-palette-$(palette)-$(variant)$(state)$(property),
+                        var(--joy-palette-$(palette)-$(variant)$(property))
                     );
                 }
             }
 
             @each $property in $staticProperties {
-                --$(component)-default-$(variant)-$(property): var(
-                    --variant-$(variant)-$(property)
+                --joy-$(component)-default-$(variant)-$(property): var(
+                    --joy-variant-$(variant)-$(property)
                 );
             }
         }

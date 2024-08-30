@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0px;
-    color: var(--palette-text-primary);
+    color: var(--joy-palette-text-primary);
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0px;
@@ -16,9 +16,9 @@ body {
         Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji', 'Segoe UI Symbol';
     font-weight: 400;
-    background-color: var(--background-color);
+    background-color: var(--joy-background-color);
 }
 
-.ia_container--root {
-    background-color: var(--background-color);
+.ia_container--joy-root {
+    background-color: var(--joy-background-color);
 }
