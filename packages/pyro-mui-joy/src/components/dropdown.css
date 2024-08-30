@@ -4,76 +4,81 @@
     @include variant-support(Input);
 
     /* Define component properties */
-    --Input-radius: var(--radius-sm);
-    --Input-gap: 0.5rem;
-    --Input-placeholderColor: inherit;
-    --Input-placeholderOpacity: 0.5;
-    --Input-focused: 0;
-    --Input-focusedThickness: var(--focus-thickness);
-    --Input-focusedHighlight: var(
-        --variant-focusedHighlight,
-        var(--palette-focusVisible)
+    --joy-Input-radius: var(--joy-radius-sm);
+    --joy-Input-gap: 0.5rem;
+    --joy-Input-placeholderColor: inherit;
+    --joy-Input-placeholderOpacity: 0.5;
+    --joy-Input-focused: 0;
+    --joy-Input-focusedThickness: var(--joy-focus-thickness);
+    --joy-Input-focusedHighlight: var(
+        --joy-variant-focusedHighlight,
+        var(--joy-palette-focusVisible)
     );
-    --Icon-fontSize: 1.5rem;
-    --Input-decoratorChildOffset: min(
+    --joy-Icon-fontSize: 1.5rem;
+    --joy-Input-decoratorChildOffset: min(
         calc(
-            var(--Input-paddingInline) -
+            var(--joy-Input-paddingInline) -
                 (
-                    var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
-                        var(--Input-decoratorChildHeight)
+                    var(--joy-Input-minHeight) - 2 *
+                        var(--joy-variant-borderWidth, 0px) -
+                        var(--joy-Input-decoratorChildHeight)
                 ) / 2
         ),
-        var(--Input-paddingInline)
+        var(--joy-Input-paddingInline)
     );
-    --_Input-paddingBlock: max(
+    --joy-_Input-paddingBlock: max(
         (
-                var(--Input-minHeight) - 2 * var(--variant-borderWidth, 0px) -
-                    var(--Input-decoratorChildHeight)
+                var(--joy-Input-minHeight) - 2 *
+                    var(--joy-variant-borderWidth, 0px) -
+                    var(--joy-Input-decoratorChildHeight)
             ) / 2,
         0px
     );
-    --Input-decoratorChildRadius: max(
-        var(--Input-radius) - var(--variant-borderWidth, 0px) -
-            var(--_Input-paddingBlock),
+    --joy-Input-decoratorChildRadius: max(
+        var(--joy-Input-radius) - var(--joy-variant-borderWidth, 0px) -
+            var(--joy-_Input-paddingBlock),
         min(
-            var(--_Input-paddingBlock) + var(--variant-borderWidth, 0px),
-            var(--Input-radius) / 2
+            var(--joy-_Input-paddingBlock) + var(--joy-variant-borderWidth, 0px),
+            var(--joy-Input-radius) / 2
         )
     );
-    --Button-minHeight: var(--Input-decoratorChildHeight);
-    --IconButton-size: var(--Input-decoratorChildHeight);
-    --Button-radius: var(--Input-decoratorChildRadius);
-    --IconButton-radius: var(--Input-decoratorChildRadius);
+    --joy-Button-minHeight: var(--joy-Input-decoratorChildHeight);
+    --joy-IconButton-size: var(--joy-Input-decoratorChildHeight);
+    --joy-Button-radius: var(--joy-Input-decoratorChildRadius);
+    --joy-IconButton-radius: var(--joy-Input-decoratorChildRadius);
 
     /* Default to Medium size */
-    --Input-minHeight: 2.5rem;
-    --Input-paddingInline: 0.75rem;
-    --Input-decoratorChildHeight: min(2rem, var(--Input-minHeight));
+    --joy-Input-minHeight: 2.5rem;
+    --joy-Input-paddingInline: 0.75rem;
+    --joy-Input-decoratorChildHeight: min(2rem, var(--joy-Input-minHeight));
 
     /* Style */
     box-sizing: border-box;
     min-width: 0px;
-    min-height: var(--Input-minHeight) !important;
+    min-height: var(--joy-Input-minHeight) !important;
     position: relative;
     display: flex;
-    font-family: var(--fontFamily-body);
-    font-size: var(--fontSize-md);
+    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-fontSize-md);
 
     /* Apply component properties */
     overflow: visible;
-    color: var(--Input-Color);
-    background-color: var(--Input-Bg, var(--palette-background-surface));
-    border-color: var(--Input-Border);
-    border-width: var(--Input-borderWidth);
-    border-style: var(--Input-borderStyle);
-    border-radius: var(--Input-radius);
-    min-height: var(--Input-minHeight);
-    padding-inline: var(--Input-paddingInline);
+    color: var(--joy-Input-Color);
+    background-color: var(
+        --joy-Input-Bg,
+        var(--joy-palette-background-surface)
+    );
+    border-color: var(--joy-Input-Border);
+    border-width: var(--joy-Input-borderWidth);
+    border-style: var(--joy-Input-borderStyle);
+    border-radius: var(--joy-Input-radius);
+    min-height: var(--joy-Input-minHeight);
+    padding-inline: var(--joy-Input-paddingInline);
 
     &:hover {
-        --Input-Border: var(
-            --variant-HoverBorder,
-            var(--Input-default-HoverBorder)
+        --joy-Input-Border: var(
+            --joy-variant-HoverBorder,
+            var(--joy-Input-default-HoverBorder)
         );
     }
 
@@ -85,29 +90,38 @@
     }
 
     &[psc='Joy/Size/sm'] {
-        --Input-minHeight: 2rem;
-        --Input-paddingInline: 0.5rem;
-        --Input-decoratorChildHeight: min(1.5rem, var(--Input-minHeight));
-        font-size: var(--fontSize-sm, 0.875rem);
+        --joy-Input-minHeight: 2rem;
+        --joy-Input-paddingInline: 0.5rem;
+        --joy-Input-decoratorChildHeight: min(
+            1.5rem,
+            var(--joy-Input-minHeight)
+        );
+        font-size: var(--joy-fontSize-sm, 0.875rem);
     }
 
     &[psc='Joy/Size/md'] {
-        --Input-minHeight: 2.25rem;
-        --Input-paddingInline: 0.75rem;
-        --Input-decoratorChildHeight: min(1.75rem, var(--Input-minHeight));
-        font-size: var(--fontSize-md, 1rem);
+        --joy-Input-minHeight: 2.25rem;
+        --joy-Input-paddingInline: 0.75rem;
+        --joy-Input-decoratorChildHeight: min(
+            1.75rem,
+            var(--joy-Input-minHeight)
+        );
+        font-size: var(--joy-fontSize-md, 1rem);
     }
 
     &[psc='Joy/Size/lg'] {
-        --Input-minHeight: 2.75rem;
-        --Input-paddingInline: 1rem;
-        --Input-decoratorChildHeight: min(2.25rem, var(--Input-minHeight));
-        font-size: var(--fontSize-lg, 1.125rem);
+        --joy-Input-minHeight: 2.75rem;
+        --joy-Input-paddingInline: 1rem;
+        --joy-Input-decoratorChildHeight: min(
+            2.25rem,
+            var(--joy-Input-minHeight)
+        );
+        font-size: var(--joy-fontSize-lg, 1.125rem);
     }
 
     [psc='Joy/Variant/plain'],
     [psc='Joy/Variant/outlined'] {
-        --Input-Bg: var(--palette-background-surface);
+        --joy-Input-Bg: var(--joy-palette-background-surface);
     }
 
     svg {
@@ -115,8 +129,8 @@
     }
 
     input {
-        font-family: var(--fontFamily-body);
-        font-size: var(--fontSize-md);
+        font-family: var(--joy-fontFamily-body);
+        font-size: var(--joy-fontSize-md);
     }
 
     &.iaDropdownCommon > div {
@@ -124,7 +138,7 @@
     }
 
     &:focus-within::before {
-        --Input-focused: 1;
+        --joy-Input-focused: 1;
     }
 
     &::before {
@@ -135,21 +149,21 @@
         pointer-events: none;
         inset: 0px;
         z-index: 1;
-        border-radius: var(--Input-radius, inherit);
-        margin: calc(var(--Input-borderWidth, 0px) * -1);
-        box-shadow: var(--Input-focusedInset, inset) 0 0 0
-            calc(var(--Input-focused) * var(--Input-focusedThickness))
-            var(--Input-focusedHighlight);
+        border-radius: var(--joy-Input-radius, inherit);
+        margin: calc(var(--joy-Input-borderWidth, 0px) * -1);
+        box-shadow: var(--joy-Input-focusedInset, inset) 0 0 0
+            calc(var(--joy-Input-focused) * var(--joy-Input-focusedThickness))
+            var(--joy-Input-focusedHighlight);
     }
 
     &__placeholder {
-        opacity: var(--Input-placeholderOpacity);
+        opacity: var(--joy-Input-placeholderOpacity);
     }
 }
 
 .iaDropdownCommon {
     &_search {
-        color: var(--palette-text-primary);
+        color: var(--joy-palette-text-primary);
     }
 
     &_search_enabled {
@@ -159,15 +173,15 @@
 
 .iaDropdownCommon_clear_value,
 .ia_dropdown__expandIcon.material-icons.md-24 {
-    --Icon-margin: initial;
+    --joy-Icon-margin: initial;
 
-    min-width: var(--IconButton-size, 2.5rem);
-    min-height: var(--IconButton-size, 2.5rem);
+    min-width: var(--joy-IconButton-size, 2.5rem);
+    min-height: var(--joy-IconButton-size, 2.5rem);
 
     padding-inline: 0.25rem;
     padding-block: 0px;
-    margin: var(--IconButton-margin);
-    border-radius: var(--IconButton-radius, var(--radius-sm));
+    margin: var(--joy-IconButton-margin);
+    border-radius: var(--joy-IconButton-radius, var(--joy-radius-sm));
 
     cursor: pointer;
     display: inline-flex;
@@ -176,21 +190,21 @@
     -webkit-box-pack: center;
     justify-content: center;
     position: relative;
-    --variant-borderWidth: 0px;
+    --joy-variant-borderWidth: 0px;
 
-    margin-inline-start: calc(var(--_Input-paddingBlock) / 2);
-    margin-inline-end: calc(var(--Input-decoratorChildOffset) * -1);
+    margin-inline-start: calc(var(--joy-_Input-paddingBlock) / 2);
+    margin-inline-end: calc(var(--joy-Input-decoratorChildOffset) * -1);
 
-    margin-top: calc(var(--Input-decoratorChildOffset) / 2);
-    margin-bottom: calc(var(--Input-decoratorChildOffset) / 2);
-    margin-left: var(--Input-decoratorChildOffset);
+    margin-top: calc(var(--joy-Input-decoratorChildOffset) / 2);
+    margin-bottom: calc(var(--joy-Input-decoratorChildOffset) / 2);
+    margin-left: var(--joy-Input-decoratorChildOffset);
 
     symbol {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        margin: var(--Icon-margin);
+        margin: var(--joy-Icon-margin);
         width: 1em;
         height: 1em;
         display: inline-block;
@@ -198,8 +212,8 @@
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
-        font-size: var(--Icon-fontSize, 1.25rem);
-        color: var(--Icon-color);
+        font-size: var(--joy-Icon-fontSize, 1.25rem);
+        color: var(--joy-Icon-color);
     }
 }
 
@@ -207,20 +221,20 @@
     @include variant-support(Chip);
     @include variant-forced(Chip, soft);
 
-    --Chip-radius: 1.5rem;
+    --joy-Chip-radius: 1.5rem;
 
     cursor: pointer;
 
-    color: var(--Chip-Color);
-    background-color: var(--Chip-Bg);
-    border-color: var(--Chip-Border);
-    border-width: var(--Chip-borderWidth);
-    border-style: var(--Chip-borderStyle);
-    border-radius: var(--Chip-radius);
+    color: var(--joy-Chip-Color);
+    background-color: var(--joy-Chip-Bg);
+    border-color: var(--joy-Chip-Border);
+    border-width: var(--joy-Chip-borderWidth);
+    border-style: var(--joy-Chip-borderStyle);
+    border-radius: var(--joy-Chip-radius);
 
-    font-size: var(--joy-fontSize-sm);
-    font-weight: var(--joy-fontWeight-md);
-    font-family: var(--joy-fontFamily-body);
+    font-size: var(--joy-joy-fontSize-sm);
+    font-weight: var(--joy-joy-fontWeight-md);
+    font-family: var(--joy-joy-fontFamily-body);
     margin-block-start: 3px;
     margin-block-end: 3px;
     padding-inline-start: 12px;
@@ -231,18 +245,18 @@
     @include variant-support(Button);
     @include variant-forced(Button, solid);
 
-    --Button-radius: 100%;
+    --joy-Button-radius: 100%;
 
     margin-right: -7px;
     height: 22px;
     width: 22px;
 
-    color: var(--Button-Color);
-    background-color: var(--Button-Bg);
-    border-color: var(--Button-Border);
-    border-width: var(--Button-borderWidth);
-    border-style: var(--Button-borderStyle);
-    border-radius: var(--Button-radius);
+    color: var(--joy-Button-Color);
+    background-color: var(--joy-Button-Bg);
+    border-color: var(--joy-Button-Border);
+    border-width: var(--joy-Button-borderWidth);
+    border-style: var(--joy-Button-borderStyle);
+    border-radius: var(--joy-Button-radius);
 
     &:hover {
         @include component-state-forced(Button, solid, Hover);
@@ -257,16 +271,16 @@
 .ia_dropdown__expandIcon {
     @include variant-support(Button);
 
-    --Button-borderStyle: none;
-    --Button-radius: var(--radius-sm);
+    --joy-Button-borderStyle: none;
+    --joy-Button-radius: var(--joy-radius-sm);
 
-    color: var(--Button-Color);
-    background-color: var(--Button-Bg);
-    border-color: var(--Button-Border);
-    border-width: var(--Button-borderWidth);
-    border-style: var(--Button-borderStyle);
-    border-radius: var(--Button-radius);
-    border-radius: var(--IconButton-radius, var(--radius-sm));
+    color: var(--joy-Button-Color);
+    background-color: var(--joy-Button-Bg);
+    border-color: var(--joy-Button-Border);
+    border-width: var(--joy-Button-borderWidth);
+    border-style: var(--joy-Button-borderStyle);
+    border-radius: var(--joy-Button-radius);
+    border-radius: var(--joy-IconButton-radius, var(--joy-radius-sm));
 
     &:hover {
         @include component-state(Button, Hover);
@@ -278,12 +292,12 @@
 }
 
 .ia_dropdown__optionsModal {
-    background-color: var(--palette-background-popup);
-    border-color: var(--palette-neutral-outlinedBorder);
-    border-width: var(--variant-outlined-borderWidth);
-    border-style: var(--variant-outlined-borderStyle);
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--radius-sm);
+    background-color: var(--joy-palette-background-popup);
+    border-color: var(--joy-palette-neutral-outlinedBorder);
+    border-width: var(--joy-variant-outlined-borderWidth);
+    border-style: var(--joy-variant-outlined-borderStyle);
+    box-shadow: var(--joy-shadow-lg);
+    border-radius: var(--joy-radius-sm);
 }
 
 .ia_dropdown__option {
@@ -291,65 +305,72 @@
     @include style-forced(Option, plain, neutral);
 
     /* Define component properties */
-    --OptionDivider-gap: 0.375rem;
-    --Option-minHeight: 2.5rem;
-    --Option-paddingY: 0.375rem;
-    --Option-paddingX: 0.75rem;
-    --Option-fontSize: var(--joy-fontSize-md);
-    --Option-paddingLeft: var(--Option-paddingX);
-    --Option-paddingRight: var(--Option-paddingX);
-    --Option-startActionTranslateX: calc(0.5 * var(--Option-paddingLeft));
-    --Option-endActionTranslateX: calc(-0.5 * var(--Option-paddingRight));
+    --joy-OptionDivider-gap: 0.375rem;
+    --joy-Option-minHeight: 2.5rem;
+    --joy-Option-paddingY: 0.375rem;
+    --joy-Option-paddingX: 0.75rem;
+    --joy-Option-fontSize: var(--joy-joy-fontSize-md);
+    --joy-Option-paddingLeft: var(--joy-Option-paddingX);
+    --joy-Option-paddingRight: var(--joy-Option-paddingX);
+    --joy-Option-startActionTranslateX: calc(
+        0.5 * var(--joy-Option-paddingLeft)
+    );
+    --joy-Option-endActionTranslateX: calc(
+        -0.5 * var(--joy-Option-paddingRight)
+    );
 
     /* Style */
-    font-family: var(--fontFamily-body);
+    font-family: var(--joy-fontFamily-body);
     padding-block: calc(
-        var(--Option-paddingY) - var(--Option-borderWidth, 0px)
+        var(--joy-Option-paddingY) - var(--joy-Option-borderWidth, 0px)
     );
-    margin-inline: var(--ListItemButton-marginInline);
+    margin-inline: var(--joy-ListItemButton-marginInline);
     text-align: initial;
     background-color: initial;
     cursor: pointer;
-    margin-block-start: var(--List-gap);
+    margin-block-start: var(--joy-List-gap);
     padding-inline-start: calc(
-        var(--Option-paddingLeft) +
+        var(--joy-Option-paddingLeft) +
             var(
-                --Option-startActionWidth,
-                var(--unstable_startActionWidth, 0px)
+                --joy-Option-startActionWidth,
+                var(--joy-unstable_startActionWidth, 0px)
             )
     );
     padding-inline-end: calc(
-        var(--Option-paddingRight) +
-            var(--Option-endActionWidth, var(--unstable_endActionWidth, 0px))
+        var(--joy-Option-paddingRight) +
+            var(
+                --joy-Option-endActionWidth,
+                var(--joy-unstable_endActionWidth, 0px)
+            )
     );
-    min-block-size: var(--Option-minHeight);
+    min-block-size: var(--joy-Option-minHeight);
 
     /* Apply component properties */
-    color: var(--Option-Color);
-    background-color: var(--Option-Bg);
-    border-color: var(--Option-Border);
-    border-width: var(--Option-borderWidth);
-    border-style: var(--Option-borderStyle);
-    font-size: var(--Option-fontSize);
+    color: var(--joy-Option-Color);
+    background-color: var(--joy-Option-Bg);
+    border-color: var(--joy-Option-Border);
+    border-width: var(--joy-Option-borderWidth);
+    border-style: var(--joy-Option-borderStyle);
+    font-size: var(--joy-Option-fontSize);
 
     &:hover {
-        --Option-Bg: var(--palette-neutral-plainHoverBg);
+        --joy-Option-Bg: var(--joy-palette-neutral-plainHoverBg);
     }
 
-    &--selected {
+    &--joy-selected {
         @include style-forced(Option, soft, primary);
 
-        font-weight: var(--fontWeight-md);
+        font-weight: var(--joy-fontWeight-md);
     }
 }
 
 /* Resets and Adjustments */
 .iaDropdownCommon.iaDropdownCommon_multi-select > div {
     & > *:first-child:has(.ia_dropdown__valuePill) {
-        margin-left: calc(var(--Input-decoratorChildOffset) * -1);
+        margin-left: calc(var(--joy-Input-decoratorChildOffset) * -1);
     }
     & > *:last-child:has(symbol) {
-        margin-right: calc(var(--Input-decoratorChildOffset) * -1);
+        margin-right: calc(var(--joy-Input-decoratorChildOffset) * -1);
     }
 }
 

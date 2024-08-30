@@ -1,45 +1,49 @@
 /* Switch */
 .ia_toggleSwitch {
-    --variant-borderWidth: 0px;
-    --Switch-trackRadius: var(--joy-radius-lg);
-    --Switch-thumbShadow: 0 0 0 1px var(--Switch-trackBackground);
-    --Switch-trackWidth: 48px;
-    --Switch-trackHeight: 24px;
-    --Switch-thumbSize: 16px;
-    --Switch-gap: 8px;
-    font-size: var(--joy-fontSize-md);
-    --unstable_paddingBlock: max(
+    --joy-variant-borderWidth: 0px;
+    --joy-Switch-trackRadius: var(--joy-joy-radius-lg);
+    --joy-Switch-thumbShadow: 0 0 0 1px var(--joy-Switch-trackBackground);
+    --joy-Switch-trackWidth: 48px;
+    --joy-Switch-trackHeight: 24px;
+    --joy-Switch-thumbSize: 16px;
+    --joy-Switch-gap: 8px;
+    font-size: var(--joy-joy-fontSize-md);
+    --joy-unstable_paddingBlock: max(
         (
-                var(--Switch-trackHeight) - 2 * var(--variant-borderWidth, 0px) -
-                    var(--Switch-thumbSize)
+                var(--joy-Switch-trackHeight) - 2 *
+                    var(--joy-variant-borderWidth, 0px) -
+                    var(--joy-Switch-thumbSize)
             ) / 2,
         0px
     );
-    --Switch-thumbRadius: max(
-        var(--Switch-trackRadius) - var(--unstable_paddingBlock),
-        min(var(--unstable_paddingBlock) / 2, var(--Switch-trackRadius) / 2)
+    --joy-Switch-thumbRadius: max(
+        var(--joy-Switch-trackRadius) - var(--joy-unstable_paddingBlock),
+        min(
+            var(--joy-unstable_paddingBlock) / 2,
+            var(--joy-Switch-trackRadius) / 2
+        )
     );
-    --Switch-thumbWidth: var(--Switch-thumbSize);
-    --Switch-thumbOffset: max(
-        (var(--Switch-trackHeight) - var(--Switch-thumbSize)) / 2,
+    --joy-Switch-thumbWidth: var(--joy-Switch-thumbSize);
+    --joy-Switch-thumbOffset: max(
+        (var(--joy-Switch-trackHeight) - var(--joy-Switch-thumbSize)) / 2,
         0px
     );
-    --Switch-trackBackground: var(
-        --joy-palette-neutral-solidBg,
-        var(--joy-palette-neutral-600, #5a5a72)
+    --joy-Switch-trackBackground: var(
+        --joy-joy-palette-neutral-solidBg,
+        var(--joy-joy-palette-neutral-600, #5a5a72)
     );
-    --Switch-trackColor: var(
-        --joy-palette-neutral-solidColor,
-        var(--joy-palette-common-white, #fff)
+    --joy-Switch-trackColor: var(
+        --joy-joy-palette-neutral-solidColor,
+        var(--joy-joy-palette-common-white, #fff)
     );
-    --Switch-trackBorderColor: currentColor;
-    --Switch-thumbBackground: var(
-        --joy-palette-neutral-solidColor,
-        var(--joy-palette-common-white, #fff)
+    --joy-Switch-trackBorderColor: currentColor;
+    --joy-Switch-thumbBackground: var(
+        --joy-joy-palette-neutral-solidColor,
+        var(--joy-joy-palette-common-white, #fff)
     );
-    --Switch-thumbColor: var(
-        --joy-palette-neutral-solidBg,
-        var(--joy-palette-neutral-600, #5a5a72)
+    --joy-Switch-thumbColor: var(
+        --joy-joy-palette-neutral-solidBg,
+        var(--joy-joy-palette-neutral-600, #5a5a72)
     );
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
@@ -53,22 +57,23 @@
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
-    font-family: var(--joy-fontFamily-body);
+    font-family: var(--joy-joy-fontFamily-body);
     position: relative;
     padding: calc(
-            (var(--Switch-thumbSize) / 2) - (var(--Switch-trackHeight) / 2)
+            (var(--joy-Switch-thumbSize) / 2) -
+                (var(--joy-Switch-trackHeight) / 2)
         )
-        calc(-1 * var(--Switch-thumbOffset));
+        calc(-1 * var(--joy-Switch-thumbOffset));
     background-color: initial;
     border: none;
-    margin: var(--unstable_Switch-margin);
+    margin: var(--joy-unstable_Switch-margin);
 }
 
 .ia_toggleSwitch__track {
     position: relative;
-    color: var(--Switch-trackColor);
-    height: var(--Switch-trackHeight);
-    width: var(--Switch-trackWidth);
+    color: var(--joy-Switch-trackColor);
+    height: var(--joy-Switch-trackHeight);
+    width: var(--joy-Switch-trackWidth);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -84,34 +89,34 @@
     -ms-flex-align: center;
     align-items: center;
     box-sizing: border-box;
-    border: var(--variant-borderWidth, 0px) solid;
-    border-color: var(--Switch-trackBorderColor);
-    background-color: var(--Switch-trackBackground) !important;
-    border-radius: var(--Switch-trackRadius);
-    font-family: var(--joy-fontFamily-body);
-    font-size: var(--joy-fontSize-sm);
+    border: var(--joy-variant-borderWidth, 0px) solid;
+    border-color: var(--joy-Switch-trackBorderColor);
+    background-color: var(--joy-Switch-trackBackground) !important;
+    border-radius: var(--joy-Switch-trackRadius);
+    font-family: var(--joy-joy-fontFamily-body);
+    font-size: var(--joy-joy-fontSize-sm);
     filter: unset;
 }
 
 .ia_toggleSwitch:hover {
-    --Switch-trackBackground: var(
-        --joy-palette-neutral-solidHoverBg,
-        var(--joy-palette-neutral-600, #054da7)
+    --joy-Switch-trackBackground: var(
+        --joy-joy-palette-neutral-solidHoverBg,
+        var(--joy-joy-palette-neutral-600, #054da7)
     );
-    --Switch-trackBorderColor: currentColor;
-    --Switch-thumbColor: var(
-        --joy-palette-neutral-solidHoverBg,
-        var(--joy-palette-neutral-600, #054da7)
+    --joy-Switch-trackBorderColor: currentColor;
+    --joy-Switch-thumbColor: var(
+        --joy-joy-palette-neutral-solidHoverBg,
+        var(--joy-joy-palette-neutral-600, #054da7)
     );
 }
 
-.ia_toggleSwitch__track--selected {
-    background-color: var(--Switch-trackBackground) !important;
+.ia_toggleSwitch__track--joy-selected {
+    background-color: var(--joy-Switch-trackBackground) !important;
     opacity: 1;
 }
 
 .ia_toggleSwitch__thumbContainer {
-    --Icon-fontSize: calc(var(--Switch-thumbSize) * 0.75);
+    --joy-Icon-fontSize: calc(var(--joy-Switch-thumbSize) * 0.75);
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
@@ -126,26 +131,26 @@
     position: absolute;
     top: 50%;
     left: calc(
-        50% - var(--Switch-trackWidth) / 2 + var(--Switch-thumbWidth) / 2 +
-            var(--Switch-thumbOffset)
+        50% - var(--joy-Switch-trackWidth) / 2 + var(--joy-Switch-thumbWidth) /
+            2 + var(--joy-Switch-thumbOffset)
     );
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: var(--Switch-thumbWidth);
-    height: var(--Switch-thumbSize);
-    border-radius: var(--Switch-thumbRadius);
-    box-shadow: var(--Switch-thumbShadow);
-    color: var(--Switch-thumbColor);
-    background-color: var(--Switch-thumbBackground) !important;
+    width: var(--joy-Switch-thumbWidth);
+    height: var(--joy-Switch-thumbSize);
+    border-radius: var(--joy-Switch-thumbRadius);
+    box-shadow: var(--joy-Switch-thumbShadow);
+    color: var(--joy-Switch-thumbColor);
+    background-color: var(--joy-Switch-thumbBackground) !important;
     transition: all 0.1s ease-in-out;
 }
 
-.ia_toggleSwitch__thumbContainer:has(.ia_toggleSwitch__thumb--selected) {
+.ia_toggleSwitch__thumbContainer:has(.ia_toggleSwitch__thumb--joy-selected) {
     left: calc(
-        50% + var(--Switch-trackWidth) / 2 - var(--Switch-thumbWidth) / 2 -
-            var(--Switch-thumbOffset)
+        50% + var(--joy-Switch-trackWidth) / 2 - var(--joy-Switch-thumbWidth) /
+            2 - var(--joy-Switch-thumbOffset)
     );
 }
 

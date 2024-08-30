@@ -20,29 +20,29 @@ $levels: (
         /* Variant */
         /* Apply component properties */
         color: var(
-            --Typography-Color,
+            --joy-Typography-Color,
             rgba(
                 var(
-                        --palette-mainChannel,
+                        --joy-palette-mainChannel,
                         var(
-                            --palette-text-primary,
-                            var(--palette-neutral-800, #25252d)
+                            --joy-palette-text-primary,
+                            var(--joy-palette-neutral-800, #25252d)
                         )
                     ) /
                     1
             )
         );
-        background-color: var(--Typography-Bg);
-        border-color: var(--Typography-Border);
-        border-width: var(--Typography-borderWidth);
-        border-style: var(--Typography-borderStyle);
-        border-radius: var(--Typography-radius, var(--radius-xs));
+        background-color: var(--joy-Typography-Bg);
+        border-color: var(--joy-Typography-Border);
+        border-width: var(--joy-Typography-borderWidth);
+        border-style: var(--joy-Typography-borderStyle);
+        border-radius: var(--joy-Typography-radius, var(--joy-radius-xs));
 
         font-family: var(
-            --fontFamily-body,
+            --joy-fontFamily-body,
             'Inter',
             var(
-                --fontFamily-fallback,
+                --joy-fontFamily-fallback,
                 -apple-system,
                 BlinkMacSystemFont,
                 'Segoe UI',
@@ -55,7 +55,7 @@ $levels: (
                 'Segoe UI Symbol'
             )
         );
-        margin: var(--Typography-margin, 0px);
+        margin: var(--joy-Typography-margin, 0px);
 
         /*Remove outline unless specifically assigned.*/
         &:not([psc='Joy/Variant/outlined']) {
@@ -65,13 +65,13 @@ $levels: (
 }
 
 [psc='Joy/Typography/h1'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-xs, 1.33334));
 
     font-family: var(
-        --fontFamily-display,
+        --joy-fontFamily-display,
         'Inter',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -84,20 +84,20 @@ $levels: (
             'Segoe UI Symbol'
         )
     );
-    font-weight: var(--fontWeight-xl, 700);
-    font-size: var(--Typography-fontSize, var(--fontSize-xl4, 2.25rem));
-    line-height: var(--lineHeight-xs, 1.33334);
+    font-weight: var(--joy-fontWeight-xl, 700);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-xl4, 2.25rem));
+    line-height: var(--joy-lineHeight-xs, 1.33334);
     letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h2'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-xs, 1.33334));
 
     font-family: var(
-        --fontFamily-display,
+        --joy-fontFamily-display,
         'Inter',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -110,20 +110,23 @@ $levels: (
             'Segoe UI Symbol'
         )
     );
-    font-weight: var(--fontWeight-xl, 700);
-    font-size: var(--Typography-fontSize, var(--fontSize-xl3, 1.875rem));
-    line-height: var(--lineHeight-xs, 1.33334);
+    font-weight: var(--joy-fontWeight-xl, 700);
+    font-size: var(
+        --joy-Typography-fontSize,
+        var(--joy-fontSize-xl3, 1.875rem)
+    );
+    line-height: var(--joy-lineHeight-xs, 1.33334);
     letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h3'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-xs, 1.33334));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-xs, 1.33334));
 
     font-family: var(
-        --fontFamily-display,
+        --joy-fontFamily-display,
         'Inter',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -136,20 +139,20 @@ $levels: (
             'Segoe UI Symbol'
         )
     );
-    font-weight: var(--fontWeight-lg, 600);
-    font-size: var(--Typography-fontSize, var(--fontSize-xl2, 1.5rem));
-    line-height: var(--lineHeight-xs, 1.33334);
+    font-weight: var(--joy-fontWeight-lg, 600);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-xl2, 1.5rem));
+    line-height: var(--joy-lineHeight-xs, 1.33334);
     letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/h4'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-md, 1.5));
 
     font-family: var(
-        --fontFamily-display,
+        --joy-fontFamily-display,
         'Inter',
         var(
-            --fontFamily-fallback,
+            --joy-fontFamily-fallback,
             -apple-system,
             BlinkMacSystemFont,
             'Segoe UI',
@@ -162,100 +165,100 @@ $levels: (
             'Segoe UI Symbol'
         )
     );
-    font-weight: var(--fontWeight-lg, 600);
-    font-size: var(--Typography-fontSize, var(--fontSize-xl, 1.25rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-weight: var(--joy-fontWeight-lg, 600);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-xl, 1.25rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
     letter-spacing: -0.025em;
 }
 
 [psc='Joy/Typography/title-lg'] {
-    font-weight: var(--fontWeight-lg, 600);
-    font-size: var(--Typography-fontSize, var(--fontSize-lg, 1.125rem));
-    line-height: var(--lineHeight-xs, 1.33334);
+    font-weight: var(--joy-fontWeight-lg, 600);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-lg, 1.125rem));
+    line-height: var(--joy-lineHeight-xs, 1.33334);
 }
 
 [psc='Joy/Typography/title-md'] {
-    font-weight: var(--fontWeight-md, 500);
-    font-size: var(--Typography-fontSize, var(--fontSize-md, 1rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-weight: var(--joy-fontWeight-md, 500);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-md, 1rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
 }
 
 [psc='Joy/Typography/title-sm'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-sm, 1.42858));
-    font-weight: var(--fontWeight-md, 500);
-    font-size: var(--Typography-fontSize, var(--fontSize-sm, 0.875rem));
-    line-height: var(--lineHeight-sm, 1.42858);
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-sm, 1.42858));
+    font-weight: var(--joy-fontWeight-md, 500);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-sm, 0.875rem));
+    line-height: var(--joy-lineHeight-sm, 1.42858);
 }
 
 [psc='Joy/Typography/body-lg'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-md, 1.5));
     color: var(
-        --Typography-Color,
+        --joy-Typography-Color,
         rgba(
             var(
-                    --palette-mainChannel,
+                    --joy-palette-mainChannel,
                     var(
-                        --palette-text-secondary,
-                        var(--palette-neutral-800, #25252d)
+                        --joy-palette-text-secondary,
+                        var(--joy-palette-neutral-800, #25252d)
                     )
                 ) / 1
         )
     );
-    font-size: var(--Typography-fontSize, var(--fontSize-lg, 1.125rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-lg, 1.125rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
 }
 
 [psc='Joy/Typography/body-md'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-md, 1.5));
     color: var(
-        --Typography-Color,
+        --joy-Typography-Color,
         rgba(
             var(
-                    --palette-mainChannel,
+                    --joy-palette-mainChannel,
                     var(
-                        --palette-text-secondary,
-                        var(--palette-neutral-800, #25252d)
+                        --joy-palette-text-secondary,
+                        var(--joy-palette-neutral-800, #25252d)
                     )
                 ) / 1
         )
     );
-    font-size: var(--Typography-fontSize, var(--fontSize-md, 1rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-md, 1rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
 }
 
 [psc='Joy/Typography/body-sm'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-md, 1.5));
     color: var(
-        --Typography-Color,
+        --joy-Typography-Color,
         rgba(
             var(
-                    --palette-mainChannel,
+                    --joy-palette-mainChannel,
                     var(
-                        --palette-text-tertiary,
-                        var(--palette-neutral-800, #25252d)
+                        --joy-palette-text-tertiary,
+                        var(--joy-palette-neutral-800, #25252d)
                     )
                 ) / 1
         )
     );
-    font-size: var(--Typography-fontSize, var(--fontSize-sm, 0.875rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-sm, 0.875rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
 }
 
 [psc='Joy/Typography/body-xs'] {
-    --Icon-fontSize: calc(1em * var(--lineHeight-md, 1.5));
+    --joy-Icon-fontSize: calc(1em * var(--joy-lineHeight-md, 1.5));
     color: var(
-        --Typography-Color,
+        --joy-Typography-Color,
         rgba(
             var(
-                    --palette-mainChannel,
+                    --joy-palette-mainChannel,
                     var(
-                        --palette-text-tertiary,
-                        var(--palette-neutral-800, #25252d)
+                        --joy-palette-text-tertiary,
+                        var(--joy-palette-neutral-800, #25252d)
                     )
                 ) / 1
         )
     );
-    font-weight: var(--fontWeight-md, 500);
-    font-size: var(--Typography-fontSize, var(--fontSize-xs, 0.75rem));
-    line-height: var(--lineHeight-md, 1.5);
+    font-weight: var(--joy-fontWeight-md, 500);
+    font-size: var(--joy-Typography-fontSize, var(--joy-fontSize-xs, 0.75rem));
+    line-height: var(--joy-lineHeight-md, 1.5);
 }

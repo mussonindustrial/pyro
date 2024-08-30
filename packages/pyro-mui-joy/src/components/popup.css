@@ -1,7 +1,7 @@
 .ia_popup {
-    background-color: var(--palette-background-level3);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
+    background-color: var(--joy-palette-background-level3);
+    border-radius: var(--joy-radius-md);
+    box-shadow: var(--joy-shadow-lg);
     overflow: visible;
     border: none;
     height: unset !important;

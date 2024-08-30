@@ -1,17 +1,17 @@
 /* Button */
 [data-component='ia.input.button'],
-.ia_button--primary,
-.ia_button--secondary,
+.ia_button--joy-primary,
+.ia_button--joy-secondary,
 .ia_passwordFieldComponent__visibilityLink {
     @include variant-support(Button);
 
     /* Default to Medium size */
-    --Icon-margin: initial;
-    --Icon-fontSize: 1.5rem;
-    --CircularProgress-size: 24px;
-    --Button-gap: 0.5rem;
-    min-height: var(--Button-minHeight, 2.5rem);
-    font-size: var(--fontSize-sm);
+    --joy-Icon-margin: initial;
+    --joy-Icon-fontSize: 1.5rem;
+    --joy-CircularProgress-size: 24px;
+    --joy-Button-gap: 0.5rem;
+    min-height: var(--joy-Button-minHeight, 2.5rem);
+    font-size: var(--joy-fontSize-sm);
 
     /* Style */
     cursor: pointer;
@@ -21,20 +21,20 @@
     position: relative;
     text-decoration: none;
 
-    font-family: var(--fontFamily-body);
-    font-weight: var(--fontWeight-lg);
+    font-family: var(--joy-fontFamily-body);
+    font-weight: var(--joy-fontWeight-lg);
     line-height: 1;
     padding-block: 0.25rem;
     padding-inline: 1rem;
 
     /* Apply component properties */
-    color: var(--Button-Color);
-    background-color: var(--Button-Bg);
-    border-color: var(--Button-Border);
-    border-width: var(--Button-borderWidth);
-    border-style: var(--Button-borderStyle);
-    border-radius: var(--Button-radius, var(--radius-sm));
-    margin: var(--Button-margin);
+    color: var(--joy-Button-Color);
+    background-color: var(--joy-Button-Bg);
+    border-color: var(--joy-Button-Border);
+    border-width: var(--joy-Button-borderWidth);
+    border-style: var(--joy-Button-borderStyle);
+    border-radius: var(--joy-Button-radius, var(--joy-radius-sm));
+    margin: var(--joy-Button-margin);
 
     &:hover {
         @include component-state(Button, Hover);
@@ -60,52 +60,52 @@
 [psc='Joy/Size/sm'] [data-component='ia.input.button'],
 [psc='Joy/Size/sm'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/sm'] ~ .ia_passwordFieldComponent__visibilityLink {
-    --IconButton-size: 2rem;
-    --Icon-fontSize: calc(var(--IconButton-size) / 1.6);
+    --joy-IconButton-size: 2rem;
+    --joy-Icon-fontSize: calc(var(--joy-IconButton-size) / 1.6);
 
-    min-height: var(--Button-minHeight, 2rem);
-    --_Button-minHeight: var(--Button-minHeight, 2rem);
+    min-height: var(--joy-Button-minHeight, 2rem);
+    --joy-_Button-minHeight: var(--joy-Button-minHeight, 2rem);
     padding-block: 2px;
     padding-inline: 0.75rem;
-    font-size: var(--fontSize-sm);
+    font-size: var(--joy-fontSize-sm);
 }
 
 [psc='Joy/Size/md'] [data-component='ia.input.button'],
 [psc='Joy/Size/md'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/md'] ~ .ia_passwordFieldComponent__visibilityLink {
-    --IconButton-size: 2.25rem;
-    --Icon-fontSize: calc(var(--IconButton-size) / 1.5);
+    --joy-IconButton-size: 2.25rem;
+    --joy-Icon-fontSize: calc(var(--joy-IconButton-size) / 1.5);
 
-    min-height: var(--Button-minHeight, 2.5rem);
-    --_Button-minHeight: var(--Button-minHeight, 2.5rem);
+    min-height: var(--joy-Button-minHeight, 2.5rem);
+    --joy-_Button-minHeight: var(--joy-Button-minHeight, 2.5rem);
     padding-block: 0.25rem;
     padding-inline: 1rem;
-    font-size: var(--fontSize-sm);
+    font-size: var(--joy-fontSize-sm);
 }
 
 [psc='Joy/Size/lg'] [data-component='ia.input.button'],
 [psc='Joy/Size/lg'][data-component='ia.input.button'][data-component='ia.input.button'],
 [psc='Joy/Size/lg'] ~ .ia_passwordFieldComponent__visibilityLink {
-    --IconButton-size: 2.75rem;
-    --Icon-fontSize: calc(var(--IconButton-size) / 1.571);
+    --joy-IconButton-size: 2.75rem;
+    --joy-Icon-fontSize: calc(var(--joy-IconButton-size) / 1.571);
 
-    min-height: var(--Button-minHeight, 3rem);
-    --_Button-minHeight: var(--Button-minHeight, 3rem);
+    min-height: var(--joy-Button-minHeight, 3rem);
+    --joy-_Button-minHeight: var(--joy-Button-minHeight, 3rem);
     padding-block: 0.375rem;
     padding-inline: 1.5rem;
-    font-size: var(--fontSize-md);
+    font-size: var(--joy-fontSize-md);
 }
 
 .ia_passwordFieldComponent__visibilityLink {
     @include variant-forced(Button, plain);
 
     margin-top: 0px !important;
-    width: var(--_Button-minHeight) !important;
-    min-width: var(--_Button-minHeight) !important;
+    width: var(--joy-_Button-minHeight) !important;
+    min-width: var(--joy-_Button-minHeight) !important;
 
     & svg {
-        min-height: var(--Icon-fontSize, 2rem) !important;
-        min-width: var(--Icon-fontSize, 2rem) !important;
+        min-height: var(--joy-Icon-fontSize, 2rem) !important;
+        min-width: var(--joy-Icon-fontSize, 2rem) !important;
     }
 }
 

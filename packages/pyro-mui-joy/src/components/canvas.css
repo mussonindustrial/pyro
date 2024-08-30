@@ -1,22 +1,25 @@
 .canvas {
     @include variant-support(Canvas);
     /* Define component properties */
-    --Canvas-radius: var(--radius-sm);
-    --Canvas-focusedThickness: var(--focus-thickness);
-    --Canvas-focusedHighlight: var(--palette-primary-solidBg);
+    --joy-Canvas-radius: var(--joy-radius-sm);
+    --joy-Canvas-focusedThickness: var(--joy-focus-thickness);
+    --joy-Canvas-focusedHighlight: var(--joy-palette-primary-solidBg);
 
     /* Apply component properties */
-    color: var(--Canvas-Color);
-    background-color: var(--Canvas-Bg, var(--palette-background-surface));
-    border-color: var(--Canvas-Border);
-    border-width: var(--Canvas-borderWidth);
-    border-style: var(--Canvas-borderStyle);
-    border-radius: var(--Canvas-radius);
+    color: var(--joy-Canvas-Color);
+    background-color: var(
+        --joy-Canvas-Bg,
+        var(--joy-palette-background-surface)
+    );
+    border-color: var(--joy-Canvas-Border);
+    border-width: var(--joy-Canvas-borderWidth);
+    border-style: var(--joy-Canvas-borderStyle);
+    border-radius: var(--joy-Canvas-radius);
 
     &:hover {
-        --Canvas-Border: var(
-            --variant-HoverBorder,
-            var(--Canvas-default-HoverBorder)
+        --joy-Canvas-Border: var(
+            --joy-variant-HoverBorder,
+            var(--joy-Canvas-default-HoverBorder)
         );
     }
 
@@ -29,15 +32,18 @@
 
     &[psc='Joy/Variant/plain'],
     &[psc='Joy/Variant/outlined'] {
-        --Canvas-Bg: var(--palette-background-surface);
+        --joy-Canvas-Bg: var(--joy-palette-background-surface);
     }
 
     &:focus-within,
     &:active {
-        outline-width: var(--Canvas-focusedThickness);
+        outline-width: var(--joy-Canvas-focusedThickness);
         outline-style: solid;
-        outline-color: var(--Canvas-focusedHighlight);
-        outline-offset: min(calc(var(--Canvas-borderWidth, 0px) * -1), -1px);
+        outline-color: var(--joy-Canvas-focusedHighlight);
+        outline-offset: min(
+            calc(var(--joy-Canvas-borderWidth, 0px) * -1),
+            -1px
+        );
     }
 }
 
