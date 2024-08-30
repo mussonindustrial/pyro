@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+-   703723f: BREAKING CHANGE(pyro-mui-joy): prefix all css variables with '--joy'
+
 ## 0.4.5
 
 ### Patch Changes
