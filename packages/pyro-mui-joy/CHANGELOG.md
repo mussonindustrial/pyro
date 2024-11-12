@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+-   2c58891: Fix Safari compatibility issues. WARNING: May affect rendering of improperly configured container dividers.
+
 ## 0.5.0
 
 ### Minor Changes
